@@ -1,0 +1,49 @@
+{
+  "name": "vue-bitrix24",
+  "description": "Promise-wrapper for JavaScript REST API Bitrix24, a Bitrix24 style library of components and a set of new methods",
+  "version": "0.0.2",
+  "license": "MIT",
+  "private": false,
+  "main": "./dist/vue-bitrix24.common.js",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:astrotrain55/vue-bitrix24.git"
+  },
+  "keywords": [
+    "vue",
+    "api",
+    "rest",
+    "promises",
+    "components",
+    "bitrix24",
+    "bx24"
+  ],
+  "scripts": {
+    "serve": "vue-cli-service serve --host localhost",
+    "local": "vue-cli-service serve --host localhost",
+    "lib": "vue-cli-service build --target lib --name vue-bitrix24 ./src/install.js && rm ./dist/demo.html",
+    "public": "vue-cli-service build && node gh-pages.js",
+    "build": "vue-cli-service build",
+    "lint": "vue-cli-service lint"
+  },
+  "dependencies": {
+    "core-js": "^3.6.5",
+    "vue": "^2.6.11"
+  },
+  "devDependencies": {
+    "@vue/cli-plugin-babel": "~4.5.0",
+    "@vue/cli-plugin-eslint": "~4.5.0",
+    "@vue/cli-service": "~4.5.0",
+    "@vue/eslint-config-airbnb": "^5.0.2",
+    "babel-eslint": "^10.1.0",
+    "eslint": "^6.7.2",
+    "eslint-plugin-import": "^2.20.2",
+    "eslint-plugin-vue": "^6.2.2",
+    "gh-pages": "^3.2.3",
+    "html-webpack-harddisk-plugin": "^1.0.2",
+    "html-webpack-plugin": "^4.3.0",
+    "stylus": "^0.54.7",
+    "stylus-loader": "^3.0.2",
+    "vue-template-compiler": "^2.6.11"
+  }
+}
