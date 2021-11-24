@@ -1,14 +1,22 @@
 {
   "name": "vue-bitrix24",
   "description": "Promise-wrapper for JavaScript REST API Bitrix24, a Bitrix24 style library of components and a set of new methods",
-  "version": "0.0.2",
+  "version": "0.0.5",
   "license": "MIT",
   "private": false,
   "main": "./dist/vue-bitrix24.common.js",
+  "homepage": "https://astrotrain55.github.io/vue-bitrix24/",
   "repository": {
     "type": "git",
     "url": "git@github.com:astrotrain55/vue-bitrix24.git"
   },
+  "files": [
+    "dist/*",
+    "src/*",
+    "public/*",
+    "*.json",
+    "*.js"
+  ],
   "keywords": [
     "vue",
     "api",

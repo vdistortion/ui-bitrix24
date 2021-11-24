@@ -6,26 +6,25 @@ Promise-обёртка для работы с JavaScript REST API Bitrix24, би
 
 ```nodejs
 npm i vue-bitrix24
-// или
-yarn add vue-bitrix24
 ```
 
 ## Подключение
 ```js
 // main.js
+import Vue from 'vue';
 import Bitrix24 from 'vue-bitrix24';
 import 'vue-bitrix24/dist/vue-bitrix24.css';
 
 Vue.use(Bitrix24);
 
-Bitrix24.init().then(($BX24) => {
+Bitrix24.init(true).then(($BX24) => {
   new Vue({
     provide: { $BX24 },
     render: (h) => h(App),
   }).$mount('#app');
 });
 ```
-Если в .init() передать параметр, то сначала выполнится .loadScript()
+`.init([infinityFitWindow[, script]])` — Если передать параметр script, сначала выполнится .loadScript()
 
 ## Вызов методов
 ```js

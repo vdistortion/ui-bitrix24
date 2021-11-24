@@ -1,10 +1,16 @@
 import Bitrix24 from './lib/plugin';
-import BxCheckbox from './components/BxCheckbox.vue';
-import BxRadio from './components/BxRadio.vue';
-import BxTextarea from './components/BxTextarea.vue';
-import BxInputFile from './components/BxInputFile.vue';
+import BxAlert from './components/BxAlert.vue';
 import BxButton from './components/BxButton.vue';
 import BxButtonWrapper from './components/BxButtonWrapper.vue';
+import BxCheckbox from './components/BxCheckbox.vue';
+import BxIcon from './components/BxIcon.vue';
+import BxInput from './components/BxInput.vue';
+import BxInputDate from './components/BxInputDate.vue';
+import BxInputFile from './components/BxInputFile.vue';
+import BxProgressbar from './components/BxProgressbar.vue';
+import BxRadio from './components/BxRadio.vue';
+import BxSelect from './components/BxSelect.vue';
+import BxTextarea from './components/BxTextarea.vue';
 import './assets/ui/ui.font.opensans.min.css';
 import './assets/ui/ui.buttons.css';
 import './assets/ui/ui.buttons.icons.min.css';
@@ -17,12 +23,18 @@ import './assets/ui/ui.icons.disk.min.css';
 import './assets/ui/ui.icons.service.min.css';
 
 const Components = {
-  BxCheckbox,
-  BxRadio,
-  BxTextarea,
-  BxInputFile,
+  BxAlert,
   BxButton,
   BxButtonWrapper,
+  BxCheckbox,
+  BxIcon,
+  BxInput,
+  BxInputDate,
+  BxInputFile,
+  BxProgressbar,
+  BxRadio,
+  BxSelect,
+  BxTextarea,
 };
 
 function install(Vue) {
