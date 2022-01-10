@@ -33,10 +33,10 @@
 	--ui-btn-margin-left: 12px;
 	--ui-btn-radius: 2px;
 	/**/
-	--ui-btn-clock-white: url(https://dev.1c-bitrix.ru/bitrix/js/ui/buttons/src/css/images/ui-loader-clock-white.min.svg?v=1.4);
-	--ui-btn-clock-black: url(https://dev.1c-bitrix.ru/bitrix/js/ui/buttons/src/css/images/ui-loader-clock-black.min.svg?v=1.4);
-	--ui-btn-wait-white: url(https://dev.1c-bitrix.ru/bitrix/js/ui/buttons/src/css/images/ui-loader-wait-white.min.svg?v=1.2);
-	--ui-btn-wait-black: url(https://dev.1c-bitrix.ru/bitrix/js/ui/buttons/src/css/images/ui-loader-wait-black.min.svg?v=1.2);
+	--ui-btn-clock-white: url('./buttons/src/css/images/ui-loader-clock-white.min.svg?v=1.4');
+	--ui-btn-clock-black: url('./buttons/src/css/images/ui-loader-clock-black.min.svg?v=1.4');
+	--ui-btn-wait-white: url('./buttons/src/css/images/ui-loader-wait-white.min.svg?v=1.2');
+	--ui-btn-wait-black: url('./buttons/src/css/images/ui-loader-wait-black.min.svg?v=1.2');
 }
 
 /*endregion*/

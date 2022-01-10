@@ -1,6 +1,7 @@
 <template>
   <div id="app">
     <example-page>
+      <example-entity-selector v-if="componentVisible === 'bx-entity-selector'"></example-entity-selector>
       <example-button v-if="componentVisible === 'bx-button'"></example-button>
       <example-input v-if="componentVisible === 'bx-input'"></example-input>
       <example-input-date v-if="componentVisible === 'bx-input-date'"></example-input-date>
@@ -27,6 +28,7 @@
 </template>
 
 <script>
+import ExampleEntitySelector from './components/example/ExampleEntitySelector.vue';
 import ExampleButton from './components/example/ExampleButton.vue';
 import ExampleTextarea from './components/example/ExampleTextarea.vue';
 import ExampleInputFile from './components/example/ExampleInputFile.vue';
@@ -61,6 +63,7 @@ export default {
         'bx-input',
         'bx-input-date',
         'bx-input-file',
+        'bx-entity-selector',
         'bx-select',
         'bx-radio',
         'bx-checkbox',
@@ -73,6 +76,7 @@ export default {
   },
   inject: ['$BX24'],
   components: {
+    ExampleEntitySelector,
     ExampleButton,
     ExampleTextarea,
     ExampleInputFile,
@@ -86,7 +90,7 @@ export default {
     ExampleInput,
     ExamplePage,
   },
-  name: 'app',
+  name: 'example-app',
 };
 </script>
 

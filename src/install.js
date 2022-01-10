@@ -3,6 +3,7 @@ import BxAlert from './components/BxAlert.vue';
 import BxButton from './components/BxButton.vue';
 import BxButtonWrapper from './components/BxButtonWrapper.vue';
 import BxCheckbox from './components/BxCheckbox.vue';
+import BxEntitySelector from './components/BxEntitySelector.vue';
 import BxIcon from './components/BxIcon.vue';
 import BxInput from './components/BxInput.vue';
 import BxInputDate from './components/BxInputDate.vue';
@@ -27,6 +28,7 @@ const Components = {
   BxButton,
   BxButtonWrapper,
   BxCheckbox,
+  BxEntitySelector,
   BxIcon,
   BxInput,
   BxInputDate,

@@ -46,6 +46,7 @@ this.$BX24.batch({
 * bx-input
 * bx-input-date
 * bx-input-file
+* bx-entity-selector
 * bx-select
 * bx-radio
 * bx-checkbox

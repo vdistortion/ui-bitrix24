@@ -96,7 +96,7 @@ export default {
       },
       props: {
         slotType: 'default',
-        type: 'date',
+        type: 'text',
         after: 'after',
       },
       settings: {

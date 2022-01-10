@@ -55,7 +55,7 @@ export default {
     },
     type: {
       type: String,
-      default: 'date',
+      default: 'text',
     },
     after: {
       type: String,

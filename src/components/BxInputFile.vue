@@ -11,6 +11,7 @@
         type="file"
         :multiple="multiple"
         :disabled="disabled"
+        @input="onInput"
         @change="onChange"
       >
       <div class="ui-ctl-label-text">
@@ -29,6 +30,7 @@
         type="file"
         :multiple="multiple"
         :disabled="disabled"
+        @input="onInput"
         @change="onChange"
       >
       <div class="ui-ctl-label-text">
@@ -56,6 +58,7 @@
         type="file"
         :multiple="multiple"
         :disabled="disabled"
+        @input="onInput"
         @change="onChange"
       >
     </label>
@@ -78,11 +81,12 @@
         :title="title"
         :multiple="multiple"
         :disabled="disabled"
+        @input="onInput"
         @change="onChange"
       >
     </label>
-    <ul v-if="files.length" class="drag-n-drop__list">
-      <li v-for="(file, key) in files" :key="key" class="drag-n-drop__file">
+    <ul v-if="value.length" class="drag-n-drop__list">
+      <li v-for="(file, key) in value" :key="key" class="drag-n-drop__file">
         <span class="drag-n-drop__name">{{ getName(file) }}</span>
         <span class="drag-n-drop__delete" @click="onDelete(key)"></span>
       </li>
@@ -91,7 +95,7 @@
 </template>
 
 <script>
-import formatSizeUnits from '@/utils/formatSizeUnits';
+import formatSizeUnits from '../utils/formatSizeUnits';
 
 export default {
   methods: {
@@ -99,31 +103,36 @@ export default {
       return `${file.name} (${formatSizeUnits(file.size)})`;
     },
 
+    onInput(e) {
+      this.$emit('input', [...e.target.files]);
+    },
+
     onChange(e) {
-      for (const file of e.target.files) this.files.push(file);
-      this.$emit('change', this.files);
+      this.$emit('change', [...e.target.files]);
     },
 
     onDelete(index) {
-      this.files.splice(index, 1);
-      this.$emit('change', this.files);
+      this.$emit('delete', index);
     },
   },
   computed: {
     title() {
       if (this.disabled) return '';
-      if (this.files.length) return this.files.map((file) => file.name).join('\n');
+      if (this.value.length) return this.value.map((file) => file.name).join('\n');
       if (this.multiple) return 'Файлы не выбраны.';
       return 'Файл не выбран.';
     },
   },
   data() {
     return {
-      files: [],
       placeholder: 'Загрузить файл или картинку',
     };
   },
   props: {
+    value: {
+      type: Array,
+      default: () => [],
+    },
     type: {
       type: String,
       default: 'drop',
@@ -147,6 +156,19 @@ export default {
 .ui-ctl.bx-input-file-disabled.ui-ctl-file-btn .ui-ctl-label-text
 .drag-n-drop .drag-n-drop__label.bx-input-file-disabled input[disabled]
   cursor not-allowed
+
+.drag-n-drop .ui-ctl-file-drop .ui-ctl-element
+.drag-n-drop .ui-ctl-file-link .ui-ctl-element
+.drag-n-drop .ui-ctl-file-btn .ui-ctl-element
+  cursor pointer
+  display block
+  position absolute
+  top 0
+  right 0
+  bottom 0
+  left 0
+  opacity 0
+  height 100%
 
 color = #f8fafa
 timeout = .2s
@@ -208,7 +230,7 @@ timeout = .2s
     font-size 13px
     line-height 1.8
   &__delete
-    background-image url('~@/assets/wduf-sprite.png')
+    background-image url('~../assets/wduf-sprite.png')
     background-repeat no-repeat
     background-position center -44px
     width 24px
