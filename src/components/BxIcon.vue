@@ -8,6 +8,12 @@
 </template>
 
 <script>
+import '../assets/ui/ui.font.opensans.min.css';
+import '../assets/ui/ui.icons.base.min.css';
+import '../assets/ui/ui.icons.b24.min.css';
+import '../assets/ui/ui.icons.disk.min.css';
+import '../assets/ui/ui.icons.service.min.css';
+
 export default {
   computed: {
     classList() {

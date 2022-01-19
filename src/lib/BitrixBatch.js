@@ -1,5 +1,3 @@
-/* eslint class-methods-use-this: ["error", { "exceptMethods": ["addStart", "parseRequest"] }] */
-
 export default class Batch {
   constructor(callBatch, handlerList = {}) {
     this.callBatch = callBatch;

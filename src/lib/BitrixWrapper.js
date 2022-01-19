@@ -1,3 +1,5 @@
+import loadScript from '../utils/loadScript';
+
 export default class BitrixWrapper {
   constructor(BX24) {
     this.BX24 = BX24;
@@ -33,20 +35,8 @@ export default class BitrixWrapper {
     });
   }
 
-  callMethod(method, params) {
-    return new Promise((resolve, reject) => {
-      const data = [];
-
-      this.BX24.callMethod(method, params, (result) => {
-        if (result.error()) reject(new Error(result.error()));
-
-        if (Array.isArray(result.data())) data.push(...result.data());
-        else resolve(result.data());
-
-        if (result.more()) result.next();
-        else resolve(data);
-      });
-    });
+  callMethod(method, params, callback) {
+    this.BX24.callMethod(method, params, callback);
   }
 
   callBatch(calls, bHaltOnError) {
@@ -214,12 +204,8 @@ export default class BitrixWrapper {
     this.BX24.closeApplication();
   }
 
-  loadScript(script) {
-    return new Promise((resolve, reject) => {
-      if (Array.isArray(script) || typeof script === 'string') {
-        this.BX24.loadScript(script, resolve);
-      } else reject(new TypeError('BX24.loadScript: параметр должен быть массивом или строкой'));
-    });
+  loadScript(...scripts) {
+    return loadScript(...scripts);
   }
 
   canUse() {

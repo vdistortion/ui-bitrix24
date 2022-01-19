@@ -1,4 +1,4 @@
-export default function loadScript(src) {
+function loadScript(src) {
   return new Promise((resolve, reject) => {
     const attribute = 'loaded';
     let shouldAppend = false;
@@ -24,3 +24,13 @@ export default function loadScript(src) {
     if (shouldAppend) document.head.append(el);
   });
 }
+
+export default (...loadedScripts) => {
+  const scripts = loadedScripts.reduce((acc, script) => {
+    if (typeof script === 'string') acc.push(script);
+    if (Array.isArray(script)) acc.push(...script);
+    return acc;
+  }, []);
+
+  return Promise.all(scripts.flat(Infinity).map(loadScript));
+};

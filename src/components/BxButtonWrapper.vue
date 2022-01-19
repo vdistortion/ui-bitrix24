@@ -8,6 +8,9 @@
 </template>
 
 <script>
+import '../assets/ui/ui.font.opensans.min.css';
+import '../assets/ui/ui.buttons.css';
+
 export default {
   props: {
     center: {

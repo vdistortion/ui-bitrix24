@@ -47,10 +47,10 @@ export default {
   methods: {
     onClick(index, item) {
       console.log('click', index, item);
-      this.$BX24.openPath(`/company/personal/user/${item.id}/`);
+      this.$BX24.openLink(`/company/personal/user/${item.id}/`);
     },
     onMiddleClick(index, item) {
-      console.log('contextmenu', index, item);
+      console.log('mdlclick', index, item);
       window.open(`${this.$BX24.getDomain(true)}/company/personal/user/${item.id}/`, '_blank');
     },
     onDelete(index, item) {

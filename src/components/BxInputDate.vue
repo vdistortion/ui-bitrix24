@@ -40,6 +40,9 @@
 </template>
 
 <script>
+import '../assets/ui/ui.font.opensans.min.css';
+import '../assets/ui/ui.forms.min.css';
+
 export default {
   computed: {
     isTagIcon() {

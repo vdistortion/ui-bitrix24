@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <example-page>
-      <example-entity-selector v-if="componentVisible === 'bx-entity-selector'"></example-entity-selector>
+      <example-entity-selector v-if="componentVisible === 'bx-entity-selector'"/>
       <example-button v-if="componentVisible === 'bx-button'"></example-button>
       <example-input v-if="componentVisible === 'bx-input'"></example-input>
       <example-input-date v-if="componentVisible === 'bx-input-date'"></example-input-date>
@@ -12,6 +12,7 @@
       <example-textarea v-if="componentVisible === 'bx-textarea'"></example-textarea>
       <example-progressbar v-if="componentVisible === 'bx-progressbar'"></example-progressbar>
       <example-alert v-if="componentVisible === 'bx-alert'"></example-alert>
+      <example-link v-if="componentVisible === 'bx-link'"></example-link>
       <example-icon v-if="componentVisible === 'bx-icon'"></example-icon>
       <template #menu>
         <ul v-if="components.length" style="padding-left: 0;list-style-type: none;">
@@ -36,6 +37,7 @@ import ExampleProgressbar from './components/example/ExampleProgressbar.vue';
 import ExampleAlert from './components/example/ExampleAlert.vue';
 import ExampleRadio from './components/example/ExampleRadio.vue';
 import ExampleCheckbox from './components/example/ExampleCheckbox.vue';
+import ExampleLink from './components/example/ExampleLink.vue';
 import ExampleIcon from './components/example/ExampleIcon.vue';
 import ExampleSelect from './components/example/ExampleSelect.vue';
 import ExampleInputDate from './components/example/ExampleInputDate.vue';
@@ -47,8 +49,8 @@ export default {
     this.$BX24.appInfo().then((response) => {
       if (response.scope.includes('user')) {
         Promise.all([
-          this.$BX24.callMethod('user.current'),
-          this.$BX24.callMethod('user.get'),
+          this.$BX24.callMethodAll('user.current'),
+          this.$BX24.callMethodAll('user.get'),
         ]).then(([userCurrent, users]) => ({ userCurrent, users }))
           .then(console.log);
       }
@@ -70,6 +72,7 @@ export default {
         'bx-textarea',
         'bx-progressbar',
         'bx-alert',
+        'bx-link',
         'bx-icon',
       ],
     };
@@ -84,6 +87,7 @@ export default {
     ExampleAlert,
     ExampleRadio,
     ExampleCheckbox,
+    ExampleLink,
     ExampleIcon,
     ExampleSelect,
     ExampleInputDate,

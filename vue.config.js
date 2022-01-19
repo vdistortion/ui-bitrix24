@@ -11,7 +11,7 @@ const settings = {
 if (['build', 'public'].includes(process.env.npm_lifecycle_event)) {
   settings.publicPath = '';
 } else if (process.env.npm_lifecycle_event === 'serve') {
-  settings.publicPath = 'http://localhost:8080/';
+  settings.publicPath = 'http://localhost:4200/';
   settings.configureWebpack = {
     plugins: [
       new HtmlWebpackHardDiskPlugin(),

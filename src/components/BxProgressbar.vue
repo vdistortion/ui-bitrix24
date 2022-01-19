@@ -9,6 +9,9 @@
 </template>
 
 <script>
+import '../assets/ui/ui.font.opensans.min.css';
+import '../assets/ui/ui.progressbar.min.css';
+
 export default {
   computed: {
     width() {

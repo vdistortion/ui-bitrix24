@@ -10,32 +10,44 @@ npm i vue-bitrix24
 
 ## Подключение
 ```js
+// plugins/vue-bitrix24
+import Vue from 'vue';
+import { Bitrix24, BxButtonWrapper, BxButton } from 'vue-bitrix24';
+
+[BxButtonWrapper, BxButton].forEach((Component) => {
+  Vue.component(Component.name, Component);
+});
+
+export default Bitrix24;
+
 // main.js
 import Vue from 'vue';
-import Bitrix24 from 'vue-bitrix24';
-import 'vue-bitrix24/dist/vue-bitrix24.css';
+import Bitrix24 from './plugins/vue-bitrix24';
 
 Vue.use(Bitrix24);
 
-Bitrix24.init(true).then(($BX24) => {
+Bitrix24.init().then(($BX24) => {
   new Vue({
     provide: { $BX24 },
     render: (h) => h(App),
   }).$mount('#app');
 });
 ```
-`.init([infinityFitWindow[, script]])` — Если передать параметр script, сначала выполнится .loadScript()
+`.init([...scripts])` — В метод можно передать любое количество скриптов строками или массивами строк
 
 ## Вызов методов
 ```js
-// inject: ['$BX24'],
-
-console.log(this.$BX24.getAuth());
-
-this.$BX24.batch({
-  info: ['app.info'],
-  profile: ['profile'],
-}).then(console.log);
+export default {
+  mounted() {
+    console.log(this.$BX24.getAuth());
+    
+    this.$BX24.batch({
+      info: ['app.info'],
+      profile: ['profile'],
+    }).then(console.log);
+  },
+  inject: ['$BX24'],
+};
 ```
 
 ## Компоненты
@@ -53,6 +65,7 @@ this.$BX24.batch({
 * bx-textarea
 * bx-progressbar
 * bx-alert
+* bx-link
 * bx-icon
 
 ## Битрикс24
@@ -153,7 +166,7 @@ this.$BX24.batch({
 
 * `.scrollParentWindow(scroll)` — Метод прокручивает родительское окно
 
-* `.canUse()` — Проверяет window.FileReader
+* `.canUse()` — Бессмысленный метод, проверяющий наличие window.FileReader
 
 ### Новые методы
 
@@ -161,4 +174,6 @@ this.$BX24.batch({
 
 * `.appInfo()` — Возвращает информацию о приложении (app.info), доступные разрешения (scope), базовую информацию о текущем пользователе (profile) и информацию о контексте вызова (BX24.placement.info())
 
-* `.infinityFitWindow([ms])` — Вызывает метод .fitWindow() каждые ms секунд
+* `.openLink(href[, target])` — Обёртка над методом .openPath(), открывает адрес в новой вкладке, если не можем открыть в том же окне или используем метод на телефоне
+
+* `.callMethodAll(method, params)` — Обёртка над методом .callMethod(), возвращает все значения несколькими запросами

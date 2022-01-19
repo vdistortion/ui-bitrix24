@@ -155,7 +155,7 @@ export default {
       border-bottom 1px solid
     &::before
       content ''
-      background-image url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAgAAAAICAYAAADED76LAAAAH0lEQVQoz2NgQAIK6Rv+gzADLkCeApggLkxYAe0dCQDF5T3p5/14OgAAAABJRU5ErkJggg==')
+      background-image url('~../assets/add.png')
       background-repeat no-repeat
       background-position center
       height 8px
