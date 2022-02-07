@@ -1,7 +1,7 @@
 {
   "name": "vue-bitrix24",
   "description": "Promise-wrapper for JavaScript REST API Bitrix24, a Bitrix24 style library of components and a set of new methods",
-  "version": "0.0.10",
+  "version": "0.0.11",
   "license": "GPL",
   "private": false,
   "main": "./dist/vue-bitrix24.common.js",

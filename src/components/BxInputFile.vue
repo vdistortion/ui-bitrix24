@@ -15,8 +15,7 @@
         @change="onChange"
       >
       <div class="ui-ctl-label-text">
-        <slot v-if="$slots.default[0].text"></slot>
-        <template v-else>{{ placeholder }}</template>
+        <slot>{{ placeholder }}</slot>
       </div>
     </label>
     <label
@@ -34,8 +33,7 @@
         @change="onChange"
       >
       <div class="ui-ctl-label-text">
-        <slot v-if="$slots.default[0].text"></slot>
-        <template v-else>{{ placeholder }}</template>
+        <slot>{{ placeholder }}</slot>
       </div>
     </label>
     <label
@@ -45,13 +43,10 @@
       :title="title"
     >
       <div class="ui-ctl-label-text">
-        <span v-if="$slots.default[0].text">
-          <slot></slot>
-        </span>
-        <template v-else>
+        <slot>
           <span>{{ placeholder }}</span>
           <small>Перетащить с помощью drag'n'drop</small>
-        </template>
+        </slot>
       </div>
       <input
         class="ui-ctl-element"
@@ -68,13 +63,12 @@
       :class="{ 'bx-input-file-disabled': disabled }"
     >
       <div class="drag-n-drop__area">
-        <div v-if="$slots.default[0].text" class="drag-n-drop__title">
-          <slot></slot>
+        <div class="drag-n-drop__title">
+          <slot>{{ placeholder }}</slot>
         </div>
-        <template v-else>
-          <div class="drag-n-drop__title">{{ placeholder }}</div>
-          <div class="drag-n-drop__description">Перетащить с помощью Drag'n'drop</div>
-        </template>
+        <div v-if="!$slots.default" class="drag-n-drop__description">
+          Перетащить с помощью Drag'n'drop
+        </div>
       </div>
       <input
         type="file"
@@ -162,21 +156,20 @@ export default {
 .drag-n-drop .ui-ctl-file-drop .ui-ctl-element
 .drag-n-drop .ui-ctl-file-link .ui-ctl-element
 .drag-n-drop .ui-ctl-file-btn .ui-ctl-element
-  cursor pointer
   display block
   position absolute
-  top 0
+  top -100%
   right 0
   bottom 0
   left 0
   opacity 0
-  height 100%
 
 color = #f8fafa
 timeout = .2s
 
 .drag-n-drop
   width 100%
+  overflow hidden
   &__label
     position relative
     display block
@@ -184,16 +177,17 @@ timeout = .2s
     padding 10px
     transition background-color timeout
     background-color color
-    & input[type='file']
+    input[type="file"]
       position absolute
-      top 0
+      top -100%
+      right 0
+      bottom 0
       left 0
-      width 100%
-      height 100%
       opacity 0
+      width 100%
       cursor pointer
     &:hover
-      background-color rgba(color, 0.8)
+      background-color rgba(color, .8)
   &:hover &__area
     border-color #a7b0b5
   &__area
@@ -205,7 +199,7 @@ timeout = .2s
     border 2px dashed transparent
     transition border-color timeout linear
     text-align center
-    color rgba(black, 0.4)
+    color rgba(black, .4)
     font-weight 700
     font-size 30px
   &__title
@@ -232,7 +226,7 @@ timeout = .2s
     font-size 13px
     line-height 1.8
   &__delete
-    background-image url('~../assets/wduf-sprite.png')
+    background-image url("~../assets/wduf-sprite.png")
     background-repeat no-repeat
     background-position center -44px
     width 24px

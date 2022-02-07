@@ -1,6 +1,7 @@
 <template>
   <example-table name="bx-input-file" :code="markup">
     <bx-input-file
+      v-if="slot.default"
       :value="props.files"
       :type="props.type"
       :multiple="props.multiple"
@@ -9,6 +10,16 @@
       @change="onChange"
       @delete="onDelete"
     >{{ slot.default }}</bx-input-file>
+    <bx-input-file
+      v-else
+      :value="props.files"
+      :type="props.type"
+      :multiple="props.multiple"
+      :disabled="props.disabled"
+      @input="onInput"
+      @change="onChange"
+      @delete="onDelete"
+    ></bx-input-file>
     <template #params>
       <label>
         slot.default
