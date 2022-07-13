@@ -426,16 +426,12 @@ div.ui-ctl-element {
 }
 
 @keyframes ui-ctl-show-icon {
-
-0
-{
-  opacity: 0
-}
-100
-%
-{
-  opacity: .78
-}
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: .78;
+  }
 }
 .ui-ctl:hover .ui-ctl-before[class*=ui-ctl-icon-], .ui-ctl:hover .ui-ctl-after[class*=ui-ctl-icon-], .ui-ctl:hover .ui-ctl-ext-after[class*=ui-ctl-icon-] {
   opacity: 1
@@ -793,7 +789,7 @@ button.ui-ctl-before:active, button.ui-ctl-after:active {
   text-decoration: none;
   text-shadow: none;
   white-space: nowrap;
-  font: 13px "OpenSans", Helvetica, Arial, sans-serif;
+  font: 13px "Open Sans", Helvetica, Arial, sans-serif;
   cursor: pointer;
   transition: color .2s linear, border-color .2s linear;
   -webkit-font-smoothing: antialiased
@@ -829,7 +825,8 @@ button.ui-ctl-before:active, button.ui-ctl-after:active {
   text-transform: uppercase;
   text-shadow: none;
   white-space: nowrap;
-  font: 12px "OpenSans-Bold", Helvetica, Arial, sans-serif;
+  font: 12px "Open Sans", Helvetica, Arial, sans-serif;
+  font-weight: 700;
   line-height: calc(var(--ui-field-size) - 2px);
   cursor: pointer;
   transition: background-color .2s linear, color .2s linear;
@@ -880,7 +877,8 @@ button.ui-ctl-before:active, button.ui-ctl-after:active {
   text-transform: uppercase;
   text-shadow: none;
   white-space: nowrap;
-  font: 12px "OpenSans-Bold", Helvetica, Arial, sans-serif;
+  font: 12px "Open Sans", Helvetica, Arial, sans-serif;
+  font-weight: 700;
   transition: color .2s linear;
   -webkit-font-smoothing: antialiased
 }

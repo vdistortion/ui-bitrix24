@@ -66,7 +66,6 @@
 .ui-btn,
 .ui-btn-main {
 	position: relative;
-	display: -webkit-inline-box;
 	display: -ms-inline-flexbox;
 	display: inline-flex;
 	-ms-flex-pack: center;
@@ -82,7 +81,8 @@
 	text-decoration: none;
 	text-transform: uppercase;
 	white-space: nowrap;
-	font: var(--ui-btn-font-size)/calc(var(--ui-btn-height) - 2px) "OpenSans-Bold", "Helvetica Neue", Helvetica, Arial, sans-serif;
+	font: var(--ui-btn-font-size)/calc(var(--ui-btn-height) - 2px) "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+	font-weight: 700;
 	-webkit-user-select: none;
 	-moz-user-select: none;
 	-ms-user-select: none;
@@ -101,7 +101,6 @@
 
 .ui-btn-split {
 	position: relative;
-	display: -webkit-inline-box;
 	display: -ms-inline-flexbox;
 	display: inline-flex;
 	-webkit-box-align: stretch;
@@ -550,7 +549,7 @@ a.ui-btn-split:focus,
 	text-transform: none;
 	font-weight: 500;
 	font-size: calc(var(--ui-btn-font-size) + 2px);
-	font-family: "OpenSans-Semibold", "Helvetica Neue", Helvetica, Arial, sans-serif;
+	font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 
 /*region Counter*/
