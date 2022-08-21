@@ -11,26 +11,30 @@ npm i vue-bitrix24
 ## Подключение
 ```js
 // plugins/vue-bitrix24
-import Vue from 'vue';
 import { Bitrix24, BxButtonWrapper, BxButton } from 'vue-bitrix24';
+import 'vue-bitrix24/style.css';
 
-[BxButtonWrapper, BxButton].forEach((Component) => {
-  Vue.component(Component.name, Component);
-});
+function useBitrix24(app) {
+  [BxButtonWrapper, BxButton].forEach((Component) => {
+    app.component(Component.name, Component);
+  });
 
-export default Bitrix24;
+  return app;
+}
+
+export { Bitrix24, useBitrix24 };
+
 
 // main.js
-import Vue from 'vue';
-import Bitrix24 from './plugins/vue-bitrix24';
+import { createApp } from 'vue';
+import { Bitrix24, useBitrix24 } from './plugins/vue-bitrix24';
+import App from './App.vue';
 
-Vue.use(Bitrix24);
+const app = createApp(App);
+useBitrix24(app);
 
 Bitrix24.init().then(($BX24) => {
-  new Vue({
-    provide: { $BX24 },
-    render: (h) => h(App),
-  }).$mount('#app');
+  app.provide('$BX24', $BX24).mount('#app');
 });
 ```
 `.init([...scripts])` — В метод можно передать любое количество скриптов строками или массивами строк
@@ -40,7 +44,7 @@ Bitrix24.init().then(($BX24) => {
 export default {
   mounted() {
     console.log(this.$BX24.getAuth());
-    
+
     this.$BX24.batch({
       info: ['app.info'],
       profile: ['profile'],

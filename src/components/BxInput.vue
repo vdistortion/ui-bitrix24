@@ -73,11 +73,11 @@
     <input
       type="text"
       class="ui-ctl-element"
-      :value="value"
+      :value="modelValue"
       :placeholder="placeholder"
       :disabled="disabled"
       @change="$emit('change', $event.target.value)"
-      @input="$emit('input', $event.target.value)"
+      @input="$emit('update:modelValue', $event.target.value)"
     >
   </div>
 </template>
@@ -87,8 +87,9 @@ import '../assets/ui/ui.font.opensans.min.css';
 import '../assets/ui/ui.forms.min.css';
 
 export default {
+  emits: ['change', 'click-after', 'click-before', 'update:modelValue'],
   props: {
-    value: {
+    modelValue: {
       type: String,
       default: '',
     },

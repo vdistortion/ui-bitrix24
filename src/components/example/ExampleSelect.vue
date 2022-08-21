@@ -4,21 +4,14 @@
       v-model="props.value"
       :type="props.type"
       @click="onClick"
-      @input="onInput"
-      @change="onChange"
     >
       <template v-if="props.type === 'select'">
         <option value="value">value</option>
         <option value="value2">value2</option>
         <option value="value3">value3</option>
       </template>
-      <template v-else>{{ slots.default }}</template>
     </bx-select>
     <template #params>
-      <label>
-        slots.default
-        <input type="text" v-model="slots.default">
-      </label>
       <label>
         props.type
         <select v-model="props.type">
@@ -45,12 +38,6 @@ export default {
     onClick() {
       console.log('click');
     },
-    onInput(value) {
-      console.log('input', value);
-    },
-    onChange(value) {
-      console.log('change', value);
-    },
   },
   computed: {
     markup() {
@@ -67,23 +54,18 @@ export default {
   type="${this.props.type}"
   value="${this.props.value}"
   @click="onClick"
-  @input="onInput(value)"
-  @change="onChange(value)"
->${this.props.type === 'select' ? options : this.slots.default}</bx-select>
+>${this.props.type === 'select' ? options : ''}</bx-select>
       `;
     },
   },
   data() {
     return {
-      slots: {
-        default: '',
-      },
       props: {
-        type: 'default',
+        type: 'select',
         value: 'value',
       },
       settings: {
-        types: ['default', 'select', 'search'],
+        types: ['select', 'search'],
       },
     };
   },

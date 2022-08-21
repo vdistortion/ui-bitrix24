@@ -6,7 +6,7 @@
       :checked="isChecked"
       :value="value"
       :disabled="disabled"
-      @change="$emit('change', $event.target.value)"
+      @change="$emit('update:modelValue', $event.target.value)"
     >
     <div class="ui-ctl-label-text">
       <slot></slot>
@@ -24,6 +24,7 @@ export default {
       return this.modelValue === this.value;
     },
   },
+  emits: ['update:modelValue'],
   props: {
     value: {
       type: [Boolean, String, Array, Object],
@@ -41,10 +42,6 @@ export default {
       type: Boolean,
       default: false,
     },
-  },
-  model: {
-    prop: 'modelValue',
-    event: 'change',
   },
   name: 'bx-radio',
 };

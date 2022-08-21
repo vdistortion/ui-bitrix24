@@ -1,12 +1,7 @@
-import Vue from 'vue';
-import Example from './Example.vue';
+import { createApp } from 'vue';
+import App from './App.vue';
 import { Bitrix24 } from './install';
 
-Vue.config.productionTip = false;
-
-Bitrix24.init().then(($BX24) => {
-  new Vue({
-    provide: { $BX24 },
-    render: (h) => h(Example),
-  }).$mount('#app');
+Bitrix24.init().then((BX24) => {
+  createApp(App).provide('$BX24', BX24).mount('#app');
 });

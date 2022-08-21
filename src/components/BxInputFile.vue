@@ -57,28 +57,6 @@
         @change="onChange"
       >
     </label>
-    <label
-      v-else-if="type === 'old'"
-      class="drag-n-drop__label"
-      :class="{ 'bx-input-file-disabled': disabled }"
-    >
-      <div class="drag-n-drop__area">
-        <div class="drag-n-drop__title">
-          <slot>{{ placeholder }}</slot>
-        </div>
-        <div v-if="!$slots.default" class="drag-n-drop__description">
-          Перетащить с помощью Drag'n'drop
-        </div>
-      </div>
-      <input
-        type="file"
-        :title="title"
-        :multiple="multiple"
-        :disabled="disabled"
-        @input="onInput"
-        @change="onChange"
-      >
-    </label>
     <ul v-if="value.length" class="drag-n-drop__list">
       <li v-for="(file, key) in value" :key="key" class="drag-n-drop__file">
         <span class="drag-n-drop__name">{{ getName(file) }}</span>
@@ -124,6 +102,7 @@ export default {
       placeholder: 'Загрузить файл или картинку',
     };
   },
+  emits: ['change', 'delete', 'input'],
   props: {
     value: {
       type: Array,
@@ -150,7 +129,6 @@ export default {
 .ui-ctl.bx-input-file-disabled.ui-ctl-file-drop
 .ui-ctl.bx-input-file-disabled.ui-ctl-file-link .ui-ctl-label-text
 .ui-ctl.bx-input-file-disabled.ui-ctl-file-btn .ui-ctl-label-text
-.drag-n-drop .drag-n-drop__label.bx-input-file-disabled input[disabled]
   cursor not-allowed
 
 .drag-n-drop .ui-ctl-file-drop .ui-ctl-element
@@ -164,52 +142,9 @@ export default {
   left 0
   opacity 0
 
-color = #f8fafa
-timeout = .2s
-
 .drag-n-drop
   width 100%
   overflow hidden
-  &__label
-    position relative
-    display block
-    height 90px
-    padding 10px
-    transition background-color timeout
-    background-color color
-    input[type="file"]
-      position absolute
-      top -100%
-      right 0
-      bottom 0
-      left 0
-      opacity 0
-      width 100%
-      cursor pointer
-    &:hover
-      background-color rgba(color, .8)
-  &:hover &__area
-    border-color #a7b0b5
-  &__area
-    display flex
-    flex-direction column
-    justify-content center
-    box-sizing border-box
-    height 100%
-    border 2px dashed transparent
-    transition border-color timeout linear
-    text-align center
-    color rgba(black, .4)
-    font-weight 700
-    font-size 30px
-  &__title
-    color #0b66c3
-    font-size 14px
-    font-weight bold
-  &__description
-    margin-top 2px
-    color #8a8b8b
-    font-size 12px
   &__list
     list-style-type none
     padding 0
@@ -217,16 +152,14 @@ timeout = .2s
   &__file
     display flex
     align-items center
-  &__area
   &__name
     text-overflow ellipsis
     overflow hidden
-  &__name
     color #2067b0
     font-size 13px
     line-height 1.8
   &__delete
-    background-image url("~../assets/wduf-sprite.png")
+    background-image url("../assets/wduf-sprite.png")
     background-repeat no-repeat
     background-position center -44px
     width 24px

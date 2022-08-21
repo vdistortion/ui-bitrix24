@@ -29,6 +29,7 @@ import '../assets/ui/ui.font.opensans.min.css';
 import '../assets/ui/ui.alert.css';
 
 export default {
+  emits: ['close'],
   props: {
     title: {
       type: String,

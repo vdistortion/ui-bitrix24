@@ -9,7 +9,6 @@
       v-model="props.value"
       :width="props.width"
       :disabled="props.disabled"
-      @change="onChange"
     >{{ slots.default }}</bx-radio>
     <template #params>
       <label>
@@ -42,11 +41,6 @@ import ExampleTable from './Table.vue';
 import BxRadio from '../BxRadio.vue';
 
 export default {
-  methods: {
-    onChange(value) {
-      console.log('change', value);
-    },
-  },
   computed: {
     markup() {
       return `
@@ -59,7 +53,6 @@ export default {
   v-model="${this.props.value}"
   width="${this.props.width}"
   :disabled="${this.props.disabled}"
-  @change="onChange(value)"
 >${this.slots.default}</bx-radio>
       `;
     },

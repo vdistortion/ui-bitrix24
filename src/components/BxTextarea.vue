@@ -9,11 +9,10 @@
   >
     <textarea
       class="ui-ctl-element"
-      :value="value"
+      :value="modelValue"
       :placeholder="placeholder"
       :disabled="disabled"
-      @input="$emit('input', $event.target.value)"
-      @change="$emit('change', $event.target.value)"
+      @input="$emit('update:modelValue', $event.target.value)"
     ></textarea>
   </div>
 </template>
@@ -23,8 +22,9 @@ import '../assets/ui/ui.font.opensans.min.css';
 import '../assets/ui/ui.forms.min.css';
 
 export default {
+  emits: ['update:modelValue'],
   props: {
-    value: {
+    modelValue: {
       type: String,
       default: '',
     },

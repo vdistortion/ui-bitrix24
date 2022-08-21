@@ -18,15 +18,15 @@
           </span>
           <button
             class="bx-entity-selector__delete"
-            @mouseenter="$set(hoverDelete, key, true)"
-            @mouseleave="$set(hoverDelete, key, false)"
+            @mouseenter="hoverDelete[key] = true"
+            @mouseleave="hoverDelete[key] = false"
             @click="$emit('delete', key, item)"
           ></button>
         </span>
       </span>
       <span class="bx-entity-selector__controls">
         <button class="bx-entity-selector__add" @click="$emit('add')">
-          {{ !list.length ? 'Добавить' : multiple ? 'Добавить ещё' : 'Сменить' }}
+          {{ !list.length ? textAdd : multiple ? textMore : textChange }}
         </button>
       </span>
     </div>
@@ -43,6 +43,7 @@ export default {
       hoverDelete: [],
     };
   },
+  emits: ['add', 'auxclick', 'click', 'delete'],
   props: {
     list: {
       type: Array,
@@ -51,6 +52,18 @@ export default {
     displayField: {
       type: String,
       default: 'name',
+    },
+    textAdd: {
+      type: String,
+      default: 'Добавить',
+    },
+    textMore: {
+      type: String,
+      default: 'Добавить ещё',
+    },
+    textChange: {
+      type: String,
+      default: 'Сменить',
     },
     clickable: {
       type: Boolean,
@@ -122,7 +135,7 @@ export default {
     line-height 30px
     &::after
       content ''
-      background-image url('~../assets/media.png')
+      background-image url('../assets/media.png')
       background-repeat no-repeat
       background-position -2px -17px
       width 6px
@@ -155,7 +168,7 @@ export default {
       border-bottom 1px solid
     &::before
       content ''
-      background-image url('~../assets/add.png')
+      background-image url('../assets/add.png')
       background-repeat no-repeat
       background-position center
       height 8px

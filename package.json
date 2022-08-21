@@ -1,21 +1,25 @@
 {
   "name": "vue-bitrix24",
   "description": "Promise-wrapper for JavaScript REST API Bitrix24, a Bitrix24 style library of components and a set of new methods",
-  "version": "0.0.11",
+  "version": "0.1.0",
   "license": "GPL",
   "private": false,
-  "main": "./dist/vue-bitrix24.common.js",
+  "type": "module",
+  "module": "./lib/index.js",
+  "main": "./lib/index.umd.cjs",
+  "exports": {
+    ".": {
+      "import": "./lib/index.js",
+      "require": "./lib/index.umd.cjs"
+    }
+  },
   "homepage": "https://astrotrain55.github.io/vue-bitrix24/",
   "repository": {
     "type": "git",
     "url": "git@github.com:astrotrain55/vue-bitrix24.git"
   },
   "files": [
-    "dist/*",
-    "src/*",
-    "public/*",
-    "*.json",
-    "*.js"
+    "lib"
   ],
   "keywords": [
     "vue",
@@ -27,33 +31,23 @@
     "bx24"
   ],
   "scripts": {
-    "serve": "vue-cli-service serve --host localhost --port 4200",
-    "local": "vue-cli-service serve --host localhost",
-    "lib": "vue-cli-service build --target lib --name vue-bitrix24 ./src/install.js && rm ./dist/demo.html",
-    "public": "vue-cli-service build && node gh-pages.js",
-    "build": "vue-cli-service build",
-    "lint": "vue-cli-service lint",
-    "caniuse": "npx browserslist@latest --update-db"
+    "dev": "vite --host 0.0.0.0",
+    "build": "vite build",
+    "preview": "vite preview --port 4173",
+    "lint": "eslint . --ext .vue,.js,.jsx,.cjs,.mjs --fix --ignore-path .gitignore",
+    "lib": "vite build --config vite.config.lib.js",
+    "public": "vite build && node gh-pages.js"
   },
   "dependencies": {
-    "core-js": "^3.6.5",
-    "gh-pages": "^3.2.3",
-    "is-mobile": "^3.0.0",
-    "vue": "^2.6.11"
+    "gh-pages": "^4.0.0",
+    "is-mobile": "^3.1.1",
+    "vue": "^3.2.37"
   },
   "devDependencies": {
-    "@vue/cli-plugin-babel": "~4.5.0",
-    "@vue/cli-plugin-eslint": "~4.5.0",
-    "@vue/cli-service": "~4.5.0",
-    "@vue/eslint-config-airbnb": "^5.0.2",
-    "babel-eslint": "^10.1.0",
-    "eslint": "^6.7.2",
-    "eslint-plugin-import": "^2.20.2",
-    "eslint-plugin-vue": "^6.2.2",
-    "html-webpack-harddisk-plugin": "^1.0.2",
-    "html-webpack-plugin": "^4.3.0",
-    "stylus": "^0.54.7",
-    "stylus-loader": "^3.0.2",
-    "vue-template-compiler": "^2.6.11"
+    "@vitejs/plugin-vue": "^3.0.1",
+    "eslint": "^8.21.0",
+    "eslint-plugin-vue": "^9.3.0",
+    "stylus": "^0.59.0",
+    "vite": "^3.0.4"
   }
 }

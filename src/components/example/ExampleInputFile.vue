@@ -94,7 +94,7 @@ export default {
         disabled: false,
       },
       settings: {
-        types: ['drop', 'button', 'link', 'old'],
+        types: ['drop', 'button', 'link'],
       },
     };
   },

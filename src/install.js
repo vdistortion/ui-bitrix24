@@ -1,15 +1,33 @@
-export Bitrix24 from './lib/plugin';
-export BxAlert from './components/BxAlert.vue';
-export BxButton from './components/BxButton.vue';
-export BxButtonWrapper from './components/BxButtonWrapper.vue';
-export BxCheckbox from './components/BxCheckbox.vue';
-export BxEntitySelector from './components/BxEntitySelector.vue';
-export BxIcon from './components/BxIcon.vue';
-export BxInput from './components/BxInput.vue';
-export BxInputDate from './components/BxInputDate.vue';
-export BxInputFile from './components/BxInputFile.vue';
-export BxLink from './components/BxLink.vue';
-export BxProgressbar from './components/BxProgressbar.vue';
-export BxRadio from './components/BxRadio.vue';
-export BxSelect from './components/BxSelect.vue';
-export BxTextarea from './components/BxTextarea.vue';
+import Bitrix24 from './lib/plugin';
+import BxAlert from './components/BxAlert.vue';
+import BxButton from './components/BxButton.vue';
+import BxButtonWrapper from './components/BxButtonWrapper.vue';
+import BxCheckbox from './components/BxCheckbox.vue';
+import BxEntitySelector from './components/BxEntitySelector.vue';
+import BxIcon from './components/BxIcon.vue';
+import BxInput from './components/BxInput.vue';
+import BxInputDate from './components/BxInputDate.vue';
+import BxInputFile from './components/BxInputFile.vue';
+import BxLink from './components/BxLink.vue';
+import BxProgressbar from './components/BxProgressbar.vue';
+import BxRadio from './components/BxRadio.vue';
+import BxSelect from './components/BxSelect.vue';
+import BxTextarea from './components/BxTextarea.vue';
+
+export {
+  Bitrix24,
+  BxAlert,
+  BxButton,
+  BxButtonWrapper,
+  BxCheckbox,
+  BxEntitySelector,
+  BxIcon,
+  BxInput,
+  BxInputDate,
+  BxInputFile,
+  BxLink,
+  BxProgressbar,
+  BxRadio,
+  BxSelect,
+  BxTextarea,
+};

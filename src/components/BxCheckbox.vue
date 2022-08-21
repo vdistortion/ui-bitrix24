@@ -45,9 +45,9 @@ export default {
           newValue.splice(newValue.indexOf(this.value), 1);
         }
 
-        this.$emit('change', newValue);
+        this.$emit('update:modelValue', newValue);
       } else {
-        this.$emit('change', Boolean(isChecked));
+        this.$emit('update:modelValue', Boolean(isChecked));
       }
     },
   },
@@ -57,6 +57,7 @@ export default {
       return this.modelValue === true;
     },
   },
+  emits: ['update:modelValue'],
   props: {
     value: {
       type: [Boolean, String, Array, Object],
@@ -78,10 +79,6 @@ export default {
       type: Boolean,
       default: false,
     },
-  },
-  model: {
-    prop: 'modelValue',
-    event: 'change',
   },
   name: 'bx-checkbox',
 };

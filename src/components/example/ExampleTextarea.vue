@@ -5,8 +5,6 @@
       :placeholder="props.placeholder"
       :resize="props.resize"
       :disabled="props.disabled"
-      @input="onInput"
-      @change="onChange"
     ></bx-textarea>
     <template #params>
       <label>
@@ -39,24 +37,14 @@ import ExampleTable from './Table.vue';
 import BxTextarea from '../BxTextarea.vue';
 
 export default {
-  methods: {
-    onInput(value) {
-      console.log('input', value);
-    },
-    onChange(value) {
-      console.log('change', value);
-    },
-  },
   computed: {
     markup() {
       return `
 <bx-textarea
-  value="${this.props.value}"
+  v-model="${this.props.value}"
   placeholder="${this.props.placeholder}"
   resize="${this.props.resize}"
   :disabled="${this.props.disabled}"
-  @input="onInput(value)"
-  @change="onChange(value)"
 ></bx-textarea>
       `;
     },

@@ -8,8 +8,8 @@
     <template v-if="type === 'select'">
       <select
         class="ui-ctl-element"
-        :value="value"
-        @change="$emit('change', $event.target.value)"
+        :value="modelValue"
+        @change="$emit('update:modelValue', $event.target.value)"
       >
         <slot></slot>
       </select>
@@ -18,15 +18,9 @@
       <input
         type="text"
         class="ui-ctl-element"
-        :value="value"
-        @change="$emit('change', $event.target.value)"
-        @input="$emit('input', $event.target.value)"
+        :value="modelValue"
+        @input="$emit('update:modelValue', $event.target.value)"
       >
-      <slot></slot>
-    </template>
-    <template v-else>
-      <div class="ui-ctl-element">{{ value }}</div>
-      <slot></slot>
     </template>
   </div>
 </template>
@@ -36,14 +30,15 @@ import '../assets/ui/ui.font.opensans.min.css';
 import '../assets/ui/ui.forms.min.css';
 
 export default {
+  emits: ['click', 'update:modelValue'],
   props: {
-    type: {
-      type: String,
-      default: 'default',
-    },
-    value: {
+    modelValue: {
       type: String,
       default: '',
+    },
+    type: {
+      type: String,
+      default: 'select',
     },
   },
   name: 'bx-select',

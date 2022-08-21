@@ -49,6 +49,7 @@ export default {
       };
     },
   },
+  emits: ['click', 'toggle-menu'],
   props: {
     type: {
       type: String,

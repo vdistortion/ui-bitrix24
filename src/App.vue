@@ -1,31 +1,29 @@
 <template>
-  <div id="app">
-    <example-page>
-      <example-entity-selector v-if="componentVisible === 'bx-entity-selector'"/>
-      <example-button v-if="componentVisible === 'bx-button'"></example-button>
-      <example-input v-if="componentVisible === 'bx-input'"></example-input>
-      <example-input-date v-if="componentVisible === 'bx-input-date'"></example-input-date>
-      <example-input-file v-if="componentVisible === 'bx-input-file'"></example-input-file>
-      <example-select v-if="componentVisible === 'bx-select'"></example-select>
-      <example-radio v-if="componentVisible === 'bx-radio'"></example-radio>
-      <example-checkbox v-if="componentVisible === 'bx-checkbox'"></example-checkbox>
-      <example-textarea v-if="componentVisible === 'bx-textarea'"></example-textarea>
-      <example-progressbar v-if="componentVisible === 'bx-progressbar'"></example-progressbar>
-      <example-alert v-if="componentVisible === 'bx-alert'"></example-alert>
-      <example-link v-if="componentVisible === 'bx-link'"></example-link>
-      <example-icon v-if="componentVisible === 'bx-icon'"></example-icon>
-      <template #menu>
-        <ul v-if="components.length" style="padding-left: 0;list-style-type: none;">
-          <li v-for="component in components" :key="component">
-            <label>
-              <input type="radio" :value="component" v-model="componentVisible">
-              <span>{{ component }}</span>
-            </label>
-          </li>
-        </ul>
-      </template>
-    </example-page>
-  </div>
+  <example-page>
+    <example-entity-selector v-if="componentVisible === 'bx-entity-selector'"/>
+    <example-button v-if="componentVisible === 'bx-button'"></example-button>
+    <example-input v-if="componentVisible === 'bx-input'"></example-input>
+    <example-input-date v-if="componentVisible === 'bx-input-date'"></example-input-date>
+    <example-input-file v-if="componentVisible === 'bx-input-file'"></example-input-file>
+    <example-select v-if="componentVisible === 'bx-select'"></example-select>
+    <example-radio v-if="componentVisible === 'bx-radio'"></example-radio>
+    <example-checkbox v-if="componentVisible === 'bx-checkbox'"></example-checkbox>
+    <example-textarea v-if="componentVisible === 'bx-textarea'"></example-textarea>
+    <example-progressbar v-if="componentVisible === 'bx-progressbar'"></example-progressbar>
+    <example-alert v-if="componentVisible === 'bx-alert'"></example-alert>
+    <example-link v-if="componentVisible === 'bx-link'"></example-link>
+    <example-icon v-if="componentVisible === 'bx-icon'"></example-icon>
+    <template #menu>
+      <ul v-if="components.length" style="padding-left: 0;list-style-type: none;">
+        <li v-for="component in components" :key="component">
+          <label>
+            <input type="radio" :value="component" v-model="componentVisible">
+            <span>{{ component }}</span>
+          </label>
+        </li>
+      </ul>
+    </template>
+  </example-page>
 </template>
 
 <script>

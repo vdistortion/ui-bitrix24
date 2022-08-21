@@ -1,24 +1,22 @@
 <template>
   <example-table name="bx-input-date" :code="markup">
     <bx-input-date
+      v-model="props.value"
       :slotType="props.slotType"
       :type="props.type"
       :after="props.after"
       @click="onClick"
-      @input="onInput"
-      @change="onChange"
     >
       <template v-if="props.slotType === 'select'">
         <option value="01.01.2021">01.01.2021</option>
         <option value="02.02.2022">02.02.2022</option>
         <option value="03.03.2023">03.03.2023</option>
       </template>
-      <template v-else>{{ slots.default }}</template>
     </bx-input-date>
     <template #params>
       <label>
-        slots.default
-        <input type="text" v-model="slots.default">
+        props.value
+        <input type="text" v-model="props.value">
       </label>
       <label>
         props.slotType
@@ -60,12 +58,6 @@ export default {
     onClick() {
       console.log('click');
     },
-    onInput(value) {
-      console.log('input', value);
-    },
-    onChange(value) {
-      console.log('change', value);
-    },
   },
   computed: {
     markup() {
@@ -79,28 +71,25 @@ export default {
 
       return `
 <bx-input-date
+  v-model="${this.props.value}"
   slotType="${this.props.slotType}"
   type="${this.props.type}"
   after="${this.props.after}"
   @click="onClick"
-  @input="onInput(value)"
-  @change="onChange(value)"
->${this.props.slotType === 'select' ? options : this.slots.default}</bx-input-date>
+>${this.props.slotType === 'select' ? options : ''}</bx-input-date>
       `;
     },
   },
   data() {
     return {
-      slots: {
-        default: '01.01.2021',
-      },
       props: {
-        slotType: 'default',
-        type: 'text',
+        value: '2001-01-01',
+        slotType: 'input',
+        type: 'date',
         after: 'after',
       },
       settings: {
-        slotTypes: ['default', 'select', 'input'],
+        slotTypes: ['input', 'select'],
         types: ['date', 'time', 'datetime', 'text'],
         after: ['after', 'ext-after'],
       },

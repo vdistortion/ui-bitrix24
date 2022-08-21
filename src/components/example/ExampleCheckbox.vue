@@ -10,7 +10,6 @@
       :width="props.width"
       :disabled="props.disabled"
       :old="props.old"
-      @change="onChange"
     >{{ slots.default }}</bx-checkbox>
     <template #params>
       <label>
@@ -42,11 +41,6 @@ import ExampleTable from './Table.vue';
 import BxCheckbox from '../BxCheckbox.vue';
 
 export default {
-  methods: {
-    onChange(value) {
-      console.log('change', value);
-    },
-  },
   computed: {
     markup() {
       return `
@@ -60,7 +54,6 @@ export default {
   width="${this.props.width}"
   :disabled="${this.props.disabled}"
   :old="${this.props.old}"
-  @change="onChange(value)"
 >${this.slots.default}</bx-checkbox>
       `;
     },

@@ -21,7 +21,8 @@
     <select
       v-if="slotType === 'select'"
       class="ui-ctl-element"
-      @change="$emit('change', $event.target.value)"
+      :value="modelValue"
+      @change="$emit('update:modelValue', $event.target.value)"
     >
       <slot></slot>
     </select>
@@ -29,13 +30,9 @@
       v-else-if="slotType === 'input'"
       class="ui-ctl-element"
       :type="type === 'datetime' ? 'datetime-local' : type"
-      :value="$slots.default[0].text"
-      @input="$emit('input', $event.target.value)"
-      @change="$emit('change', $event.target.value)"
+      :value="modelValue"
+      @input="$emit('update:modelValue', $event.target.value)"
     >
-    <div v-else class="ui-ctl-element">
-      <slot></slot>
-    </div>
   </div>
 </template>
 
@@ -51,14 +48,19 @@ export default {
       return 'div';
     },
   },
+  emits: ['click', 'update:modelValue'],
   props: {
+    modelValue: {
+      type: String,
+      default: '',
+    },
     slotType: {
       type: String,
-      default: 'default',
+      default: 'input',
     },
     type: {
       type: String,
-      default: 'text',
+      default: 'date',
     },
     after: {
       type: String,

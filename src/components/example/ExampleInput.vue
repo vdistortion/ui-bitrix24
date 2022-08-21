@@ -20,7 +20,6 @@
       :afterIcon="props.afterIcon"
       :afterExt="props.afterExt"
       :afterButton="props.afterButton"
-      @input="onInput"
       @change="onChange"
       @click-before="onClickBefore"
       @click-after="onClickAfter"
@@ -137,9 +136,6 @@ import BxInput from '../BxInput.vue';
 
 export default {
   methods: {
-    onInput(value) {
-      console.log('input', value);
-    },
     onChange(value) {
       console.log('change', value);
     },
@@ -154,7 +150,7 @@ export default {
     markup() {
       return `
 <bx-input
-  value="${this.props.value}"
+  v-model="${this.props.value}"
   placeholder="${this.props.placeholder}"
   :disabled="${this.props.disabled}"
   size="${this.props.size}"
@@ -173,7 +169,6 @@ export default {
   afterIcon="${this.props.afterIcon}"
   :afterExt="${this.props.afterExt}"
   :afterButton="${this.props.afterButton}"
-  @input="onInput(value)"
   @change="onChange(value)"
   @click-before="onClickBefore"
   @click-after="onClickAfter"

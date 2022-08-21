@@ -3,7 +3,7 @@
     <bx-link
       :href="props.href"
     >
-      <img v-if="slots.default === 'image'" :src="require('../../assets/logo.png')" alt="logo">
+      <img v-if="slots.default === 'image'" src="../../assets/logo.png" alt="logo">
       <bx-icon v-else-if="slots.default === 'icon'"></bx-icon>
       <span v-else-if="slots.default === 'text'">Текст</span>
     </bx-link>
