@@ -1,13 +1,14 @@
 {
   "name": "vue-bitrix24",
   "description": "Promise-wrapper for JavaScript REST API Bitrix24, a Bitrix24 style library of components and a set of new methods",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "license": "GPL",
   "private": false,
   "type": "module",
   "module": "./lib/index.js",
   "main": "./lib/index.umd.cjs",
   "exports": {
+    "./css": "./lib/style.css",
     ".": {
       "import": "./lib/index.js",
       "require": "./lib/index.umd.cjs"
@@ -32,11 +33,12 @@
   ],
   "scripts": {
     "dev": "vite --host 0.0.0.0",
+    "build:lib": "vite build --config vite.config.lib.js",
     "build": "vite build",
     "preview": "vite preview --port 4173",
     "lint": "eslint . --ext .vue,.js,.jsx,.cjs,.mjs --fix --ignore-path .gitignore",
-    "lib": "vite build --config vite.config.lib.js",
-    "public": "vite build && node gh-pages.js"
+    "public:lib": "npm run build:lib && npm publish",
+    "public": "npm run build && node gh-pages.js"
   },
   "dependencies": {
     "gh-pages": "^4.0.0",

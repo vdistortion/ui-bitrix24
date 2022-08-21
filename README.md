@@ -12,7 +12,7 @@ npm i vue-bitrix24
 ```js
 // plugins/vue-bitrix24
 import { Bitrix24, BxButtonWrapper, BxButton } from 'vue-bitrix24';
-import 'vue-bitrix24/style.css';
+import 'vue-bitrix24/css';
 
 function useBitrix24(app) {
   [BxButtonWrapper, BxButton].forEach((Component) => {
