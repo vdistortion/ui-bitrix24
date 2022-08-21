@@ -11,30 +11,31 @@ npm i vue-bitrix24
 ## Подключение
 ```js
 // plugins/vue-bitrix24
-import { Bitrix24, BxButtonWrapper, BxButton } from 'vue-bitrix24';
+import { Bitrix24 } from 'vue-bitrix24';
+import BxButtonWrapper from 'vue-bitrix24/BxButtonWrapper';
+import BxButton from 'vue-bitrix24/BxButton';
 import 'vue-bitrix24/css';
 
-function useBitrix24(app) {
-  [BxButtonWrapper, BxButton].forEach((Component) => {
-    app.component(Component.name, Component);
-  });
-
-  return app;
-}
+const useBitrix24 = {
+  install(app) {
+    [BxButtonWrapper, BxButton].forEach((Component) => {
+      app.component(Component.name, Component);
+    });
+  },
+};
 
 export { Bitrix24, useBitrix24 };
-
 
 // main.js
 import { createApp } from 'vue';
 import { Bitrix24, useBitrix24 } from './plugins/vue-bitrix24';
 import App from './App.vue';
 
-const app = createApp(App);
-useBitrix24(app);
-
-Bitrix24.init().then(($BX24) => {
-  app.provide('$BX24', $BX24).mount('#app');
+Bitrix24.init().then((BX24) => {
+  createApp(App)
+    .use(useBitrix24)
+    .provide('$BX24', BX24)
+    .mount('#app');
 });
 ```
 `.init([...scripts])` — В метод можно передать любое количество скриптов строками или массивами строк

@@ -1,13 +1,28 @@
 {
   "name": "vue-bitrix24",
   "description": "Promise-wrapper for JavaScript REST API Bitrix24, a Bitrix24 style library of components and a set of new methods",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "license": "GPL",
   "private": false,
   "type": "module",
   "module": "./lib/index.js",
   "main": "./lib/index.umd.cjs",
   "exports": {
+    "./BxAlert": "./src/components/BxAlert.vue",
+    "./BxButton": "./src/components/BxButton.vue",
+    "./BxButtonWrapper": "./src/components/BxButtonWrapper.vue",
+    "./BxCheckbox": "./src/components/BxCheckbox.vue",
+    "./BxEntitySelector": "./src/components/BxEntitySelector.vue",
+    "./BxIcon": "./src/components/BxIcon.vue",
+    "./BxInput": "./src/components/BxInput.vue",
+    "./BxInputDate": "./src/components/BxInputDate.vue",
+    "./BxInputFile": "./src/components/BxInputFile.vue",
+    "./BxLink": "./src/components/BxLink.vue",
+    "./BxProgressbar": "./src/components/BxProgressbar.vue",
+    "./BxRadio": "./src/components/BxRadio.vue",
+    "./BxSelect": "./src/components/BxSelect.vue",
+    "./BxTextarea": "./src/components/BxTextarea.vue",
+    "./ExamplePage": "./src/App.vue",
     "./css": "./lib/style.css",
     ".": {
       "import": "./lib/index.js",
@@ -19,9 +34,7 @@
     "type": "git",
     "url": "git@github.com:astrotrain55/vue-bitrix24.git"
   },
-  "files": [
-    "lib"
-  ],
+  "files": ["lib", "src"],
   "keywords": [
     "vue",
     "api",
