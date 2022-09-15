@@ -1,6 +1,6 @@
-import loadScript from '../utils/loadScript';
+import { loadScript } from '../utils';
 
-export default class BitrixWrapper {
+export class BitrixWrapper {
   constructor(BX24) {
     this.BX24 = BX24;
   }
@@ -120,12 +120,6 @@ export default class BitrixWrapper {
     return this.BX24.getLang();
   }
 
-  getDomain(isOrigin) {
-    const domain = this.BX24.getDomain();
-    if (isOrigin) return ['https:', domain].join('//');
-    return domain;
-  }
-
   resizeWindow(width, height) {
     return new Promise((resolve) => {
       this.BX24.resizeWindow(width, height, resolve);
@@ -142,20 +136,10 @@ export default class BitrixWrapper {
     this.BX24.reloadWindow();
   }
 
-  setTitle(title) {
+  setTitle(title = '') {
     return new Promise((resolve) => {
       this.BX24.setTitle(title, resolve);
     });
-  }
-
-  scrollParentWindow(scroll) {
-    return new Promise((resolve) => {
-      this.BX24.scrollParentWindow(scroll, resolve);
-    });
-  }
-
-  isReady() {
-    return this.BX24.isReady();
   }
 
   ready() {
@@ -164,25 +148,22 @@ export default class BitrixWrapper {
     });
   }
 
+  isReady() {
+    return this.BX24.isReady();
+  }
+
   proxy(method, thisObject) {
     return this.BX24.proxy(method, thisObject);
   }
 
-  proxyContext() {
-    return this.BX24.proxyContext();
+  closeApplication() {
+    this.BX24.closeApplication();
   }
 
-  bind(element, eventName, callback) {
-    this.BX24.bind(element, eventName, callback);
-    return this.unbind.bind(this, element, eventName, callback);
-  }
-
-  unbind(element, eventName, callback) {
-    this.BX24.unbind(element, eventName, callback);
-  }
-
-  getScrollSize() {
-    return this.BX24.getScrollSize();
+  getDomain(isOrigin) {
+    const domain = this.BX24.getDomain();
+    if (isOrigin) return ['https:', domain].join('//');
+    return domain;
   }
 
   openApplication(params) {
@@ -200,16 +181,31 @@ export default class BitrixWrapper {
     });
   }
 
-  closeApplication() {
-    this.BX24.closeApplication();
+  proxyContext() {
+    return this.BX24.proxyContext();
+  }
+
+  scrollParentWindow(scroll) {
+    return new Promise((resolve) => {
+      this.BX24.scrollParentWindow(scroll, resolve);
+    });
+  }
+
+  bind(element, eventName, callback) {
+    this.BX24.bind(element, eventName, callback);
+    return this.unbind.bind(this, element, eventName, callback);
+  }
+
+  unbind(element, eventName, callback) {
+    this.BX24.unbind(element, eventName, callback);
+  }
+
+  getScrollSize() {
+    return this.BX24.getScrollSize();
   }
 
   loadScript(...scripts) {
     return loadScript(...scripts);
-  }
-
-  canUse() {
-    return this.BX24.canUse('upload');
   }
 
   get im() {

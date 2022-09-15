@@ -1,4 +1,4 @@
-export default function formatSizeUnits(countBytes) {
+export function formatSizeUnits(countBytes) {
   const dictionary = {
     GB: 1073741824,
     MB: 1048576,

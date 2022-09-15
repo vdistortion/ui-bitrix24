@@ -46,11 +46,11 @@ export default {
   mounted() {
     this.$BX24.appInfo().then((response) => {
       if (response.scope.includes('user')) {
-        Promise.all([
-          this.$BX24.callMethodAll('user.current'),
-          this.$BX24.callMethodAll('user.get'),
-        ]).then(([userCurrent, users]) => ({ userCurrent, users }))
-          .then(console.log);
+        const RestCall = this.$BX24.createBatch();
+        RestCall.batch({
+          userCurrent: ['user.current'],
+          users: ['user.get'],
+        }).then(console.log);
       }
       return response;
     }).then(console.log);

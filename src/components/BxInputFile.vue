@@ -67,9 +67,7 @@
 </template>
 
 <script>
-import formatSizeUnits from '../utils/formatSizeUnits';
-import '../assets/ui/ui.font.opensans.min.css';
-import '../assets/ui/ui.forms.min.css';
+import { formatSizeUnits } from '../utils';
 
 export default {
   methods: {

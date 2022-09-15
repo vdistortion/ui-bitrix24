@@ -5,6 +5,7 @@
       :slotType="props.slotType"
       :type="props.type"
       :after="props.after"
+      :width="props.width"
       @click="onClick"
     >
       <template v-if="props.slotType === 'select'">
@@ -45,6 +46,10 @@
           >{{ item }}</option>
         </select>
       </label>
+      <label>
+        props.width
+        <input type="text" v-model="props.width">
+      </label>
     </template>
   </example-table>
 </template>
@@ -75,6 +80,7 @@ export default {
   slotType="${this.props.slotType}"
   type="${this.props.type}"
   after="${this.props.after}"
+  width="${this.props.width}"
   @click="onClick"
 >${this.props.slotType === 'select' ? options : ''}</bx-input-date>
       `;
@@ -87,6 +93,7 @@ export default {
         slotType: 'input',
         type: 'date',
         after: 'after',
+        width: 'inherit',
       },
       settings: {
         slotTypes: ['input', 'select'],

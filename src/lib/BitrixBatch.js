@@ -1,4 +1,4 @@
-export default class Batch {
+export class BitrixBatch {
   constructor(callBatch, handlerList = {}) {
     this.callBatch = callBatch;
     this.handler = handlerList;
@@ -30,9 +30,10 @@ export default class Batch {
 
           const total = value.total();
           const data = value.data();
+          const dataLength = data ? data?.items ? data.items.length : data.length : 1;
           this.result[key] = data;
 
-          if (total > this.limit && total > data.length) {
+          if (total > this.limit && total > dataLength) {
             const length = Math.ceil(total / this.limit) - 1;
             const iterator = Array.from({ length });
             payloadList.push([key, requestList[key], iterator]);
@@ -85,7 +86,8 @@ export default class Batch {
             Object.entries(result).forEach(([oldKey, value]) => {
               const [key] = oldKey.split('_');
               const data = value.data();
-              this.result[key].push(...data);
+              if (data?.items) this.result[key].items.push(...data.items);
+              else if (Array.isArray(data)) this.result[key].push(...data);
             });
 
             resolve();

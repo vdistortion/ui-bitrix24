@@ -8,6 +8,10 @@
       'ui-ctl-after-icon': after === 'after',
       'ui-ctl-ext-after-icon': after === 'ext-after',
     }"
+    :style="{
+      'width': this.width || null,
+      'max-width': this.width || null,
+    }"
   >
     <component
       :is="isTagIcon"
@@ -37,9 +41,6 @@
 </template>
 
 <script>
-import '../assets/ui/ui.font.opensans.min.css';
-import '../assets/ui/ui.forms.min.css';
-
 export default {
   computed: {
     isTagIcon() {
@@ -66,7 +67,12 @@ export default {
       type: String,
       default: 'after',
     },
+    width: {
+      type: String,
+      default: '',
+    },
   },
   name: 'bx-input-date',
 };
 </script>
+

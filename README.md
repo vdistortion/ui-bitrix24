@@ -10,11 +10,13 @@ npm i vue-bitrix24
 
 ## Подключение
 ```js
-// plugins/vue-bitrix24
-import { Bitrix24 } from 'vue-bitrix24';
-import BxButtonWrapper from 'vue-bitrix24/BxButtonWrapper';
-import BxButton from 'vue-bitrix24/BxButton';
+// plugins/vue-bitrix24.js
+import { Bitrix24, BxButton, BxButtonWrapper } from 'vue-bitrix24';
 import 'vue-bitrix24/css';
+// или
+import Bitrix24 from 'vue-bitrix24/Library';
+import BxButton from 'vue-bitrix24/BxButton';
+import BxButtonWrapper from 'vue-bitrix24/BxButton';
 
 const useBitrix24 = {
   install(app) {
@@ -38,7 +40,7 @@ Bitrix24.init().then((BX24) => {
     .mount('#app');
 });
 ```
-`.init([...scripts])` — В метод можно передать любое количество скриптов строками или массивами строк
+`.init(...scripts)` — можно передать список скриптов (см. метод `.loadScripts`)
 
 ## Вызов методов
 ```js
@@ -46,7 +48,8 @@ export default {
   mounted() {
     console.log(this.$BX24.getAuth());
 
-    this.$BX24.batch({
+    const RestCall = this.$BX24.createBatch();
+    RestCall.batch({
       info: ['app.info'],
       profile: ['profile'],
     }).then(console.log);
@@ -145,17 +148,25 @@ export default {
 
 * `.proxy(thisObject)` — Аналогична BX.proxy
 
+* `.closeApplication()` — Метод закрывает открытое модальное окно с приложением
+
+* `.getDomain([isOrigin])` — Возвращает адрес портала Битрикс24
+
+* `.openApplication(params)` — Метод открывает приложение
+
+* `.openPath(path[, callback])` — Метод открывает указанный путь внутри портала в слайдере
+
 * `.proxyContext()` — При вызове изнутри прокси-функцию выдаст ссылку на оригинальный контекст выполнения прокси-функции
+
+* `.scrollParentWindow(scroll)` — Метод прокручивает родительское окно
 
 * `.bind(element, eventName, callback)` — Устанавливает функцию callback в качестве обработчика события eventName объекта element
 
 * `.unbind(element, eventName, callback)` — Убирает функцию callback в качестве обработчика события eventName объекта element
 
-* `.getDomain([isOrigin])` — Возвращает адрес портала Битрикс24
-
 * `.getScrollSize()` — Функция возвращает внутренние размеры фрейма приложения
 
-* `.loadScript(script)` — Загружает и выполняет клиентский js-файл или массив файлов
+* `.loadScript(script)` — Загружает и выполняет клиентский js-файл
 
 * `.im.callTo(userId[, video])` — Звонок по внутренней связи
 
@@ -165,20 +176,19 @@ export default {
 
 * `.im.openHistory(dialogId)` — Открытие окна истории
 
-* `.openApplication(params)` — Метод открывает приложение
-
-* `.closeApplication()` — Метод закрывает открытое модальное окно с приложением
-
-* `.scrollParentWindow(scroll)` — Метод прокручивает родительское окно
-
-* `.canUse()` — Бессмысленный метод, проверяющий наличие window.FileReader
-
 ### Новые методы
-
-* `.batch(calls[, handlerList])` — Пакетное выполнение запросов
 
 * `.appInfo()` — Возвращает информацию о приложении (app.info), доступные разрешения (scope), базовую информацию о текущем пользователе (profile) и информацию о контексте вызова (BX24.placement.info())
 
+* `.createBatch([handlerList[, BatchClass]])` — Создание пакетного выполнения запросов
+
+* `.isMobile()` — [is-mobile](https://www.npmjs.com/package/is-mobile)
+
+* `.loadScripts(...scripts)` — В метод можно передать любое количество скриптов строками или массивами строк любой вложенности
+
 * `.openLink(href[, target])` — Обёртка над методом .openPath(), открывает адрес в новой вкладке, если не можем открыть в том же окне или используем метод на телефоне
 
-* `.callMethodAll(method, params)` — Обёртка над методом .callMethod(), возвращает все значения несколькими запросами
+<details>
+  <summary>:imp:</summary>
+  Если вам не повезло работать с битриксом, надеюсь данная библиотека хоть немного облегчит разработку ¯\_(ツ)_/¯
+</details>

@@ -13,10 +13,6 @@
 </template>
 
 <script>
-import '../assets/ui/ui.font.opensans.min.css';
-import '../assets/ui/ui.buttons.css';
-import '../assets/ui/ui.buttons.icons.min.css';
-
 export default {
   computed: {
     classList() {

@@ -1,15 +1,13 @@
 import isMobile from 'is-mobile';
-import BitrixWrapper from './BitrixWrapper';
-import Batch from './BitrixBatch';
+import { BitrixWrapper } from './BitrixWrapper';
+import { BitrixBatch } from './BitrixBatch';
+import { loadScripts } from '../utils';
 
-export default class Bitrix24 extends BitrixWrapper {
-  batch(calls, handlerList) {
-    const RestCall = new Batch(this.BX24.callBatch, handlerList);
-    return RestCall.batch(calls);
-  }
-
+export class Bitrix24 extends BitrixWrapper {
   appInfo() {
-    return this.batch({
+    const RestCall = this.createBatch();
+
+    return RestCall.batch({
       appInfo: ['app.info'],
       profile: ['profile'],
       scope: ['scope'],
@@ -19,6 +17,18 @@ export default class Bitrix24 extends BitrixWrapper {
     });
   }
 
+  createBatch(handlerList = {}, RestCall = BitrixBatch) {
+    return new RestCall(this.BX24.callBatch, handlerList);
+  }
+
+  isMobile() {
+    return isMobile();
+  }
+
+  loadScripts(...scripts) {
+    return loadScripts(...scripts);
+  }
+
   openLink(href, target = '_blank') {
     const windowOpen = () => {
       const address = [this.getDomain(true), href].join('');
@@ -26,21 +36,5 @@ export default class Bitrix24 extends BitrixWrapper {
     };
     if (isMobile()) windowOpen();
     else this.openPath(href).catch(windowOpen);
-  }
-
-  callMethodAll(method, params) {
-    return new Promise((resolve, reject) => {
-      const data = [];
-
-      this.callMethod(method, params, (result) => {
-        if (result.error()) reject(new Error(result.error()));
-
-        if (Array.isArray(result.data())) data.push(...result.data());
-        else resolve(result.data());
-
-        if (result.more()) result.next();
-        else resolve(data);
-      });
-    });
   }
 }

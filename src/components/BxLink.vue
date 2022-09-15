@@ -1,5 +1,5 @@
 <template>
-  <a ref="link" :href="portal+href" target="_blank" @click.prevent="onClick">
+  <a ref="link" :href="portal+href" target="_blank" @click.left.prevent="onClick">
     <slot></slot>
   </a>
 </template>
