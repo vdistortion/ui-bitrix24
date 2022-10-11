@@ -35,7 +35,10 @@
     "type": "git",
     "url": "git@github.com:astrotrain55/vue-bitrix24.git"
   },
-  "files": ["lib", "src"],
+  "files": [
+    "lib",
+    "src"
+  ],
   "keywords": [
     "vue",
     "api",
@@ -55,9 +58,11 @@
     "public": "npm run build && node gh-pages.js"
   },
   "dependencies": {
+    "@vuepic/vue-datepicker": "^3.4.8",
     "gh-pages": "^4.0.0",
     "is-mobile": "^3.1.1",
-    "vue": "^3.2.37"
+    "vue": "^3.2.37",
+    "vue-select": "^4.0.0-beta.5"
   },
   "devDependencies": {
     "@vitejs/plugin-vue": "^3.0.1",

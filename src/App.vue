@@ -1,10 +1,10 @@
 <template>
   <example-page>
-    <example-entity-selector v-if="componentVisible === 'bx-entity-selector'"/>
     <example-button v-if="componentVisible === 'bx-button'"></example-button>
     <example-input v-if="componentVisible === 'bx-input'"></example-input>
     <example-input-date v-if="componentVisible === 'bx-input-date'"></example-input-date>
     <example-input-file v-if="componentVisible === 'bx-input-file'"></example-input-file>
+    <example-entity-selector v-if="componentVisible === 'bx-entity-selector'"></example-entity-selector>
     <example-select v-if="componentVisible === 'bx-select'"></example-select>
     <example-radio v-if="componentVisible === 'bx-radio'"></example-radio>
     <example-checkbox v-if="componentVisible === 'bx-checkbox'"></example-checkbox>
@@ -27,19 +27,19 @@
 </template>
 
 <script>
-import ExampleEntitySelector from './components/example/ExampleEntitySelector.vue';
 import ExampleButton from './components/example/ExampleButton.vue';
-import ExampleTextarea from './components/example/ExampleTextarea.vue';
+import ExampleInput from './components/example/ExampleInput.vue';
+import ExampleInputDate from './components/example/ExampleInputDate.vue';
 import ExampleInputFile from './components/example/ExampleInputFile.vue';
-import ExampleProgressbar from './components/example/ExampleProgressbar.vue';
-import ExampleAlert from './components/example/ExampleAlert.vue';
+import ExampleEntitySelector from './components/example/ExampleEntitySelector.vue';
+import ExampleSelect from './components/example/ExampleSelect.vue';
 import ExampleRadio from './components/example/ExampleRadio.vue';
 import ExampleCheckbox from './components/example/ExampleCheckbox.vue';
+import ExampleTextarea from './components/example/ExampleTextarea.vue';
+import ExampleProgressbar from './components/example/ExampleProgressbar.vue';
+import ExampleAlert from './components/example/ExampleAlert.vue';
 import ExampleLink from './components/example/ExampleLink.vue';
 import ExampleIcon from './components/example/ExampleIcon.vue';
-import ExampleSelect from './components/example/ExampleSelect.vue';
-import ExampleInputDate from './components/example/ExampleInputDate.vue';
-import ExampleInput from './components/example/ExampleInput.vue';
 import ExamplePage from './components/example/Page.vue';
 
 export default {
@@ -77,19 +77,19 @@ export default {
   },
   inject: ['$BX24'],
   components: {
-    ExampleEntitySelector,
     ExampleButton,
-    ExampleTextarea,
+    ExampleInput,
+    ExampleInputDate,
     ExampleInputFile,
-    ExampleProgressbar,
-    ExampleAlert,
+    ExampleEntitySelector,
+    ExampleSelect,
     ExampleRadio,
     ExampleCheckbox,
+    ExampleTextarea,
+    ExampleProgressbar,
+    ExampleAlert,
     ExampleLink,
     ExampleIcon,
-    ExampleSelect,
-    ExampleInputDate,
-    ExampleInput,
     ExamplePage,
   },
   name: 'example-app',

@@ -1,29 +1,37 @@
 <template>
-  <example-table name="bx-select" :code="markup">
+  <example-table
+    name="bx-select"
+    :code="markup"
+    :based="['https://vue-select.org', 'vue-select']"
+  >
     <bx-select
       v-model="props.value"
-      :type="props.type"
-      @click="onClick"
-    >
-      <template v-if="props.type === 'select'">
-        <option value="value">value</option>
-        <option value="value2">value2</option>
-        <option value="value3">value3</option>
-      </template>
-    </bx-select>
+      :placeholder="props.placeholder"
+      :options="props.options"
+      :multiple="props.multiple"
+      :label="props.label"
+    ></bx-select>
     <template #params>
+      <label v-if="props.value">
+        props.value
+        <pre class="example-table__code">{{ props.value }}</pre>
+      </label>
       <label>
-        props.type
-        <select v-model="props.type">
+        props.placeholder
+        <input v-model="props.placeholder">
+      </label>
+      <label>
+        <input type="checkbox" v-model="props.multiple">
+        props.multiple
+      </label>
+      <label>
+        props.label
+        <select v-model="props.label">
           <option
-            v-for="item in settings.types"
+            v-for="item in settings.labels"
             :value="item"
           >{{ item }}</option>
         </select>
-      </label>
-      <label>
-        props.value
-        <input type="text" v-model="props.value">
       </label>
     </template>
   </example-table>
@@ -32,40 +40,33 @@
 <script>
 import ExampleTable from './Table.vue';
 import BxSelect from '../BxSelect.vue';
+import countries from '../../utils/countries.js';
 
 export default {
-  methods: {
-    onClick() {
-      console.log('click');
-    },
-  },
   computed: {
     markup() {
-      const options = [
-        '',
-        '<option value="value">value</option>',
-        '<option value="value2">value2</option>',
-        '<option value="value3">value3</option>',
-        '',
-      ].join('\n');
-
       return `
 <bx-select
-  type="${this.props.type}"
-  value="${this.props.value}"
-  @click="onClick"
->${this.props.type === 'select' ? options : ''}</bx-select>
+  v-model="value"
+  :placeholder="${this.props.placeholder}"
+  :options="[]"
+  :multiple="${this.props.multiple}"
+  :label="${this.props.label}"
+></bx-select>
       `;
     },
   },
   data() {
     return {
       props: {
-        type: 'select',
-        value: 'value',
+        value: '',
+        placeholder: 'Countries',
+        options: countries,
+        multiple: false,
+        label: 'name',
       },
       settings: {
-        types: ['select', 'search'],
+        labels: ['name', 'code'],
       },
     };
   },

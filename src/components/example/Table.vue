@@ -20,6 +20,9 @@
         </td>
       </tr>
     </tbody>
+    <tfoot v-if="based.length">
+      Component based on <a :href="based[0]" target="_blank">{{ based[1] ?? based[0] }}</a>
+    </tfoot>
   </table>
 </template>
 
@@ -33,6 +36,10 @@ export default {
     code: {
       type: String,
       default: '',
+    },
+    based: {
+      type: Array,
+      default: () => [],
     },
   },
   name: 'example-table',

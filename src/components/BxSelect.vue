@@ -1,43 +1,41 @@
 <template>
-  <div class="ui-ctl ui-ctl-after-icon ui-ctl-dropdown">
-    <component
-      :is="type === 'select' ? 'div' : 'button'"
-      class="ui-ctl-after ui-ctl-icon-angle"
-      @click="$emit('click')"
-    ></component>
-    <template v-if="type === 'select'">
-      <select
-        class="ui-ctl-element"
-        :value="modelValue"
-        @change="$emit('update:modelValue', $event.target.value)"
-      >
-        <slot></slot>
-      </select>
+  <vue-select
+    class="bx-select"
+    :clearable="$attrs.multiple"
+    v-bind="$attrs"
+    style="width: 100%;"
+  >
+    <template #open-indicator="{ attributes }">
+      <button class="ui-ctl-after ui-ctl-icon-angle" v-bind="attributes"></button>
     </template>
-    <template v-else-if="type === 'search'">
-      <input
-        type="text"
-        class="ui-ctl-element"
-        :value="modelValue"
-        @input="$emit('update:modelValue', $event.target.value)"
-      >
+    <template v-for="slot in Object.keys($slots)" v-slot:[slot]="slotScope">
+      <slot :name="slot" v-bind="slotScope"></slot>
     </template>
-  </div>
+  </vue-select>
 </template>
 
 <script>
+import VueSelect from 'vue-select';
+import 'vue-select/dist/vue-select.css';
+
 export default {
-  emits: ['click', 'update:modelValue'],
-  props: {
-    modelValue: {
-      type: String,
-      default: '',
-    },
-    type: {
-      type: String,
-      default: 'select',
-    },
+  components: {
+    VueSelect,
   },
   name: 'bx-select',
 };
 </script>
+
+<style lang="stylus">
+.bx-select
+  &:hover .vs__dropdown-toggle
+  &.vs--open .vs__dropdown-toggle
+    border-color #66afe9
+  .vs__dropdown-toggle
+    transition border-color .5s
+  .vs__dropdown-toggle
+  .vs__selected
+    border-radius 2px
+  .vs__selected
+    background-color #bcedfc
+</style>
