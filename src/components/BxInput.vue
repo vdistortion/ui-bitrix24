@@ -1,6 +1,6 @@
 <template>
   <div
-    class="ui-ctl ui-ctl-textbox ui-ctl-active ui-ctl-hover"
+    class="ui-ctl ui-ctl-textbox"
     :class="{
       'ui-ctl-lg': size === 'lg',
       'ui-ctl-md': size === 'md',
