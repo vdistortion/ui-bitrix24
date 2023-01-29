@@ -10,7 +10,6 @@
   "exports": {
     "./BxAlert": "./src/components/BxAlert.vue",
     "./BxButton": "./src/components/BxButton.vue",
-    "./BxButtonWrapper": "./src/components/BxButtonWrapper.vue",
     "./BxCheckbox": "./src/components/BxCheckbox.vue",
     "./BxEntitySelector": "./src/components/BxEntitySelector.vue",
     "./BxIcon": "./src/components/BxIcon.vue",

@@ -11,16 +11,15 @@ npm i vue-bitrix24
 ## Подключение
 ```js
 // plugins/vue-bitrix24.js
-import { Bitrix24, BxButton, BxButtonWrapper } from 'vue-bitrix24';
+import { Bitrix24, BxButton } from 'vue-bitrix24';
 import 'vue-bitrix24/css';
 // или
 import Bitrix24 from 'vue-bitrix24/Library';
 import BxButton from 'vue-bitrix24/BxButton';
-import BxButtonWrapper from 'vue-bitrix24/BxButton';
 
 const useBitrix24 = {
   install(app) {
-    [BxButtonWrapper, BxButton].forEach((Component) => {
+    [BxButton].forEach((Component) => {
       app.component(Component.name, Component);
     });
   },
@@ -61,7 +60,6 @@ export default {
 ## Компоненты
 
 [Demo](https://astrotrain55.github.io/vue-bitrix24/)
-* bx-button-wrapper
 * bx-button
 * bx-input
 * bx-input-date

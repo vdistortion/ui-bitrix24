@@ -1,27 +1,22 @@
 <template>
   <example-table name="bx-button" :code="markup">
-    <bx-button-wrapper
-      :center="wrapperProps.center"
-      :right="wrapperProps.right"
-    >
-      <bx-button>bx-button</bx-button>
-      <bx-button
-        :color="props.color"
-        :size="props.size"
-        :icon="props.icon"
-        :type="props.type"
-        :loader="props.loader"
-        :count="props.count"
-        :counter="props.counter"
-        :disabled="props.disabled"
-        :dropdown="props.dropdown"
-        :round="props.round"
-        :noCaps="props.noCaps"
-        :menu="props.menu"
-        @click="onClick"
-        @toggle-menu="onToggleMenu"
-      >{{ slot.default }}</bx-button>
-    </bx-button-wrapper>
+    <bx-button>bx-button</bx-button>
+    <bx-button
+      :color="props.color"
+      :size="props.size"
+      :icon="props.icon"
+      :type="props.type"
+      :loader="props.loader"
+      :count="props.count"
+      :counter="props.counter"
+      :disabled="props.disabled"
+      :dropdown="props.dropdown"
+      :round="props.round"
+      :noCaps="props.noCaps"
+      :menu="props.menu"
+      @click="onClick"
+      @toggle-menu="onToggleMenu"
+    >{{ slot.default }}</bx-button>
     <template #params>
       <label>
         slot.default
@@ -100,14 +95,6 @@
         <input type="checkbox" v-model="props.menu">
         props.menu
       </label>
-      <label>
-        <input type="checkbox" v-model="wrapperProps.center">
-        wrapper.props.center
-      </label>
-      <label>
-        <input type="checkbox" v-model="wrapperProps.right">
-        wrapper.props.right
-      </label>
     </template>
   </example-table>
 </template>
@@ -115,7 +102,6 @@
 <script>
 import ExampleTable from './Table.vue';
 import BxButton from '../BxButton.vue';
-import BxButtonWrapper from '../BxButtonWrapper.vue';
 
 export default {
   methods: {
@@ -129,37 +115,28 @@ export default {
   computed: {
     markup() {
       return `
-<bx-button-wrapper
-  :center="${this.wrapperProps.center}"
-  :right="${this.wrapperProps.right}"
->
-  <bx-button>bx-button</bx-button>
-  <bx-button
-    type="${this.props.type}"
-    color="${this.props.color}"
-    size="${this.props.size}"
-    icon="${this.props.icon}"
-    loader="${this.props.loader}"
-    :count="${this.props.count}"
-    :counter="${this.props.counter}"
-    :disabled="${this.props.disabled}"
-    :dropdown="${this.props.dropdown}"
-    :round="${this.props.round}"
-    :noCaps="${this.props.noCaps}"
-    :menu="${this.props.menu}"
-    @click="onClick"
-    @toggle-menu="onToggleMenu"
-  >${this.slot.default}</bx-button>
-</bx-button-wrapper>
+<bx-button>bx-button</bx-button>
+<bx-button
+  type="${this.props.type}"
+  color="${this.props.color}"
+  size="${this.props.size}"
+  icon="${this.props.icon}"
+  loader="${this.props.loader}"
+  :count="${this.props.count}"
+  :counter="${this.props.counter}"
+  :disabled="${this.props.disabled}"
+  :dropdown="${this.props.dropdown}"
+  :round="${this.props.round}"
+  :noCaps="${this.props.noCaps}"
+  :menu="${this.props.menu}"
+  @click="onClick"
+  @toggle-menu="onToggleMenu"
+>${this.slot.default}</bx-button>
       `;
     },
   },
   data() {
     return {
-      wrapperProps: {
-        center: false,
-        right: false,
-      },
       slot: {
         default: 'Кнопка',
       },
@@ -199,7 +176,6 @@ export default {
   components: {
     ExampleTable,
     BxButton,
-    BxButtonWrapper,
   },
   name: 'example-button',
 };

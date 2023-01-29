@@ -1,7 +1,6 @@
 import Bitrix24 from './lib/plugin';
 import BxAlert from './components/BxAlert.vue';
 import BxButton from './components/BxButton.vue';
-import BxButtonWrapper from './components/BxButtonWrapper.vue';
 import BxCheckbox from './components/BxCheckbox.vue';
 import BxEntitySelector from './components/BxEntitySelector.vue';
 import BxIcon from './components/BxIcon.vue';
@@ -18,7 +17,6 @@ export {
   Bitrix24,
   BxAlert,
   BxButton,
-  BxButtonWrapper,
   BxCheckbox,
   BxEntitySelector,
   BxIcon,
