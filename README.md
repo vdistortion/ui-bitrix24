@@ -60,19 +60,19 @@ export default {
 ## Компоненты
 
 [Demo](https://astrotrain55.github.io/vue-bitrix24/)
+* bx-alert
 * bx-button
+* bx-checkbox
+* bx-entity-selector
+* bx-icon
 * bx-input
 * bx-input-date
 * bx-input-file
-* bx-entity-selector
-* bx-select
-* bx-radio
-* bx-checkbox
-* bx-textarea
-* bx-progressbar
-* bx-alert
 * bx-link
-* bx-icon
+* bx-progressbar
+* bx-radio
+* bx-select
+* bx-textarea
 
 ## Битрикс24
 * [Документация по REST API](https://dev.1c-bitrix.ru/rest_help/js_library/)
