@@ -1,4 +1,4 @@
-import { loadScript } from '../utils';
+import { loadScript } from '../utils/loadScript';
 
 export class BitrixWrapper {
   constructor(BX24) {

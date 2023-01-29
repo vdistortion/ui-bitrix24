@@ -1,7 +1,7 @@
 import isMobile from 'is-mobile';
 import { BitrixWrapper } from './BitrixWrapper';
 import { BitrixBatch } from './BitrixBatch';
-import { loadScripts } from '../utils';
+import { loadScripts } from '../utils/loadScript';
 
 export class Bitrix24 extends BitrixWrapper {
   appInfo() {

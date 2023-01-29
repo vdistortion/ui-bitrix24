@@ -1,4 +1,4 @@
-import { loadScripts } from '../utils';
+import { loadScripts } from '../utils/loadScript';
 import { Bitrix24 } from './Bitrix24';
 
 export default {

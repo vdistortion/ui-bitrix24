@@ -40,7 +40,7 @@
 <script>
 import ExampleTable from './Table.vue';
 import BxSelect from '../BxSelect.vue';
-import countries from '../../utils/countries.js';
+import countries from '../../utils/countries';
 
 export default {
   computed: {

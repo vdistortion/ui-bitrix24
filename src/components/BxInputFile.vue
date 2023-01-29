@@ -67,7 +67,7 @@
 </template>
 
 <script>
-import { formatSizeUnits } from '../utils';
+import { formatSizeUnits } from '../utils/formatSizeUnits';
 
 export default {
   methods: {
