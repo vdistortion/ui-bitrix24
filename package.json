@@ -1,7 +1,7 @@
 {
   "name": "vue-bitrix24",
   "description": "Promise-wrapper for JavaScript REST API Bitrix24, a Bitrix24 style library of components and a set of new methods",
-  "version": "0.2.1",
+  "version": "0.2.2",
   "license": "GPL",
   "private": false,
   "type": "module",
@@ -48,26 +48,26 @@
     "bx24"
   ],
   "scripts": {
-    "dev": "vite --host 0.0.0.0",
+    "dev": "vite --host",
     "build:lib": "vite build --config vite.config.lib.js",
     "build": "vite build",
-    "preview": "vite preview --port 4173",
+    "preview": "vite preview --host",
     "lint": "eslint . --ext .vue,.js,.jsx,.cjs,.mjs --fix --ignore-path .gitignore",
     "public:lib": "npm run build:lib && npm publish",
     "public": "npm run build && node gh-pages.js"
   },
   "dependencies": {
-    "@vuepic/vue-datepicker": "^3.4.8",
-    "gh-pages": "^4.0.0",
+    "@vuepic/vue-datepicker": "^3.6.5",
+    "gh-pages": "^5.0.0",
     "is-mobile": "^3.1.1",
-    "vue": "^3.2.37",
-    "vue-select": "^4.0.0-beta.5"
+    "vue": "^3.2.45",
+    "vue-select": "^4.0.0-beta.6"
   },
   "devDependencies": {
-    "@vitejs/plugin-vue": "^3.0.1",
-    "eslint": "^8.21.0",
+    "@vitejs/plugin-vue": "^4.0.0",
+    "eslint": "^8.22.0",
     "eslint-plugin-vue": "^9.3.0",
     "stylus": "^0.59.0",
-    "vite": "^3.0.4"
+    "vite": "^4.0.0"
   }
 }

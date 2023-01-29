@@ -61,7 +61,7 @@ export default {
   },
   data() {
     return {
-      componentVisible: 'bx-dialog',
+      componentVisible: 'bx-button',
       components: [
         'bx-alert',
         'bx-button',
