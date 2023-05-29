@@ -1,5 +1,5 @@
 <template>
-  <a ref="link" :href="portal+href" target="_blank" @click.left.prevent="onClick">
+  <a :href="href" @click.left.prevent="onClick">
     <slot></slot>
   </a>
 </template>
@@ -10,12 +10,7 @@ import { defineComponent } from 'vue';
 export default defineComponent({
   methods: {
     onClick() {
-      this.$BX24.openLink(this.href, this.$refs.link.target);
-    },
-  },
-  computed: {
-    portal() {
-      return this.$BX24.getDomain(true);
+      this.$BX24.openLink(this.href);
     },
   },
   inject: ['$BX24'],

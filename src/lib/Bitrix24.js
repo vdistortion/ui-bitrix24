@@ -26,8 +26,10 @@ export class Bitrix24 extends BitrixWrapper {
 
   openLink(href, target = '_blank') {
     const windowOpen = () => {
-      const address = [this.getDomain(true), href].join('');
-      window.open(address, target);
+      const anchor = document.createElement('a');
+      anchor.href = [this.getDomain(true), href].join('');
+      anchor.target = target;
+      anchor.click();
     };
     if (isMobile()) windowOpen();
     else this.openPath(href).catch(windowOpen);
