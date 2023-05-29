@@ -4,11 +4,12 @@
   </example-table>
 </template>
 
-<script>
+<script lang="ts">
+import { defineComponent } from 'vue';
 import ExampleTable from './Table.vue';
 import BxDialog from '../BxDialog.vue';
 
-export default {
+export default defineComponent({
   computed: {
     markup() {
       return `
@@ -22,5 +23,5 @@ export default {
     BxDialog,
   },
   name: 'example-dialog',
-};
+});
 </script>

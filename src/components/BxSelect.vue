@@ -14,16 +14,17 @@
   </vue-select>
 </template>
 
-<script>
+<script lang="ts">
+import { defineComponent } from 'vue';
 import VueSelect from 'vue-select';
 import 'vue-select/dist/vue-select.css';
 
-export default {
+export default defineComponent({
   components: {
     VueSelect,
   },
   name: 'bx-select',
-};
+});
 </script>
 
 <style lang="stylus">

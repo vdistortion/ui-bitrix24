@@ -31,11 +31,12 @@
   </example-table>
 </template>
 
-<script>
+<script lang="ts">
+import { defineComponent } from 'vue';
 import ExampleTable from './Table.vue';
 import BxInputDate from '../BxInputDate.vue';
 
-export default {
+export default defineComponent({
   computed: {
     markup() {
       return `
@@ -64,5 +65,5 @@ export default {
     BxInputDate,
   },
   name: 'example-input-date',
-};
+});
 </script>

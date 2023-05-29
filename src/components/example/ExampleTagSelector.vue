@@ -4,11 +4,12 @@
   </example-table>
 </template>
 
-<script>
+<script lang="ts">
+import { defineComponent } from 'vue';
 import ExampleTable from './Table.vue';
 import BxTagSelector from '../BxTagSelector.vue';
 
-export default {
+export default defineComponent({
   computed: {
     markup() {
       return `
@@ -22,5 +23,5 @@ export default {
     BxTagSelector,
   },
   name: 'example-tag-selector',
-};
+});
 </script>

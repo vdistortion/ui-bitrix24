@@ -28,7 +28,8 @@
   </example-page>
 </template>
 
-<script>
+<script lang="ts">
+import { defineComponent } from 'vue';
 import ExampleAlert from './components/example/ExampleAlert.vue';
 import ExampleButton from './components/example/ExampleButton.vue';
 import ExampleCheckbox from './components/example/ExampleCheckbox.vue';
@@ -46,7 +47,7 @@ import ExampleSelect from './components/example/ExampleSelect.vue';
 import ExampleTextarea from './components/example/ExampleTextarea.vue';
 import ExamplePage from './components/example/Page.vue';
 
-export default {
+export default defineComponent({
   mounted() {
     this.$BX24.appInfo().then((response) => {
       if (response.scope.includes('user')) {
@@ -101,7 +102,7 @@ export default {
     ExamplePage,
   },
   name: 'example-app',
-};
+});
 </script>
 
 <style lang="stylus">

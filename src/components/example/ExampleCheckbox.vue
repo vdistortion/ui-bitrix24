@@ -36,11 +36,12 @@
   </example-table>
 </template>
 
-<script>
+<script lang="ts">
+import { defineComponent } from 'vue';
 import ExampleTable from './Table.vue';
 import BxCheckbox from '../BxCheckbox.vue';
 
-export default {
+export default defineComponent({
   computed: {
     markup() {
       return `
@@ -76,5 +77,5 @@ export default {
     BxCheckbox,
   },
   name: 'example-checkbox',
-};
+});
 </script>

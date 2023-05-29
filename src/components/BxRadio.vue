@@ -14,8 +14,10 @@
   </label>
 </template>
 
-<script>
-export default {
+<script lang="ts">
+import { defineComponent } from 'vue';
+
+export default defineComponent({
   computed: {
     isChecked() {
       return this.modelValue === this.value;
@@ -41,7 +43,7 @@ export default {
     },
   },
   name: 'bx-radio',
-};
+});
 </script>
 
 <style lang="stylus">

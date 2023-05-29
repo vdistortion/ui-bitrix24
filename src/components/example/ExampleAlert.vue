@@ -57,11 +57,12 @@
   </example-table>
 </template>
 
-<script>
+<script lang="ts">
+import { defineComponent } from 'vue';
 import ExampleTable from './Table.vue';
 import BxAlert from '../BxAlert.vue';
 
-export default {
+export default defineComponent({
   methods: {
     onClose() {
       console.log('close');
@@ -107,5 +108,5 @@ export default {
     BxAlert,
   },
   name: 'example-alert',
-};
+});
 </script>

@@ -7,8 +7,10 @@
   </div>
 </template>
 
-<script>
-export default {
+<script lang="ts">
+import { defineComponent } from 'vue';
+
+export default defineComponent({
   computed: {
     classList() {
       return {
@@ -204,7 +206,7 @@ export default {
     },
   },
   name: 'bx-icon',
-};
+});
 </script>
 
 <style lang="stylus">

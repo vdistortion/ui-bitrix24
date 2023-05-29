@@ -130,11 +130,12 @@
   </example-table>
 </template>
 
-<script>
+<script lang="ts">
+import { defineComponent } from 'vue';
 import ExampleTable from './Table.vue';
 import BxInput from '../BxInput.vue';
 
-export default {
+export default defineComponent({
   methods: {
     onChange(value) {
       console.log('change', value);
@@ -212,5 +213,5 @@ export default {
     BxInput,
   },
   name: 'example-input',
-};
+});
 </script>

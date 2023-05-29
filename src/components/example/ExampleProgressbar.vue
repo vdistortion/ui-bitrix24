@@ -52,11 +52,12 @@
   </example-table>
 </template>
 
-<script>
+<script lang="ts">
+import { defineComponent } from 'vue';
 import ExampleTable from './Table.vue';
 import BxProgressbar from '../BxProgressbar.vue';
 
-export default {
+export default defineComponent({
   computed: {
     markup() {
       return `
@@ -94,5 +95,5 @@ export default {
     BxProgressbar,
   },
   name: 'example-progressbar',
-};
+});
 </script>

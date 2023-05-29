@@ -99,11 +99,12 @@
   </example-table>
 </template>
 
-<script>
+<script lang="ts">
+import { defineComponent } from 'vue';
 import ExampleTable from './Table.vue';
 import BxButton from '../BxButton.vue';
 
-export default {
+export default defineComponent({
   methods: {
     onClick() {
       console.log('click');
@@ -178,5 +179,5 @@ export default {
     BxButton,
   },
   name: 'example-button',
-};
+});
 </script>

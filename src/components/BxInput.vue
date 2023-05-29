@@ -82,8 +82,10 @@
   </div>
 </template>
 
-<script>
-export default {
+<script lang="ts">
+import { defineComponent } from 'vue';
+
+export default defineComponent({
   emits: ['change', 'click-after', 'click-before', 'update:modelValue'],
   props: {
     modelValue: {
@@ -164,7 +166,7 @@ export default {
     },
   },
   name: 'bx-input',
-};
+});
 </script>
 
 <style lang="stylus">

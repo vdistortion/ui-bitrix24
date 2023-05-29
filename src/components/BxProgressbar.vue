@@ -8,8 +8,10 @@
   </div>
 </template>
 
-<script>
-export default {
+<script lang="ts">
+import { defineComponent } from 'vue';
+
+export default defineComponent({
   computed: {
     width() {
       return `${this.progress}%`;
@@ -58,5 +60,5 @@ export default {
     },
   },
   name: 'bx-progressbar',
-};
+});
 </script>

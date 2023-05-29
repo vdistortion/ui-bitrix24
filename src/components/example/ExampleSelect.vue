@@ -37,12 +37,13 @@
   </example-table>
 </template>
 
-<script>
+<script lang="ts">
+import { defineComponent } from 'vue';
 import ExampleTable from './Table.vue';
 import BxSelect from '../BxSelect.vue';
 import countries from '../../utils/countries';
 
-export default {
+export default defineComponent({
   computed: {
     markup() {
       return `
@@ -75,5 +76,5 @@ export default {
     BxSelect,
   },
   name: 'example-select',
-};
+});
 </script>

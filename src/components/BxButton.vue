@@ -12,8 +12,10 @@
   </button>
 </template>
 
-<script>
-export default {
+<script lang="ts">
+import { defineComponent } from 'vue';
+
+export default defineComponent({
   computed: {
     classList() {
       const colors = [
@@ -97,5 +99,5 @@ export default {
     },
   },
   name: 'bx-button',
-};
+});
 </script>

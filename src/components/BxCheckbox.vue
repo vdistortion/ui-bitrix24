@@ -27,8 +27,10 @@
   </label>
 </template>
 
-<script>
-export default {
+<script lang="ts">
+import { defineComponent } from 'vue';
+
+export default defineComponent({
   methods: {
     updateInput(event) {
       const isChecked = event.target.checked;
@@ -78,7 +80,7 @@ export default {
     },
   },
   name: 'bx-checkbox',
-};
+});
 </script>
 
 <style lang="stylus">

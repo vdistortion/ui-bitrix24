@@ -46,11 +46,12 @@
   </example-table>
 </template>
 
-<script>
+<script lang="ts">
+import { defineComponent } from 'vue';
 import ExampleTable from './Table.vue';
 import BxInputFile from '../BxInputFile.vue';
 
-export default {
+export default defineComponent({
   methods: {
     onInput(files) {
       console.log('input', files);
@@ -103,5 +104,5 @@ export default {
     BxInputFile,
   },
   name: 'example-input-file',
-};
+});
 </script>

@@ -54,11 +54,12 @@
   </example-table>
 </template>
 
-<script>
+<script lang="ts">
+import { defineComponent } from 'vue';
 import ExampleTable from './Table.vue';
 import BxEntitySelector from '../BxEntitySelector.vue';
 
-export default {
+export default defineComponent({
   methods: {
     onClick(index, item) {
       console.log('click', index, item);
@@ -129,5 +130,5 @@ export default {
     BxEntitySelector,
   },
   name: 'example-entity-selector',
-};
+});
 </script>

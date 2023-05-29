@@ -36,11 +36,12 @@
   </example-table>
 </template>
 
-<script>
+<script lang="ts">
+import { defineComponent } from 'vue';
 import ExampleTable from './Table.vue';
 import BxRadio from '../BxRadio.vue';
 
-export default {
+export default defineComponent({
   computed: {
     markup() {
       return `
@@ -77,5 +78,5 @@ export default {
     BxRadio,
   },
   name: 'example-radio',
-};
+});
 </script>

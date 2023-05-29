@@ -4,8 +4,10 @@
   </a>
 </template>
 
-<script>
-export default {
+<script lang="ts">
+import { defineComponent } from 'vue';
+
+export default defineComponent({
   methods: {
     onClick() {
       this.$BX24.openLink(this.href, this.$refs.link.target);
@@ -24,5 +26,5 @@ export default {
     },
   },
   name: 'bx-link',
-};
+});
 </script>

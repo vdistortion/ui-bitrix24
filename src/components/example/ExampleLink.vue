@@ -25,12 +25,13 @@
   </example-table>
 </template>
 
-<script>
+<script lang="ts">
+import { defineComponent } from 'vue';
 import ExampleTable from './Table.vue';
 import BxLink from '../BxLink.vue';
 import BxIcon from '../BxIcon.vue';
 
-export default {
+export default defineComponent({
   computed: {
     slot() {
       const tags = {
@@ -73,5 +74,5 @@ export default {
     BxIcon,
   },
   name: 'example-link',
-};
+});
 </script>

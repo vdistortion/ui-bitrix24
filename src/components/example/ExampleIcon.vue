@@ -17,11 +17,12 @@
   </example-table>
 </template>
 
-<script>
+<script lang="ts">
+import { defineComponent } from 'vue';
 import ExampleTable from './Table.vue';
 import BxIcon from '../BxIcon.vue';
 
-export default {
+export default defineComponent({
   computed: {
     markup() {
       return `
@@ -95,5 +96,5 @@ export default {
     BxIcon,
   },
   name: 'example-icon',
-};
+});
 </script>

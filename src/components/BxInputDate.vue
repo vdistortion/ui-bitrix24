@@ -41,11 +41,12 @@
   </vue-datepicker>
 </template>
 
-<script>
+<script lang="ts">
+import { defineComponent } from 'vue';
 import VueDatepicker from '@vuepic/vue-datepicker';
 import '@vuepic/vue-datepicker/dist/main.css';
 
-export default {
+export default defineComponent({
   emits: ['update:modelValue'],
   props: {
     modelValue: {
@@ -65,5 +66,5 @@ export default {
     VueDatepicker,
   },
   name: 'bx-input-date',
-};
+});
 </script>

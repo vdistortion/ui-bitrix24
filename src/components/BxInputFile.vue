@@ -66,10 +66,11 @@
   </div>
 </template>
 
-<script>
+<script lang="ts">
+import { defineComponent } from 'vue';
 import { formatSizeUnits } from '../utils/formatSizeUnits';
 
-export default {
+export default defineComponent({
   methods: {
     getName(file) {
       return `${file.name} (${formatSizeUnits(file.size)})`;
@@ -120,7 +121,7 @@ export default {
     },
   },
   name: 'bx-input-file',
-};
+});
 </script>
 
 <style lang="stylus">

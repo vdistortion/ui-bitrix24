@@ -1080,8 +1080,10 @@
   </div>
 </template>
 
-<script>
-export default {
+<script lang="ts">
+import { defineComponent } from 'vue';
+
+export default defineComponent({
   methods: {
     getImageUrl(name) {
       return new URL(`../assets/${name}.svg`, import.meta.url).href;
@@ -1111,7 +1113,7 @@ export default {
     },
   },
   name: 'bx-dialog',
-};
+});
 </script>
 
 <style lang="stylus">
