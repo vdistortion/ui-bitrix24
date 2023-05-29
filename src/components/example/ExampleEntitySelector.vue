@@ -62,10 +62,12 @@ import BxEntitySelector from '../BxEntitySelector.vue';
 export default defineComponent({
   methods: {
     onClick(index, item) {
+      if (!this.$BX24) return;
       console.log('click', index, item);
       this.$BX24.openLink(`/company/personal/user/${item.id}/`);
     },
     onMiddleClick(index, item) {
+      if (!this.$BX24) return;
       console.log('mdlclick', index, item);
       window.open(`${this.$BX24.getDomain(true)}/company/personal/user/${item.id}/`, '_blank');
     },
@@ -74,6 +76,7 @@ export default defineComponent({
       this.props.list.splice(index, 1);
     },
     onAdd() {
+      if (!this.$BX24) return;
       console.log('add');
 
       if (this.props.multiple) {

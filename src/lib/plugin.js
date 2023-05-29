@@ -10,7 +10,7 @@ export default {
         return BX24.init().then(() => BX24);
       }
       this.initAssets();
-      return Promise.resolve({});
+      return Promise.resolve(null);
     });
   },
   initAssets(domain = 'www.bitrix24.ru') {

@@ -10,7 +10,7 @@ import { defineComponent } from 'vue';
 export default defineComponent({
   methods: {
     onClick() {
-      this.$BX24.openLink(this.href);
+      if (this.$BX24) this.$BX24.openLink(this.href);
     },
   },
   inject: ['$BX24'],

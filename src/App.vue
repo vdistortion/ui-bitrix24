@@ -49,7 +49,9 @@ import ExamplePage from './components/example/Page.vue';
 
 export default defineComponent({
   mounted() {
-    this.$BX24.appInfo().then((response) => {
+      if (!this.$BX24) return;
+
+      this.$BX24.appInfo().then((response) => {
       if (response.scope.includes('user')) {
         const RestCall = this.$BX24.createBatch();
         RestCall.batch({
