@@ -23,13 +23,3 @@ export function loadScript(src) {
     if (shouldAppend) document.head.append(el);
   });
 }
-
-export function loadScripts(...loadedScripts) {
-  const scripts = loadedScripts.reduce((acc, script) => {
-    if (typeof script === 'string') acc.push(script);
-    if (Array.isArray(script)) acc.push(...script);
-    return acc;
-  }, []);
-
-  return Promise.allSettled(scripts.flat(Infinity).map(loadScript));
-}

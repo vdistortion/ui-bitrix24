@@ -1,7 +1,6 @@
 import isMobile from 'is-mobile';
 import { BitrixWrapper } from './BitrixWrapper';
 import { BitrixBatch } from './BitrixBatch';
-import { loadScripts } from '../utils/loadScript';
 
 export class Bitrix24 extends BitrixWrapper {
   appInfo() {
@@ -23,10 +22,6 @@ export class Bitrix24 extends BitrixWrapper {
 
   isMobile() {
     return isMobile();
-  }
-
-  loadScripts(...scripts) {
-    return loadScripts(...scripts);
   }
 
   openLink(href, target = '_blank') {
