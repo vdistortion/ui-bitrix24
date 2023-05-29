@@ -76,7 +76,7 @@ export default {
 
 ## Битрикс24
 * [Документация по REST API](https://dev.1c-bitrix.ru/rest_help/js_library/)
-* [UI-библиотека](https://dev.1c-bitrix.ru/api_d7/bitrix/ui/)
+* [UI-библиотека](https://dev.1c-bitrix.ru/api_d7/bitrix/ui/index.php)
 
 ### Системные функции
 
@@ -104,7 +104,7 @@ export default {
 
 * `.userOption` — Работа с настройками текущего пользователя
 
-* `.appOption` — Работа с общими настройками приложения. Установка значений настроек приложения доступа только пользователям с правом управления приложением (.isAdmin)
+* `.appOption` — Работа с общими настройками приложения. Установка значений настроек приложения доступа только пользователям с правом управления приложением (`.isAdmin()`)
 
 ### Показ системных диалогов
 
@@ -144,7 +144,7 @@ export default {
 
 * `.isReady()` — Флаг "DOM-структура документа готова к работе"
 
-* `.proxy(thisObject)` — Аналогична BX.proxy
+* `.proxy(thisObject)` — Аналогична [BX.proxy](https://training.bitrix24.com/api_help/js_lib/kernel/events/bx_proxy.php)
 
 * `.closeApplication()` — Метод закрывает открытое модальное окно с приложением
 
@@ -158,7 +158,7 @@ export default {
 
 * `.scrollParentWindow(scroll)` — Метод прокручивает родительское окно
 
-* `.bind(element, eventName, callback)` — Устанавливает функцию callback в качестве обработчика события eventName объекта element
+* `.bind(element, eventName, callback)` — Устанавливает функцию callback в качестве обработчика события eventName объекта element, возвращает функцию для отписки `.unbind()` с теми же параметрами
 
 * `.unbind(element, eventName, callback)` — Убирает функцию callback в качестве обработчика события eventName объекта element
 
@@ -178,13 +178,13 @@ export default {
 
 * `.appInfo()` — Возвращает информацию о приложении (app.info), доступные разрешения (scope), базовую информацию о текущем пользователе (profile) и информацию о контексте вызова (BX24.placement.info())
 
-* `.createBatch([handlerList[, BatchClass]])` — Создание пакетного выполнения запросов
+* `.createBatch([handlerList[, BatchClass]])` — Создание пакетного выполнения запросов, надстройка над `.callBatch()`
 
 * `.isMobile()` — [is-mobile](https://www.npmjs.com/package/is-mobile)
 
 * `.loadScripts(...scripts)` — В метод можно передать любое количество скриптов строками или массивами строк любой вложенности
 
-* `.openLink(href[, target])` — Обёртка над методом .openPath(), открывает адрес в новой вкладке, если не можем открыть в том же окне или используем метод на телефоне
+* `.openLink(href[, target])` — Обёртка над методом `.openPath()`, открывает адрес в новой вкладке, если не можем открыть в том же окне или используем метод на телефоне
 
 <details>
   <summary>:imp:</summary>
