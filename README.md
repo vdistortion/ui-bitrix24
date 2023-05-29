@@ -39,7 +39,7 @@ Bitrix24.init().then((BX24) => {
     .mount('#app');
 });
 ```
-`.init([scripts[, css]])` — можно передать список скриптов (см. метод `.loadScripts`), а также отменить загрузку стилей с портала (например если ui не нужен)
+`.init([scripts[, isCss]])` — можно передать список скриптов (см. метод `.loadScripts`), а также отменить загрузку стилей с портала (например если ui не нужен, по умолчанию true)
 
 ## Вызов методов
 ```js
@@ -144,7 +144,7 @@ export default {
 
 * `.isReady()` — Флаг "DOM-структура документа готова к работе"
 
-* `.proxy(thisObject)` — Аналогична [BX.proxy](https://training.bitrix24.com/api_help/js_lib/kernel/events/bx_proxy.php)
+* `.proxy(thisObject)` — Аналогична [BX.proxy](https://dev.1c-bitrix.ru/api_help/js_lib/kernel/events/bx_proxy.php)
 
 * `.closeApplication()` — Метод закрывает открытое модальное окно с приложением
 
