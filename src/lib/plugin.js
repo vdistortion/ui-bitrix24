@@ -2,8 +2,11 @@ import { loadScript } from '../utils/loadScript';
 import { Bitrix24 } from './Bitrix24';
 
 export default {
-  init(isCss = true) {
-    return loadScript('//api.bitrix24.com/api/v1/').then(() => {
+  init(scripts = [], isCss = true) {
+    const loadScripts = ['//api.bitrix24.com/api/v1/', ...scripts]
+      .map((src) => loadScript(src));
+
+    return Promise.all(loadScripts).then(() => {
       if (window.BX24) {
         if (isCss) this.initAssets(window.BX24.getDomain());
         const BX24 = new Bitrix24(window.BX24);
