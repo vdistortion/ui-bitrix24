@@ -80,17 +80,18 @@ import ExamplePage from './components/example/Page.vue';
 export default defineComponent({
   mounted() {
     if (!this.$BX24) return;
+    const RestCall = this.$BX24.createBatch();
 
-    this.$BX24.appInfo().then((response) => {
-      if (response.scope.includes('user')) {
-        const RestCall = this.$BX24.createBatch();
+    RestCall.batch({
+      scope: ['scope'],
+    }).then((response) => {
+      if (response.scope.includes('user_brief')) {
         RestCall.batch({
           userCurrent: ['user.current'],
           users: ['user.get'],
         }).then(console.info);
       }
-      return response;
-    }).then(console.info);
+    });
   },
   data() {
     return {

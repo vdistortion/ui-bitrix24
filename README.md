@@ -176,8 +176,6 @@ export default {
 
 ### Новые методы
 
-* `.appInfo()` — Возвращает информацию о приложении (app.info), доступные разрешения (scope), базовую информацию о текущем пользователе (profile) и информацию о контексте вызова (BX24.placement.info())
-
 * `.createBatch([handlerList[, BatchClass]])` — Создание пакетного выполнения запросов, надстройка над `.callBatch()`
 
 * `.isMobile()` — [is-mobile](https://www.npmjs.com/package/is-mobile)
