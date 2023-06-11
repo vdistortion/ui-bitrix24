@@ -1,6 +1,8 @@
 import { loadScript } from '../utils/loadScript';
 
 export class BitrixWrapper {
+  loadScript = loadScript;
+
   constructor(BX24) {
     this.BX24 = BX24;
   }
@@ -202,10 +204,6 @@ export class BitrixWrapper {
 
   getScrollSize() {
     return this.BX24.getScrollSize();
-  }
-
-  loadScript(...scripts) {
-    return loadScript(...scripts);
   }
 
   get im() {

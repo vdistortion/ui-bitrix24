@@ -3,6 +3,8 @@ import { BitrixWrapper } from './BitrixWrapper';
 import { BitrixBatch } from './BitrixBatch';
 
 export class Bitrix24 extends BitrixWrapper {
+  isMobile = isMobile;
+
   appInfo() {
     const RestCall = this.createBatch();
 
@@ -10,18 +12,14 @@ export class Bitrix24 extends BitrixWrapper {
       appInfo: ['app.info'],
       profile: ['profile'],
       scope: ['scope'],
-    }).then((response) => {
-      response.placementInfo = this.placement.info();
-      return response;
-    });
+    }).then((response) => ({
+      ...response,
+      placementInfo: this.placement.info(),
+    }));
   }
 
   createBatch(handlerList = {}, RestCall = BitrixBatch) {
     return new RestCall(this.BX24.callBatch, handlerList);
-  }
-
-  isMobile() {
-    return isMobile();
   }
 
   openLink(href, target = '_blank') {

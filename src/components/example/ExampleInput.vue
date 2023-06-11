@@ -204,7 +204,9 @@ export default defineComponent({
         sizes: ['lg', 'md', 'sm', 'xs'],
         colors: ['', 'success', 'warning', 'danger'],
         tagColors: ['default', 'primary', 'success', 'warning', 'danger'],
-        icons: ['', 'search', 'calendar', 'dots', 'phone', 'mail', 'clock', 'angle', 'clear', 'loader'],
+        icons: [
+          '', 'search', 'calendar', 'dots', 'phone', 'mail', 'clock', 'angle', 'clear', 'loader',
+        ],
       },
     };
   },

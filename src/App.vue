@@ -1,20 +1,50 @@
 <template>
   <example-page>
-    <example-alert v-if="componentVisible === 'bx-alert'"></example-alert>
-    <example-button v-if="componentVisible === 'bx-button'"></example-button>
-    <example-checkbox v-if="componentVisible === 'bx-checkbox'"></example-checkbox>
-<!--    <example-dialog v-if="componentVisible === 'bx-dialog'"></example-dialog>-->
-    <example-entity-selector v-if="componentVisible === 'bx-entity-selector'"></example-entity-selector>
-    <example-icon v-if="componentVisible === 'bx-icon'"></example-icon>
-    <example-input v-if="componentVisible === 'bx-input'"></example-input>
-    <example-input-date v-if="componentVisible === 'bx-input-date'"></example-input-date>
-    <example-input-file v-if="componentVisible === 'bx-input-file'"></example-input-file>
-    <example-link v-if="componentVisible === 'bx-link'"></example-link>
-    <example-progressbar v-if="componentVisible === 'bx-progressbar'"></example-progressbar>
-    <example-radio v-if="componentVisible === 'bx-radio'"></example-radio>
-    <example-select v-if="componentVisible === 'bx-select'"></example-select>
-<!--    <example-tag-selector v-if="componentVisible === 'bx-tag-selector'"></example-tag-selector>-->
-    <example-textarea v-if="componentVisible === 'bx-textarea'"></example-textarea>
+    <example-alert
+      v-if="componentVisible === 'bx-alert'"
+    ></example-alert>
+    <example-button
+      v-if="componentVisible === 'bx-button'"
+    ></example-button>
+    <example-checkbox
+      v-if="componentVisible === 'bx-checkbox'"
+    ></example-checkbox>
+<!--    <example-dialog -->
+<!--      v-if="componentVisible === 'bx-dialog'"-->
+<!--    ></example-dialog>-->
+    <example-entity-selector
+      v-if="componentVisible === 'bx-entity-selector'"
+    ></example-entity-selector>
+    <example-icon
+      v-if="componentVisible === 'bx-icon'"
+    ></example-icon>
+    <example-input
+      v-if="componentVisible === 'bx-input'"
+    ></example-input>
+    <example-input-date
+      v-if="componentVisible === 'bx-input-date'"
+    ></example-input-date>
+    <example-input-file
+      v-if="componentVisible === 'bx-input-file'"
+    ></example-input-file>
+    <example-link
+      v-if="componentVisible === 'bx-link'"
+    ></example-link>
+    <example-progressbar
+      v-if="componentVisible === 'bx-progressbar'"
+    ></example-progressbar>
+    <example-radio
+      v-if="componentVisible === 'bx-radio'"
+    ></example-radio>
+    <example-select
+      v-if="componentVisible === 'bx-select'"
+    ></example-select>
+<!--    <example-tag-selector -->
+<!--      v-if="componentVisible === 'bx-tag-selector'"-->
+<!--    ></example-tag-selector>-->
+    <example-textarea
+      v-if="componentVisible === 'bx-textarea'"
+    ></example-textarea>
     <template #menu>
       <ul v-if="components.length" style="padding-left: 0;list-style-type: none;">
         <li v-for="component in components" :key="component">
@@ -49,18 +79,18 @@ import ExamplePage from './components/example/Page.vue';
 
 export default defineComponent({
   mounted() {
-      if (!this.$BX24) return;
+    if (!this.$BX24) return;
 
-      this.$BX24.appInfo().then((response) => {
+    this.$BX24.appInfo().then((response) => {
       if (response.scope.includes('user')) {
         const RestCall = this.$BX24.createBatch();
         RestCall.batch({
           userCurrent: ['user.current'],
           users: ['user.get'],
-        }).then(console.log);
+        }).then(console.info);
       }
       return response;
-    }).then(console.log);
+    }).then(console.info);
   },
   data() {
     return {

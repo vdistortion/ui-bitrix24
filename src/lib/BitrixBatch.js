@@ -30,7 +30,13 @@ export class BitrixBatch {
 
           const total = value.total();
           const data = value.data();
-          const dataLength = data ? data?.items ? data.items.length : data.length : 1;
+          let dataLength = 1;
+
+          if (data) {
+            if (Array.isArray(data.items)) dataLength = data.items.length;
+            else if (Array.isArray(data)) dataLength = data.length;
+          }
+
           this.result[key] = data;
 
           if (total > this.limit && total > dataLength) {
@@ -109,20 +115,22 @@ export class BitrixBatch {
     return this.result;
   }
 
+  // eslint-disable-next-line class-methods-use-this
   parseRequest(r) {
-    return Object.entries(r).reduce((requestList, [key, request]) => {
+    return Object.entries(r).reduce((acc, [key, request]) => {
       if (Array.isArray(request)) {
         const [method, params = {}] = request;
-        requestList[key] = [method, params];
+        acc[key] = [method, params];
       } else {
         const { method, params = {} } = request;
-        requestList[key] = [method, params];
+        acc[key] = [method, params];
       }
 
-      return requestList;
+      return acc;
     }, {});
   }
 
+  // eslint-disable-next-line class-methods-use-this
   addStart(request, start) {
     const [method, params] = request;
     return [method, { start, ...params }];
