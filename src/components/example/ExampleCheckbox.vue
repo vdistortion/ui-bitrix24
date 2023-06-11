@@ -2,14 +2,15 @@
   <example-table name="bx-checkbox" :code="markup">
     <bx-checkbox
       value="One"
+      title="value=One"
       v-model="props.value"
     >example</bx-checkbox>
     <bx-checkbox
       value="Two"
+      title="value=Two"
       v-model="props.value"
       :width="props.width"
       :disabled="props.disabled"
-      :old="props.old"
     >{{ slots.default }}</bx-checkbox>
     <template #params>
       <label>
@@ -27,10 +28,6 @@
       <label>
         <input type="checkbox" v-model="props.disabled">
         props.disabled
-      </label>
-      <label>
-        <input type="checkbox" v-model="props.old">
-        props.old
       </label>
     </template>
   </example-table>
@@ -54,7 +51,6 @@ export default defineComponent({
   v-model="${this.props.value}"
   width="${this.props.width}"
   :disabled="${this.props.disabled}"
-  :old="${this.props.old}"
 >${this.slots.default}</bx-checkbox>
       `;
     },
@@ -68,7 +64,6 @@ export default defineComponent({
         value: [],
         width: '320px',
         disabled: false,
-        old: false,
       },
     };
   },
