@@ -176,7 +176,7 @@ export default {
 
 ### Новые методы
 
-* `.createBatch([handlerList[, BatchClass]])` — Создание пакетного выполнения запросов, надстройка над `.callBatch()`
+* `.createBatch([handlerList[, BatchClass]])` — Создание пакетного выполнения запросов, надстройка над `.callBatch()` ([подробнее](BATCH.md))
 
 * `.isMobile()` — [is-mobile](https://www.npmjs.com/package/is-mobile)
 

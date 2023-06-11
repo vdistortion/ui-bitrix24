@@ -28,6 +28,8 @@
       "code": 100,
       "ignorePattern": "d=\"([\\s\\S]*?)\""
     }],
-    "no-console": ["error", { "allow": ["info", "warn", "error", "group", "groupEnd"] }]
+    "no-console": ["error", {
+      "allow": ["info", "warn", "error", "group", "groupEnd"]
+    }]
   }
 }
