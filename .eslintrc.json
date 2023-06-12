@@ -6,7 +6,8 @@
   },
   "extends": [
     "airbnb-base",
-    "plugin:vue/vue3-essential"
+    "plugin:vue/vue3-essential",
+    "plugin:storybook/recommended"
   ],
   "parserOptions": {
     "ecmaVersion": "latest",

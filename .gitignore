@@ -28,3 +28,4 @@ coverage
 *.sw?
 
 /lib
+/storybook-static

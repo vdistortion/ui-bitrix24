@@ -54,7 +54,9 @@
     "preview": "vite preview --host",
     "lint": "eslint . --ext .vue,.js,.jsx,.cjs,.mjs --fix --ignore-path .gitignore",
     "public:lib": "npm run build:lib && npm publish",
-    "public": "npm run build && gh-pages -d dist"
+    "public": "npm run build && gh-pages -d dist",
+    "storybook": "storybook dev -p 6006",
+    "build-storybook": "storybook build"
   },
   "dependencies": {
     "@vuepic/vue-datepicker": "^3.6.5",
@@ -64,12 +66,19 @@
     "vue-select": "^4.0.0-beta.6"
   },
   "devDependencies": {
+    "@storybook/addon-actions": "^7.0.20",
+    "@storybook/addon-essentials": "^7.0.20",
+    "@storybook/blocks": "^7.0.20",
+    "@storybook/vue3": "^7.0.20",
+    "@storybook/vue3-vite": "^7.0.20",
     "@vitejs/plugin-vue": "^4.0.0",
     "autoprefixer": "^10.4.14",
     "eslint": "^8.42.0",
     "eslint-config-airbnb-base": "^15.0.0",
     "eslint-plugin-import": "^2.27.5",
+    "eslint-plugin-storybook": "^0.6.12",
     "eslint-plugin-vue": "^9.14.1",
+    "storybook": "^7.0.20",
     "stylus": "^0.59.0",
     "typescript": "^5.0.4",
     "vite": "^4.0.0"
