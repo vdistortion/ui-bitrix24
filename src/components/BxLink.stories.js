@@ -1,23 +1,19 @@
 import BxLink from './BxLink.vue';
 
-const defaultProps = {
-  href: '',
-};
-
 export default {
   title: 'bx-link',
   component: BxLink,
   tags: ['autodocs'],
   args: {
     default: 'bx-link',
-    href: defaultProps.href,
+    href: 'https://astrotrain55.github.io/vue-bitrix24/',
   },
   argTypes: {
     default: {
       control: { type: 'text' },
     },
     href: {
-      defaultValue: defaultProps.href,
+      defaultValue: '',
       control: { type: 'text' },
     },
   },
