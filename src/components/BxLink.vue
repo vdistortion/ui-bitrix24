@@ -1,5 +1,5 @@
 <template>
-  <a :href="href" @click.left.prevent="onClick">
+  <a :href="href" target="_blank" @click.left="onClick">
     <slot></slot>
   </a>
 </template>
@@ -9,8 +9,11 @@ import { defineComponent } from 'vue';
 
 export default defineComponent({
   methods: {
-    onClick() {
-      if (this.$BX24) this.$BX24.openLink(this.href);
+    onClick(e) {
+      if (this.$BX24) {
+        e.preventDefault();
+        this.$BX24.openLink(this.href);
+      }
     },
   },
   inject: ['$BX24'],
@@ -18,6 +21,9 @@ export default defineComponent({
     href: {
       type: String,
       required: true,
+      validator(value) {
+        return typeof value === 'string';
+      },
     },
   },
   name: 'bx-link',
