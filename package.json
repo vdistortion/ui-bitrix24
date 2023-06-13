@@ -79,7 +79,6 @@
     "eslint-plugin-storybook": "^0.6.12",
     "eslint-plugin-vue": "^9.14.1",
     "storybook": "^7.0.20",
-    "stylus": "^0.59.0",
     "typescript": "^5.0.4",
     "vite": "^4.0.0"
   }

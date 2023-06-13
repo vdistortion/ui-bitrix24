@@ -21,16 +21,18 @@ export default defineComponent({
 });
 </script>
 
-<style lang="stylus">
-.example-page
-  main
-    display flex
-    max-width 1024px
-    margin 0 auto
-  &__menu
-    min-width 200px
-  &__content
-    flex-grow 1
-    display flex
-    justify-content center
+<style>
+.example-page main {
+  display: flex;
+  max-width: 1024px;
+  margin: 0 auto;
+}
+.example-page__menu {
+  min-width: 200px;
+}
+.example-page__content {
+  flex-grow: 1;
+  display: flex;
+  justify-content: center;
+}
 </style>

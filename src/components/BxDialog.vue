@@ -1116,7 +1116,8 @@ export default defineComponent({
 });
 </script>
 
-<style lang="stylus">
-.ui-selector-dialog
-  position relative
+<style>
+.ui-selector-dialog {
+  position: relative;
+}
 </style>

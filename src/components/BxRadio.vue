@@ -46,7 +46,8 @@ export default defineComponent({
 });
 </script>
 
-<style lang="stylus">
-.ui-ctl-radio
-  cursor pointer
+<style>
+.ui-ctl-radio {
+  cursor: pointer;
+}
 </style>

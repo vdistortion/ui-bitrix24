@@ -66,7 +66,8 @@ export default defineComponent({
 });
 </script>
 
-<style lang="stylus">
-.ui-ctl-checkbox
-  cursor pointer
+<style>
+.ui-ctl-checkbox {
+  cursor: pointer;
+}
 </style>

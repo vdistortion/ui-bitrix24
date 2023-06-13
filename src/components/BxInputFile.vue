@@ -124,44 +124,49 @@ export default defineComponent({
 });
 </script>
 
-<style lang="stylus">
-.ui-ctl.bx-input-file-disabled.ui-ctl-file-drop
-.ui-ctl.bx-input-file-disabled.ui-ctl-file-link .ui-ctl-label-text
-.ui-ctl.bx-input-file-disabled.ui-ctl-file-btn .ui-ctl-label-text
-  cursor not-allowed
-
-.drag-n-drop .ui-ctl-file-drop .ui-ctl-element
-.drag-n-drop .ui-ctl-file-link .ui-ctl-element
-.drag-n-drop .ui-ctl-file-btn .ui-ctl-element
-  display block
-  position absolute
-  top -100%
-  right 0
-  bottom 0
-  left 0
-  opacity 0
-
-.drag-n-drop
-  width 100%
-  overflow hidden
-  &__list
-    list-style-type none
-    padding 0
-    margin 5px 0 0
-  &__file
-    display flex
-    align-items center
-  &__name
-    text-overflow ellipsis
-    overflow hidden
-    color #2067b0
-    font-size 13px
-    line-height 1.8
-  &__delete
-    background-image url("../assets/wduf-sprite.png")
-    background-repeat no-repeat
-    background-position center -44px
-    width 24px
-    height 24px
-    cursor pointer
+<style>
+.ui-ctl.bx-input-file-disabled.ui-ctl-file-drop,
+.ui-ctl.bx-input-file-disabled.ui-ctl-file-link .ui-ctl-label-text,
+.ui-ctl.bx-input-file-disabled.ui-ctl-file-btn .ui-ctl-label-text {
+  cursor: not-allowed;
+}
+.drag-n-drop .ui-ctl-file-drop .ui-ctl-element,
+.drag-n-drop .ui-ctl-file-link .ui-ctl-element,
+.drag-n-drop .ui-ctl-file-btn .ui-ctl-element {
+  display: block;
+  position: absolute;
+  top: -100%;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  opacity: 0;
+}
+.drag-n-drop {
+  width: 100%;
+  overflow: hidden;
+}
+.drag-n-drop__list {
+  list-style-type: none;
+  padding: 0;
+  margin: 5px 0 0;
+}
+.drag-n-drop__file {
+  display: flex;
+  align-items: center;
+}
+.drag-n-drop__name {
+  text-overflow: ellipsis;
+  overflow: hidden;
+  color: #2067b0;
+  font-size: 13px;
+  line-height: 1.8;
+}
+.drag-n-drop__delete {
+  background-image: url("../assets/wduf-sprite.png");
+  background-repeat: no-repeat;
+  background-position: center -44px;
+  width: 24px;
+  height: 24px;
+  cursor: pointer;
+}
 </style>

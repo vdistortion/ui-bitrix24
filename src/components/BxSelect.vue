@@ -27,16 +27,19 @@ export default defineComponent({
 });
 </script>
 
-<style lang="stylus">
-.bx-select
-  &:hover .vs__dropdown-toggle
-  &.vs--open .vs__dropdown-toggle
-    border-color #66afe9
-  .vs__dropdown-toggle
-    transition border-color .5s
-  .vs__dropdown-toggle
-  .vs__selected
-    border-radius 2px
-  .vs__selected
-    background-color #bcedfc
+<style>
+.bx-select:hover .vs__dropdown-toggle,
+.bx-select.vs--open .vs__dropdown-toggle {
+  border-color: #66afe9;
+}
+.bx-select .vs__dropdown-toggle {
+  transition: border-color 0.5s;
+}
+.bx-select .vs__dropdown-toggle,
+.bx-select .vs__selected {
+  border-radius: 2px;
+}
+.bx-select .vs__selected {
+  background-color: #bcedfc;
+}
 </style>

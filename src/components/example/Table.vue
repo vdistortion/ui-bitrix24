@@ -48,29 +48,36 @@ export default defineComponent({
 });
 </script>
 
-<style lang="stylus">
-.example-table
-  margin 10px
-  caption
-    font-weight bold
-  &__components
-  &__code
-  &__params
-    padding 10px
-  &__components
-    display flex
-    column-gap 10px
-    border-bottom 1px solid
-  &__code
-    width 100%
-    vertical-align top
-    margin-right 20px
-    padding 10px
-    background-color #eeeeee
-    border-radius 5px
-  &__params
-    display flex
-    flex-direction column
-    & > *:not(:first-child)
-      margin-top 5px
+<style>
+.example-table {
+  margin: 10px;
+}
+.example-table caption {
+  font-weight: bold;
+}
+.example-table__components,
+.example-table__code,
+.example-table__params {
+  padding: 10px;
+}
+.example-table__components {
+  display: flex;
+  column-gap: 10px;
+  border-bottom: 1px solid;
+}
+.example-table__code {
+  width: 100%;
+  vertical-align: top;
+  margin-right: 20px;
+  padding: 10px;
+  background-color: #eee;
+  border-radius: 5px;
+}
+.example-table__params {
+  display: flex;
+  flex-direction: column;
+}
+.example-table__params > *:not(:first-child) {
+  margin-top: 5px;
+}
 </style>

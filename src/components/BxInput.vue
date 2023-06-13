@@ -169,7 +169,8 @@ export default defineComponent({
 });
 </script>
 
-<style lang="stylus">
-.ui-ctl-ext-before
-  left 1px
+<style>
+.ui-ctl-ext-before {
+  left: 1px;
+}
 </style>
