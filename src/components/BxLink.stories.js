@@ -1,8 +1,20 @@
 import BxLink from './BxLink.vue';
 
+const href = 'https://training.bitrix24.com/rest_help/js_library/additional/openPath.php';
+const desc = 'Component opens a specified path inside slider in the Bitrix24 account.';
+// eslint-disable-next-line max-len
+const regexp = /^\/(crm\/(deal|lead|contact|company)|marketplace|company\/personal\/user\/[0-9]+|workgroups\/group\/[0-9]+)\//;
+
 export default {
   title: 'bx-link',
   component: BxLink,
+  parameters: {
+    docs: {
+      description: {
+        component: `<a href="${href}" target="_blank">${desc}</a>`,
+      },
+    },
+  },
   tags: ['autodocs'],
   args: {
     default: 'bx-link',
@@ -13,6 +25,7 @@ export default {
       control: { type: 'text' },
     },
     href: {
+      description: `${regexp}`,
       defaultValue: '',
       control: { type: 'text' },
     },
