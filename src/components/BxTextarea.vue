@@ -20,6 +20,10 @@
 <script lang="ts">
 import { defineComponent } from 'vue';
 
+export const props = {
+  resizes: ['', 'no', 'y', 'x'],
+};
+
 export default defineComponent({
   emits: ['update:modelValue'],
   props: {
@@ -34,6 +38,9 @@ export default defineComponent({
     resize: {
       type: String,
       default: '',
+      validator(value) {
+        return props.resizes.includes(value);
+      },
     },
     disabled: {
       type: Boolean,
