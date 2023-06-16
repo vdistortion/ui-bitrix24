@@ -11,6 +11,11 @@
 <script lang="ts">
 import { defineComponent } from 'vue';
 
+export const props = {
+  sizes: ['md', 'lg'],
+  colors: ['primary', 'success', 'warning', 'danger'],
+};
+
 export default defineComponent({
   computed: {
     width() {
@@ -18,12 +23,8 @@ export default defineComponent({
     },
     classList() {
       return {
-        'ui-progressbar-lg': this.size === 'lg',
-        'ui-progressbar-md': this.size === 'md',
-        'ui-progressbar-primary': this.color === 'primary',
-        'ui-progressbar-success': this.color === 'success',
-        'ui-progressbar-warning': this.color === 'warning',
-        'ui-progressbar-danger': this.color === 'danger',
+        [`ui-progressbar-${this.size}`]: props.sizes.includes(this.size),
+        [`ui-progressbar-${this.color}`]: props.colors.includes(this.color),
         'ui-progressbar-bg': this.bg,
         'ui-progressbar-column': this.column,
       };
@@ -33,14 +34,23 @@ export default defineComponent({
     progress: {
       type: Number,
       default: 0,
+      validator(value) {
+        return Number.isFinite(value);
+      },
     },
     size: {
       type: String,
       default: 'md',
+      validator(value) {
+        return props.sizes.includes(value);
+      },
     },
     color: {
       type: String,
       default: 'primary',
+      validator(value) {
+        return props.colors.includes(value);
+      },
     },
     textBefore: {
       type: String,
