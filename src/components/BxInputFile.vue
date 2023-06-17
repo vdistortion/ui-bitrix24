@@ -11,11 +11,10 @@
         type="file"
         :multiple="multiple"
         :disabled="disabled"
-        @input="onInput"
         @change="onChange"
       >
       <div class="ui-ctl-label-text">
-        <slot>{{ placeholder }}</slot>
+        {{ placeholder || defaultPlaceholder }}
       </div>
     </label>
     <label
@@ -29,11 +28,10 @@
         type="file"
         :multiple="multiple"
         :disabled="disabled"
-        @input="onInput"
         @change="onChange"
       >
       <div class="ui-ctl-label-text">
-        <slot>{{ placeholder }}</slot>
+        {{ placeholder || defaultPlaceholder }}
       </div>
     </label>
     <label
@@ -43,22 +41,19 @@
       :title="title"
     >
       <div class="ui-ctl-label-text">
-        <slot>
-          <span>{{ placeholder }}</span>
-          <small>Перетащить с помощью drag'n'drop</small>
-        </slot>
+        <span>{{ placeholder || defaultPlaceholder }}</span>
+        <small>Перетащить с помощью drag'n'drop</small>
       </div>
       <input
         class="ui-ctl-element"
         type="file"
         :multiple="multiple"
         :disabled="disabled"
-        @input="onInput"
         @change="onChange"
       >
     </label>
-    <ul v-if="value.length" class="drag-n-drop__list">
-      <li v-for="(file, key) in value" :key="key" class="drag-n-drop__file">
+    <ul v-if="files.length" class="drag-n-drop__list">
+      <li v-for="(file, key) in files" :key="key" class="drag-n-drop__file">
         <span class="drag-n-drop__name">{{ getName(file) }}</span>
         <span class="drag-n-drop__delete" @click="onDelete(key)"></span>
       </li>
@@ -70,46 +65,55 @@
 import { defineComponent } from 'vue';
 import { formatSizeUnits } from '../utils/formatSizeUnits';
 
+export const props = {
+  types: ['drop', 'button', 'link'],
+};
+
 export default defineComponent({
   methods: {
     getName(file) {
       return `${file.name} (${formatSizeUnits(file.size)})`;
     },
 
-    onInput(e) {
-      this.$emit('input', [...e.target.files]);
-    },
-
     onChange(e) {
-      this.$emit('change', [...e.target.files]);
+      this.files.push(...e.target.files);
+      this.$emit('change', this.files);
     },
 
     onDelete(index) {
-      this.$emit('delete', index);
+      const [file] = this.files.splice(index, 1);
+      this.$emit('delete', this.files, file);
     },
   },
   computed: {
     title() {
       if (this.disabled) return '';
-      if (this.value.length) return this.value.map((file) => file.name).join('\n');
+      if (this.files.length) return this.files.map((file) => file.name).join('\n');
       if (this.multiple) return 'Файлы не выбраны.';
       return 'Файл не выбран.';
     },
   },
   data() {
     return {
-      placeholder: 'Загрузить файл или картинку',
+      files: [],
+      defaultPlaceholder: 'Загрузить файл или картинку',
     };
   },
-  emits: ['change', 'delete', 'input'],
+  emits: ['change', 'delete'],
   props: {
-    value: {
-      type: Array,
-      default: () => [],
+    placeholder: {
+      type: String,
+      default: '',
+      validator(value) {
+        return typeof value === 'string';
+      },
     },
     type: {
       type: String,
       default: 'drop',
+      validator(value) {
+        return props.types.includes(value);
+      },
     },
     multiple: {
       type: Boolean,
