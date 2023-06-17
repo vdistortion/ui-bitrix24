@@ -8,11 +8,19 @@
           class="bx-entity-selector__item"
           :class="{ 'hover-delete': hoverDelete[key] }"
         >
-          <span
+          <a
+            v-if="item[displayFieldLink]"
+            :href="item[displayFieldLink]"
+            target="_blank"
             class="bx-entity-selector__text"
             :class="{ clickable }"
-            @auxclick.prevent="clickable ? $emit('auxclick', key, item) : false"
-            @click.prevent="clickable ? $emit('click', key, item) : false"
+            @click="onClick($event, key, item)"
+          >
+            {{ item[displayField] }}
+          </a>
+          <span
+            v-else
+            class="bx-entity-selector__text"
           >
             {{ item[displayField] }}
           </span>
@@ -30,9 +38,6 @@
         </button>
       </span>
     </div>
-    <div class="bx-entity-selector__content">
-      <slot></slot>
-    </div>
   </div>
 </template>
 
@@ -40,12 +45,20 @@
 import { defineComponent } from 'vue';
 
 export default defineComponent({
+  methods: {
+    onClick(e, key, item) {
+      if (this.clickable) {
+        e.preventDefault();
+        this.$emit('click', key, item);
+      }
+    },
+  },
   data() {
     return {
       hoverDelete: [],
     };
   },
-  emits: ['add', 'auxclick', 'click', 'delete'],
+  emits: ['add', 'click', 'delete'],
   props: {
     list: {
       type: Array,
@@ -54,6 +67,10 @@ export default defineComponent({
     displayField: {
       type: String,
       default: 'name',
+    },
+    displayFieldLink: {
+      type: String,
+      default: '',
     },
     textAdd: {
       type: String,
@@ -86,7 +103,7 @@ export default defineComponent({
 
 <style>
 .bx-entity-selector {
-  position: relative;
+  font-family: sans-serif;
 }
 .bx-entity-selector.inline {
   display: inline-block;
@@ -188,12 +205,5 @@ export default defineComponent({
   position: absolute;
   top: 5px;
   width: 8px;
-}
-.bx-entity-selector__content {
-  position: absolute;
-  top: 100%;
-  left: 0;
-  right: 0;
-  z-index: 1;
 }
 </style>
