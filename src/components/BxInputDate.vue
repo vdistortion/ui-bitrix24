@@ -46,6 +46,10 @@ import { defineComponent } from 'vue';
 import VueDatepicker from '@vuepic/vue-datepicker';
 import '@vuepic/vue-datepicker/dist/main.css';
 
+export const props = {
+  after: ['after', 'ext-after'],
+};
+
 export default defineComponent({
   emits: ['update:modelValue'],
   props: {
@@ -56,6 +60,9 @@ export default defineComponent({
     after: {
       type: String,
       default: 'after',
+      validator(value) {
+        return props.after.includes(value);
+      },
     },
     width: {
       type: String,
