@@ -21,35 +21,29 @@ export default defineComponent({
   methods: {
     updateInput(event) {
       const isChecked = event.target.checked;
+      const newValue = [...this.modelValue];
 
-      if (Array.isArray(this.modelValue)) {
-        const newValue = [...this.modelValue];
-
-        if (isChecked) {
-          newValue.push(this.value);
-        } else {
-          newValue.splice(newValue.indexOf(this.value), 1);
-        }
-
-        this.$emit('update:modelValue', newValue);
+      if (isChecked) {
+        newValue.push(this.value);
       } else {
-        this.$emit('update:modelValue', Boolean(isChecked));
+        newValue.splice(newValue.indexOf(this.value), 1);
       }
+
+      this.$emit('update:modelValue', newValue);
     },
   },
   computed: {
     isChecked() {
-      if (Array.isArray(this.modelValue)) return this.modelValue.includes(this.value);
-      return this.modelValue === true;
+      return this.modelValue.includes(this.value);
     },
   },
   emits: ['update:modelValue'],
   props: {
-    value: {
-      type: [Boolean, String, Array, Object],
-      default: '',
-    },
     modelValue: {
+      type: Array,
+      default: () => [],
+    },
+    value: {
       type: [Boolean, String, Array, Object],
       default: '',
     },

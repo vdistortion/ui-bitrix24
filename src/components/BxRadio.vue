@@ -25,11 +25,11 @@ export default defineComponent({
   },
   emits: ['update:modelValue'],
   props: {
-    value: {
+    modelValue: {
       type: [Boolean, String, Array, Object],
       default: '',
     },
-    modelValue: {
+    value: {
       type: [Boolean, String, Array, Object],
       default: '',
     },
