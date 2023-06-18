@@ -1,6 +1,7 @@
 export const loadStyles = (domain = 'www.bitrix24.ru') => {
   const root = `//${domain}/bitrix/js/ui`;
   const files = [
+    'design-tokens/dist/ui.design-tokens.min.css',
     'alerts/ui.alerts.min.css',
     'buttons/ui.buttons.min.css',
     'buttons/icons/ui.buttons.icons.min.css',

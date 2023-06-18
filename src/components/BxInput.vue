@@ -76,8 +76,8 @@
       :value="modelValue"
       :placeholder="placeholder"
       :disabled="disabled"
-      @change="$emit('change', $event.target.value)"
       @input="$emit('update:modelValue', $event.target.value)"
+      @change="$emit('change', $event.target.value)"
     >
   </div>
 </template>
@@ -85,8 +85,15 @@
 <script lang="ts">
 import { defineComponent } from 'vue';
 
+export const props = {
+  sizes: ['lg', 'md', 'sm', 'xs'],
+  colors: ['', 'success', 'warning', 'danger'],
+  icons: ['', 'search', 'calendar', 'dots', 'phone', 'mail', 'clock', 'angle', 'clear', 'loader'],
+  tagColors: ['default', 'primary', 'success', 'warning', 'danger'],
+};
+
 export default defineComponent({
-  emits: ['change', 'click-after', 'click-before', 'update:modelValue'],
+  emits: ['update:modelValue', 'change', 'click-before', 'click-after'],
   props: {
     modelValue: {
       type: String,
@@ -103,10 +110,16 @@ export default defineComponent({
     size: {
       type: String,
       default: 'md',
+      validator(value) {
+        return props.sizes.includes(value);
+      },
     },
     color: {
       type: String,
       default: '',
+      validator(value) {
+        return props.colors.includes(value);
+      },
     },
     width: {
       type: String,
@@ -139,10 +152,16 @@ export default defineComponent({
     tagColor: {
       type: String,
       default: 'default',
+      validator(value) {
+        return props.tagColors.includes(value);
+      },
     },
     beforeIcon: {
       type: String,
       default: '',
+      validator(value) {
+        return props.icons.includes(value);
+      },
     },
     beforeExt: {
       type: Boolean,
@@ -155,6 +174,9 @@ export default defineComponent({
     afterIcon: {
       type: String,
       default: '',
+      validator(value) {
+        return props.icons.includes(value);
+      },
     },
     afterExt: {
       type: Boolean,
