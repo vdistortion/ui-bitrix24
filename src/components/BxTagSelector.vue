@@ -28,12 +28,16 @@
 
 <script lang="ts">
 import { defineComponent } from 'vue';
+import { loadStyles } from '../utils/loadStyles';
 
 export default defineComponent({
   methods: {
     getImageUrl(name) {
       return new URL(`../assets/${name}.svg`, import.meta.url).href;
     },
+  },
+  created() {
+    loadStyles();
   },
   name: 'bx-tag-selector',
 });

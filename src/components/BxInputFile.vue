@@ -64,6 +64,7 @@
 <script lang="ts">
 import { defineComponent } from 'vue';
 import { formatSizeUnits } from '../utils/formatSizeUnits';
+import { loadStyles } from '../utils/loadStyles';
 
 export const props = {
   types: ['drop', 'button', 'link'],
@@ -77,12 +78,12 @@ export default defineComponent({
 
     onChange(e) {
       this.files.push(...e.target.files);
-      this.$emit('change', this.files);
+      this.$emit('change', [...this.files]);
     },
 
     onDelete(index) {
       const [file] = this.files.splice(index, 1);
-      this.$emit('delete', this.files, file);
+      this.$emit('delete', [...this.files], file);
     },
   },
   computed: {
@@ -92,6 +93,9 @@ export default defineComponent({
       if (this.multiple) return 'Файлы не выбраны.';
       return 'Файл не выбран.';
     },
+  },
+  created() {
+    loadStyles();
   },
   data() {
     return {

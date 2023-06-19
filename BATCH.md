@@ -1,6 +1,6 @@
 ### Использование метода .createBatch():
 ```js
-const RestCall = this.$BX24.createBatch(handlerList);
+const RestCall = this.$BX24.createBatch(handlerList, BatchClass);
 
 RestCall.batch(options)
   .then(console.info)
@@ -8,7 +8,8 @@ RestCall.batch(options)
 ```
 
 * `options` аналогичен параметру `calls` в методе [callBatch](https://dev.1c-bitrix.ru/rest_help/js_library/rest/callBatch.php)
-* `handlerList` — объект с обработчиками ответа, ключи идентичны `options`
+* `handlerList` — необязательный параметр; объект с обработчиками ответа, ключи идентичны `options`
+* `BatchClass` — необязательный параметр; можно прокинуть в метод свою реализацию батч-запросов, конструктор должен принимать два параметра: нативный BX24.callBatch и handlerList
 
 ### Пример:
 ```js

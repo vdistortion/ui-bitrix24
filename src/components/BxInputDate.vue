@@ -45,12 +45,16 @@
 import { defineComponent } from 'vue';
 import VueDatepicker from '@vuepic/vue-datepicker';
 import '@vuepic/vue-datepicker/dist/main.css';
+import { loadStyles } from '../utils/loadStyles';
 
 export const props = {
   after: ['after', 'ext-after'],
 };
 
 export default defineComponent({
+  created() {
+    loadStyles();
+  },
   emits: ['update:modelValue'],
   props: {
     modelValue: {

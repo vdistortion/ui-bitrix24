@@ -1,4 +1,4 @@
-import BxProgressbar, { props } from './BxProgressbar.vue';
+import BxProgressbar, { props } from '../components/BxProgressbar.vue';
 
 const defaultProps = {
   progress: 0,

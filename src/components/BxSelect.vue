@@ -18,8 +18,12 @@
 import { defineComponent } from 'vue';
 import VueSelect from 'vue-select';
 import 'vue-select/dist/vue-select.css';
+import { loadStyles } from '../utils/loadStyles';
 
 export default defineComponent({
+  created() {
+    loadStyles();
+  },
   components: {
     VueSelect,
   },

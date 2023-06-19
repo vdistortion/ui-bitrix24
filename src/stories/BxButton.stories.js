@@ -1,5 +1,5 @@
 import { action } from '@storybook/addon-actions';
-import BxButton, { props } from './BxButton.vue';
+import BxButton, { props } from '../components/BxButton.vue';
 
 const defaultProps = {
   type: 'button',

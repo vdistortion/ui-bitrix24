@@ -1,5 +1,5 @@
 import { action } from '@storybook/addon-actions';
-import BxAlert, { props } from './BxAlert.vue';
+import BxAlert, { props } from '../components/BxAlert.vue';
 
 const defaultProps = {
   title: 'Внимание!',

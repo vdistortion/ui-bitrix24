@@ -4,12 +4,13 @@
       <strong v-if="title"> {{ title }} </strong>
       <slot></slot>
     </span>
-    <span class="ui-alert-close-btn" @click="$emit('close', $event)"></span>
+    <span class="ui-alert-close-btn" @click="$emit('close')"></span>
   </div>
 </template>
 
 <script lang="ts">
 import { defineComponent } from 'vue';
+import { loadStyles } from '../utils/loadStyles';
 
 export const props = {
   sizes: ['md', 'xs'],
@@ -28,6 +29,9 @@ export default defineComponent({
         'ui-alert-inline': this.inline,
       };
     },
+  },
+  created() {
+    loadStyles();
   },
   emits: ['close'],
   props: {

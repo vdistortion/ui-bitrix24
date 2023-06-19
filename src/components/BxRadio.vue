@@ -16,12 +16,16 @@
 
 <script lang="ts">
 import { defineComponent } from 'vue';
+import { loadStyles } from '../utils/loadStyles';
 
 export default defineComponent({
   computed: {
     isChecked() {
       return this.modelValue === this.value;
     },
+  },
+  created() {
+    loadStyles();
   },
   emits: ['update:modelValue'],
   props: {

@@ -1,5 +1,5 @@
 import { action } from '@storybook/addon-actions';
-import BxInputFile, { props } from './BxInputFile.vue';
+import BxInputFile, { props } from '../components/BxInputFile.vue';
 
 const defaultProps = {
   placeholder: '',
@@ -8,7 +8,7 @@ const defaultProps = {
   disabled: false,
 };
 export default {
-  title: 'bx-input-file',
+  title: 'forms/bx-input-file',
   component: BxInputFile,
   tags: ['autodocs'],
   args: {

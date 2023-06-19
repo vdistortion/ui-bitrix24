@@ -10,6 +10,7 @@
 
 <script lang="ts">
 import { defineComponent } from 'vue';
+import { loadStyles } from '../utils/loadStyles';
 
 export const props = {
   sizes: ['md', 'lg'],
@@ -29,6 +30,9 @@ export default defineComponent({
         'ui-progressbar-column': this.column,
       };
     },
+  },
+  created() {
+    loadStyles();
   },
   props: {
     progress: {

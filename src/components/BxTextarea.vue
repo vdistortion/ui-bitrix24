@@ -19,12 +19,16 @@
 
 <script lang="ts">
 import { defineComponent } from 'vue';
+import { loadStyles } from '../utils/loadStyles';
 
 export const props = {
   resizes: ['', 'no', 'y', 'x'],
 };
 
 export default defineComponent({
+  created() {
+    loadStyles();
+  },
   emits: ['update:modelValue'],
   props: {
     modelValue: {

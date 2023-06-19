@@ -1,5 +1,5 @@
 import { action } from '@storybook/addon-actions';
-import BxCheckbox from './BxCheckbox.vue';
+import BxCheckbox from '../components/BxCheckbox.vue';
 
 const defaultProps = {
   modelValue: [],
@@ -8,7 +8,7 @@ const defaultProps = {
   disabled: false,
 };
 export default {
-  title: 'bx-checkbox',
+  title: 'forms/bx-checkbox',
   component: BxCheckbox,
   tags: ['autodocs'],
   args: {

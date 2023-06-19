@@ -1,5 +1,5 @@
 import { action } from '@storybook/addon-actions';
-import BxSelect from './BxSelect.vue';
+import BxSelect from '../components/BxSelect.vue';
 import countries from '../utils/countries';
 
 const defaultProps = {
@@ -10,7 +10,7 @@ const defaultProps = {
   multiple: false,
 };
 export default {
-  title: 'bx-select',
+  title: 'forms/bx-select',
   component: BxSelect,
   parameters: {
     docs: {

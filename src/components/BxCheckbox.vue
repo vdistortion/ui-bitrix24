@@ -16,6 +16,7 @@
 
 <script lang="ts">
 import { defineComponent } from 'vue';
+import { loadStyles } from '../utils/loadStyles';
 
 export default defineComponent({
   methods: {
@@ -36,6 +37,9 @@ export default defineComponent({
     isChecked() {
       return this.modelValue.includes(this.value);
     },
+  },
+  created() {
+    loadStyles();
   },
   emits: ['update:modelValue'],
   props: {

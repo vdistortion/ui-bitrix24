@@ -8,7 +8,7 @@ export default defineConfig({
   build: {
     outDir: 'lib',
     lib: {
-      entry: resolve(__dirname, 'src/install.js'),
+      entry: resolve(__dirname, 'src/lib/plugin.js'),
       name: 'vue-bitrix24',
       fileName: 'index',
     },

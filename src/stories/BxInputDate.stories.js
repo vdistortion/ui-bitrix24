@@ -1,5 +1,5 @@
 import { action } from '@storybook/addon-actions';
-import BxInputDate, { props } from './BxInputDate.vue';
+import BxInputDate, { props } from '../components/BxInputDate.vue';
 
 const defaultProps = {
   modelValue: '',
@@ -7,7 +7,7 @@ const defaultProps = {
   width: '100%',
 };
 export default {
-  title: 'bx-input-date',
+  title: 'forms/bx-input-date',
   component: BxInputDate,
   parameters: {
     docs: {

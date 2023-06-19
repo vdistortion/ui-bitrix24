@@ -5,16 +5,13 @@ Promise-обёртка для работы с JavaScript REST API Bitrix24, би
 ## Установка
 
 ```nodejs
-npm i vue-bitrix24
+npm i -S vue-bitrix24@latest
 ```
 
 ## Подключение
 ```js
 // plugins/vue-bitrix24.js
-import { Bitrix24, BxButton } from 'vue-bitrix24';
-import 'vue-bitrix24/css';
-// или
-import Bitrix24 from 'vue-bitrix24/Library';
+import Bitrix24 from 'vue-bitrix24';
 import BxButton from 'vue-bitrix24/BxButton';
 
 const useBitrix24 = {
@@ -26,7 +23,8 @@ const useBitrix24 = {
 };
 
 export { Bitrix24, useBitrix24 };
-
+```
+```js
 // main.js
 import { createApp } from 'vue';
 import { Bitrix24, useBitrix24 } from './plugins/vue-bitrix24';
@@ -34,12 +32,12 @@ import App from './App.vue';
 
 Bitrix24.init().then((BX24) => {
   createApp(App)
-    .use(useBitrix24)
     .provide('$BX24', BX24)
+    .use(useBitrix24)
     .mount('#app');
 });
 ```
-`.init([scripts[, isCss]])` — можно передать список скриптов, а также отменить загрузку стилей с портала (например если ui не нужен, по умолчанию true)
+`.init([scripts])` — можно передать массив скриптов, которые должны быть загружены до инициализации приложения
 
 ## Вызов методов
 ```js
@@ -59,7 +57,8 @@ export default {
 
 ## Компоненты
 
-[Demo](https://astrotrain55.github.io/vue-bitrix24/)
+[Storybook](https://astrotrain55.github.io/vue-bitrix24/)
+
 * bx-alert
 * bx-button
 * bx-checkbox
@@ -75,8 +74,12 @@ export default {
 * bx-textarea
 
 ## Битрикс24
+
+### Ссылки
+
 * [Документация по REST API](https://dev.1c-bitrix.ru/rest_help/js_library/)
 * [UI-библиотека](https://dev.1c-bitrix.ru/api_d7/bitrix/ui/index.php)
+* [bitrix24-create-app](https://www.npmjs.com/package/bitrix24-create-app)
 
 ### Системные функции
 
@@ -178,9 +181,9 @@ export default {
 
 * `.createBatch([handlerList[, BatchClass]])` — Создание пакетного выполнения запросов, надстройка над `.callBatch()` ([подробнее](BATCH.md))
 
-* `.isMobile()` — [is-mobile](https://www.npmjs.com/package/is-mobile)
+* `.openLink(url[, inNewTab])` — Обёртка над методом `.openPath()`, открывает адрес в новой вкладке, если не можем открыть в том же окне или используем метод на телефоне. Чтобы сразу открыть ссылку в новой вкладке, передайте вторым параметром `true`
 
-* `.openLink(href[, target])` — Обёртка над методом `.openPath()`, открывает адрес в новой вкладке, если не можем открыть в том же окне или используем метод на телефоне
+* `.isMobile()` — [is-mobile](https://www.npmjs.com/package/is-mobile)
 
 <details>
   <summary>:imp:</summary>

@@ -1,5 +1,5 @@
 import { action } from '@storybook/addon-actions';
-import BxRadio from './BxRadio.vue';
+import BxRadio from '../components/BxRadio.vue';
 
 const defaultProps = {
   modelValue: '',
@@ -8,7 +8,7 @@ const defaultProps = {
   disabled: false,
 };
 export default {
-  title: 'bx-radio',
+  title: 'forms/bx-radio',
   component: BxRadio,
   tags: ['autodocs'],
   args: {

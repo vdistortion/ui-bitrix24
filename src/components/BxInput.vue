@@ -84,6 +84,7 @@
 
 <script lang="ts">
 import { defineComponent } from 'vue';
+import { loadStyles } from '../utils/loadStyles';
 
 export const props = {
   sizes: ['lg', 'md', 'sm', 'xs'],
@@ -93,6 +94,9 @@ export const props = {
 };
 
 export default defineComponent({
+  created() {
+    loadStyles();
+  },
   emits: ['update:modelValue', 'change', 'click-before', 'click-after'],
   props: {
     modelValue: {

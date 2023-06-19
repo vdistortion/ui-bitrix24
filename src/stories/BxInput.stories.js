@@ -1,5 +1,5 @@
 import { action } from '@storybook/addon-actions';
-import BxInput, { props } from './BxInput.vue';
+import BxInput, { props } from '../components/BxInput.vue';
 
 const defaultProps = {
   modelValue: '',
@@ -23,7 +23,7 @@ const defaultProps = {
   afterButton: false,
 };
 export default {
-  title: 'bx-input',
+  title: 'forms/bx-input',
   component: BxInput,
   tags: ['autodocs'],
   args: {

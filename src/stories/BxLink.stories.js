@@ -1,4 +1,4 @@
-import BxLink from './BxLink.vue';
+import BxLink from '../components/BxLink.vue';
 
 const href = 'https://training.bitrix24.com/rest_help/js_library/additional/openPath.php';
 const desc = 'Component opens a specified path inside slider in the Bitrix24 account.';

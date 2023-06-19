@@ -1,5 +1,5 @@
 import { action } from '@storybook/addon-actions';
-import BxTextarea, { props } from './BxTextarea.vue';
+import BxTextarea, { props } from '../components/BxTextarea.vue';
 
 const defaultProps = {
   modelValue: '',
@@ -9,7 +9,7 @@ const defaultProps = {
 };
 
 export default {
-  title: 'bx-textarea',
+  title: 'forms/bx-textarea',
   component: BxTextarea,
   tags: ['autodocs'],
   args: {

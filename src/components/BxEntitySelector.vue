@@ -9,12 +9,12 @@
           :class="{ 'hover-delete': hoverDelete[key] }"
         >
           <a
-            v-if="item[displayFieldLink]"
+            v-if="clickable"
             :href="item[displayFieldLink]"
             target="_blank"
             class="bx-entity-selector__text"
-            :class="{ clickable }"
-            @click="onClick($event, key, item)"
+            @click="onClick($event, key, item, 'click')"
+            @auxclick="onClick($event, key, item, 'auxclick')"
           >
             {{ item[displayField] }}
           </a>
@@ -46,10 +46,10 @@ import { defineComponent } from 'vue';
 
 export default defineComponent({
   methods: {
-    onClick(e, key, item) {
+    onClick(e, key, item, eventName) {
       if (this.clickable) {
         e.preventDefault();
-        this.$emit('click', key, item);
+        this.$emit(eventName, key, item);
       }
     },
   },
@@ -58,7 +58,7 @@ export default defineComponent({
       hoverDelete: [],
     };
   },
-  emits: ['add', 'click', 'delete'],
+  emits: ['add', 'click', 'auxclick', 'delete'],
   props: {
     list: {
       type: Array,
@@ -140,9 +140,6 @@ export default defineComponent({
   font-size: 13px;
   text-decoration: none;
   color: #1f6ab5;
-}
-.bx-entity-selector__text.clickable {
-  cursor: pointer;
 }
 .bx-entity-selector__delete {
   background-color: transparent;

@@ -1,5 +1,5 @@
 <template>
-  <a :href="href" target="_blank" @click.left="onClick">
+  <a :href="href" target="_blank" @click="onClick" @auxclick="onMiddleClick">
     <slot></slot>
   </a>
 </template>
@@ -13,6 +13,12 @@ export default defineComponent({
       if (this.$BX24) {
         e.preventDefault();
         this.$BX24.openLink(this.href);
+      }
+    },
+    onMiddleClick(e) {
+      if (this.$BX24) {
+        e.preventDefault();
+        this.$BX24.openLink(this.href, true);
       }
     },
   },

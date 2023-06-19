@@ -5,18 +5,20 @@ import { BitrixBatch } from './BitrixBatch';
 export class Bitrix24 extends BitrixWrapper {
   isMobile = isMobile;
 
-  createBatch(handlerList = {}, RestCall = BitrixBatch) {
-    return new RestCall(this.BX24.callBatch, handlerList);
+  createBatch(handlerList = {}, BatchClass = BitrixBatch) {
+    return new BatchClass(this.BX24.callBatch, handlerList);
   }
 
-  openLink(href, target = '_blank') {
-    const windowOpen = () => {
+  openLink(url, inNewTab = false) {
+    const openLinkInNewTab = (href) => {
       const anchor = document.createElement('a');
       anchor.href = [this.getDomain(true), href].join('');
-      anchor.target = target;
+      anchor.target = '_blank';
       anchor.click();
     };
-    if (isMobile()) windowOpen();
-    else this.openPath(href).catch(windowOpen);
+
+    if (inNewTab) openLinkInNewTab(url);
+    else if (isMobile()) openLinkInNewTab(url);
+    else this.openPath(url).catch(() => openLinkInNewTab(url));
   }
 }

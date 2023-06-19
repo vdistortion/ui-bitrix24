@@ -1,8 +1,6 @@
 /** @type { import('@storybook/vue3').Preview } */
 import './stories.css';
-import { loadStyles } from '../src/utils/loadStyles.js';
 
-loadStyles();
 export default {
   parameters: {
     actions: {

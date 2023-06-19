@@ -4,7 +4,7 @@
       class="ui-btn-main"
       :type="type"
       :disabled="disabled"
-      @click="$emit('click', $event)"
+      @click="$emit('click')"
     >
       <slot></slot>
       <i v-if="counter" class="ui-btn-counter">{{ count }}</i>
@@ -13,7 +13,7 @@
       class="ui-btn-menu"
       type="button"
       :disabled="disabled"
-      @click="$emit('toggle-menu', $event)"
+      @click="$emit('toggle-menu')"
     ></button>
   </div>
   <button
@@ -22,7 +22,7 @@
     :class="classList"
     :type="type"
     :disabled="disabled"
-    @click="$emit('click', $event)"
+    @click="$emit('click')"
   >
     <slot></slot>
     <i v-if="counter" class="ui-btn-counter">{{ count }}</i>
@@ -31,6 +31,7 @@
 
 <script lang="ts">
 import { defineComponent } from 'vue';
+import { loadStyles } from '../utils/loadStyles';
 
 export const props = {
   types: ['button', 'submit', 'reset'],
@@ -64,6 +65,9 @@ export default defineComponent({
         'ui-btn-no-caps': this.noCaps,
       };
     },
+  },
+  created() {
+    loadStyles();
   },
   emits: ['click', 'toggle-menu'],
   props: {

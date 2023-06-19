@@ -1,5 +1,5 @@
 import { action } from '@storybook/addon-actions';
-import BxEntitySelector from './BxEntitySelector.vue';
+import BxEntitySelector from '../components/BxEntitySelector.vue';
 import countriesWithoutLinks from '../utils/countries';
 
 const countries = countriesWithoutLinks.map((country) => ({
@@ -26,6 +26,7 @@ export default {
   args: {
     add: action('add'),
     click: action('click'),
+    auxclick: action('auxclick'),
     delete: action('delete'),
     list: defaultProps.list,
     displayField: defaultProps.displayField,

@@ -1,4 +1,4 @@
-import BxIcon, { props } from './BxIcon.vue';
+import BxIcon, { props } from '../components/BxIcon.vue';
 
 const defaultProps = {
   icon: 'file-empty',

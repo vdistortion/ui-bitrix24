@@ -2,12 +2,12 @@ export const loadStyles = (domain = 'www.bitrix24.ru') => {
   const root = `//${domain}/bitrix/js/ui`;
   const files = [
     'design-tokens/dist/ui.design-tokens.min.css',
+    'fonts/opensans/ui.font.opensans.min.css',
+    'fonts/roboto/ui.font.roboto.min.css',
     'alerts/ui.alerts.min.css',
     'buttons/ui.buttons.min.css',
     'buttons/icons/ui.buttons.icons.min.css',
-    // 'entity-selector/dist/entity-selector.bundle.min.css',
-    'fonts/opensans/ui.font.opensans.min.css',
-    // 'fonts/roboto/ui.font.roboto.min.css',
+    'entity-selector/dist/entity-selector.bundle.min.css',
     'forms/ui.forms.min.css',
     'icons/b24/ui.icons.b24.min.css',
     'icons/base/ui.icons.base.min.css',
@@ -26,5 +26,5 @@ export const loadStyles = (domain = 'www.bitrix24.ru') => {
     return Fragment;
   }, new DocumentFragment());
 
-  document.head.prepend(styles);
+  if (styles.children.length) document.head.prepend(styles);
 };

@@ -6,6 +6,7 @@
 
 <script lang="ts">
 import { defineComponent } from 'vue';
+import { loadStyles } from '../utils/loadStyles';
 
 export const props = {
   icons: [
@@ -64,6 +65,9 @@ export default defineComponent({
         [`ui-icon-${this.icon}`]: props.icons.includes(this.icon),
       };
     },
+  },
+  created() {
+    loadStyles();
   },
   props: {
     icon: {
