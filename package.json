@@ -21,6 +21,7 @@
     "./BxRadio": "./src/components/BxRadio.vue",
     "./BxSelect": "./src/components/BxSelect.vue",
     "./BxTextarea": "./src/components/BxTextarea.vue",
+    "./Library": "./src/install.js",
     ".": {
       "import": "./lib/index.js",
       "require": "./lib/index.umd.cjs"

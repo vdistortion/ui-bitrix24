@@ -3,7 +3,7 @@ import { Bitrix24 } from './Bitrix24';
 
 export default {
   init(scripts = []) {
-    const loadScripts = ['//api.bitrix24.com/api/v1/', ...scripts]
+    const loadScripts = ['https://api.bitrix24.com/api/v1/', ...scripts]
       .map((src) => loadScript(src));
 
     return Promise.all(loadScripts).then(() => {
@@ -12,6 +12,11 @@ export default {
         return BX24.init().then(() => BX24);
       }
       return Promise.resolve(null);
+    });
+  },
+  install(app, components) {
+    components.forEach((Component) => {
+      app.component(Component.name, Component);
     });
   },
 };
