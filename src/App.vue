@@ -21,6 +21,7 @@ export default defineComponent({
       }
     });
   },
+  inject: ['$BX24'],
   name: 'app',
 });
 </script>
