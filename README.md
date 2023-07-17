@@ -13,13 +13,10 @@ npm i -S vue-bitrix24@latest
 // plugins/vue-bitrix24.js
 import Bitrix24 from 'vue-bitrix24';
 import BxButton from 'vue-bitrix24/BxButton';
+import BxInput from 'vue-bitrix24/BxInput';
 
 const useBitrix24 = {
-  install(app) {
-    [BxButton].forEach((Component) => {
-      app.component(Component.name, Component);
-    });
-  },
+  install: (app) => Bitrix24.install(app, [BxButton, BxInput]),
 };
 
 export { Bitrix24, useBitrix24 };
