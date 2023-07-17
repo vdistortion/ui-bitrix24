@@ -146,49 +146,49 @@
     @range-start="$emit('range-start', $event)"
     @range-end="$emit('range-end', $event)"
   >
-    <template #month-year="slotScope">
+    <template v-if="$slots['month-year']" #month-year="slotScope">
       <slot name="month-year" v-bind="slotScope"></slot>
     </template>
-    <template #time-picker="slotScope">
+    <template v-if="$slots['time-picker']" #time-picker="slotScope">
       <slot name="time-picker" v-bind="slotScope"></slot>
     </template>
-    <template #action-row="slotScope">
+    <template v-if="$slots['action-row']" #action-row="slotScope">
       <slot name="action-row" v-bind="slotScope"></slot>
     </template>
-    <template #calendar-header="slotScope">
+    <template v-if="$slots['calendar-header']" #calendar-header="slotScope">
       <slot name="calendar-header" v-bind="slotScope"></slot>
     </template>
-    <template #day="slotScope">
+    <template v-if="$slots['day']" #day="slotScope">
       <slot name="day" v-bind="slotScope"></slot>
     </template>
-    <template #action-buttons="slotScope">
+    <template v-if="$slots['action-buttons']" #action-buttons="slotScope">
       <slot name="action-buttons" v-bind="slotScope"></slot>
     </template>
-    <template #action-preview="slotScope">
+    <template v-if="$slots['action-preview']" #action-preview="slotScope">
       <slot name="action-preview" v-bind="slotScope"></slot>
     </template>
-    <template #action-extra="slotScope">
+    <template v-if="$slots['action-extra']" #action-extra="slotScope">
       <slot name="action-extra" v-bind="slotScope"></slot>
     </template>
-    <template #am-pm-button="slotScope">
+    <template v-if="$slots['am-pm-button']" #am-pm-button="slotScope">
       <slot name="am-pm-button" v-bind="slotScope"></slot>
     </template>
-    <template #left-sidebar="slotScope">
+    <template v-if="$slots['left-sidebar']" #left-sidebar="slotScope">
       <slot name="left-sidebar" v-bind="slotScope"></slot>
     </template>
-    <template #right-sidebar="slotScope">
+    <template v-if="$slots['right-sidebar']" #right-sidebar="slotScope">
       <slot name="right-sidebar" v-bind="slotScope"></slot>
     </template>
-    <template #marker-tooltip="slotScope">
+    <template v-if="$slots['marker-tooltip']" #marker-tooltip="slotScope">
       <slot name="marker-tooltip" v-bind="slotScope"></slot>
     </template>
-    <template #marker="slotScope">
+    <template v-if="$slots['marker']" #marker="slotScope">
       <slot name="marker" v-bind="slotScope"></slot>
     </template>
-    <template #trigger="slotScope">
+    <template v-if="$slots['trigger']" #trigger="slotScope">
       <slot name="trigger" v-bind="slotScope"></slot>
     </template>
-    <template #dp-input="slotScope">
+    <template v-if="$slots['dp-input']" #dp-input="slotScope">
       <slot name="dp-input" v-bind="slotScope">
         <div
           class="ui-ctl"
@@ -201,9 +201,9 @@
           <button
             class="ui-ctl-icon-calendar"
             :class="{
-            'ui-ctl-after': after === 'after',
-            'ui-ctl-ext-after': after === 'ext-after',
-          }"
+              'ui-ctl-after': after === 'after',
+              'ui-ctl-ext-after': after === 'ext-after',
+            }"
           ></button>
           <input
             class="ui-ctl-element"
@@ -217,67 +217,67 @@
         </div>
       </slot>
     </template>
-    <template #input-icon="slotScope">
+    <template v-if="$slots['input-icon']" #input-icon="slotScope">
       <slot name="input-icon" v-bind="slotScope"></slot>
     </template>
-    <template #clear-icon="slotScope">
+    <template v-if="$slots['clear-icon']" #clear-icon="slotScope">
       <slot name="clear-icon" v-bind="slotScope"></slot>
     </template>
-    <template #clock-icon="slotScope">
+    <template v-if="$slots['clock-icon']" #clock-icon="slotScope">
       <slot name="clock-icon" v-bind="slotScope"></slot>
     </template>
-    <template #arrow-left="slotScope">
+    <template v-if="$slots['arrow-left']" #arrow-left="slotScope">
       <slot name="arrow-left" v-bind="slotScope"></slot>
     </template>
-    <template #arrow-right="slotScope">
+    <template v-if="$slots['arrow-right']" #arrow-right="slotScope">
       <slot name="arrow-right" v-bind="slotScope"></slot>
     </template>
-    <template #arrow-up="slotScope">
+    <template v-if="$slots['arrow-up']" #arrow-up="slotScope">
       <slot name="arrow-up" v-bind="slotScope"></slot>
     </template>
-    <template #arrow-down="slotScope">
+    <template v-if="$slots['arrow-down']" #arrow-down="slotScope">
       <slot name="arrow-down" v-bind="slotScope"></slot>
     </template>
-    <template #calendar-icon="slotScope">
+    <template v-if="$slots['calendar-icon']" #calendar-icon="slotScope">
       <slot name="calendar-icon" v-bind="slotScope"></slot>
     </template>
-    <template #time-picker-overlay="slotScope">
+    <template v-if="$slots['time-picker-overlay']" #time-picker-overlay="slotScope">
       <slot name="time-picker-overlay" v-bind="slotScope"></slot>
     </template>
-    <template #hours="slotScope">
+    <template v-if="$slots['hours']" #hours="slotScope">
       <slot name="hours" v-bind="slotScope"></slot>
     </template>
-    <template #minutes="slotScope">
+    <template v-if="$slots['minutes']" #minutes="slotScope">
       <slot name="minutes" v-bind="slotScope"></slot>
     </template>
-    <template #hours-overlay-value="slotScope">
+    <template v-if="$slots['hours-overlay-value']" #hours-overlay-value="slotScope">
       <slot name="hours-overlay-value" v-bind="slotScope"></slot>
     </template>
-    <template #minutes-overlay-value="slotScope">
+    <template v-if="$slots['minutes-overlay-value']" #minutes-overlay-value="slotScope">
       <slot name="minutes-overlay-value" v-bind="slotScope"></slot>
     </template>
-    <template #month="slotScope">
+    <template v-if="$slots['month']" #month="slotScope">
       <slot name="month" v-bind="slotScope"></slot>
     </template>
-    <template #year="slotScope">
+    <template v-if="$slots['year']" #year="slotScope">
       <slot name="year" v-bind="slotScope"></slot>
     </template>
-    <template #month-overlay-value="slotScope">
+    <template v-if="$slots['month-overlay-value']" #month-overlay-value="slotScope">
       <slot name="month-overlay-value" v-bind="slotScope"></slot>
     </template>
-    <template #year-overlay-value="slotScope">
+    <template v-if="$slots['year-overlay-value']" #year-overlay-value="slotScope">
       <slot name="year-overlay-value" v-bind="slotScope"></slot>
     </template>
-    <template #month-overlay="slotScope">
+    <template v-if="$slots['month-overlay']" #month-overlay="slotScope">
       <slot name="month-overlay" v-bind="slotScope"></slot>
     </template>
-    <template #year-overlay="slotScope">
+    <template v-if="$slots['year-overlay']" #year-overlay="slotScope">
       <slot name="year-overlay" v-bind="slotScope"></slot>
     </template>
-    <template #month-overlay-header="slotScope">
+    <template v-if="$slots['month-overlay-header']" #month-overlay-header="slotScope">
       <slot name="month-overlay-header" v-bind="slotScope"></slot>
     </template>
-    <template #year-overlay-header="slotScope">
+    <template v-if="$slots['year-overlay-header']" #year-overlay-header="slotScope">
       <slot name="year-overlay-header" v-bind="slotScope"></slot>
     </template>
   </vue-datepicker>
@@ -342,7 +342,7 @@ export default defineComponent({
       type: String,
       default: 'after',
       validator(value) {
-        return props.after.includes(value);
+        return typeof value === 'string' && props.after.includes(value);
       },
     },
     range: {
@@ -389,14 +389,15 @@ export default defineComponent({
       type: Array,
       default: () => [],
       validator(array) {
-        return array.every((value) => props.flows.includes(value));
+        return Array.isArray(array) && array.every((value) => props.flows.includes(value));
       },
     },
     utc: {
       type: [Boolean, String],
       default: false,
       validator(value) {
-        return props.utc.includes(value);
+        return (typeof value === 'string' || typeof value === 'boolean')
+          && props.utc.includes(value);
       },
     },
     vertical: {
@@ -479,7 +480,8 @@ export default defineComponent({
       type: [Boolean, String],
       default: true,
       validator(value) {
-        return props.monthChangeOnScrolls.includes(value);
+        return (typeof value === 'string' || typeof value === 'boolean')
+          && props.monthChangeOnScrolls.includes(value);
       },
     },
     modelType: {
@@ -562,7 +564,8 @@ export default defineComponent({
       type: Array,
       default: () => [],
       validator(array) {
-        return array.every((value) => props.hideNavigations.includes(value));
+        return Array.isArray(array)
+          && array.every((value) => props.hideNavigations.includes(value));
       },
     },
     onClickOutside: {
@@ -589,7 +592,8 @@ export default defineComponent({
       type: [String, Function],
       default: null,
       validator(value) {
-        return typeof value === 'function' || props.weekNumbers.includes(value);
+        return typeof value === 'function'
+          || (typeof value === 'string' && props.weekNumbers.includes(value));
       },
     },
     hideOffsetDates: {
@@ -636,7 +640,9 @@ export default defineComponent({
       type: Array,
       default: () => [1900, 2100],
       validator(array) {
-        return array.length === 2 && array.every((value) => typeof value === 'number');
+        return Array.isArray(array)
+          && array.length === 2
+          && array.every((value) => typeof value === 'number');
       },
     },
     reverseYears: {
@@ -743,7 +749,7 @@ export default defineComponent({
       type: String,
       default: 'short',
       validator(value) {
-        return props.monthNameFormats.includes(value);
+        return typeof value === 'string' && props.monthNameFormats.includes(value);
       },
     },
     locale: {
@@ -778,14 +784,14 @@ export default defineComponent({
       type: [Array, Function],
       default: null,
       validator(value) {
-        return typeof value === 'function' || value.length === 7;
+        return typeof value === 'function' || (Array.isArray(value) && value.length === 7);
       },
     },
     position: {
       type: String,
       default: 'center',
       validator(value) {
-        return props.positions.includes(value);
+        return typeof value === 'string' && props.positions.includes(value);
       },
     },
     teleport: {
@@ -832,7 +838,8 @@ export default defineComponent({
       type: [Boolean, String],
       default: false,
       validator(value) {
-        return props.sixWeeks.includes(value);
+        return (typeof value === 'string' || typeof value === 'boolean')
+          && props.sixWeeks.includes(value);
       },
     },
     dark: {

@@ -22,7 +22,6 @@ const defaultProps = {
 export default {
   title: 'bx-entity-selector',
   component: BxEntitySelector,
-  tags: ['autodocs'],
   args: {
     add: action('add'),
     click: action('click'),

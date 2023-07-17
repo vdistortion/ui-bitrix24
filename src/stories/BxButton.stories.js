@@ -18,7 +18,6 @@ const defaultProps = {
 export default {
   title: 'bx-button',
   component: BxButton,
-  tags: ['autodocs'],
   args: {
     default: 'bx-button',
     click: action('click'),

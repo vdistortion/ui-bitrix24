@@ -116,7 +116,7 @@ export default defineComponent({
       type: String,
       default: 'drop',
       validator(value) {
-        return props.types.includes(value);
+        return typeof value === 'string' && props.types.includes(value);
       },
     },
     multiple: {

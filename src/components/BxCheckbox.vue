@@ -1,5 +1,5 @@
 <template>
-  <label class="ui-ctl ui-ctl-checkbox" :style="{ 'width': width }">
+  <label class="bx-checkbox ui-ctl ui-ctl-checkbox">
     <input
       class="ui-ctl-element"
       type="checkbox"
@@ -41,6 +41,10 @@ export default defineComponent({
   created() {
     loadStyles();
   },
+  model: {
+    prop: 'model-value',
+    event: 'update:model-value',
+  },
   emits: ['update:modelValue'],
   props: {
     modelValue: {
@@ -50,10 +54,6 @@ export default defineComponent({
     value: {
       type: [Boolean, String, Array, Object],
       default: '',
-    },
-    width: {
-      type: String,
-      default: '320px',
     },
     disabled: {
       type: Boolean,
@@ -67,5 +67,9 @@ export default defineComponent({
 <style>
 .ui-ctl-checkbox {
   cursor: pointer;
+}
+
+.bx-checkbox {
+  width: 100%;
 }
 </style>

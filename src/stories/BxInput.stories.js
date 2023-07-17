@@ -7,7 +7,6 @@ const defaultProps = {
   disabled: false,
   size: 'md',
   color: '',
-  width: '',
   inline: false,
   noBorder: false,
   underline: false,
@@ -25,7 +24,6 @@ const defaultProps = {
 export default {
   title: 'forms/bx-input',
   component: BxInput,
-  tags: ['autodocs'],
   args: {
     'update:modelValue': action('update:modelValue'),
     change: action('change'),
@@ -36,7 +34,6 @@ export default {
     disabled: defaultProps.disabled,
     size: defaultProps.size,
     color: defaultProps.color,
-    width: defaultProps.width,
     inline: defaultProps.inline,
     noBorder: defaultProps.noBorder,
     underline: defaultProps.underline,
@@ -73,10 +70,6 @@ export default {
       options: props.colors,
       defaultValue: defaultProps.color,
       control: { type: 'inline-radio' },
-    },
-    width: {
-      defaultValue: defaultProps.width,
-      control: { type: 'text' },
     },
     inline: {
       defaultValue: defaultProps.inline,

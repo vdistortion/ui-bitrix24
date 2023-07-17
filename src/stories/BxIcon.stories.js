@@ -7,7 +7,6 @@ const defaultProps = {
 export default {
   title: 'bx-icon',
   component: BxIcon,
-  tags: ['autodocs'],
   args: {
     icon: defaultProps.icon,
   },

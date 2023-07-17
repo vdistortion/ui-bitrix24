@@ -15,7 +15,6 @@ export default {
       },
     },
   },
-  tags: ['autodocs'],
   args: {
     default: 'bx-link',
     href: 'https://astrotrain55.github.io/vue-bitrix24/',

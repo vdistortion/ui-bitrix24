@@ -11,7 +11,6 @@ const defaultProps = {
 export default {
   title: 'forms/bx-textarea',
   component: BxTextarea,
-  tags: ['autodocs'],
   args: {
     'update:modelValue': action('update:modelValue'),
     modelValue: defaultProps.modelValue,

@@ -12,7 +12,6 @@ const defaultProps = {
 export default {
   title: 'bx-alert',
   component: BxAlert,
-  tags: ['autodocs'],
   args: {
     default: '',
     close: action('close'),

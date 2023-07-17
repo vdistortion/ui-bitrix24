@@ -10,7 +10,6 @@ const defaultProps = {
 export default {
   title: 'forms/bx-input-file',
   component: BxInputFile,
-  tags: ['autodocs'],
   args: {
     change: action('change'),
     delete: action('delete'),

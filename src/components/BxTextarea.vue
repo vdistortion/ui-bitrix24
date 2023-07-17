@@ -29,6 +29,10 @@ export default defineComponent({
   created() {
     loadStyles();
   },
+  model: {
+    prop: 'model-value',
+    event: 'update:model-value',
+  },
   emits: ['update:modelValue'],
   props: {
     modelValue: {
@@ -43,7 +47,7 @@ export default defineComponent({
       type: String,
       default: '',
       validator(value) {
-        return props.resizes.includes(value);
+        return typeof value === 'string' && props.resizes.includes(value);
       },
     },
     disabled: {

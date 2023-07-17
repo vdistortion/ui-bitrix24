@@ -12,7 +12,6 @@ const defaultProps = {
 export default {
   title: 'bx-progressbar',
   component: BxProgressbar,
-  tags: ['autodocs'],
   args: {
     progress: 17,
     size: defaultProps.size,

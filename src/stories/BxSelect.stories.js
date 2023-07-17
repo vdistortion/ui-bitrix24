@@ -2,10 +2,6 @@ import { action } from '@storybook/addon-actions';
 import BxSelect from '../components/BxSelect.vue';
 import countries from '../utils/countries';
 
-/*
-
- */
-
 const defaultProps = {
   appendToBody: false,
   autocomplete: 'off',

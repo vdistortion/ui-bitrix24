@@ -1,6 +1,6 @@
 <template>
   <div
-    class="ui-ctl ui-ctl-textbox"
+    class="bx-input ui-ctl ui-ctl-textbox"
     :class="{
       'ui-ctl-lg': size === 'lg',
       'ui-ctl-md': size === 'md',
@@ -18,10 +18,6 @@
       'ui-ctl-underline': underline,
       'ui-ctl-no-padding': noPadding,
       'ui-ctl-round': round,
-    }"
-    :style="{
-      'max-width': this.width || 'initial',
-      'width': this.width || 'auto',
     }"
   >
     <component
@@ -97,6 +93,10 @@ export default defineComponent({
   created() {
     loadStyles();
   },
+  model: {
+    prop: 'model-value',
+    event: 'update:model-value',
+  },
   emits: ['update:modelValue', 'change', 'click-before', 'click-after'],
   props: {
     modelValue: {
@@ -115,19 +115,15 @@ export default defineComponent({
       type: String,
       default: 'md',
       validator(value) {
-        return props.sizes.includes(value);
+        return typeof value === 'string' && props.sizes.includes(value);
       },
     },
     color: {
       type: String,
       default: '',
       validator(value) {
-        return props.colors.includes(value);
+        return typeof value === 'string' && props.colors.includes(value);
       },
-    },
-    width: {
-      type: String,
-      default: '',
     },
     inline: {
       type: Boolean,
@@ -157,14 +153,14 @@ export default defineComponent({
       type: String,
       default: 'default',
       validator(value) {
-        return props.tagColors.includes(value);
+        return typeof value === 'string' && props.tagColors.includes(value);
       },
     },
     beforeIcon: {
       type: String,
       default: '',
       validator(value) {
-        return props.icons.includes(value);
+        return typeof value === 'string' && props.icons.includes(value);
       },
     },
     beforeExt: {
@@ -179,7 +175,7 @@ export default defineComponent({
       type: String,
       default: '',
       validator(value) {
-        return props.icons.includes(value);
+        return typeof value === 'string' && props.icons.includes(value);
       },
     },
     afterExt: {
@@ -198,5 +194,9 @@ export default defineComponent({
 <style>
 .ui-ctl-ext-before {
   left: 1px;
+}
+
+.bx-input {
+  width: 100%;
 }
 </style>

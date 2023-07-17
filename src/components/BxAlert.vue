@@ -46,21 +46,21 @@ export default defineComponent({
       type: String,
       default: 'md',
       validator(value) {
-        return props.sizes.includes(value);
+        return typeof value === 'string' && props.sizes.includes(value);
       },
     },
     color: {
       type: String,
       default: 'default',
       validator(value) {
-        return props.colors.includes(value);
+        return typeof value === 'string' && props.colors.includes(value);
       },
     },
     icon: {
       type: String,
       default: '',
       validator(value) {
-        return props.icons.includes(value);
+        return typeof value === 'string' && props.icons.includes(value);
       },
     },
     center: {

@@ -75,35 +75,35 @@ export default defineComponent({
       type: String,
       default: 'button',
       validator(value) {
-        return props.types.includes(value);
+        return typeof value === 'string' && props.types.includes(value);
       },
     },
     color: {
       type: String,
       default: 'default',
       validator(value) {
-        return props.colors.includes(value);
+        return typeof value === 'string' && props.colors.includes(value);
       },
     },
     size: {
       type: String,
       default: 'md',
       validator(value) {
-        return props.sizes.includes(value);
+        return typeof value === 'string' && props.sizes.includes(value);
       },
     },
     icon: {
       type: String,
       default: '',
       validator(value) {
-        return props.icons.includes(value);
+        return typeof value === 'string' && props.icons.includes(value);
       },
     },
     loader: {
       type: String,
       default: '',
       validator(value) {
-        return props.loaders.includes(value);
+        return typeof value === 'string' && props.loaders.includes(value);
       },
     },
     count: {

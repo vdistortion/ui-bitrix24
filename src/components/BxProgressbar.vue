@@ -46,14 +46,14 @@ export default defineComponent({
       type: String,
       default: 'md',
       validator(value) {
-        return props.sizes.includes(value);
+        return typeof value === 'string' && props.sizes.includes(value);
       },
     },
     color: {
       type: String,
       default: 'primary',
       validator(value) {
-        return props.colors.includes(value);
+        return typeof value === 'string' && props.colors.includes(value);
       },
     },
     textBefore: {

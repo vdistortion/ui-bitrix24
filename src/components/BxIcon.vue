@@ -74,7 +74,7 @@ export default defineComponent({
       type: String,
       default: 'file-empty',
       validator(value) {
-        return props.icons.includes(value);
+        return typeof value === 'string' && props.icons.includes(value);
       },
     },
   },

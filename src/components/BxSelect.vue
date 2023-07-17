@@ -51,39 +51,39 @@
     @search:blur="$emit('search:blur')"
     @search:focus="$emit('search:focus')"
   >
-    <template #footer="slotScope">
+    <template v-if="$slots['footer']" #footer="slotScope">
       <slot name="footer" v-bind="slotScope"></slot>
     </template>
-    <template #header="slotScope">
+    <template v-if="$slots['header']" #header="slotScope">
       <slot name="header" v-bind="slotScope"></slot>
     </template>
-    <template #list-footer="slotScope">
+    <template v-if="$slots['list-footer']" #list-footer="slotScope">
       <slot name="list-footer" v-bind="slotScope"></slot>
     </template>
-    <template #list-header="slotScope">
+    <template v-if="$slots['list-header']" #list-header="slotScope">
       <slot name="list-header" v-bind="slotScope"></slot>
     </template>
-    <template #no-options="slotScope">
+    <template v-if="$slots['no-options']" #no-options="slotScope">
       <slot name="no-options" v-bind="slotScope"></slot>
     </template>
-    <template #open-indicator="slotScope">
+    <template v-if="$slots['open-indicator']" #open-indicator="slotScope">
       <slot name="open-indicator" v-bind="slotScope">
         <button class="ui-ctl-after ui-ctl-icon-angle" v-bind="slotScope.attributes"></button>
       </slot>
     </template>
-    <template #option="slotScope">
+    <template v-if="$slots['option']" #option="slotScope">
       <slot name="option" v-bind="slotScope"></slot>
     </template>
-    <template #search="slotScope">
+    <template v-if="$slots['search']" #search="slotScope">
       <slot name="search" v-bind="slotScope"></slot>
     </template>
-    <template #selected-option="slotScope">
+    <template v-if="$slots['selected-option']" #selected-option="slotScope">
       <slot name="selected-option" v-bind="slotScope"></slot>
     </template>
-    <template #selected-option-container="slotScope">
+    <template v-if="$slots['selected-option-container']" #selected-option-container="slotScope">
       <slot name="selected-option-container" v-bind="slotScope"></slot>
     </template>
-    <template #spinner="slotScope">
+    <template v-if="$slots['spinner']" #spinner="slotScope">
       <slot name="spinner" v-bind="slotScope"></slot>
     </template>
   </vue-select>
@@ -99,8 +99,8 @@ export default defineComponent({
     loadStyles();
   },
   model: {
-    prop: 'modelValue',
-    event: 'update:modelValue',
+    prop: 'model-value',
+    event: 'update:model-value',
   },
   emits: [
     'update:modelValue',
