@@ -11,4 +11,7 @@ export default {
   framework: {
     name: '@storybook/vue3-vite',
   },
+  docs: {
+    autodocs: true,
+  },
 };
