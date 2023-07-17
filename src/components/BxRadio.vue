@@ -16,7 +16,7 @@
 
 <script lang="ts">
 import { defineComponent } from 'vue';
-import { loadStyles } from '../utils/loadStyles';
+import injectStyles from '../mixins/injectStyles';
 
 export default defineComponent({
   computed: {
@@ -24,9 +24,7 @@ export default defineComponent({
       return this.modelValue === this.value;
     },
   },
-  created() {
-    loadStyles();
-  },
+  mixins: [injectStyles],
   model: {
     prop: 'model-value',
     event: 'update:model-value',

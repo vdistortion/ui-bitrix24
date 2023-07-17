@@ -60,6 +60,9 @@ export const Default = {
   render: (args) => ({
     template: '<bx-alert v-bind="args" v-on="args">{{ args.default }}</bx-alert>',
     data: () => ({ args }),
+    provide: {
+      $BX24: null,
+    },
     components: { BxAlert },
   }),
 };
@@ -72,6 +75,9 @@ const Story = (propName, propList) => ({
       </div>
     `,
     data: () => ({ args, propName, propList }),
+    provide: {
+      $BX24: null,
+    },
     components: { BxAlert },
   }),
   argTypes: {

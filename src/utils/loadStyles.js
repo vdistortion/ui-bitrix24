@@ -1,5 +1,6 @@
-export const loadStyles = (domain = 'www.bitrix24.ru') => {
-  const root = `//${domain}/bitrix/js/ui`;
+export const loadStyles = (BX24) => {
+  const domain = BX24 ? BX24.getDomain() : 'www.bitrix24.ru';
+  const root = `https://${domain}/bitrix/js/ui`;
   const files = [
     'design-tokens/dist/ui.design-tokens.min.css',
     'fonts/opensans/ui.font.opensans.min.css',

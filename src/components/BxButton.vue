@@ -31,7 +31,7 @@
 
 <script lang="ts">
 import { defineComponent } from 'vue';
-import { loadStyles } from '../utils/loadStyles';
+import injectStyles from '../mixins/injectStyles';
 
 export const props = {
   types: ['button', 'submit', 'reset'],
@@ -66,9 +66,7 @@ export default defineComponent({
       };
     },
   },
-  created() {
-    loadStyles();
-  },
+  mixins: [injectStyles],
   emits: ['click', 'toggle-menu'],
   props: {
     type: {

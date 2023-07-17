@@ -59,6 +59,9 @@ export const Default = {
   render: (args) => ({
     template: '<bx-progressbar v-bind="args" v-on="args"></bx-progressbar>',
     data: () => ({ args }),
+    provide: {
+      $BX24: null,
+    },
     components: { BxProgressbar },
   }),
 };
@@ -71,6 +74,9 @@ const Story = (propName, propList) => ({
       </div>
     `,
     data: () => ({ args, propName, propList }),
+    provide: {
+      $BX24: null,
+    },
     components: { BxProgressbar },
   }),
   argTypes: {

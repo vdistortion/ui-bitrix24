@@ -43,6 +43,9 @@ export const Default = {
   render: (args) => ({
     template: '<bx-textarea v-bind="args" v-on="args"></bx-textarea>',
     data: () => ({ args }),
+    provide: {
+      $BX24: null,
+    },
     components: { BxTextarea },
   }),
 };
@@ -55,6 +58,9 @@ const Story = (propName, propList) => ({
       </div>
     `,
     data: () => ({ args, propName, propList }),
+    provide: {
+      $BX24: null,
+    },
     components: { BxTextarea },
   }),
   argTypes: {

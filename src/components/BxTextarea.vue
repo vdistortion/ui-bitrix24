@@ -19,16 +19,14 @@
 
 <script lang="ts">
 import { defineComponent } from 'vue';
-import { loadStyles } from '../utils/loadStyles';
+import injectStyles from '../mixins/injectStyles';
 
 export const props = {
   resizes: ['', 'no', 'y', 'x'],
 };
 
 export default defineComponent({
-  created() {
-    loadStyles();
-  },
+  mixins: [injectStyles],
   model: {
     prop: 'model-value',
     event: 'update:model-value',

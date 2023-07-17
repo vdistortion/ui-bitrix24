@@ -47,6 +47,9 @@ export const Default = {
       <pre>{{ { modelValue: args.modelValue } }}</pre>
     `,
     data: () => ({ args }),
+    provide: {
+      $BX24: null,
+    },
     components: { BxRadio },
   }),
 };

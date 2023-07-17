@@ -42,6 +42,9 @@ export const Default = {
   render: (args) => ({
     template: '<bx-input-file v-bind="args" v-on="args">{{ args.default }}</bx-input-file>',
     data: () => ({ args }),
+    provide: {
+      $BX24: null,
+    },
     components: { BxInputFile },
   }),
 };
@@ -54,6 +57,9 @@ const Story = (propName, propList) => ({
       </div>
     `,
     data: () => ({ args, propName, propList }),
+    provide: {
+      $BX24: null,
+    },
     components: { BxInputFile },
   }),
   argTypes: {

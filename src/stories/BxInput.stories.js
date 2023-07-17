@@ -133,6 +133,9 @@ export const Default = {
   render: (args) => ({
     template: '<bx-input v-bind="args" v-on="args" v-model="args.modelValue"></bx-input>',
     data: () => ({ args }),
+    provide: {
+      $BX24: null,
+    },
     components: { BxInput },
   }),
 };
@@ -145,6 +148,9 @@ const Story = (propName, propList) => ({
       </div>
     `,
     data: () => ({ args, propName, propList }),
+    provide: {
+      $BX24: null,
+    },
     components: { BxInput },
   }),
   args: {

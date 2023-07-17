@@ -138,6 +138,9 @@ export const Default = {
   render: (args) => ({
     template: '<bx-select v-bind="args" v-on="args" v-model="args.modelValue"></bx-select>',
     data: () => ({ args }),
+    provide: {
+      $BX24: null,
+    },
     components: { BxSelect },
   }),
 };

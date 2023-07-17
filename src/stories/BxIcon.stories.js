@@ -23,6 +23,9 @@ export const Default = {
   render: (args) => ({
     template: '<bx-icon v-bind="args" v-on="args">{{ args.default }}</bx-icon>',
     data: () => ({ args }),
+    provide: {
+      $BX24: null,
+    },
     components: { BxIcon },
   }),
 };
@@ -35,6 +38,9 @@ const Story = (propName, propList) => ({
       </div>
     `,
     data: () => ({ args, propName, propList }),
+    provide: {
+      $BX24: null,
+    },
     components: { BxIcon },
   }),
   argTypes: {

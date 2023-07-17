@@ -10,7 +10,7 @@
 
 <script lang="ts">
 import { defineComponent } from 'vue';
-import { loadStyles } from '../utils/loadStyles';
+import injectStyles from '../mixins/injectStyles';
 
 export const props = {
   sizes: ['md', 'xs'],
@@ -30,9 +30,7 @@ export default defineComponent({
       };
     },
   },
-  created() {
-    loadStyles();
-  },
+  mixins: [injectStyles],
   emits: ['close'],
   props: {
     title: {

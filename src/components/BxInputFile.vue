@@ -64,7 +64,7 @@
 <script lang="ts">
 import { defineComponent } from 'vue';
 import { formatSizeUnits } from '../utils/formatSizeUnits';
-import { loadStyles } from '../utils/loadStyles';
+import injectStyles from '../mixins/injectStyles';
 
 export const props = {
   types: ['drop', 'button', 'link'],
@@ -94,15 +94,13 @@ export default defineComponent({
       return 'Файл не выбран.';
     },
   },
-  created() {
-    loadStyles();
-  },
   data() {
     return {
       files: [],
       defaultPlaceholder: 'Загрузить файл или картинку',
     };
   },
+  mixins: [injectStyles],
   emits: ['change', 'delete'],
   props: {
     placeholder: {

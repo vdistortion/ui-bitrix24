@@ -99,6 +99,9 @@ export const Default = {
   render: (args) => ({
     template: '<bx-button v-bind="args" v-on="args">{{ args.default }}</bx-button>',
     data: () => ({ args }),
+    provide: {
+      $BX24: null,
+    },
     components: { BxButton },
   }),
 };
@@ -111,6 +114,9 @@ const Story = (propName, propList) => ({
       </div>
     `,
     data: () => ({ args, propName, propList }),
+    provide: {
+      $BX24: null,
+    },
     components: { BxButton },
   }),
   argTypes: {

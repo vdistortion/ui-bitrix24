@@ -92,12 +92,10 @@
 <script lang="ts">
 import { defineComponent } from 'vue';
 import VueSelect from 'vue-select';
-import { loadStyles } from '../utils/loadStyles';
+import injectStyles from '../mixins/injectStyles';
 
 export default defineComponent({
-  created() {
-    loadStyles();
-  },
+  mixins: [injectStyles],
   model: {
     prop: 'model-value',
     event: 'update:model-value',

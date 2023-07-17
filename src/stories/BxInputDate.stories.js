@@ -399,6 +399,9 @@ export const Default = {
   render: (args) => ({
     template: '<bx-input-date v-bind="args" v-on="args" v-model="args.modelValue"></bx-input-date>',
     data: () => ({ args }),
+    provide: {
+      $BX24: null,
+    },
     components: { BxInputDate },
   }),
 };
