@@ -65,7 +65,7 @@ export default {
     docs: {
       description: {
         component: `
-          Component based on <a href="https://vue-select.org" target="_blank">vue-select 1</a>
+          Component based on <a href="https://vue-select.org" target="_blank">vue-select</a>
         `.trim(),
       },
     },

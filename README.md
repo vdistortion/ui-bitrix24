@@ -62,13 +62,17 @@ export default {
 * bx-entity-selector
 * bx-icon
 * bx-input
-* bx-input-date
+* bx-input-date (based on [@vuepic/vue-datepicker](https://vue3datepicker.com), Vue 3 only)
 * bx-input-file
 * bx-link
 * bx-progressbar
 * bx-radio
-* bx-select
+* bx-select (based on [vue-select](https://vue-select.org), Vue 3 only)
 * bx-textarea
+
+### Vue 2
+* bx-input-date `import BxInputDate from 'vue-bitrix24/2/BxInputDate'` (Based on [vue2-datepicker](https://mengxiong10.github.io/vue2-datepicker/))
+* bx-select `import BxSelect from 'vue-bitrix24/2/BxSelect'` (Based on [vue-select](https://vue-select.org))
 
 ## Битрикс24
 

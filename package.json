@@ -15,11 +15,13 @@
     "./BxIcon": "./src/components/BxIcon.vue",
     "./BxInput": "./src/components/BxInput.vue",
     "./BxInputDate": "./src/components/BxInputDate.vue",
+    "./2/BxInputDate": "./src/components/BxInputDate.vue",
     "./BxInputFile": "./src/components/BxInputFile.vue",
     "./BxLink": "./src/components/BxLink.vue",
     "./BxProgressbar": "./src/components/BxProgressbar.vue",
     "./BxRadio": "./src/components/BxRadio.vue",
     "./BxSelect": "./src/components/BxSelect.vue",
+    "./2/BxSelect": "./src/components/BxSelect.vue",
     "./BxTextarea": "./src/components/BxTextarea.vue",
     "./Library": "./src/install.js",
     ".": {
