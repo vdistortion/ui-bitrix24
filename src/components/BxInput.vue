@@ -92,8 +92,8 @@ export const props = {
 export default defineComponent({
   mixins: [injectStyles],
   model: {
-    prop: 'model-value',
-    event: 'update:model-value',
+    prop: 'modelValue',
+    event: 'update:modelValue',
   },
   emits: ['update:modelValue', 'change', 'click-before', 'click-after'],
   props: {

@@ -96,10 +96,6 @@ import injectStyles from '../mixins/injectStyles';
 
 export default defineComponent({
   mixins: [injectStyles],
-  model: {
-    prop: 'model-value',
-    event: 'update:model-value',
-  },
   emits: [
     'update:modelValue',
     'open',

@@ -40,8 +40,8 @@ export default defineComponent({
   },
   mixins: [injectStyles],
   model: {
-    prop: 'model-value',
-    event: 'update:model-value',
+    prop: 'modelValue',
+    event: 'update:modelValue',
   },
   emits: ['update:modelValue'],
   props: {
