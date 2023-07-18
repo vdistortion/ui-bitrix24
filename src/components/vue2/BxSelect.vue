@@ -10,7 +10,7 @@
 </template>
 
 <script>
-import VueSelect from 'vue-select';
+import VueSelect from 'vue2-select/dist/vue-select.js';
 import injectStyles from '../../mixins/injectStyles';
 
 export default {
@@ -23,7 +23,7 @@ export default {
 </script>
 
 <style>
-@import 'vue-select/dist/vue-select.css';
+@import 'vue2-select/dist/vue-select.css';
 
 .bx-select:hover .vs__dropdown-toggle,
 .bx-select.vs--open .vs__dropdown-toggle {
