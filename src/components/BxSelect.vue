@@ -67,9 +67,10 @@
       <slot name="no-options" v-bind="slotScope"></slot>
     </template>
     <template v-if="$slots['open-indicator']" #open-indicator="slotScope">
-      <slot name="open-indicator" v-bind="slotScope">
-        <button class="ui-ctl-after ui-ctl-icon-angle" v-bind="slotScope.attributes"></button>
-      </slot>
+      <slot name="open-indicator" v-bind="slotScope"></slot>
+    </template>
+    <template v-else #open-indicator="{ attributes }">
+      <button class="ui-ctl-after ui-ctl-icon-angle" v-bind="attributes"></button>
     </template>
     <template v-if="$slots['option']" #option="slotScope">
       <slot name="option" v-bind="slotScope"></slot>

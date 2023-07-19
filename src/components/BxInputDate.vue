@@ -189,33 +189,34 @@
       <slot name="trigger" v-bind="slotScope"></slot>
     </template>
     <template v-if="$slots['dp-input']" #dp-input="slotScope">
-      <slot name="dp-input" v-bind="slotScope">
-        <div
-          class="ui-ctl"
+      <slot name="dp-input" v-bind="slotScope"></slot>
+    </template>
+    <template v-else #dp-input="{ value, onInput, onEnter, onTab }">
+      <div
+        class="ui-ctl"
+        :class="{
+          'ui-ctl-after-icon': after === 'after',
+          'ui-ctl-ext-after-icon': after === 'ext-after',
+        }"
+        style="width: 100%;"
+      >
+        <button
+          class="ui-ctl-icon-calendar"
           :class="{
-            'ui-ctl-after-icon': after === 'after',
-            'ui-ctl-ext-after-icon': after === 'ext-after',
+            'ui-ctl-after': after === 'after',
+            'ui-ctl-ext-after': after === 'ext-after',
           }"
-          style="width: 100%;"
+        ></button>
+        <input
+          class="ui-ctl-element"
+          type="text"
+          :value="value"
+          :placeholder="placeholder"
+          @input="onInput"
+          @keydown.enter="onEnter"
+          @keydown.tab="onTab"
         >
-          <button
-            class="ui-ctl-icon-calendar"
-            :class="{
-              'ui-ctl-after': after === 'after',
-              'ui-ctl-ext-after': after === 'ext-after',
-            }"
-          ></button>
-          <input
-            class="ui-ctl-element"
-            type="text"
-            :value="slotScope.value"
-            :placeholder="placeholder"
-            @input="slotScope.onInput"
-            @keydown.enter="slotScope.onEnter"
-            @keydown.tab="slotScope.onTab"
-          >
-        </div>
-      </slot>
+      </div>
     </template>
     <template v-if="$slots['input-icon']" #input-icon="slotScope">
       <slot name="input-icon" v-bind="slotScope"></slot>
