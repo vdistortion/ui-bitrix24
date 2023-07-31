@@ -8,18 +8,7 @@ import { defineComponent } from 'vue';
 export default defineComponent({
   mounted() {
     if (!this.$BX24) return;
-    const RestCall = this.$BX24.createBatch();
-
-    RestCall.batch({
-      scope: ['scope'],
-    }).then((response) => {
-      if (response.scope.includes('user_brief')) {
-        RestCall.batch({
-          userCurrent: ['user.current'],
-          users: ['user.get'],
-        }).then(console.info);
-      }
-    });
+    console.info(this.$BX24);
   },
   inject: ['$BX24'],
   name: 'app',

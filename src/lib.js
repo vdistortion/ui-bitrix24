@@ -1,4 +1,4 @@
-import Bitrix24 from './lib/plugin';
+import usePlugin from './plugin';
 import BxAlert from './components/BxAlert.vue';
 import BxButton from './components/BxButton.vue';
 import BxCheckbox from './components/BxCheckbox.vue';
@@ -13,19 +13,20 @@ import BxRadio from './components/BxRadio.vue';
 import BxSelect from './components/BxSelect.vue';
 import BxTextarea from './components/BxTextarea.vue';
 
-export {
-  Bitrix24,
-  BxAlert,
-  BxButton,
-  BxCheckbox,
-  BxEntitySelector,
-  BxIcon,
-  BxInput,
-  BxInputDate,
-  BxInputFile,
-  BxLink,
-  BxProgressbar,
-  BxRadio,
-  BxSelect,
-  BxTextarea,
+export default {
+  install: (app) => usePlugin.install(app, [
+    BxAlert,
+    BxButton,
+    BxCheckbox,
+    BxEntitySelector,
+    BxIcon,
+    BxInput,
+    BxInputDate,
+    BxInputFile,
+    BxLink,
+    BxProgressbar,
+    BxRadio,
+    BxSelect,
+    BxTextarea,
+  ]),
 };
