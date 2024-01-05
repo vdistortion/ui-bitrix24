@@ -50,19 +50,16 @@ Bitrix24.init().then((BX42) => {
 * bx-entity-selector
 * bx-icon
 * bx-input
-* bx-input-date (based on [@vuepic/vue-datepicker](https://vue3datepicker.com), Vue 3 only)
+* bx-input-date (based on [@vuepic/vue-datepicker](https://vue3datepicker.com))
 * bx-input-file
 * bx-link
 * bx-progressbar
 * bx-radio
-* bx-select (based on [vue-select](https://vue-select.org), Vue 3 only)
+* bx-select (based on [vue-select](https://vue-select.org))
 * bx-textarea
-
-### Vue 2
-* bx-input-date `import BxInputDate from 'vue-bitrix24/2/BxInputDate'` (Based on [vue2-datepicker](https://mengxiong10.github.io/vue2-datepicker/))
-* bx-select `import BxSelect from 'vue-bitrix24/2/BxSelect'` (Based on [vue-select](https://vue-select.org))
 
 ## Ссылки
 
+* [UI-библиотека](https://dev.1c-bitrix.ru/api_d7/bitrix/ui/index.php)
 * [bitrix24-library](https://www.npmjs.com/package/bitrix24-library)
 * [bitrix24-create-app](https://www.npmjs.com/package/bitrix24-create-app)

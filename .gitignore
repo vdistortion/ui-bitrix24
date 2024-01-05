@@ -27,5 +27,7 @@ coverage
 *.sln
 *.sw?
 
+*.tsbuildinfo
+
 /lib
 /storybook-static

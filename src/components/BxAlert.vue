@@ -1,8 +1,7 @@
 <template>
   <div class="ui-alert" :class="classList">
     <span class="ui-alert-message">
-      <strong v-if="title"> {{ title }} </strong>
-      <slot></slot>
+      <strong v-if="title">{{ title }}</strong> <slot></slot>
     </span>
     <span class="ui-alert-close-btn" @click="$emit('close')"></span>
   </div>
