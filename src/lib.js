@@ -7,7 +7,6 @@ import BxIcon from './components/BxIcon.vue';
 import BxInput from './components/BxInput.vue';
 import BxInputDate from './components/BxInputDate.vue';
 import BxInputFile from './components/BxInputFile.vue';
-import BxLink from './components/BxLink.vue';
 import BxProgressbar from './components/BxProgressbar.vue';
 import BxRadio from './components/BxRadio.vue';
 import BxSelect from './components/BxSelect.vue';
@@ -23,7 +22,6 @@ export default {
     BxInput,
     BxInputDate,
     BxInputFile,
-    BxLink,
     BxProgressbar,
     BxRadio,
     BxSelect,

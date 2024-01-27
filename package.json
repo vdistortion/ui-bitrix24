@@ -1,7 +1,7 @@
 {
   "name": "vue-bitrix24",
   "description": "Component library in Bitrix24 style",
-  "version": "2.0.0",
+  "version": "2.1.1",
   "license": "GPL",
   "private": false,
   "type": "module",
@@ -16,7 +16,6 @@
     "./BxInput": "./src/components/BxInput.vue",
     "./BxInputDate": "./src/components/BxInputDate.vue",
     "./BxInputFile": "./src/components/BxInputFile.vue",
-    "./BxLink": "./src/components/BxLink.vue",
     "./BxProgressbar": "./src/components/BxProgressbar.vue",
     "./BxRadio": "./src/components/BxRadio.vue",
     "./BxSelect": "./src/components/BxSelect.vue",
@@ -56,7 +55,6 @@
   },
   "dependencies": {
     "@vuepic/vue-datepicker": "^5.4.0",
-    "bitrix24-library": "^0.0.1",
     "vue": "^3.3.11",
     "vue-select": "^4.0.0-beta.6"
   },
@@ -68,6 +66,7 @@
     "@storybook/vue3-vite": "^7.6.7",
     "@vitejs/plugin-vue": "^4.5.2",
     "autoprefixer": "^10.4.16",
+    "bitrix24-library": "^0.0.1",
     "eslint": "^8.56.0",
     "eslint-config-airbnb-base": "^15.0.0",
     "eslint-plugin-import": "^2.29.1",

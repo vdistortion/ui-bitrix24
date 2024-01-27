@@ -52,7 +52,6 @@ Bitrix24.init().then((BX42) => {
 * bx-input
 * bx-input-date (based on [@vuepic/vue-datepicker](https://vue3datepicker.com))
 * bx-input-file
-* bx-link
 * bx-progressbar
 * bx-radio
 * bx-select (based on [vue-select](https://vue-select.org))
