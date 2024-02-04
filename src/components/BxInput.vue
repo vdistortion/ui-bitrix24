@@ -60,10 +60,8 @@
       v-if="tag"
       class="ui-ctl-tag"
       :class="{
-        'ui-ctl-tag-success': tagColor === 'success',
-        'ui-ctl-tag-primary': tagColor === 'primary',
-        'ui-ctl-tag-danger': tagColor === 'danger',
-        'ui-ctl-tag-warning': tagColor === 'warning',
+        '--tag_light': tagColor === 'light',
+        '--tag_light-blue': tagColor === 'light-blue',
       }"
       >{{ tag }}</div>
     <input
@@ -86,7 +84,7 @@ export const props = {
   sizes: ['lg', 'md', 'sm', 'xs'],
   colors: ['', 'success', 'warning', 'danger'],
   icons: ['', 'search', 'calendar', 'dots', 'phone', 'mail', 'clock', 'angle', 'clear', 'loader'],
-  tagColors: ['default', 'primary', 'success', 'warning', 'danger'],
+  tagColors: ['default', 'light', 'light-blue'],
 };
 
 export default defineComponent({
