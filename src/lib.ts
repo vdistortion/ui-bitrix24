@@ -1,5 +1,4 @@
-import type { App } from 'vue';
-import usePlugin from './plugin';
+import type { App, Component } from 'vue';
 import BxAlert from './components/BxAlert.vue';
 import BxButton from './components/BxButton.vue';
 import BxCheckbox from './components/BxCheckbox.vue';
@@ -12,8 +11,8 @@ import BxRadio from './components/BxRadio.vue';
 import BxTextarea from './components/BxTextarea.vue';
 
 export default {
-  install: (app: App<Element>) =>
-    usePlugin.install(app, [
+  install: (app: App<Element>) => {
+    [
       BxAlert,
       BxButton,
       BxCheckbox,
@@ -24,5 +23,8 @@ export default {
       BxProgressbar,
       BxRadio,
       BxTextarea,
-    ]),
+    ].forEach((Component: Component) => {
+      app.component(Component.name!, Component);
+    });
+  },
 };

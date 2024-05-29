@@ -18,7 +18,7 @@
     "./BxProgressbar": "./src/components/BxProgressbar.vue",
     "./BxRadio": "./src/components/BxRadio.vue",
     "./BxTextarea": "./src/components/BxTextarea.vue",
-    "./Plugin": "./src/plugin.js",
+    "./loadStyles": "./src/utils/loadStyles.ts",
     "./css": "./dist/style.css",
     ".": {
       "import": "./dist/index.js",
@@ -55,9 +55,7 @@
     "build-storybook": "storybook build"
   },
   "dependencies": {
-    "@vuepic/vue-datepicker": "^8.7.0",
-    "vue": "^3.4.21",
-    "vue-select": "^4.0.0-beta.6"
+    "vue": "^3.4.21"
   },
   "devDependencies": {
     "@storybook/addon-actions": "^8.1.4",
@@ -69,7 +67,7 @@
     "@types/node": "^20.12.5",
     "@vitejs/plugin-vue": "^5.0.4",
     "@vue/tsconfig": "^0.5.1",
-    "bitrix24-library": "^0.0.3",
+    "bitrix24-library": "^0.1.0",
     "gh-pages": "^6.1.1",
     "npm-run-all2": "^6.1.2",
     "prettier": "3.2.5",

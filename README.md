@@ -11,12 +11,15 @@ npm i -S vue-bitrix24@latest bitrix24-library@latest
 ## Подключение
 ```js
 // plugins/vue-bitrix24.js
-import usePlugin from 'vue-bitrix24/Plugin';
 import BxButton from 'vue-bitrix24/BxButton';
 import BxInput from 'vue-bitrix24/BxInput';
 
 export default {
-  install: (app) => usePlugin.install(app, [BxButton, BxInput]),
+  install(app) {
+    [BxButton, BxInput].forEach((Component) => {
+      app.component(Component.name, Component);
+    });
+  },
 };
 
 // или экспорт всех компонентов
@@ -54,11 +57,6 @@ Bitrix24.init().then((BX42) => {
 * bx-progressbar
 * bx-radio
 * bx-textarea
-
-### Examples
-
-* bx-input-date (based on [@vuepic/vue-datepicker](https://vue3datepicker.com))
-* bx-select (based on [vue-select](https://vue-select.org))
 
 ## Ссылки
 
