@@ -42,7 +42,7 @@ Bitrix24.init().then((BX42) => {
 
 ## Компоненты
 
-[Storybook](https://astrotrain55.github.io/vue-bitrix24/)
+### [Storybook](https://astrotrain55.github.io/vue-bitrix24/)
 
 * bx-alert
 * bx-button
@@ -50,15 +50,19 @@ Bitrix24.init().then((BX42) => {
 * bx-entity-selector
 * bx-icon
 * bx-input
-* bx-input-date (based on [@vuepic/vue-datepicker](https://vue3datepicker.com))
 * bx-input-file
 * bx-progressbar
 * bx-radio
-* bx-select (based on [vue-select](https://vue-select.org))
 * bx-textarea
+
+### Examples
+
+* bx-input-date (based on [@vuepic/vue-datepicker](https://vue3datepicker.com))
+* bx-select (based on [vue-select](https://vue-select.org))
 
 ## Ссылки
 
 * [UI-библиотека](https://dev.1c-bitrix.ru/api_d7/bitrix/ui/index.php)
 * [bitrix24-library](https://www.npmjs.com/package/bitrix24-library)
 * [bitrix24-create-app](https://www.npmjs.com/package/bitrix24-create-app)
+* [bitrix24-stickerpack-app](https://github.com/astrotrain55/bitrix24-stickerpack-app)
