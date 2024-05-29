@@ -21,40 +21,40 @@
     }"
   >
     <component
-       v-if="beforeIcon"
-       :is="beforeButton ? 'button' : 'div'"
-       :class="{
-         'ui-ctl-before': !beforeExt,
-         'ui-ctl-ext-before': beforeExt,
-         'ui-ctl-icon-search': beforeIcon === 'search',
-         'ui-ctl-icon-calendar': beforeIcon === 'calendar',
-         'ui-ctl-icon-dots': beforeIcon === 'dots',
-         'ui-ctl-icon-phone': beforeIcon === 'phone',
-         'ui-ctl-icon-mail': beforeIcon === 'mail',
-         'ui-ctl-icon-clock': beforeIcon === 'clock',
-         'ui-ctl-icon-angle': beforeIcon === 'angle',
-         'ui-ctl-icon-clear': beforeIcon === 'clear',
-         'ui-ctl-icon-loader': beforeIcon === 'loader',
-       }"
-       @click="$emit('click-before')"
+      v-if="beforeIcon"
+      :is="beforeButton ? 'button' : 'div'"
+      :class="{
+        'ui-ctl-before': !beforeExt,
+        'ui-ctl-ext-before': beforeExt,
+        'ui-ctl-icon-search': beforeIcon === 'search',
+        'ui-ctl-icon-calendar': beforeIcon === 'calendar',
+        'ui-ctl-icon-dots': beforeIcon === 'dots',
+        'ui-ctl-icon-phone': beforeIcon === 'phone',
+        'ui-ctl-icon-mail': beforeIcon === 'mail',
+        'ui-ctl-icon-clock': beforeIcon === 'clock',
+        'ui-ctl-icon-angle': beforeIcon === 'angle',
+        'ui-ctl-icon-clear': beforeIcon === 'clear',
+        'ui-ctl-icon-loader': beforeIcon === 'loader',
+      }"
+      @click="$emit('click-before')"
     ></component>
     <component
-       v-if="afterIcon"
-       :is="afterButton ? 'button' : 'div'"
-       :class="{
-         'ui-ctl-after': !afterExt,
-         'ui-ctl-ext-after': afterExt,
-         'ui-ctl-icon-search': afterIcon === 'search',
-         'ui-ctl-icon-calendar': afterIcon === 'calendar',
-         'ui-ctl-icon-dots': afterIcon === 'dots',
-         'ui-ctl-icon-phone': afterIcon === 'phone',
-         'ui-ctl-icon-mail': afterIcon === 'mail',
-         'ui-ctl-icon-clock': afterIcon === 'clock',
-         'ui-ctl-icon-angle': afterIcon === 'angle',
-         'ui-ctl-icon-clear': afterIcon === 'clear',
-         'ui-ctl-icon-loader': afterIcon === 'loader',
-       }"
-       @click="$emit('click-after')"
+      v-if="afterIcon"
+      :is="afterButton ? 'button' : 'div'"
+      :class="{
+        'ui-ctl-after': !afterExt,
+        'ui-ctl-ext-after': afterExt,
+        'ui-ctl-icon-search': afterIcon === 'search',
+        'ui-ctl-icon-calendar': afterIcon === 'calendar',
+        'ui-ctl-icon-dots': afterIcon === 'dots',
+        'ui-ctl-icon-phone': afterIcon === 'phone',
+        'ui-ctl-icon-mail': afterIcon === 'mail',
+        'ui-ctl-icon-clock': afterIcon === 'clock',
+        'ui-ctl-icon-angle': afterIcon === 'angle',
+        'ui-ctl-icon-clear': afterIcon === 'clear',
+        'ui-ctl-icon-loader': afterIcon === 'loader',
+      }"
+      @click="$emit('click-after')"
     ></component>
     <div
       v-if="tag"
@@ -63,24 +63,48 @@
         '--tag_light': tagColor === 'light',
         '--tag_light-blue': tagColor === 'light-blue',
       }"
-      >{{ tag }}</div>
+    >
+      {{ tag }}
+    </div>
     <input
       type="text"
       class="ui-ctl-element"
       :value="modelValue"
       :placeholder="placeholder"
       :disabled="disabled"
-      @input="$emit('update:modelValue', $event.target.value)"
-      @change="$emit('change', $event.target.value)"
-    >
+      @input="onEmit($event, 'update:modelValue')"
+      @change="onEmit($event, 'change')"
+    />
   </div>
 </template>
 
 <script lang="ts">
-import { defineComponent } from 'vue';
+import { defineComponent, type PropType } from 'vue';
 import injectStyles from '../mixins/injectStyles';
 
-export const props = {
+export type PropSizes = 'lg' | 'md' | 'sm' | 'xs';
+export type PropColors = '' | 'success' | 'warning' | 'danger';
+export type PropIcons =
+  | ''
+  | 'search'
+  | 'calendar'
+  | 'dots'
+  | 'phone'
+  | 'mail'
+  | 'clock'
+  | 'angle'
+  | 'clear'
+  | 'loader';
+export type PropTagColors = 'default' | 'light' | 'light-blue';
+
+export type TypesProps = {
+  sizes: PropSizes[];
+  colors: PropColors[];
+  icons: PropIcons[];
+  tagColors: PropTagColors[];
+};
+
+export const props: TypesProps = {
   sizes: ['lg', 'md', 'sm', 'xs'],
   colors: ['', 'success', 'warning', 'danger'],
   icons: ['', 'search', 'calendar', 'dots', 'phone', 'mail', 'clock', 'angle', 'clear', 'loader'],
@@ -88,6 +112,12 @@ export const props = {
 };
 
 export default defineComponent({
+  methods: {
+    onEmit(event: Event, eventName: 'change' | 'update:modelValue') {
+      const input = event.target as HTMLInputElement;
+      this.$emit(eventName, input.value);
+    },
+  },
   mixins: [injectStyles],
   model: {
     prop: 'modelValue',
@@ -108,17 +138,17 @@ export default defineComponent({
       default: false,
     },
     size: {
-      type: String,
+      type: String as PropType<PropSizes>,
       default: 'md',
-      validator(value) {
-        return typeof value === 'string' && props.sizes.includes(value);
+      validator(value: PropSizes) {
+        return props.sizes.includes(value);
       },
     },
     color: {
-      type: String,
+      type: String as PropType<PropColors>,
       default: '',
-      validator(value) {
-        return typeof value === 'string' && props.colors.includes(value);
+      validator(value: PropColors) {
+        return props.colors.includes(value);
       },
     },
     inline: {
@@ -146,17 +176,17 @@ export default defineComponent({
       default: '',
     },
     tagColor: {
-      type: String,
+      type: String as PropType<PropTagColors>,
       default: 'default',
-      validator(value) {
-        return typeof value === 'string' && props.tagColors.includes(value);
+      validator(value: PropTagColors) {
+        return props.tagColors.includes(value);
       },
     },
     beforeIcon: {
-      type: String,
+      type: String as PropType<PropIcons>,
       default: '',
-      validator(value) {
-        return typeof value === 'string' && props.icons.includes(value);
+      validator(value: PropIcons) {
+        return props.icons.includes(value);
       },
     },
     beforeExt: {
@@ -168,10 +198,10 @@ export default defineComponent({
       default: false,
     },
     afterIcon: {
-      type: String,
+      type: String as PropType<PropIcons>,
       default: '',
-      validator(value) {
-        return typeof value === 'string' && props.icons.includes(value);
+      validator(value: PropIcons) {
+        return props.icons.includes(value);
       },
     },
     afterExt: {

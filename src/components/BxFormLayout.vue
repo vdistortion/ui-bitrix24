@@ -6,7 +6,7 @@
       </div>
       <div class="ui-form-content">
         <div class="ui-ctl ui-ctl-textbox ui-ctl-w100">
-          <input type="text" class="ui-ctl-element" placeholder="1">
+          <input type="text" class="ui-ctl-element" placeholder="1" />
         </div>
       </div>
     </div>
@@ -16,13 +16,13 @@
       </div>
       <div class="ui-form-content">
         <div class="ui-ctl ui-ctl-textbox ui-ctl-w100">
-          <input type="text" class="ui-ctl-element" placeholder="2">
+          <input type="text" class="ui-ctl-element" placeholder="2" />
         </div>
       </div>
     </div>
   </div>
 
-  <hr>
+  <hr />
 
   <div class="ui-form ui-form-line">
     <div class="ui-form-row">
@@ -31,7 +31,7 @@
       </div>
       <div class="ui-form-content">
         <div class="ui-ctl ui-ctl-textbox ui-ctl-w100">
-          <input type="text" class="ui-ctl-element" placeholder="1">
+          <input type="text" class="ui-ctl-element" placeholder="1" />
         </div>
       </div>
     </div>
@@ -41,13 +41,13 @@
       </div>
       <div class="ui-form-content">
         <div class="ui-ctl ui-ctl-textbox ui-ctl-w100">
-          <input type="text" class="ui-ctl-element" placeholder="2" pre="">
+          <input type="text" class="ui-ctl-element" placeholder="2" pre="" />
         </div>
       </div>
     </div>
   </div>
 
-  <hr>
+  <hr />
 
   <div class="ui-form">
     <div class="ui-form-row ui-form-row-line">
@@ -56,7 +56,7 @@
       </div>
       <div class="ui-form-content">
         <div class="ui-ctl ui-ctl-textbox ui-ctl-w100">
-          <input type="text" class="ui-ctl-element" placeholder="1">
+          <input type="text" class="ui-ctl-element" placeholder="1" />
         </div>
       </div>
     </div>
@@ -66,13 +66,13 @@
       </div>
       <div class="ui-form-content">
         <div class="ui-ctl ui-ctl-textbox ui-ctl-w100">
-          <input type="text" class="ui-ctl-element" placeholder="2">
+          <input type="text" class="ui-ctl-element" placeholder="2" />
         </div>
       </div>
     </div>
   </div>
 
-  <hr>
+  <hr />
 
   <div class="ui-form ui-form-section">
     <div class="ui-form-row">
@@ -87,7 +87,7 @@
       <div class="ui-form-content">
         <div class="ui-form-row">
           <label class="ui-ctl ui-ctl-checkbox">
-            <input type="checkbox" class="ui-ctl-element">
+            <input type="checkbox" class="ui-ctl-element" />
             <div class="ui-ctl-label-text">Убрать подпись Заряжено Битрикс24</div>
           </label>
           <a href="#" class="ui-form-link">подробнее</a>
@@ -101,7 +101,7 @@
       <div class="ui-form-content">
         <div class="ui-form-row">
           <label class="ui-ctl ui-ctl-checkbox ui-ctl-w100">
-            <input type="checkbox" class="ui-ctl-element">
+            <input type="checkbox" class="ui-ctl-element" />
             <div class="ui-ctl-label-text">
               заполнять поля в CRM автоматически при отправке формы
             </div>
@@ -109,12 +109,12 @@
         </div>
         <div class="ui-form-row">
           <div class="ui-ctl ui-ctl-textbox ui-ctl-w100">
-            <input type="text" class="ui-ctl-element" placeholder="Название">
+            <input type="text" class="ui-ctl-element" placeholder="Название" />
           </div>
         </div>
         <div class="ui-form-row">
           <div class="ui-ctl ui-ctl-textbox ui-ctl-w100">
-            <input type="text" placeholder="199" class="ui-ctl-element">
+            <input type="text" placeholder="199" class="ui-ctl-element" />
           </div>
           <a class="ui-form-link" href="">добавить поле</a>
         </div>
@@ -122,7 +122,7 @@
     </div>
   </div>
 
-  <hr>
+  <hr />
 
   <div class="ui-form ui-form-section">
     <div class="ui-form-row ui-form-row-middle">
@@ -132,7 +132,7 @@
       <div class="ui-form-content">
         <div class="ui-form-row">
           <label class="ui-ctl ui-ctl-checkbox ui-ctl-w100">
-            <input type="checkbox" class="ui-ctl-element">
+            <input type="checkbox" class="ui-ctl-element" />
             <div class="ui-ctl-label-text">
               заполнять поля в CRM автоматически при отправке формы
             </div>
@@ -140,14 +140,14 @@
         </div>
         <div class="ui-form-row">
           <div class="ui-ctl ui-ctl-textbox ui-ctl-w100">
-            <input type="text" class="ui-ctl-element" placeholder="Название">
+            <input type="text" class="ui-ctl-element" placeholder="Название" />
           </div>
         </div>
       </div>
     </div>
   </div>
 
-  <hr>
+  <hr />
 
   <div class="ui-form ui-form-section">
     <div class="ui-form-row ui-form-row-middle-input">
@@ -157,7 +157,7 @@
       <div class="ui-form-content">
         <div class="ui-form-row">
           <div class="ui-ctl ui-ctl-textbox">
-            <input type="text" class="ui-ctl-element" placeholder="https://">
+            <input type="text" class="ui-ctl-element" placeholder="https://" />
           </div>
           <a href="#" class="ui-form-link">подробнее</a>
         </div>
@@ -178,7 +178,7 @@
     </div>
   </div>
 
-  <hr>
+  <hr />
 
   <div class="ui-form ui-form-section">
     <div class="ui-form-row ui-form-row-middle-input">
@@ -191,7 +191,7 @@
             <div class="ui-ctl-label-text">Путь к CSS-файлу</div>
           </div>
           <div class="ui-ctl ui-ctl-textbox ui-ctl-w100">
-            <input type="text" class="ui-ctl-element" placeholder="https://">
+            <input type="text" class="ui-ctl-element" placeholder="https://" />
           </div>
         </div>
         <div class="ui-form-row-group">
@@ -234,7 +234,7 @@
     </div>
   </div>
 
-  <hr>
+  <hr />
 
   <div class="ui-form ui-form-section">
     <div class="ui-form-row">
@@ -245,14 +245,14 @@
         <div class="ui-form-row">
           <div class="ui-form-label" data-form-row-hidden="">
             <label class="ui-ctl ui-ctl-checkbox">
-              <input type="checkbox" class="ui-ctl-element">
+              <input type="checkbox" class="ui-ctl-element" />
               <div class="ui-ctl-label-text">Яндекс.Метрика</div>
             </label>
           </div>
           <div class="ui-form-row-hidden">
             <div class="ui-form-row">
               <div class="ui-ctl ui-ctl-textbox ui-ctl-w25">
-                <input type="text" placeholder="Введите ID" class="ui-ctl-element">
+                <input type="text" placeholder="Введите ID" class="ui-ctl-element" />
               </div>
               <a href="#" class="ui-form-link">подробнее</a>
             </div>
@@ -262,7 +262,7 @@
     </div>
   </div>
 
-  <hr>
+  <hr />
 
   <div class="ui-form">
     <div class="ui-form-row-inline">
@@ -272,7 +272,7 @@
         </div>
         <div class="ui-form-content">
           <div class="ui-ctl ui-ctl-textbox ui-ctl-w100">
-            <input type="text" class="ui-ctl-element" placeholder="1">
+            <input type="text" class="ui-ctl-element" placeholder="1" />
           </div>
         </div>
       </div>
@@ -282,7 +282,7 @@
         </div>
         <div class="ui-form-content">
           <div class="ui-ctl ui-ctl-textbox ui-ctl-w100">
-            <input type="text" class="ui-ctl-element" placeholder="2">
+            <input type="text" class="ui-ctl-element" placeholder="2" />
           </div>
         </div>
       </div>
@@ -292,14 +292,14 @@
         </div>
         <div class="ui-form-content">
           <div class="ui-ctl ui-ctl-textbox ui-ctl-w100">
-            <input type="text" class="ui-ctl-element" placeholder="3">
+            <input type="text" class="ui-ctl-element" placeholder="3" />
           </div>
         </div>
       </div>
     </div>
   </div>
 
-  <hr>
+  <hr />
 
   <div class="ui-form">
     <div class="ui-form-row-inline">
@@ -328,7 +328,7 @@
         </div>
         <div class="ui-form-content">
           <div class="ui-ctl ui-ctl-textbox">
-            <input type="text" class="ui-ctl-element" placeholder="">
+            <input type="text" class="ui-ctl-element" placeholder="" />
           </div>
           <div class="ui-ctl ui-ctl-after-icon ui-ctl-dropdown">
             <div class="ui-ctl-after ui-ctl-icon-angle"></div>
@@ -363,9 +363,10 @@
 </template>
 
 <script>
+import { defineComponent } from 'vue';
 import injectStyles from '../mixins/injectStyles';
 
-export default {
+export default defineComponent({
   mixins: [injectStyles],
-};
+});
 </script>

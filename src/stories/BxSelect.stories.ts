@@ -1,3 +1,4 @@
+import type { Meta, StoryObj } from '@storybook/vue3';
 import { action } from '@storybook/addon-actions';
 import BxSelect from '../components/BxSelect.vue';
 import countries from '../utils/countries';
@@ -15,7 +16,7 @@ const defaultProps = {
   clearSearchOnBlur: ({ clearSearchOnSelect, multiple }) => clearSearchOnSelect && !multiple,
   clearSearchOnSelect: true,
   closeOnSelect: true,
-  components: () => ({}),
+  components: {},
   deselectFromDropdown: false,
   dir: 'auto',
   disabled: false,
@@ -44,7 +45,7 @@ const defaultProps = {
       this.typeAheadSelect();
     }
   },
-  options: () => [],
+  options: [],
   placeholder: '',
   pushTags: false,
   reduce: (option) => option,
@@ -58,7 +59,7 @@ const defaultProps = {
   modelValue: null,
 };
 
-export default {
+const meta = {
   title: 'forms/bx-select',
   component: BxSelect,
   parameters: {
@@ -90,7 +91,7 @@ export default {
     clearSearchOnBlur: defaultProps.clearSearchOnBlur,
     clearSearchOnSelect: defaultProps.clearSearchOnSelect,
     closeOnSelect: defaultProps.closeOnSelect,
-    components: defaultProps.components(),
+    components: defaultProps.components,
     deselectFromDropdown: defaultProps.deselectFromDropdown,
     dir: defaultProps.dir,
     disabled: defaultProps.disabled,
@@ -104,7 +105,7 @@ export default {
     multiple: defaultProps.multiple,
     noDrop: defaultProps.noDrop,
     onTab: defaultProps.onTab,
-    options: defaultProps.options(),
+    options: defaultProps.options,
     placeholder: defaultProps.placeholder,
     pushTags: defaultProps.pushTags,
     reduce: defaultProps.reduce,
@@ -132,9 +133,13 @@ export default {
       control: { type: 'text' },
     },
   },
-};
+} satisfies Meta<typeof BxSelect>;
 
-export const Default = {
+export default meta;
+
+type StoryType = StoryObj<typeof meta>;
+
+export const Default: StoryType = {
   render: (args) => ({
     template: '<bx-select v-bind="args" v-on="args" v-model="args.modelValue"></bx-select>',
     data: () => ({ args }),

@@ -7,7 +7,7 @@
       :value="value"
       :disabled="disabled"
       @change="updateInput"
-    >
+    />
     <div class="ui-ctl-label-text">
       <slot></slot>
     </div>
@@ -20,8 +20,9 @@ import injectStyles from '../mixins/injectStyles';
 
 export default defineComponent({
   methods: {
-    updateInput(event) {
-      const isChecked = event.target.checked;
+    updateInput(event: Event) {
+      const input = event.target as HTMLInputElement;
+      const isChecked = input.checked;
       const newValue = [...this.modelValue];
 
       if (isChecked) {

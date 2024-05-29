@@ -1,14 +1,22 @@
+import type { Meta, StoryObj } from '@storybook/vue3';
 import { action } from '@storybook/addon-actions';
-import BxTextarea, { props } from '../components/BxTextarea.vue';
+import BxTextarea, { props, type PropResizes } from '../components/BxTextarea.vue';
 
-const defaultProps = {
+type DefaultProps = {
+  modelValue: string;
+  placeholder: string;
+  resize: PropResizes;
+  disabled: boolean;
+};
+
+const defaultProps: DefaultProps = {
   modelValue: '',
   placeholder: '',
   resize: '',
   disabled: false,
 };
 
-export default {
+const meta = {
   title: 'forms/bx-textarea',
   component: BxTextarea,
   args: {
@@ -37,9 +45,13 @@ export default {
       control: { type: 'boolean' },
     },
   },
-};
+} satisfies Meta<typeof BxTextarea>;
 
-export const Default = {
+export default meta;
+
+type StoryType = StoryObj<typeof meta>;
+
+export const Default: StoryType = {
   render: (args) => ({
     template: '<bx-textarea v-bind="args" v-on="args"></bx-textarea>',
     data: () => ({ args }),
@@ -50,8 +62,8 @@ export const Default = {
   }),
 };
 
-const Story = (propName, propList) => ({
-  render: (args) => ({
+const Story = (propName: string, propList: any[]) => ({
+  render: (args: any) => ({
     template: `
       <div v-for="item in propList" :key="item" class="component">
         <bx-textarea v-bind="args" v-on="args" :[propName]="item">{{ args.default }}</bx-textarea>
@@ -72,4 +84,4 @@ const Story = (propName, propList) => ({
   },
 });
 
-export const Resizes = Story('resize', props.resizes);
+export const Resizes: StoryType = Story('resize', props.resizes);

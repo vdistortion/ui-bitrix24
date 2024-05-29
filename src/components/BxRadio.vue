@@ -6,8 +6,8 @@
       :checked="isChecked"
       :value="value"
       :disabled="disabled"
-      @change="$emit('update:modelValue', $event.target.value)"
-    >
+      @change="onChange"
+    />
     <div class="ui-ctl-label-text">
       <slot></slot>
     </div>
@@ -19,6 +19,12 @@ import { defineComponent } from 'vue';
 import injectStyles from '../mixins/injectStyles';
 
 export default defineComponent({
+  methods: {
+    onChange(event: Event) {
+      const input = event.target as HTMLInputElement;
+      this.$emit('update:modelValue', input.value);
+    },
+  },
   computed: {
     isChecked() {
       return this.modelValue === this.value;

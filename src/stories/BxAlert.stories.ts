@@ -1,7 +1,22 @@
+import type { Meta, StoryObj } from '@storybook/vue3';
 import { action } from '@storybook/addon-actions';
-import BxAlert, { props } from '../components/BxAlert.vue';
+import BxAlert, {
+  props,
+  type PropSizes,
+  type PropColors,
+  type PropIcons,
+} from '../components/BxAlert.vue';
 
-const defaultProps = {
+type DefaultProps = {
+  title: string;
+  size: PropSizes;
+  color: PropColors;
+  icon: PropIcons;
+  center: boolean;
+  inline: boolean;
+};
+
+const defaultProps: DefaultProps = {
   title: 'Внимание!',
   size: 'md',
   color: 'default',
@@ -9,7 +24,8 @@ const defaultProps = {
   center: false,
   inline: false,
 };
-export default {
+
+const meta = {
   title: 'bx-alert',
   component: BxAlert,
   args: {
@@ -46,17 +62,21 @@ export default {
       control: { type: 'inline-radio' },
     },
     center: {
-      defaultValue: defaultProps.disabled,
+      defaultValue: defaultProps.center,
       control: { type: 'boolean' },
     },
     inline: {
-      defaultValue: defaultProps.dropdown,
+      defaultValue: defaultProps.inline,
       control: { type: 'boolean' },
     },
   },
-};
+} satisfies Meta<typeof BxAlert>;
 
-export const Default = {
+export default meta;
+
+type StoryType = StoryObj<typeof meta>;
+
+export const Default: StoryType = {
   render: (args) => ({
     template: '<bx-alert v-bind="args" v-on="args">{{ args.default }}</bx-alert>',
     data: () => ({ args }),
@@ -67,8 +87,8 @@ export const Default = {
   }),
 };
 
-const Story = (propName, propList) => ({
-  render: (args) => ({
+const Story = (propName: string, propList: any[]) => ({
+  render: (args: any) => ({
     template: `
       <div v-for="item in propList" :key="item" class="component">
         <bx-alert v-bind="args" v-on="args" :[propName]="item">{{ args.default }}</bx-alert>
@@ -89,6 +109,6 @@ const Story = (propName, propList) => ({
   },
 });
 
-export const Sizes = Story('size', props.sizes);
-export const Colors = Story('color', props.colors);
-export const Icons = Story('icon', props.icons);
+export const Sizes: StoryType = Story('size', props.sizes);
+export const Colors: StoryType = Story('color', props.colors);
+export const Icons: StoryType = Story('icon', props.icons);

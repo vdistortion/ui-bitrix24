@@ -1,6 +1,21 @@
-import BxProgressbar, { props } from '../components/BxProgressbar.vue';
+import type { Meta, StoryObj } from '@storybook/vue3';
+import BxProgressbar, {
+  props,
+  type PropSizes,
+  type PropColors,
+} from '../components/BxProgressbar.vue';
 
-const defaultProps = {
+type DefaultProps = {
+  progress: number;
+  size: PropSizes;
+  color: PropColors;
+  textBefore: string;
+  textAfter: string;
+  bg: boolean;
+  column: boolean;
+};
+
+const defaultProps: DefaultProps = {
   progress: 0,
   size: 'md',
   color: 'primary',
@@ -9,7 +24,8 @@ const defaultProps = {
   bg: false,
   column: false,
 };
-export default {
+
+const meta = {
   title: 'bx-progressbar',
   component: BxProgressbar,
   args: {
@@ -53,9 +69,13 @@ export default {
       control: { type: 'boolean' },
     },
   },
-};
+} satisfies Meta<typeof BxProgressbar>;
 
-export const Default = {
+export default meta;
+
+type StoryType = StoryObj<typeof meta>;
+
+export const Default: StoryType = {
   render: (args) => ({
     template: '<bx-progressbar v-bind="args" v-on="args"></bx-progressbar>',
     data: () => ({ args }),
@@ -66,8 +86,8 @@ export const Default = {
   }),
 };
 
-const Story = (propName, propList) => ({
-  render: (args) => ({
+const Story = (propName: string, propList: any[]) => ({
+  render: (args: any) => ({
     template: `
       <div v-for="item in propList" :key="item" class="component">
         <bx-progressbar v-bind="args" v-on="args" :[propName]="item"></bx-progressbar>
@@ -88,5 +108,5 @@ const Story = (propName, propList) => ({
   },
 });
 
-export const Colors = Story('color', props.colors);
-export const Sizes = Story('size', props.sizes);
+export const Colors: StoryType = Story('color', props.colors);
+export const Sizes: StoryType = Story('size', props.sizes);

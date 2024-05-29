@@ -1,13 +1,22 @@
+import type { Meta, StoryObj } from '@storybook/vue3';
 import { action } from '@storybook/addon-actions';
-import BxInputFile, { props } from '../components/BxInputFile.vue';
+import BxInputFile, { props, type PropTypes } from '../components/BxInputFile.vue';
 
-const defaultProps = {
+type DefaultProps = {
+  placeholder: string;
+  type: PropTypes;
+  multiple: boolean;
+  disabled: boolean;
+};
+
+const defaultProps: DefaultProps = {
   placeholder: '',
   type: 'drop',
   multiple: false,
   disabled: false,
 };
-export default {
+
+const meta = {
   title: 'forms/bx-input-file',
   component: BxInputFile,
   args: {
@@ -36,9 +45,13 @@ export default {
       control: { type: 'boolean' },
     },
   },
-};
+} satisfies Meta<typeof BxInputFile>;
 
-export const Default = {
+export default meta;
+
+type StoryType = StoryObj<typeof meta>;
+
+export const Default: StoryType = {
   render: (args) => ({
     template: '<bx-input-file v-bind="args" v-on="args">{{ args.default }}</bx-input-file>',
     data: () => ({ args }),
@@ -49,8 +62,8 @@ export const Default = {
   }),
 };
 
-const Story = (propName, propList) => ({
-  render: (args) => ({
+const Story = (propName: string, propList: any[]) => ({
+  render: (args: any) => ({
     template: `
       <div v-for="item in propList" :key="item" class="component">
         <bx-input-file v-bind="args" v-on="args" :[propName]="item">{{ args.default }}</bx-input-file>
@@ -71,4 +84,4 @@ const Story = (propName, propList) => ({
   },
 });
 
-export const Types = Story('type', props.types);
+export const Types: StoryType = Story('type', props.types);

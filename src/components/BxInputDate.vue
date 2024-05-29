@@ -198,7 +198,7 @@
           'ui-ctl-after-icon': after === 'after',
           'ui-ctl-ext-after-icon': after === 'ext-after',
         }"
-        style="width: 100%;"
+        style="width: 100%"
       >
         <button
           class="ui-ctl-icon-calendar"
@@ -215,7 +215,7 @@
           @input="onInput"
           @keydown.enter="onEnter"
           @keydown.tab="onTab"
-        >
+        />
       </div>
     </template>
     <template v-if="$slots['input-icon']" #input-icon="slotScope">
@@ -285,13 +285,49 @@
 </template>
 
 <script lang="ts">
-import { defineComponent } from 'vue';
+import { defineComponent, type PropType } from 'vue';
 import VueDatepicker from '@vuepic/vue-datepicker';
 import injectStyles from '../mixins/injectStyles';
 
-const fieldsTimes = ['month', 'year', 'calendar', 'time', 'minutes', 'hours', 'seconds'];
+export type PropFieldsTimes =
+  | 'month'
+  | 'year'
+  | 'calendar'
+  | 'time'
+  | 'minutes'
+  | 'hours'
+  | 'seconds';
+export type PropAfter = 'after' | 'ext-after';
+export type PropUtc = true | false | 'preserve';
+export type PropMonthChangeOnScrolls = true | false | 'inverse';
+export type PropWeekNumbers = 'local' | 'iso';
+export type PropMonthNameFormats = 'short' | 'long';
+export type PropPositions = 'left' | 'center' | 'right';
+export type PropSixWeeks = true | false | 'append' | 'prepend' | 'center' | 'fair';
 
-export const props = {
+export type TypesProps = {
+  after: PropAfter[];
+  flows: PropFieldsTimes[];
+  utc: PropUtc[];
+  monthChangeOnScrolls: PropMonthChangeOnScrolls[];
+  hideNavigations: PropFieldsTimes[];
+  weekNumbers: PropWeekNumbers[];
+  monthNameFormats: PropMonthNameFormats[];
+  positions: PropPositions[];
+  sixWeeks: PropSixWeeks[];
+};
+
+const fieldsTimes: PropFieldsTimes[] = [
+  'month',
+  'year',
+  'calendar',
+  'time',
+  'minutes',
+  'hours',
+  'seconds',
+];
+
+export const props: TypesProps = {
   after: ['after', 'ext-after'],
   flows: fieldsTimes,
   utc: [true, false, 'preserve'],
@@ -334,10 +370,10 @@ export default defineComponent({
       default: null,
     },
     after: {
-      type: String,
+      type: String as PropType<PropAfter>,
       default: 'after',
-      validator(value) {
-        return typeof value === 'string' && props.after.includes(value);
+      validator(value: PropAfter) {
+        return props.after.includes(value);
       },
     },
     range: {
@@ -381,18 +417,17 @@ export default defineComponent({
       default: false,
     },
     flow: {
-      type: Array,
+      type: Array as PropType<PropFieldsTimes[]>,
       default: () => [],
-      validator(array) {
-        return Array.isArray(array) && array.every((value) => props.flows.includes(value));
+      validator(array: PropFieldsTimes[]) {
+        return array.every((value) => props.flows.includes(value));
       },
     },
     utc: {
-      type: [Boolean, String],
+      type: [Boolean, String] as PropType<PropUtc>,
       default: false,
-      validator(value) {
-        return (typeof value === 'string' || typeof value === 'boolean')
-          && props.utc.includes(value);
+      validator(value: PropUtc) {
+        return props.utc.includes(value);
       },
     },
     vertical: {
@@ -472,11 +507,10 @@ export default defineComponent({
       default: null,
     },
     monthChangeOnScroll: {
-      type: [Boolean, String],
+      type: [Boolean, String] as PropType<PropMonthChangeOnScrolls>,
       default: true,
-      validator(value) {
-        return (typeof value === 'string' || typeof value === 'boolean')
-          && props.monthChangeOnScrolls.includes(value);
+      validator(value: PropMonthChangeOnScrolls) {
+        return props.monthChangeOnScrolls.includes(value);
       },
     },
     modelType: {
@@ -556,11 +590,10 @@ export default defineComponent({
       default: false,
     },
     hideNavigation: {
-      type: Array,
+      type: Array as PropType<PropFieldsTimes[]>,
       default: () => [],
-      validator(array) {
-        return Array.isArray(array)
-          && array.every((value) => props.hideNavigations.includes(value));
+      validator(array: PropFieldsTimes[]) {
+        return array.every((value) => props.hideNavigations.includes(value));
       },
     },
     onClickOutside: {
@@ -584,11 +617,11 @@ export default defineComponent({
       default: null,
     },
     weekNumbers: {
-      type: [String, Function],
+      type: [Function, String] as PropType<Function | PropWeekNumbers>,
       default: null,
-      validator(value) {
-        return typeof value === 'function'
-          || (typeof value === 'string' && props.weekNumbers.includes(value));
+      validator(value: Function | PropWeekNumbers) {
+        if (typeof value === 'function') return true;
+        return props.weekNumbers.includes(value);
       },
     },
     hideOffsetDates: {
@@ -635,9 +668,11 @@ export default defineComponent({
       type: Array,
       default: () => [1900, 2100],
       validator(array) {
-        return Array.isArray(array)
-          && array.length === 2
-          && array.every((value) => typeof value === 'number');
+        return (
+          Array.isArray(array) &&
+          array.length === 2 &&
+          array.every((value) => typeof value === 'number')
+        );
       },
     },
     reverseYears: {
@@ -741,10 +776,10 @@ export default defineComponent({
       default: '',
     },
     monthNameFormat: {
-      type: String,
+      type: String as PropType<PropMonthNameFormats>,
       default: 'short',
-      validator(value) {
-        return typeof value === 'string' && props.monthNameFormats.includes(value);
+      validator(value: PropMonthNameFormats) {
+        return props.monthNameFormats.includes(value);
       },
     },
     locale: {
@@ -783,10 +818,10 @@ export default defineComponent({
       },
     },
     position: {
-      type: String,
+      type: String as PropType<PropPositions>,
       default: 'center',
-      validator(value) {
-        return typeof value === 'string' && props.positions.includes(value);
+      validator(value: PropPositions) {
+        return props.positions.includes(value);
       },
     },
     teleport: {
@@ -830,11 +865,10 @@ export default defineComponent({
       default: true,
     },
     sixWeeks: {
-      type: [Boolean, String],
+      type: [Boolean, String] as PropType<PropSixWeeks>,
       default: false,
-      validator(value) {
-        return (typeof value === 'string' || typeof value === 'boolean')
-          && props.sixWeeks.includes(value);
+      validator(value: PropSixWeeks) {
+        return props.sixWeeks.includes(value);
       },
     },
     dark: {

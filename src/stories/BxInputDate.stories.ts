@@ -1,7 +1,31 @@
+import type { Meta, StoryObj } from '@storybook/vue3';
 import { action } from '@storybook/addon-actions';
-import BxInputDate, { props } from '../components/BxInputDate.vue';
+import BxInputDate, {
+  props,
+  type PropFieldsTimes,
+  type PropAfter,
+  type PropUtc,
+  type PropMonthChangeOnScrolls,
+  type PropWeekNumbers,
+  type PropMonthNameFormats,
+  type PropPositions,
+  type PropSixWeeks,
+} from '../components/BxInputDate.vue';
 
-const defaultProps = {
+type DefaultProps = {
+  after: PropAfter;
+  flow: PropFieldsTimes[];
+  utc: PropUtc;
+  monthChangeOnScroll: PropMonthChangeOnScrolls;
+  hideNavigation: PropFieldsTimes[];
+  weekNumbers: PropWeekNumbers;
+  monthNameFormat: PropMonthNameFormats;
+  position: PropPositions;
+  sixWeeks: PropSixWeeks;
+  [key: string]: any;
+};
+
+const defaultProps: DefaultProps = {
   modelValue: null,
   after: 'after',
   range: false,
@@ -14,7 +38,7 @@ const defaultProps = {
   textInput: true,
   inline: false,
   multiDates: false,
-  flow: () => [],
+  flow: [],
   utc: false,
   vertical: false,
   modelAuto: false,
@@ -27,7 +51,7 @@ const defaultProps = {
   fixedEnd: false,
   multiCalendarsSolo: false,
   multiStatic: true,
-  textInputOptions: () => ({}),
+  textInputOptions: {},
   modeHeight: 255,
   inlineWithInput: false,
   multiDatesLimit: null,
@@ -55,13 +79,13 @@ const defaultProps = {
   autocomplete: 'off',
   keepActionRow: false,
   noSwipe: false,
-  hideNavigation: () => [],
+  hideNavigation: [],
   onClickOutside: null,
-  actionRow: () => ({}),
+  actionRow: {},
   disableYearSelect: false,
   closeOnClearValue: true,
   calendar: null,
-  weekNumbers: null,
+  weekNumbers: 'local',
   hideOffsetDates: false,
   minDate: null,
   maxDate: null,
@@ -70,7 +94,7 @@ const defaultProps = {
   startDate: null,
   focusStartDate: false,
   weekStart: 1,
-  filters: () => ({}),
+  filters: {},
   disableMonthYearSelect: false,
   yearRange: [1900, 2100],
   reverseYears: false,
@@ -129,7 +153,8 @@ const defaultProps = {
   calendarCellClassName: '',
   dayClass: null,
 };
-export default {
+
+const meta = {
   title: 'forms/bx-input-date',
   component: BxInputDate,
   parameters: {
@@ -174,7 +199,7 @@ export default {
     textInput: defaultProps.textInput,
     inline: defaultProps.inline,
     multiDates: defaultProps.multiDates,
-    flow: defaultProps.flow(),
+    flow: defaultProps.flow,
     utc: defaultProps.utc,
     vertical: defaultProps.vertical,
     modelAuto: defaultProps.modelAuto,
@@ -187,7 +212,7 @@ export default {
     fixedEnd: defaultProps.fixedEnd,
     multiCalendarsSolo: defaultProps.multiCalendarsSolo,
     multiStatic: defaultProps.multiStatic,
-    textInputOptions: defaultProps.textInputOptions(),
+    textInputOptions: defaultProps.textInputOptions,
     modeHeight: defaultProps.modeHeight,
     inlineWithInput: defaultProps.inlineWithInput,
     multiDatesLimit: defaultProps.multiDatesLimit,
@@ -215,9 +240,9 @@ export default {
     autocomplete: defaultProps.autocomplete,
     keepActionRow: defaultProps.keepActionRow,
     noSwipe: defaultProps.noSwipe,
-    hideNavigation: defaultProps.hideNavigation(),
+    hideNavigation: defaultProps.hideNavigation,
     onClickOutside: defaultProps.onClickOutside,
-    actionRow: defaultProps.actionRow(),
+    actionRow: defaultProps.actionRow,
     disableYearSelect: defaultProps.disableYearSelect,
     closeOnClearValue: defaultProps.closeOnClearValue,
     calendar: defaultProps.calendar,
@@ -230,7 +255,7 @@ export default {
     startDate: defaultProps.startDate,
     focusStartDate: defaultProps.focusStartDate,
     weekStart: defaultProps.weekStart,
-    filters: defaultProps.filters(),
+    filters: defaultProps.filters,
     disableMonthYearSelect: defaultProps.disableMonthYearSelect,
     yearRange: defaultProps.yearRange,
     reverseYears: defaultProps.reverseYears,
@@ -308,7 +333,7 @@ export default {
       control: { type: 'boolean' },
     },
     flow: {
-      defaultValue: defaultProps.flow(),
+      defaultValue: defaultProps.flow,
       options: props.flows,
       control: { type: 'inline-check' },
     },
@@ -339,7 +364,7 @@ export default {
       control: { type: 'inline-radio' },
     },
     hideNavigation: {
-      defaultValue: defaultProps.hideNavigation(),
+      defaultValue: defaultProps.hideNavigation,
       options: props.hideNavigations,
       control: { type: 'inline-check' },
     },
@@ -393,9 +418,13 @@ export default {
       control: { type: 'inline-radio' },
     },
   },
-};
+} satisfies Meta<typeof BxInputDate>;
 
-export const Default = {
+export default meta;
+
+type StoryType = StoryObj<typeof meta>;
+
+export const Default: StoryType = {
   render: (args) => ({
     template: '<bx-input-date v-bind="args" v-on="args" v-model="args.modelValue"></bx-input-date>',
     data: () => ({ args }),

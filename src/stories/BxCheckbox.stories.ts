@@ -1,14 +1,16 @@
+import type { Meta, StoryObj } from '@storybook/vue3';
 import { action } from '@storybook/addon-actions';
-import BxRadio from '../components/BxRadio.vue';
+import BxCheckbox from '../components/BxCheckbox.vue';
 
 const defaultProps = {
-  modelValue: '',
+  modelValue: [],
   value: '',
   disabled: false,
 };
-export default {
-  title: 'forms/bx-radio',
-  component: BxRadio,
+
+const meta = {
+  title: 'forms/bx-checkbox',
+  component: BxCheckbox,
   args: {
     default: 'Two',
     'update:modelValue': action('update:modelValue'),
@@ -33,16 +35,20 @@ export default {
       control: { type: 'boolean' },
     },
   },
-};
+} satisfies Meta<typeof BxCheckbox>;
 
-export const Default = {
+export default meta;
+
+type StoryType = StoryObj<typeof meta>;
+
+export const Default: StoryType = {
   render: (args) => ({
     template: `
       <div>
-        <bx-radio v-bind="args" v-on="args" v-model="args.modelValue" value="One">One</bx-radio>
+        <bx-checkbox v-bind="args" v-on="args" v-model="args.modelValue" value="One">One</bx-checkbox>
       </div>
       <div>
-        <bx-radio v-bind="args" v-on="args" v-model="args.modelValue">{{ args.default }}</bx-radio>
+        <bx-checkbox v-bind="args" v-on="args" v-model="args.modelValue">{{ args.default }}</bx-checkbox>
       </div>
       <pre>{{ { modelValue: args.modelValue } }}</pre>
     `,
@@ -50,6 +56,6 @@ export const Default = {
     provide: {
       $BX24: null,
     },
-    components: { BxRadio },
+    components: { BxCheckbox },
   }),
 };

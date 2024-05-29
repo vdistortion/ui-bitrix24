@@ -18,10 +18,7 @@
           >
             {{ item[displayField] }}
           </a>
-          <span
-            v-else
-            class="bx-entity-selector__text"
-          >
+          <span v-else class="bx-entity-selector__text">
             {{ item[displayField] }}
           </span>
           <button
@@ -46,7 +43,7 @@ import { defineComponent } from 'vue';
 
 export default defineComponent({
   methods: {
-    onClick(e, key, item, eventName) {
+    onClick(e: MouseEvent, key, item, eventName: 'click' | 'auxclick') {
       if (this.clickable) {
         e.preventDefault();
         this.$emit(eventName, key, item);
@@ -159,7 +156,7 @@ export default defineComponent({
 }
 .bx-entity-selector__delete::after {
   content: '';
-  background-image: url("../assets/media.png");
+  background-image: url('../assets/media.png');
   background-repeat: no-repeat;
   background-position: -2px -17px;
   width: 6px;
@@ -194,7 +191,7 @@ export default defineComponent({
 }
 .bx-entity-selector__add::before {
   content: '';
-  background-image: url("../assets/add.png");
+  background-image: url('../assets/add.png');
   background-repeat: no-repeat;
   background-position: center;
   height: 8px;

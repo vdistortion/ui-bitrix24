@@ -12,7 +12,7 @@
         :multiple="multiple"
         :disabled="disabled"
         @change="onChange"
-      >
+      />
       <div class="ui-ctl-label-text">
         {{ placeholder || defaultPlaceholder }}
       </div>
@@ -29,7 +29,7 @@
         :multiple="multiple"
         :disabled="disabled"
         @change="onChange"
-      >
+      />
       <div class="ui-ctl-label-text">
         {{ placeholder || defaultPlaceholder }}
       </div>
@@ -50,7 +50,7 @@
         :multiple="multiple"
         :disabled="disabled"
         @change="onChange"
-      >
+      />
     </label>
     <ul v-if="files.length" class="drag-n-drop__list">
       <li v-for="(file, key) in files" :key="key" class="drag-n-drop__file">
@@ -62,26 +62,34 @@
 </template>
 
 <script lang="ts">
-import { defineComponent } from 'vue';
+import { defineComponent, type PropType } from 'vue';
 import { formatSizeUnits } from '../utils/formatSizeUnits';
 import injectStyles from '../mixins/injectStyles';
 
-export const props = {
+export type PropTypes = 'drop' | 'button' | 'link';
+
+export type TypesProps = {
+  types: PropTypes[];
+};
+
+export const props: TypesProps = {
   types: ['drop', 'button', 'link'],
 };
 
 export default defineComponent({
   methods: {
-    getName(file) {
+    getName(file: File) {
       return `${file.name} (${formatSizeUnits(file.size)})`;
     },
 
-    onChange(e) {
-      this.files.push(...e.target.files);
+    onChange(event: Event) {
+      const input = event.target as HTMLInputElement;
+      const files: FileList = input.files!;
+      this.files.push(...files);
       this.$emit('change', [...this.files]);
     },
 
-    onDelete(index) {
+    onDelete(index: number) {
       const [file] = this.files.splice(index, 1);
       this.$emit('delete', [...this.files], file);
     },
@@ -89,14 +97,14 @@ export default defineComponent({
   computed: {
     title() {
       if (this.disabled) return '';
-      if (this.files.length) return this.files.map((file) => file.name).join('\n');
+      if (this.files.length) return this.files.map((file: File) => file.name).join('\n');
       if (this.multiple) return 'Файлы не выбраны.';
       return 'Файл не выбран.';
     },
   },
   data() {
     return {
-      files: [],
+      files: [] as File[],
       defaultPlaceholder: 'Загрузить файл или картинку',
     };
   },
@@ -111,10 +119,10 @@ export default defineComponent({
       },
     },
     type: {
-      type: String,
+      type: String as PropType<PropTypes>,
       default: 'drop',
-      validator(value) {
-        return typeof value === 'string' && props.types.includes(value);
+      validator(value: PropTypes) {
+        return props.types.includes(value);
       },
     },
     multiple: {
@@ -168,7 +176,7 @@ export default defineComponent({
   line-height: 1.8;
 }
 .drag-n-drop__delete {
-  background-image: url("../assets/wduf-sprite.png");
+  background-image: url('../assets/wduf-sprite.png');
   background-repeat: no-repeat;
   background-position: center -44px;
   width: 24px;

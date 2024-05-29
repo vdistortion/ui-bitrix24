@@ -1,11 +1,6 @@
 <template>
   <div v-if="menu" class="ui-btn-split" :class="classList">
-    <button
-      class="ui-btn-main"
-      :type="type"
-      :disabled="disabled"
-      @click="$emit('click')"
-    >
+    <button class="ui-btn-main" :type="type" :disabled="disabled" @click="$emit('click')">
       <slot></slot>
       <i v-if="counter" class="ui-btn-counter">{{ count }}</i>
     </button>
@@ -30,23 +25,153 @@
 </template>
 
 <script lang="ts">
-import { defineComponent } from 'vue';
+import { defineComponent, type PropType } from 'vue';
 import injectStyles from '../mixins/injectStyles';
 
-export const props = {
+export type PropTypes = 'button' | 'submit' | 'reset';
+export type PropColors =
+  | 'default'
+  | 'success'
+  | 'success-light'
+  | 'danger'
+  | 'danger-dark'
+  | 'danger-light'
+  | 'primary'
+  | 'primary-dark'
+  | 'secondary'
+  | 'link'
+  | 'light'
+  | 'light-border';
+export type PropSizes = 'xs' | 'sm' | 'md' | 'lg';
+export type PropIcons =
+  | ''
+  | 'add'
+  | 'stop'
+  | 'start'
+  | 'pause'
+  | 'setting'
+  | 'task'
+  | 'info'
+  | 'search'
+  | 'follow'
+  | 'unfollow'
+  | 'print'
+  | 'add-folder'
+  | 'list'
+  | 'business'
+  | 'business-confirm'
+  | 'business-warning'
+  | 'camera'
+  | 'phone-up'
+  | 'phone-down'
+  | 'back'
+  | 'edit'
+  | 'share'
+  | 'remove'
+  | 'download'
+  | 'cloud'
+  | 'page'
+  | 'chat'
+  | 'phone-call'
+  | 'lock'
+  | 'done'
+  | 'disk'
+  | 'mail'
+  | 'alert'
+  | 'angle-up'
+  | 'angle-down'
+  | 'dots'
+  | 'forward'
+  | 'fail'
+  | 'success'
+  | 'plan'
+  | 'eye-opened'
+  | 'eye-closed'
+  | 'tariff'
+  | 'battery'
+  | 'no-battery'
+  | 'half-battery'
+  | 'low-battery'
+  | 'crit-battery'
+  | 'demo';
+export type PropLoaders = '' | 'clock' | 'wait';
+
+export type TypesProps = {
+  types: PropTypes[];
+  colors: PropColors[];
+  sizes: PropSizes[];
+  icons: PropIcons[];
+  loaders: PropLoaders[];
+};
+
+export const props: TypesProps = {
   types: ['button', 'submit', 'reset'],
   colors: [
-    'default', 'success', 'success-light', 'danger', 'danger-dark', 'danger-light', 'primary',
-    'primary-dark', 'secondary', 'link', 'light', 'light-border',
+    'default',
+    'success',
+    'success-light',
+    'danger',
+    'danger-dark',
+    'danger-light',
+    'primary',
+    'primary-dark',
+    'secondary',
+    'link',
+    'light',
+    'light-border',
   ],
   sizes: ['xs', 'sm', 'md', 'lg'],
   icons: [
-    '', 'add', 'stop', 'start', 'pause', 'setting', 'task', 'info', 'search', 'follow', 'unfollow',
-    'print', 'add-folder', 'list', 'business', 'business-confirm', 'business-warning', 'camera',
-    'phone-up', 'phone-down', 'back', 'edit', 'share', 'remove', 'download', 'cloud', 'page',
-    'chat', 'phone-call', 'lock', 'done', 'disk', 'mail', 'alert', 'angle-up', 'angle-down', 'dots',
-    'forward', 'fail', 'success', 'plan', 'eye-opened', 'eye-closed', 'tariff', 'battery',
-    'no-battery', 'half-battery', 'low-battery', 'crit-battery', 'demo',
+    '',
+    'add',
+    'stop',
+    'start',
+    'pause',
+    'setting',
+    'task',
+    'info',
+    'search',
+    'follow',
+    'unfollow',
+    'print',
+    'add-folder',
+    'list',
+    'business',
+    'business-confirm',
+    'business-warning',
+    'camera',
+    'phone-up',
+    'phone-down',
+    'back',
+    'edit',
+    'share',
+    'remove',
+    'download',
+    'cloud',
+    'page',
+    'chat',
+    'phone-call',
+    'lock',
+    'done',
+    'disk',
+    'mail',
+    'alert',
+    'angle-up',
+    'angle-down',
+    'dots',
+    'forward',
+    'fail',
+    'success',
+    'plan',
+    'eye-opened',
+    'eye-closed',
+    'tariff',
+    'battery',
+    'no-battery',
+    'half-battery',
+    'low-battery',
+    'crit-battery',
+    'demo',
   ],
   loaders: ['', 'clock', 'wait'],
 };
@@ -70,38 +195,38 @@ export default defineComponent({
   emits: ['click', 'toggle-menu'],
   props: {
     type: {
-      type: String,
+      type: String as PropType<PropTypes>,
       default: 'button',
-      validator(value) {
-        return typeof value === 'string' && props.types.includes(value);
+      validator(value: PropTypes) {
+        return props.types.includes(value);
       },
     },
     color: {
-      type: String,
+      type: String as PropType<PropColors>,
       default: 'default',
-      validator(value) {
-        return typeof value === 'string' && props.colors.includes(value);
+      validator(value: PropColors) {
+        return props.colors.includes(value);
       },
     },
     size: {
-      type: String,
+      type: String as PropType<PropSizes>,
       default: 'md',
-      validator(value) {
-        return typeof value === 'string' && props.sizes.includes(value);
+      validator(value: PropSizes) {
+        return props.sizes.includes(value);
       },
     },
     icon: {
-      type: String,
+      type: String as PropType<PropIcons>,
       default: '',
-      validator(value) {
-        return typeof value === 'string' && props.icons.includes(value);
+      validator(value: PropIcons) {
+        return props.icons.includes(value);
       },
     },
     loader: {
-      type: String,
+      type: String as PropType<PropLoaders>,
       default: '',
-      validator(value) {
-        return typeof value === 'string' && props.loaders.includes(value);
+      validator(value: PropLoaders) {
+        return props.loaders.includes(value);
       },
     },
     count: {

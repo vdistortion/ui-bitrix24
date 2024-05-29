@@ -9,10 +9,18 @@
 </template>
 
 <script lang="ts">
-import { defineComponent } from 'vue';
+import { defineComponent, type PropType } from 'vue';
 import injectStyles from '../mixins/injectStyles';
 
-export const props = {
+export type PropSizes = 'md' | 'lg';
+export type PropColors = 'primary' | 'success' | 'warning' | 'danger';
+
+export type TypesProps = {
+  sizes: PropSizes[];
+  colors: PropColors[];
+};
+
+export const props: TypesProps = {
   sizes: ['md', 'lg'],
   colors: ['primary', 'success', 'warning', 'danger'],
 };
@@ -41,17 +49,17 @@ export default defineComponent({
       },
     },
     size: {
-      type: String,
+      type: String as PropType<PropSizes>,
       default: 'md',
-      validator(value) {
-        return typeof value === 'string' && props.sizes.includes(value);
+      validator(value: PropSizes) {
+        return props.sizes.includes(value);
       },
     },
     color: {
-      type: String,
+      type: String as PropType<PropColors>,
       default: 'primary',
-      validator(value) {
-        return typeof value === 'string' && props.colors.includes(value);
+      validator(value: PropColors) {
+        return props.colors.includes(value);
       },
     },
     textBefore: {

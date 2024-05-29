@@ -1,10 +1,15 @@
-import BxIcon, { props } from '../components/BxIcon.vue';
+import type { Meta, StoryObj } from '@storybook/vue3';
+import BxIcon, { props, type PropIcons } from '../components/BxIcon.vue';
 
-const defaultProps = {
+type DefaultProps = {
+  icon: PropIcons;
+};
+
+const defaultProps: DefaultProps = {
   icon: 'file-empty',
 };
 
-export default {
+const meta = {
   title: 'bx-icon',
   component: BxIcon,
   args: {
@@ -17,9 +22,13 @@ export default {
       control: { type: 'select' },
     },
   },
-};
+} satisfies Meta<typeof BxIcon>;
 
-export const Default = {
+export default meta;
+
+type StoryType = StoryObj<typeof meta>;
+
+export const Default: StoryType = {
   render: (args) => ({
     template: '<bx-icon v-bind="args" v-on="args">{{ args.default }}</bx-icon>',
     data: () => ({ args }),
@@ -30,8 +39,8 @@ export const Default = {
   }),
 };
 
-const Story = (propName, propList) => ({
-  render: (args) => ({
+const Story = (propName: string, propList: any[]) => ({
+  render: (args: any) => ({
     template: `
       <div v-for="item in propList" :key="item" class="component">
         <bx-icon v-bind="args" v-on="args" :[propName]="item">{{ args.default }}</bx-icon>
@@ -52,4 +61,4 @@ const Story = (propName, propList) => ({
   },
 });
 
-export const Icons = Story('icon', props.icons);
+export const Icons: StoryType = Story('icon', props.icons);

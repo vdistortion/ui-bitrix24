@@ -12,20 +12,32 @@
       :value="modelValue"
       :placeholder="placeholder"
       :disabled="disabled"
-      @input="$emit('update:modelValue', $event.target.value)"
+      @input="onInput"
     ></textarea>
   </div>
 </template>
 
 <script lang="ts">
-import { defineComponent } from 'vue';
+import { defineComponent, type PropType } from 'vue';
 import injectStyles from '../mixins/injectStyles';
 
-export const props = {
+export type PropResizes = '' | 'no' | 'y' | 'x';
+
+export type TypesProps = {
+  resizes: PropResizes[];
+};
+
+export const props: TypesProps = {
   resizes: ['', 'no', 'y', 'x'],
 };
 
 export default defineComponent({
+  methods: {
+    onInput(event: Event) {
+      const input = event.target as HTMLInputElement;
+      this.$emit('update:modelValue', input.value);
+    },
+  },
   mixins: [injectStyles],
   model: {
     prop: 'modelValue',
@@ -42,10 +54,10 @@ export default defineComponent({
       default: '',
     },
     resize: {
-      type: String,
+      type: String as PropType<PropResizes>,
       default: '',
-      validator(value) {
-        return typeof value === 'string' && props.resizes.includes(value);
+      validator(value: PropResizes) {
+        return props.resizes.includes(value);
       },
     },
     disabled: {

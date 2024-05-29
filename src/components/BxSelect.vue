@@ -47,7 +47,7 @@
     @option:deselecting="$emit('option:deselecting', $event)"
     @option:deselected="$emit('option:deselected', $event)"
     @option:created="$emit('option:created', $event)"
-    @search="(search, loading) => $emit('search', search, loading)"
+    @search="(search: string, loading: Function) => $emit('search', search, loading)"
     @search:blur="$emit('search:blur')"
     @search:focus="$emit('search:focus')"
   >
@@ -91,7 +91,7 @@
 </template>
 
 <script lang="ts">
-import { defineComponent } from 'vue';
+import { type DefineComponent, defineComponent } from 'vue';
 import VueSelect from 'vue-select';
 import injectStyles from '../mixins/injectStyles';
 
@@ -125,10 +125,14 @@ export default defineComponent({
     },
     calculatePosition: {
       type: Function,
-      default(dropdownList, component, { width, top, left }) {
-        dropdownList.style.top = top; // eslint-disable-line no-param-reassign
-        dropdownList.style.left = left; // eslint-disable-line no-param-reassign
-        dropdownList.style.width = width; // eslint-disable-line no-param-reassign
+      default(
+        dropdownList: HTMLUListElement,
+        component: DefineComponent,
+        { width, top, left }: { width: string; top: string; left: string },
+      ) {
+        dropdownList.style.top = top;
+        dropdownList.style.left = left;
+        dropdownList.style.width = width;
       },
     },
     clearable: {
@@ -137,7 +141,7 @@ export default defineComponent({
     },
     clearSearchOnBlur: {
       type: Function,
-      default: ({ clearSearchOnSelect, multiple }) => clearSearchOnSelect && !multiple,
+      default: ({ clearSearchOnSelect, multiple }: any) => clearSearchOnSelect && !multiple,
     },
     clearSearchOnSelect: {
       type: Boolean,
@@ -168,12 +172,13 @@ export default defineComponent({
     },
     dropdownShouldOpen: {
       type: Function,
-      default: ({ noDrop, open, mutableLoading }) => (noDrop ? false : open && !mutableLoading),
+      default: ({ noDrop, open, mutableLoading }: any) =>
+        noDrop ? false : open && !mutableLoading,
     },
     filter: {
       type: Function,
-      default(options, search) {
-        return options.filter((option) => {
+      default(options: any, search: any) {
+        return options.filter((option: any) => {
           let label = this.getOptionLabel(option);
           if (typeof label === 'number') {
             label = label.toString();
@@ -188,7 +193,7 @@ export default defineComponent({
     },
     filterBy: {
       type: Function,
-      default(option, label, search) {
+      default(option: any, label: any, search: any) {
         return (label || '').toLocaleLowerCase().indexOf(search.toLocaleLowerCase()) > -1;
       },
     },
@@ -239,7 +244,7 @@ export default defineComponent({
     },
     reduce: {
       type: Function,
-      default: (option) => option,
+      default: (option: any) => option,
     },
     resetOnOptionsChange: {
       type: [Boolean, Function],

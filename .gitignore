@@ -31,3 +31,5 @@ coverage
 
 /lib
 /storybook-static
+
+*storybook.log

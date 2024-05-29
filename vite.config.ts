@@ -7,7 +7,7 @@ export default defineConfig({
   plugins: [vue()],
   build: {
     lib: {
-      entry: './src/lib.js',
+      entry: './src/lib.ts',
       name: 'vue-bitrix24',
       fileName: 'index',
     },
@@ -18,6 +18,11 @@ export default defineConfig({
           vue: 'Vue',
         },
       },
+    },
+  },
+  server: {
+    fs: {
+      allow: ['..'],
     },
   },
 });

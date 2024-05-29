@@ -8,10 +8,20 @@
 </template>
 
 <script lang="ts">
-import { defineComponent } from 'vue';
+import { defineComponent, type PropType } from 'vue';
 import injectStyles from '../mixins/injectStyles';
 
-export const props = {
+export type PropSizes = 'md' | 'xs';
+export type PropColors = 'default' | 'primary' | 'success' | 'warning' | 'danger';
+export type PropIcons = '' | 'warning' | 'danger' | 'info';
+
+export type TypesProps = {
+  sizes: PropSizes[];
+  colors: PropColors[];
+  icons: PropIcons[];
+};
+
+export const props: TypesProps = {
   sizes: ['md', 'xs'],
   colors: ['default', 'primary', 'success', 'warning', 'danger'],
   icons: ['', 'warning', 'danger', 'info'],
@@ -35,29 +45,29 @@ export default defineComponent({
     title: {
       type: String,
       default: 'Внимание!',
-      validator(value) {
+      validator(value: unknown) {
         return typeof value === 'string';
       },
     },
     size: {
-      type: String,
+      type: String as PropType<PropSizes>,
       default: 'md',
-      validator(value) {
-        return typeof value === 'string' && props.sizes.includes(value);
+      validator(value: PropSizes) {
+        return props.sizes.includes(value);
       },
     },
     color: {
-      type: String,
+      type: String as PropType<PropColors>,
       default: 'default',
-      validator(value) {
-        return typeof value === 'string' && props.colors.includes(value);
+      validator(value: PropColors) {
+        return props.colors.includes(value);
       },
     },
     icon: {
-      type: String,
+      type: String as PropType<PropIcons>,
       default: '',
-      validator(value) {
-        return typeof value === 'string' && props.icons.includes(value);
+      validator(value: PropIcons) {
+        return props.icons.includes(value);
       },
     },
     center: {

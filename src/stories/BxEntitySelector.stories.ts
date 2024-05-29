@@ -1,3 +1,4 @@
+import type { Meta, StoryObj } from '@storybook/vue3';
 import { action } from '@storybook/addon-actions';
 import BxEntitySelector from '../components/BxEntitySelector.vue';
 import countriesWithoutLinks from '../utils/countries';
@@ -19,7 +20,7 @@ const defaultProps = {
   inline: false,
 };
 
-export default {
+const meta = {
   title: 'bx-entity-selector',
   component: BxEntitySelector,
   args: {
@@ -43,7 +44,9 @@ export default {
       options: countries.map((c, index) => index),
       control: {
         type: 'multi-select',
-        labels: countries.map((country) => `{ code: ${country.code}, name: ${country.name}, url: ${country.url} }`),
+        labels: countries.map(
+          (country) => `{ code: ${country.code}, name: ${country.name}, url: ${country.url} }`,
+        ),
       },
     },
     displayField: {
@@ -81,9 +84,13 @@ export default {
       control: { type: 'boolean' },
     },
   },
-};
+} satisfies Meta<typeof BxEntitySelector>;
 
-export const Default = {
+export default meta;
+
+type StoryType = StoryObj<typeof meta>;
+
+export const Default: StoryType = {
   render: (args) => ({
     template: '<bx-entity-selector v-bind="args" v-on="args"></bx-entity-selector>',
     data: () => ({ args }),
