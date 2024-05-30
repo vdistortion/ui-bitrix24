@@ -1,4 +1,4 @@
-import type { IBitrix24Library } from '../plugins/bitrix24-library';
+import type { IBitrix24Library } from 'bitrix24-library';
 
 export const loadStyles = (BX24?: IBitrix24Library) => {
   const domain = BX24 ? BX24.getDomain() : 'www.bitrix24.ru';

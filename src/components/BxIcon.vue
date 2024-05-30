@@ -5,9 +5,6 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, type PropType } from 'vue';
-import injectStyles from '../mixins/injectStyles';
-
 export type PropIcons =
   | 'file-empty'
   | 'file-txt'
@@ -196,7 +193,7 @@ export type TypesProps = {
   icons: PropIcons[];
 };
 
-export const props: TypesProps = {
+export const propsValues: TypesProps = {
   icons: [
     'file-empty',
     'file-txt',
@@ -382,25 +379,25 @@ export const props: TypesProps = {
     'service-light-call-out',
   ],
 };
+</script>
 
-export default defineComponent({
-  computed: {
-    classList() {
-      return {
-        [`ui-icon-${this.icon}`]: props.icons.includes(this.icon),
-      };
+<script setup lang="ts">
+import { computed, type PropType } from 'vue';
+import { useStyles } from '../composable/useStyles';
+
+useStyles();
+
+const props = defineProps({
+  icon: {
+    type: String as PropType<PropIcons>,
+    default: 'file-empty',
+    validator(value: PropIcons) {
+      return propsValues.icons.includes(value);
     },
   },
-  mixins: [injectStyles],
-  props: {
-    icon: {
-      type: String as PropType<PropIcons>,
-      default: 'file-empty',
-      validator(value: PropIcons) {
-        return props.icons.includes(value);
-      },
-    },
-  },
-  name: 'bx-icon',
 });
+
+const classList = computed(() => ({
+  [`ui-icon-${props.icon}`]: propsValues.icons.includes(props.icon),
+}));
 </script>

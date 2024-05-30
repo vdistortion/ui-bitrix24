@@ -4,8 +4,8 @@
       class="ui-ctl-element"
       type="checkbox"
       :checked="isChecked"
-      :value="value"
-      :disabled="disabled"
+      :value="props.value"
+      :disabled="props.disabled"
       @change="updateInput"
     />
     <div class="ui-ctl-label-text">
@@ -14,53 +14,44 @@
   </label>
 </template>
 
-<script lang="ts">
-import { defineComponent } from 'vue';
-import injectStyles from '../mixins/injectStyles';
+<script setup lang="ts">
+import { computed } from 'vue';
+import { useStyles } from '../composable/useStyles';
 
-export default defineComponent({
-  methods: {
-    updateInput(event: Event) {
-      const input = event.target as HTMLInputElement;
-      const isChecked = input.checked;
-      const newValue = [...this.modelValue];
+useStyles();
 
-      if (isChecked) {
-        newValue.push(this.value);
-      } else {
-        newValue.splice(newValue.indexOf(this.value), 1);
-      }
-
-      this.$emit('update:modelValue', newValue);
-    },
+const props = defineProps({
+  modelValue: {
+    type: Array,
+    default: () => [],
   },
-  computed: {
-    isChecked() {
-      return this.modelValue.includes(this.value);
-    },
+  value: {
+    type: [Boolean, String, Array, Object],
+    default: '',
   },
-  mixins: [injectStyles],
-  model: {
-    prop: 'modelValue',
-    event: 'update:modelValue',
+  disabled: {
+    type: Boolean,
+    default: false,
   },
-  emits: ['update:modelValue'],
-  props: {
-    modelValue: {
-      type: Array,
-      default: () => [],
-    },
-    value: {
-      type: [Boolean, String, Array, Object],
-      default: '',
-    },
-    disabled: {
-      type: Boolean,
-      default: false,
-    },
-  },
-  name: 'bx-checkbox',
 });
+
+const emit = defineEmits(['update:modelValue']);
+
+const isChecked = computed(() => props.modelValue.includes(props.value));
+
+function updateInput(event: Event) {
+  const input = event.target as HTMLInputElement;
+  const isChecked = input.checked;
+  const newValue = [...props.modelValue];
+
+  if (isChecked) {
+    newValue.push(props.value);
+  } else {
+    newValue.splice(newValue.indexOf(props.value), 1);
+  }
+
+  emit('update:modelValue', newValue);
+}
 </script>
 
 <style>

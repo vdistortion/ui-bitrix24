@@ -1,5 +1,5 @@
 import { createApp } from 'vue';
-import Bitrix24, { type IBitrix24Library } from './plugins/bitrix24-library';
+import Bitrix24, { type IBitrix24Library } from 'bitrix24-library';
 import useBitrix24 from './lib';
 import App from './App.vue';
 

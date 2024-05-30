@@ -9,16 +9,17 @@ npm i -S vue-bitrix24@latest bitrix24-library@latest
 ```
 
 ## Подключение
-```js
-// plugins/vue-bitrix24.js
+```ts
+// plugins/vue-bitrix24.ts
 import BxButton from 'vue-bitrix24/BxButton';
 import BxInput from 'vue-bitrix24/BxInput';
 
 export default {
   install(app) {
-    [BxButton, BxInput].forEach((Component) => {
-      app.component(Component.name, Component);
-    });
+    [['bx-button', BxButton], ['bx-input', BxInput]]
+      .forEach(([name, Component]) => {
+        app.component(name, Component);
+      });
   },
 };
 
@@ -28,8 +29,8 @@ import 'vue-bitrix24/css';
 
 export default usePlugin;
 ```
-```js
-// main.js
+```ts
+// main.ts
 import { createApp } from 'vue';
 import Bitrix24 from 'bitrix24-library';
 import useBitrix24 from './plugins/vue-bitrix24';

@@ -10,21 +10,22 @@ import BxProgressbar from './components/BxProgressbar.vue';
 import BxRadio from './components/BxRadio.vue';
 import BxTextarea from './components/BxTextarea.vue';
 
+type ComponentItem = [name: string, component: Component];
+const list: ComponentItem[] = [
+  ['bx-alert', BxAlert],
+  ['bx-button', BxButton],
+  ['bx-checkbox', BxCheckbox],
+  ['bx-entity-selector', BxEntitySelector],
+  ['bx-icon', BxIcon],
+  ['bx-input', BxInput],
+  ['bx-input-file', BxInputFile],
+  ['bx-progressbar', BxProgressbar],
+  ['bx-radio', BxRadio],
+  ['bx-textarea', BxTextarea],
+];
+
 export default {
   install: (app: App<Element>) => {
-    [
-      BxAlert,
-      BxButton,
-      BxCheckbox,
-      BxEntitySelector,
-      BxIcon,
-      BxInput,
-      BxInputFile,
-      BxProgressbar,
-      BxRadio,
-      BxTextarea,
-    ].forEach((Component: Component) => {
-      app.component(Component.name!, Component);
-    });
+    list.forEach(([name, component]) => app.component(name, component));
   },
 };

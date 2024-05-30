@@ -2,69 +2,65 @@
   <div
     class="ui-ctl ui-ctl-textarea"
     :class="{
-      'ui-ctl-no-resize': resize === 'no',
-      'ui-ctl-resize-y': resize === 'y',
-      'ui-ctl-resize-x': resize === 'x',
+      'ui-ctl-no-resize': props.resize === 'no',
+      'ui-ctl-resize-y': props.resize === 'y',
+      'ui-ctl-resize-x': props.resize === 'x',
     }"
   >
     <textarea
       class="ui-ctl-element"
-      :value="modelValue"
-      :placeholder="placeholder"
-      :disabled="disabled"
+      :value="props.modelValue"
+      :placeholder="props.placeholder"
+      :disabled="props.disabled"
       @input="onInput"
     ></textarea>
   </div>
 </template>
 
 <script lang="ts">
-import { defineComponent, type PropType } from 'vue';
-import injectStyles from '../mixins/injectStyles';
-
 export type PropResizes = '' | 'no' | 'y' | 'x';
 
 export type TypesProps = {
   resizes: PropResizes[];
 };
 
-export const props: TypesProps = {
+export const propsValues: TypesProps = {
   resizes: ['', 'no', 'y', 'x'],
 };
+</script>
 
-export default defineComponent({
-  methods: {
-    onInput(event: Event) {
-      const input = event.target as HTMLInputElement;
-      this.$emit('update:modelValue', input.value);
+<script setup lang="ts">
+import type { PropType } from 'vue';
+import { useStyles } from '../composable/useStyles';
+
+useStyles();
+
+const props = defineProps({
+  modelValue: {
+    type: String,
+    default: '',
+  },
+  placeholder: {
+    type: String,
+    default: '',
+  },
+  resize: {
+    type: String as PropType<PropResizes>,
+    default: '',
+    validator(value: PropResizes) {
+      return propsValues.resizes.includes(value);
     },
   },
-  mixins: [injectStyles],
-  model: {
-    prop: 'modelValue',
-    event: 'update:modelValue',
+  disabled: {
+    type: Boolean,
+    default: false,
   },
-  emits: ['update:modelValue'],
-  props: {
-    modelValue: {
-      type: String,
-      default: '',
-    },
-    placeholder: {
-      type: String,
-      default: '',
-    },
-    resize: {
-      type: String as PropType<PropResizes>,
-      default: '',
-      validator(value: PropResizes) {
-        return props.resizes.includes(value);
-      },
-    },
-    disabled: {
-      type: Boolean,
-      default: false,
-    },
-  },
-  name: 'bx-textarea',
 });
+
+const emit = defineEmits(['update:modelValue']);
+
+function onInput(event: Event) {
+  const input = event.target as HTMLInputElement;
+  emit('update:modelValue', input.value);
+}
 </script>

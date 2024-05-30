@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/vue3';
 import { action } from '@storybook/addon-actions';
 import BxButton, {
-  props,
+  propsValues,
   type PropTypes,
   type PropColors,
   type PropSizes,
@@ -64,27 +64,27 @@ const meta = {
       control: { type: 'text' },
     },
     type: {
-      options: props.types,
+      options: propsValues.types,
       defaultValue: defaultProps.type,
       control: { type: 'inline-radio' },
     },
     color: {
-      options: props.colors,
+      options: propsValues.colors,
       defaultValue: defaultProps.color,
       control: { type: 'select' },
     },
     size: {
-      options: props.sizes,
+      options: propsValues.sizes,
       defaultValue: defaultProps.size,
       control: { type: 'inline-radio' },
     },
     icon: {
-      options: props.icons,
+      options: propsValues.icons,
       defaultValue: defaultProps.icon,
       control: { type: 'select' },
     },
     loader: {
-      options: props.loaders,
+      options: propsValues.loaders,
       defaultValue: defaultProps.loader,
       control: { type: 'inline-radio' },
     },
@@ -156,7 +156,7 @@ const Story = (propName: string, propList: any[]) => ({
   },
 });
 
-export const Colors: StoryType = Story('color', props.colors);
-export const Sizes: StoryType = Story('size', props.sizes);
-export const Icons: StoryType = Story('icon', props.icons);
-export const Loaders: StoryType = Story('loader', props.loaders);
+export const Colors: StoryType = Story('color', propsValues.colors);
+export const Sizes: StoryType = Story('size', propsValues.sizes);
+export const Icons: StoryType = Story('icon', propsValues.icons);
+export const Loaders: StoryType = Story('loader', propsValues.loaders);

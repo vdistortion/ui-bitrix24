@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/vue3';
 import { action } from '@storybook/addon-actions';
 import BxInput, {
-  props,
+  propsValues,
   type PropSizes,
   type PropColors,
   type PropIcons,
@@ -91,12 +91,12 @@ const meta = {
       control: { type: 'boolean' },
     },
     size: {
-      options: props.sizes,
+      options: propsValues.sizes,
       defaultValue: defaultProps.size,
       control: { type: 'inline-radio' },
     },
     color: {
-      options: props.colors,
+      options: propsValues.colors,
       defaultValue: defaultProps.color,
       control: { type: 'inline-radio' },
     },
@@ -125,12 +125,12 @@ const meta = {
       control: { type: 'text' },
     },
     tagColor: {
-      options: props.tagColors,
+      options: propsValues.tagColors,
       defaultValue: defaultProps.tagColor,
       control: { type: 'inline-radio' },
     },
     beforeIcon: {
-      options: props.icons,
+      options: propsValues.icons,
       defaultValue: defaultProps.beforeIcon,
       control: { type: 'select' },
     },
@@ -143,7 +143,7 @@ const meta = {
       control: { type: 'boolean' },
     },
     afterIcon: {
-      options: props.icons,
+      options: propsValues.icons,
       defaultValue: defaultProps.afterIcon,
       control: { type: 'select' },
     },
@@ -198,8 +198,8 @@ const Story = (propName: string, propList: any[]) => ({
   },
 });
 
-export const Colors: StoryType = Story('color', props.colors);
-export const Sizes: StoryType = Story('size', props.sizes);
-export const BeforeIcons: StoryType = Story('beforeIcon', props.icons);
-export const AfterIcons: StoryType = Story('afterIcon', props.icons);
-export const TagColors: StoryType = Story('tagColor', props.tagColors);
+export const Colors: StoryType = Story('color', propsValues.colors);
+export const Sizes: StoryType = Story('size', propsValues.sizes);
+export const BeforeIcons: StoryType = Story('beforeIcon', propsValues.icons);
+export const AfterIcons: StoryType = Story('afterIcon', propsValues.icons);
+export const TagColors: StoryType = Story('tagColor', propsValues.tagColors);

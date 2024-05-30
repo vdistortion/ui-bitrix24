@@ -1,59 +1,59 @@
 <template>
   <div class="drag-n-drop">
     <label
-      v-if="type === 'button'"
+      v-if="props.type === 'button'"
       class="ui-ctl ui-ctl-file-btn"
-      :class="{ 'bx-input-file-disabled': disabled }"
+      :class="{ 'bx-input-file-disabled': props.disabled }"
       :title="title"
     >
       <input
         class="ui-ctl-element"
         type="file"
-        :multiple="multiple"
-        :disabled="disabled"
+        :multiple="props.multiple"
+        :disabled="props.disabled"
         @change="onChange"
       />
       <div class="ui-ctl-label-text">
-        {{ placeholder || defaultPlaceholder }}
+        {{ props.placeholder || data.defaultPlaceholder }}
       </div>
     </label>
     <label
-      v-else-if="type === 'link'"
+      v-else-if="props.type === 'link'"
       class="ui-ctl ui-ctl-file-link"
-      :class="{ 'bx-input-file-disabled': disabled }"
+      :class="{ 'bx-input-file-disabled': props.disabled }"
       :title="title"
     >
       <input
         class="ui-ctl-element"
         type="file"
-        :multiple="multiple"
-        :disabled="disabled"
+        :multiple="props.multiple"
+        :disabled="props.disabled"
         @change="onChange"
       />
       <div class="ui-ctl-label-text">
-        {{ placeholder || defaultPlaceholder }}
+        {{ props.placeholder || data.defaultPlaceholder }}
       </div>
     </label>
     <label
-      v-else-if="type === 'drop'"
+      v-else-if="props.type === 'drop'"
       class="ui-ctl ui-ctl-file-drop"
-      :class="{ 'bx-input-file-disabled': disabled }"
+      :class="{ 'bx-input-file-disabled': props.disabled }"
       :title="title"
     >
       <div class="ui-ctl-label-text">
-        <span>{{ placeholder || defaultPlaceholder }}</span>
+        <span>{{ props.placeholder || data.defaultPlaceholder }}</span>
         <small>Перетащить с помощью drag'n'drop</small>
       </div>
       <input
         class="ui-ctl-element"
         type="file"
-        :multiple="multiple"
-        :disabled="disabled"
+        :multiple="props.multiple"
+        :disabled="props.disabled"
         @change="onChange"
       />
     </label>
-    <ul v-if="files.length" class="drag-n-drop__list">
-      <li v-for="(file, key) in files" :key="key" class="drag-n-drop__file">
+    <ul v-if="data.files.length" class="drag-n-drop__list">
+      <li v-for="(file, key) in data.files" :key="key" class="drag-n-drop__file">
         <span class="drag-n-drop__name">{{ getName(file) }}</span>
         <span class="drag-n-drop__delete" @click="onDelete(key)"></span>
       </li>
@@ -62,80 +62,78 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, type PropType } from 'vue';
-import { formatSizeUnits } from '../utils/formatSizeUnits';
-import injectStyles from '../mixins/injectStyles';
-
 export type PropTypes = 'drop' | 'button' | 'link';
 
 export type TypesProps = {
   types: PropTypes[];
 };
 
-export const props: TypesProps = {
+export const propsValues: TypesProps = {
   types: ['drop', 'button', 'link'],
 };
+</script>
 
-export default defineComponent({
-  methods: {
-    getName(file: File) {
-      return `${file.name} (${formatSizeUnits(file.size)})`;
-    },
+<script setup lang="ts">
+import { computed, reactive, type PropType } from 'vue';
+import { formatSizeUnits } from '../utils/formatSizeUnits';
+import { useStyles } from '../composable/useStyles';
 
-    onChange(event: Event) {
-      const input = event.target as HTMLInputElement;
-      const files: FileList = input.files!;
-      this.files.push(...files);
-      this.$emit('change', [...this.files]);
-    },
+useStyles();
 
-    onDelete(index: number) {
-      const [file] = this.files.splice(index, 1);
-      this.$emit('delete', [...this.files], file);
+const props = defineProps({
+  placeholder: {
+    type: String,
+    default: '',
+    validator(value) {
+      return typeof value === 'string';
     },
   },
-  computed: {
-    title() {
-      if (this.disabled) return '';
-      if (this.files.length) return this.files.map((file: File) => file.name).join('\n');
-      if (this.multiple) return 'Файлы не выбраны.';
-      return 'Файл не выбран.';
+  type: {
+    type: String as PropType<PropTypes>,
+    default: 'drop',
+    validator(value: PropTypes) {
+      return propsValues.types.includes(value);
     },
   },
-  data() {
-    return {
-      files: [] as File[],
-      defaultPlaceholder: 'Загрузить файл или картинку',
-    };
+  multiple: {
+    type: Boolean,
+    default: false,
   },
-  mixins: [injectStyles],
-  emits: ['change', 'delete'],
-  props: {
-    placeholder: {
-      type: String,
-      default: '',
-      validator(value) {
-        return typeof value === 'string';
-      },
-    },
-    type: {
-      type: String as PropType<PropTypes>,
-      default: 'drop',
-      validator(value: PropTypes) {
-        return props.types.includes(value);
-      },
-    },
-    multiple: {
-      type: Boolean,
-      default: false,
-    },
-    disabled: {
-      type: Boolean,
-      default: false,
-    },
+  disabled: {
+    type: Boolean,
+    default: false,
   },
-  name: 'bx-input-file',
 });
+
+const emit = defineEmits(['change', 'delete']);
+
+const data = reactive({
+  files: [] as File[],
+  defaultPlaceholder: 'Загрузить файл или картинку',
+});
+
+const title = computed(() => {
+  if (props.disabled) return '';
+  if (data.files.length) return data.files.map((file: File) => file.name).join('\n');
+  if (props.multiple) return 'Файлы не выбраны.';
+  return 'Файл не выбран.';
+});
+
+function getName(file: File) {
+  return `${file.name} (${formatSizeUnits(file.size)})`;
+}
+
+function onChange(event: Event) {
+  const input = event.target as HTMLInputElement;
+  const files: FileList = input.files!;
+  data.files.push(...files);
+  emit('change', [...data.files]);
+}
+
+function onDelete(index: number) {
+  const [file] = data.files.splice(index, 1);
+  emit('delete', [...data.files], file);
+}
 </script>
 
 <style>

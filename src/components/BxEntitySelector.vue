@@ -1,15 +1,15 @@
 <template>
-  <div class="bx-entity-selector" :class="{ inline }">
+  <div class="bx-entity-selector" :class="{ inline: props.inline }">
     <div class="bx-entity-selector__button">
       <span class="bx-entity-selector__items">
         <span
-          v-for="(item, key) in list"
+          v-for="(item, key) in props.list"
           :key="key"
           class="bx-entity-selector__item"
-          :class="{ 'hover-delete': hoverDelete[key] }"
+          :class="{ 'hover-delete': data.hoverDelete[key] }"
         >
           <a
-            v-if="clickable"
+            v-if="props.clickable"
             :href="item[displayFieldLink]"
             target="_blank"
             class="bx-entity-selector__text"
@@ -23,79 +23,77 @@
           </span>
           <button
             class="bx-entity-selector__delete"
-            @mouseenter="hoverDelete[key] = true"
-            @mouseleave="hoverDelete[key] = false"
+            @mouseenter="data.hoverDelete[key] = true"
+            @mouseleave="data.hoverDelete[key] = false"
             @click="$emit('delete', key, item)"
           ></button>
         </span>
       </span>
       <span class="bx-entity-selector__controls">
         <button class="bx-entity-selector__add" @click="$emit('add')">
-          {{ !list.length ? textAdd : multiple ? textMore : textChange }}
+          {{
+            !props.list.length ? props.textAdd : props.multiple ? props.textMore : props.textChange
+          }}
         </button>
       </span>
     </div>
   </div>
 </template>
 
-<script lang="ts">
-import { defineComponent } from 'vue';
+<script setup lang="ts">
+import { reactive, type PropType } from 'vue';
 
-export default defineComponent({
-  methods: {
-    onClick(e: MouseEvent, key, item, eventName: 'click' | 'auxclick') {
-      if (this.clickable) {
-        e.preventDefault();
-        this.$emit(eventName, key, item);
-      }
-    },
+const props = defineProps({
+  list: {
+    type: Array as PropType<{ [key: string]: any }[]>,
+    default: () => [],
   },
-  data() {
-    return {
-      hoverDelete: [],
-    };
+  displayField: {
+    type: String,
+    default: 'name',
   },
-  emits: ['add', 'click', 'auxclick', 'delete'],
-  props: {
-    list: {
-      type: Array,
-      default: () => [],
-    },
-    displayField: {
-      type: String,
-      default: 'name',
-    },
-    displayFieldLink: {
-      type: String,
-      default: '',
-    },
-    textAdd: {
-      type: String,
-      default: 'Добавить',
-    },
-    textMore: {
-      type: String,
-      default: 'Добавить ещё',
-    },
-    textChange: {
-      type: String,
-      default: 'Сменить',
-    },
-    clickable: {
-      type: Boolean,
-      default: false,
-    },
-    multiple: {
-      type: Boolean,
-      default: false,
-    },
-    inline: {
-      type: Boolean,
-      default: false,
-    },
+  displayFieldLink: {
+    type: String,
+    default: '',
   },
-  name: 'bx-entity-selector',
+  textAdd: {
+    type: String,
+    default: 'Добавить',
+  },
+  textMore: {
+    type: String,
+    default: 'Добавить ещё',
+  },
+  textChange: {
+    type: String,
+    default: 'Сменить',
+  },
+  clickable: {
+    type: Boolean,
+    default: false,
+  },
+  multiple: {
+    type: Boolean,
+    default: false,
+  },
+  inline: {
+    type: Boolean,
+    default: false,
+  },
 });
+
+const emit = defineEmits(['add', 'click', 'auxclick', 'delete']);
+
+const data = reactive({
+  hoverDelete: [] as boolean[],
+});
+
+function onClick(e: MouseEvent, key: number, item: any, eventName: 'click' | 'auxclick') {
+  if (props.clickable) {
+    e.preventDefault();
+    emit(eventName, key, item);
+  }
+}
 </script>
 
 <style>

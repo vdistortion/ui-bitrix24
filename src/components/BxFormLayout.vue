@@ -362,11 +362,8 @@
   </div>
 </template>
 
-<script>
-import { defineComponent } from 'vue';
-import injectStyles from '../mixins/injectStyles';
+<script setup lang="ts">
+import { useStyles } from '../composable/useStyles';
 
-export default defineComponent({
-  mixins: [injectStyles],
-});
+useStyles();
 </script>

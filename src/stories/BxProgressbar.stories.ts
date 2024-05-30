@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/vue3';
 import BxProgressbar, {
-  props,
+  propsValues,
   type PropSizes,
   type PropColors,
 } from '../components/BxProgressbar.vue';
@@ -43,12 +43,12 @@ const meta = {
       control: { type: 'number', min: 0, max: 100 },
     },
     size: {
-      options: props.sizes,
+      options: propsValues.sizes,
       defaultValue: defaultProps.size,
       control: { type: 'inline-radio' },
     },
     color: {
-      options: props.colors,
+      options: propsValues.colors,
       defaultValue: defaultProps.color,
       control: { type: 'inline-radio' },
     },
@@ -108,5 +108,5 @@ const Story = (propName: string, propList: any[]) => ({
   },
 });
 
-export const Colors: StoryType = Story('color', props.colors);
-export const Sizes: StoryType = Story('size', props.sizes);
+export const Colors: StoryType = Story('color', propsValues.colors);
+export const Sizes: StoryType = Story('size', propsValues.sizes);

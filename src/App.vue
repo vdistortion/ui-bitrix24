@@ -2,17 +2,11 @@
   <div></div>
 </template>
 
-<script lang="ts">
-import { defineComponent } from 'vue';
+<script setup lang="ts">
+import { inject } from 'vue';
 
-export default defineComponent({
-  mounted() {
-    if (!this.$BX24) return;
-    console.info(this.$BX24);
-  },
-  inject: ['$BX24'],
-  name: 'app',
-});
+const $BX24 = inject('$BX24');
+console.log({ $BX24 });
 </script>
 
 <style>

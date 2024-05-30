@@ -1,6 +1,6 @@
 <template>
   <!--    https://dev.1c-bitrix.ru/api_d7/bitrix/ui/entity_selector/dialog/index.php-->
-  <div class="ui-selector-dialog" :style="{ width, height }">
+  <div class="ui-selector-dialog" :style="{ width: props.width, height: props.height }">
     <div class="ui-selector-search">
       <div class="ui-tag-selector-outer-container">
         <div class="ui-tag-selector-container" style="max-height: 99px">
@@ -1576,10 +1576,10 @@
       </div>
       <div
         class="ui-selector-tab-labels"
-        :class="[hoverTabs ? 'ui-selector-tab-labels--active' : null]"
-        @mouseover="hoverTabs = true"
-        @mouseleave="hoverTabs = false"
-        :style="{ 'max-width': hoverTabs ? widthTab : null }"
+        :class="[data.hoverTabs ? 'ui-selector-tab-labels--active' : null]"
+        @mouseover="data.hoverTabs = true"
+        @mouseleave="data.hoverTabs = false"
+        :style="{ 'max-width': data.hoverTabs ? props.widthTab : 'initial' }"
       >
         <div class="ui-selector-tab-label ui-selector-tab-label-active">
           <!--ui-selector-tab-label-hidden ui-selector-tab-label-hover-->
@@ -1589,7 +1589,7 @@
       </div>
     </div>
     <div class="ui-selector-footer-container">
-      <div class="ui-selector-footer" :class="{ 'ui-selector-footer--show': visibleFooter }">
+      <div class="ui-selector-footer" :class="{ 'ui-selector-footer--show': props.visibleFooter }">
         <slot name="footer">
           <div class="ui-selector-footer-default">
             <span class="ui-selector-footer-link ui-selector-footer-link-add"
@@ -1611,44 +1611,38 @@
   </div>
 </template>
 
-<script lang="ts">
-import { defineComponent } from 'vue';
+<script setup lang="ts">
+import { reactive } from 'vue';
 import { loadStyles } from '../utils/loadStyles';
 
-export default defineComponent({
-  methods: {
-    getImageUrl(name: string) {
-      return new URL(`../assets/${name}.svg`, import.meta.url).href;
-    },
+loadStyles();
+
+const props = defineProps({
+  width: {
+    type: String,
+    default: '565px',
   },
-  created() {
-    loadStyles();
+  height: {
+    type: String,
+    default: '420px',
   },
-  data() {
-    return {
-      hoverTabs: false,
-    };
+  widthTab: {
+    type: String,
+    default: '160px',
   },
-  props: {
-    width: {
-      type: String,
-      default: '565px',
-    },
-    height: {
-      type: String,
-      default: '420px',
-    },
-    widthTab: {
-      type: String,
-      default: '160px',
-    },
-    visibleFooter: {
-      type: Boolean,
-      default: false,
-    },
+  visibleFooter: {
+    type: Boolean,
+    default: false,
   },
-  name: 'bx-dialog',
 });
+
+const data = reactive({
+  hoverTabs: false,
+});
+
+function getImageUrl(name: string) {
+  return new URL(`../assets/${name}.svg`, import.meta.url).href;
+}
 </script>
 
 <style>

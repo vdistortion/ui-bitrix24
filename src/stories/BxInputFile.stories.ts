@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/vue3';
 import { action } from '@storybook/addon-actions';
-import BxInputFile, { props, type PropTypes } from '../components/BxInputFile.vue';
+import BxInputFile, { propsValues, type PropTypes } from '../components/BxInputFile.vue';
 
 type DefaultProps = {
   placeholder: string;
@@ -32,7 +32,7 @@ const meta = {
       control: { type: 'text' },
     },
     type: {
-      options: props.types,
+      options: propsValues.types,
       defaultValue: defaultProps.type,
       control: { type: 'inline-radio' },
     },
@@ -84,4 +84,4 @@ const Story = (propName: string, propList: any[]) => ({
   },
 });
 
-export const Types: StoryType = Story('type', props.types);
+export const Types: StoryType = Story('type', propsValues.types);

@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/vue3';
 import { action } from '@storybook/addon-actions';
-import BxTextarea, { props, type PropResizes } from '../components/BxTextarea.vue';
+import BxTextarea, { propsValues, type PropResizes } from '../components/BxTextarea.vue';
 
 type DefaultProps = {
   modelValue: string;
@@ -36,7 +36,7 @@ const meta = {
       control: { type: 'text' },
     },
     resize: {
-      options: props.resizes,
+      options: propsValues.resizes,
       defaultValue: defaultProps.resize,
       control: { type: 'inline-radio' },
     },
@@ -84,4 +84,4 @@ const Story = (propName: string, propList: any[]) => ({
   },
 });
 
-export const Resizes: StoryType = Story('resize', props.resizes);
+export const Resizes: StoryType = Story('resize', propsValues.resizes);

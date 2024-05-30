@@ -4,8 +4,8 @@
       class="ui-ctl-element"
       type="radio"
       :checked="isChecked"
-      :value="value"
-      :disabled="disabled"
+      :value="props.value"
+      :disabled="props.disabled"
       @change="onChange"
     />
     <div class="ui-ctl-label-text">
@@ -14,44 +14,35 @@
   </label>
 </template>
 
-<script lang="ts">
-import { defineComponent } from 'vue';
-import injectStyles from '../mixins/injectStyles';
+<script setup lang="ts">
+import { computed } from 'vue';
+import { useStyles } from '../composable/useStyles';
 
-export default defineComponent({
-  methods: {
-    onChange(event: Event) {
-      const input = event.target as HTMLInputElement;
-      this.$emit('update:modelValue', input.value);
-    },
+useStyles();
+
+const props = defineProps({
+  modelValue: {
+    type: [Boolean, String, Array, Object],
+    default: '',
   },
-  computed: {
-    isChecked() {
-      return this.modelValue === this.value;
-    },
+  value: {
+    type: [Boolean, String, Array, Object],
+    default: '',
   },
-  mixins: [injectStyles],
-  model: {
-    prop: 'modelValue',
-    event: 'update:modelValue',
+  disabled: {
+    type: Boolean,
+    default: false,
   },
-  emits: ['update:modelValue'],
-  props: {
-    modelValue: {
-      type: [Boolean, String, Array, Object],
-      default: '',
-    },
-    value: {
-      type: [Boolean, String, Array, Object],
-      default: '',
-    },
-    disabled: {
-      type: Boolean,
-      default: false,
-    },
-  },
-  name: 'bx-radio',
 });
+
+const emit = defineEmits(['update:modelValue']);
+
+const isChecked = computed(() => props.modelValue === props.value);
+
+function onChange(event: Event) {
+  const input = event.target as HTMLInputElement;
+  emit('update:modelValue', input.value);
+}
 </script>
 
 <style>

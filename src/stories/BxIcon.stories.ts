@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/vue3';
-import BxIcon, { props, type PropIcons } from '../components/BxIcon.vue';
+import BxIcon, { propsValues, type PropIcons } from '../components/BxIcon.vue';
 
 type DefaultProps = {
   icon: PropIcons;
@@ -17,7 +17,7 @@ const meta = {
   },
   argTypes: {
     icon: {
-      options: props.icons,
+      options: propsValues.icons,
       defaultValue: defaultProps.icon,
       control: { type: 'select' },
     },
@@ -61,4 +61,4 @@ const Story = (propName: string, propList: any[]) => ({
   },
 });
 
-export const Icons: StoryType = Story('icon', props.icons);
+export const Icons: StoryType = Story('icon', propsValues.icons);

@@ -1,9 +1,8 @@
 {
   "name": "vue-bitrix24",
   "description": "Component library in Bitrix24 style",
-  "version": "3.0.0",
+  "version": "4.0.0",
   "license": "GPL",
-  "private": false,
   "type": "module",
   "module": "./dist/index.js",
   "main": "./dist/index.umd.cjs",
