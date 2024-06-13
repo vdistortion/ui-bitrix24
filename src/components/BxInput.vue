@@ -1,69 +1,18 @@
 <template>
-  <div
-    class="bx-input ui-ctl ui-ctl-textbox"
-    :class="{
-      'ui-ctl-lg': props.size === 'lg',
-      'ui-ctl-md': props.size === 'md',
-      'ui-ctl-sm': props.size === 'sm',
-      'ui-ctl-xs': props.size === 'xs',
-      'ui-ctl-success': props.color === 'success',
-      'ui-ctl-warning': props.color === 'warning',
-      'ui-ctl-danger': props.color === 'danger',
-      'ui-ctl-before-icon': props.beforeIcon && !props.beforeExt,
-      'ui-ctl-ext-before-icon': props.beforeIcon && props.beforeExt,
-      'ui-ctl-after-icon': props.afterIcon && !props.afterExt,
-      'ui-ctl-ext-after-icon': props.afterIcon && props.afterExt,
-      'ui-ctl-inline': props.inline,
-      'ui-ctl-no-border': props.noBorder,
-      'ui-ctl-underline': props.underline,
-      'ui-ctl-no-padding': props.noPadding,
-      'ui-ctl-round': props.round,
-    }"
-  >
+  <div class="bx-input ui-ctl ui-ctl-textbox" :class="classList">
     <component
       v-if="props.beforeIcon"
       :is="props.beforeButton ? 'button' : 'div'"
-      :class="{
-        'ui-ctl-before': !props.beforeExt,
-        'ui-ctl-ext-before': props.beforeExt,
-        'ui-ctl-icon-search': props.beforeIcon === 'search',
-        'ui-ctl-icon-calendar': props.beforeIcon === 'calendar',
-        'ui-ctl-icon-dots': props.beforeIcon === 'dots',
-        'ui-ctl-icon-phone': props.beforeIcon === 'phone',
-        'ui-ctl-icon-mail': props.beforeIcon === 'mail',
-        'ui-ctl-icon-clock': props.beforeIcon === 'clock',
-        'ui-ctl-icon-angle': props.beforeIcon === 'angle',
-        'ui-ctl-icon-clear': props.beforeIcon === 'clear',
-        'ui-ctl-icon-loader': props.beforeIcon === 'loader',
-      }"
+      :class="classListBeforeIcon"
       @click="$emit('click-before')"
     ></component>
     <component
       v-if="props.afterIcon"
       :is="props.afterButton ? 'button' : 'div'"
-      :class="{
-        'ui-ctl-after': !props.afterExt,
-        'ui-ctl-ext-after': props.afterExt,
-        'ui-ctl-icon-search': props.afterIcon === 'search',
-        'ui-ctl-icon-calendar': props.afterIcon === 'calendar',
-        'ui-ctl-icon-dots': props.afterIcon === 'dots',
-        'ui-ctl-icon-phone': props.afterIcon === 'phone',
-        'ui-ctl-icon-mail': props.afterIcon === 'mail',
-        'ui-ctl-icon-clock': props.afterIcon === 'clock',
-        'ui-ctl-icon-angle': props.afterIcon === 'angle',
-        'ui-ctl-icon-clear': props.afterIcon === 'clear',
-        'ui-ctl-icon-loader': props.afterIcon === 'loader',
-      }"
+      :class="classListAfterIcon"
       @click="$emit('click-after')"
     ></component>
-    <div
-      v-if="props.tag"
-      class="ui-ctl-tag"
-      :class="{
-        '--tag_light': props.tagColor === 'light',
-        '--tag_light-blue': props.tagColor === 'light-blue',
-      }"
-    >
+    <div v-if="props.tag" class="ui-ctl-tag" :class="classListTag">
       {{ props.tag }}
     </div>
     <input
@@ -78,130 +27,108 @@
   </div>
 </template>
 
-<script lang="ts">
-export type PropSizes = 'lg' | 'md' | 'sm' | 'xs';
-export type PropColors = '' | 'success' | 'warning' | 'danger';
-export type PropIcons =
-  | ''
-  | 'search'
-  | 'calendar'
-  | 'dots'
-  | 'phone'
-  | 'mail'
-  | 'clock'
-  | 'angle'
-  | 'clear'
-  | 'loader';
-export type PropTagColors = 'default' | 'light' | 'light-blue';
-
-export type TypesProps = {
-  sizes: PropSizes[];
-  colors: PropColors[];
-  icons: PropIcons[];
-  tagColors: PropTagColors[];
-};
-
-export const propsValues: TypesProps = {
-  sizes: ['lg', 'md', 'sm', 'xs'],
-  colors: ['', 'success', 'warning', 'danger'],
-  icons: ['', 'search', 'calendar', 'dots', 'phone', 'mail', 'clock', 'angle', 'clear', 'loader'],
-  tagColors: ['default', 'light', 'light-blue'],
-};
-</script>
-
 <script setup lang="ts">
-import type { PropType } from 'vue';
+import { computed, type PropType } from 'vue';
+import {
+  defaultProps,
+  propsValues,
+  type PropColor,
+  type PropIcon,
+  type PropSize,
+  type PropTagColor,
+} from './BxInput.props';
 import { useStyles } from '../composable/useStyles';
+import { getClassName } from '../utils/getClassName';
 
 useStyles();
 
 const props = defineProps({
   modelValue: {
     type: String,
-    default: '',
+    default: defaultProps.value,
   },
   placeholder: {
     type: String,
-    default: '',
+    default: defaultProps.placeholder,
   },
   disabled: {
     type: Boolean,
-    default: false,
+    default: defaultProps.disabled,
   },
   size: {
-    type: String as PropType<PropSizes>,
-    default: 'md',
-    validator(value: PropSizes) {
+    type: String as PropType<PropSize>,
+    default: defaultProps.size,
+    validator(value: PropSize) {
       return propsValues.sizes.includes(value);
     },
   },
   color: {
-    type: String as PropType<PropColors>,
-    default: '',
-    validator(value: PropColors) {
+    type: String as PropType<PropColor>,
+    default: defaultProps.color,
+    validator(value: PropColor) {
       return propsValues.colors.includes(value);
     },
   },
   inline: {
     type: Boolean,
-    default: false,
+    default: defaultProps.inline,
   },
   noBorder: {
     type: Boolean,
-    default: false,
+    default: defaultProps.noBorder,
   },
   underline: {
     type: Boolean,
-    default: false,
+    default: defaultProps.underline,
   },
   noPadding: {
     type: Boolean,
-    default: false,
+    default: defaultProps.noPadding,
   },
   round: {
     type: Boolean,
-    default: false,
+    default: defaultProps.round,
   },
   tag: {
     type: String,
-    default: '',
+    default: defaultProps.tag,
   },
   tagColor: {
-    type: String as PropType<PropTagColors>,
-    default: 'default',
-    validator(value: PropTagColors) {
+    type: String as PropType<PropTagColor>,
+    default: defaultProps.tagColor,
+    validator(value: PropTagColor) {
       return propsValues.tagColors.includes(value);
     },
   },
   beforeIcon: {
-    type: String as PropType<PropIcons>,
-    default: '',
-    validator(value: PropIcons) {
+    type: String as PropType<PropIcon>,
+    default: defaultProps.beforeIcon,
+    validator(value: PropIcon) {
       return propsValues.icons.includes(value);
     },
   },
   beforeExt: {
     type: Boolean,
-    default: false,
+    default: defaultProps.beforeExt,
   },
   beforeButton: {
     type: Boolean,
-    default: false,
+    default: defaultProps.beforeButton,
   },
   afterIcon: {
-    type: String as PropType<PropIcons>,
-    default: '',
-    validator(value: PropIcons) {
+    type: String as PropType<PropIcon>,
+    default: defaultProps.afterIcon,
+    validator(value: PropIcon) {
       return propsValues.icons.includes(value);
     },
   },
   afterExt: {
     type: Boolean,
-    default: false,
+    default: defaultProps.afterExt,
   },
   afterButton: {
     type: Boolean,
-    default: false,
+    default: defaultProps.afterButton,
   },
 });
 
@@ -211,6 +138,47 @@ function onEmit(event: Event, eventName: 'change' | 'update:modelValue') {
   const input = event.target as HTMLInputElement;
   emit(eventName, input.value);
 }
+
+const classList = computed(() =>
+  getClassName({
+    [`ui-ctl-${props.size}`]: propsValues.sizes.includes(props.size),
+    [`ui-ctl-${props.color}`]: Boolean(props.color) && propsValues.colors.includes(props.color),
+    'ui-ctl-before-icon': Boolean(props.beforeIcon) && !props.beforeExt,
+    'ui-ctl-ext-before-icon': Boolean(props.beforeIcon) && props.beforeExt,
+    'ui-ctl-after-icon': Boolean(props.afterIcon) && !props.afterExt,
+    'ui-ctl-ext-after-icon': Boolean(props.afterIcon) && props.afterExt,
+    'ui-ctl-inline': props.inline,
+    'ui-ctl-no-border': props.noBorder,
+    'ui-ctl-underline': props.underline,
+    'ui-ctl-no-padding': props.noPadding,
+    'ui-ctl-round': props.round,
+  }),
+);
+
+const classListBeforeIcon = computed(() =>
+  getClassName({
+    'ui-ctl-before': !props.beforeExt,
+    'ui-ctl-ext-before': props.beforeExt,
+    [`ui-ctl-icon-${props.beforeIcon}`]:
+      Boolean(props.beforeIcon) && propsValues.icons.includes(props.beforeIcon),
+  }),
+);
+
+const classListAfterIcon = computed(() =>
+  getClassName({
+    'ui-ctl-after': !props.afterExt,
+    'ui-ctl-ext-after': props.afterExt,
+    [`ui-ctl-icon-${props.afterIcon}`]:
+      Boolean(props.afterIcon) && propsValues.icons.includes(props.afterIcon),
+  }),
+);
+
+const classListTag = computed(() =>
+  getClassName({
+    '--tag_light': props.tagColor === 'light',
+    '--tag_light-blue': props.tagColor === 'light-blue',
+  }),
+);
 </script>
 
 <style>
