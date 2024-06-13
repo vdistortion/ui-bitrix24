@@ -61,20 +61,9 @@
   </div>
 </template>
 
-<script lang="ts">
-export type PropTypes = 'drop' | 'button' | 'link';
-
-export type TypesProps = {
-  types: PropTypes[];
-};
-
-export const propsValues: TypesProps = {
-  types: ['drop', 'button', 'link'],
-};
-</script>
-
 <script setup lang="ts">
 import { computed, reactive, type PropType } from 'vue';
+import { defaultProps, propsValues, type PropType as PropTypeInputFile } from './BxInputFile.props';
 import { formatSizeUnits } from '../utils/formatSizeUnits';
 import { useStyles } from '../composable/useStyles';
 
@@ -83,25 +72,25 @@ useStyles();
 const props = defineProps({
   placeholder: {
     type: String,
-    default: '',
+    default: defaultProps.placeholder,
     validator(value) {
       return typeof value === 'string';
     },
   },
   type: {
-    type: String as PropType<PropTypes>,
-    default: 'drop',
-    validator(value: PropTypes) {
+    type: String as PropType<PropTypeInputFile>,
+    default: defaultProps.type,
+    validator(value: PropTypeInputFile) {
       return propsValues.types.includes(value);
     },
   },
   multiple: {
     type: Boolean,
-    default: false,
+    default: defaultProps.multiple,
   },
   disabled: {
     type: Boolean,
-    default: false,
+    default: defaultProps.disabled,
   },
 });
 
