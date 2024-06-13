@@ -17,20 +17,9 @@
   </div>
 </template>
 
-<script lang="ts">
-export type PropResizes = '' | 'no' | 'y' | 'x';
-
-export type TypesProps = {
-  resizes: PropResizes[];
-};
-
-export const propsValues: TypesProps = {
-  resizes: ['', 'no', 'y', 'x'],
-};
-</script>
-
 <script setup lang="ts">
 import type { PropType } from 'vue';
+import { defaultProps, type PropResize, propsValues } from './BxTextarea.props';
 import { useStyles } from '../composable/useStyles';
 
 useStyles();
@@ -38,22 +27,22 @@ useStyles();
 const props = defineProps({
   modelValue: {
     type: String,
-    default: '',
+    default: defaultProps.value,
   },
   placeholder: {
     type: String,
-    default: '',
+    default: defaultProps.placeholder,
   },
   resize: {
-    type: String as PropType<PropResizes>,
-    default: '',
-    validator(value: PropResizes) {
+    type: String as PropType<PropResize>,
+    default: defaultProps.resize,
+    validator(value: PropResize) {
       return propsValues.resizes.includes(value);
     },
   },
   disabled: {
     type: Boolean,
-    default: false,
+    default: defaultProps.disabled,
   },
 });
 
