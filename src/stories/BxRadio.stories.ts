@@ -1,22 +1,21 @@
 import type { Meta, StoryObj } from '@storybook/vue3';
 import { action } from '@storybook/addon-actions';
+import { Story } from './Story';
 import BxRadio from '../components/BxRadio.vue';
+import { defaultProps } from '../components/BxRadio.props';
 
-const defaultProps = {
-  modelValue: '',
-  value: '',
-  disabled: false,
+const events = {
+  'update:modelValue': action('update:modelValue'),
 };
 
-const meta = {
+const meta: Meta<typeof BxRadio> = {
   title: 'forms/bx-radio',
   component: BxRadio,
   args: {
-    default: 'Two',
-    // @ts-ignore
-    'update:modelValue': action('update:modelValue'),
-    modelValue: defaultProps.modelValue,
-    value: 'Two',
+    default: '',
+    ...events,
+    modelValue: defaultProps.value,
+    value: defaultProps.value,
     disabled: defaultProps.disabled,
   },
   argTypes: {
@@ -24,39 +23,18 @@ const meta = {
       control: { type: 'text' },
     },
     modelValue: {
-      defaultValue: defaultProps.modelValue,
-      control: { type: 'object' },
+      control: { type: 'text' },
     },
     value: {
-      defaultValue: defaultProps.value,
       control: { type: 'text' },
     },
     disabled: {
-      defaultValue: defaultProps.disabled,
       control: { type: 'boolean' },
     },
   },
-} satisfies Meta<typeof BxRadio>;
-
-export default meta;
+};
 
 type StoryType = StoryObj<typeof meta>;
 
-export const Default: StoryType = {
-  render: (args) => ({
-    template: `
-      <div>
-        <bx-radio v-bind="args" v-on="args" v-model="args.modelValue" value="One">One</bx-radio>
-      </div>
-      <div>
-        <bx-radio v-bind="args" v-on="args" v-model="args.modelValue">{{ args.default }}</bx-radio>
-      </div>
-      <pre>{{ { modelValue: args.modelValue } }}</pre>
-    `,
-    data: () => ({ args }),
-    provide: {
-      $BX24: null,
-    },
-    components: { BxRadio },
-  }),
-};
+export default meta;
+export const Default: StoryType = Story(BxRadio);

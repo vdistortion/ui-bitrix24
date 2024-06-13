@@ -16,6 +16,7 @@
 
 <script setup lang="ts">
 import { computed } from 'vue';
+import { defaultProps } from './BxCheckbox.props';
 import { useStyles } from '../composable/useStyles';
 
 useStyles();
@@ -23,15 +24,15 @@ useStyles();
 const props = defineProps({
   modelValue: {
     type: Array,
-    default: () => [],
+    default: () => defaultProps.modelValue,
   },
   value: {
     type: [Boolean, String, Array, Object],
-    default: '',
+    default: defaultProps.value,
   },
   disabled: {
     type: Boolean,
-    default: false,
+    default: defaultProps.disabled,
   },
 });
 

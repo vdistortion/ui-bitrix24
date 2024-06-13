@@ -1,13 +1,11 @@
 type Props = {
-  value: string | number;
-  name: string;
-  checked: boolean;
+  modelValue: any[];
+  value: any;
   disabled: boolean;
 };
 
 export const defaultProps: Props = {
+  modelValue: [],
   value: '',
-  name: '',
-  checked: false,
   disabled: false,
 };

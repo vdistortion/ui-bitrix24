@@ -1,22 +1,21 @@
 import type { Meta, StoryObj } from '@storybook/vue3';
 import { action } from '@storybook/addon-actions';
+import { Story } from './Story';
 import BxCheckbox from '../components/BxCheckbox.vue';
+import { defaultProps } from '../components/BxCheckbox.props';
 
-const defaultProps = {
-  modelValue: [],
-  value: '',
-  disabled: false,
+const events = {
+  'update:modelValue': action('update:modelValue'),
 };
 
-const meta = {
+const meta: Meta<typeof BxCheckbox> = {
   title: 'forms/bx-checkbox',
   component: BxCheckbox,
   args: {
-    default: 'Two',
-    // @ts-ignore
-    'update:modelValue': action('update:modelValue'),
+    default: '',
+    ...events,
     modelValue: defaultProps.modelValue,
-    value: 'Two',
+    value: defaultProps.value,
     disabled: defaultProps.disabled,
   },
   argTypes: {
@@ -24,39 +23,18 @@ const meta = {
       control: { type: 'text' },
     },
     modelValue: {
-      defaultValue: defaultProps.modelValue,
       control: { type: 'object' },
     },
     value: {
-      defaultValue: defaultProps.value,
       control: { type: 'text' },
     },
     disabled: {
-      defaultValue: defaultProps.disabled,
       control: { type: 'boolean' },
     },
   },
-} satisfies Meta<typeof BxCheckbox>;
-
-export default meta;
+};
 
 type StoryType = StoryObj<typeof meta>;
 
-export const Default: StoryType = {
-  render: (args) => ({
-    template: `
-      <div>
-        <bx-checkbox v-bind="args" v-on="args" v-model="args.modelValue" value="One">One</bx-checkbox>
-      </div>
-      <div>
-        <bx-checkbox v-bind="args" v-on="args" v-model="args.modelValue">{{ args.default }}</bx-checkbox>
-      </div>
-      <pre>{{ { modelValue: args.modelValue } }}</pre>
-    `,
-    data: () => ({ args }),
-    provide: {
-      $BX24: null,
-    },
-    components: { BxCheckbox },
-  }),
-};
+export default meta;
+export const Default: StoryType = Story(BxCheckbox);
