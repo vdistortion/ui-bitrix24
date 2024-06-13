@@ -1,36 +1,38 @@
 <template>
-  <div class="bx-entity-selector" :class="{ inline: props.inline }">
-    <div class="bx-entity-selector__button">
-      <span class="bx-entity-selector__items">
+  <div :class="[$style['bx-entity-selector'], { [$style['inline']]: props.inline }]">
+    <div :class="$style['bx-entity-selector__button']">
+      <span :class="$style['bx-entity-selector__items']">
         <span
           v-for="(item, key) in props.list"
           :key="key"
-          class="bx-entity-selector__item"
-          :class="{ 'hover-delete': data.hoverDelete[key] }"
+          :class="[
+            $style['bx-entity-selector__item'],
+            { [$style['hover-delete']]: data.hoverDelete[key] },
+          ]"
         >
           <a
             v-if="props.clickable"
             :href="item[displayFieldLink]"
             target="_blank"
-            class="bx-entity-selector__text"
+            :class="$style['bx-entity-selector__text']"
             @click="onClick($event, key, item, 'click')"
             @auxclick="onClick($event, key, item, 'auxclick')"
           >
             {{ item[displayField] }}
           </a>
-          <span v-else class="bx-entity-selector__text">
+          <span v-else :class="$style['bx-entity-selector__text']">
             {{ item[displayField] }}
           </span>
           <button
-            class="bx-entity-selector__delete"
+            :class="$style['bx-entity-selector__delete']"
             @mouseenter="data.hoverDelete[key] = true"
             @mouseleave="data.hoverDelete[key] = false"
             @click="$emit('delete', key, item)"
           ></button>
         </span>
       </span>
-      <span class="bx-entity-selector__controls">
-        <button class="bx-entity-selector__add" @click="$emit('add')">
+      <span :class="$style['bx-entity-selector__controls']">
+        <button :class="$style['bx-entity-selector__add']" @click="$emit('add')">
           {{
             !props.list.length ? props.textAdd : props.multiple ? props.textMore : props.textChange
           }}
@@ -97,19 +99,22 @@ function onClick(e: MouseEvent, key: number, item: any, eventName: 'click' | 'au
 }
 </script>
 
-<style>
+<style module>
 .bx-entity-selector {
   font-family: sans-serif;
 }
+
 .bx-entity-selector.inline {
   display: inline-block;
 }
+
 .bx-entity-selector__button {
   background-color: #fff;
   min-height: 33px;
   border: 1px solid #c6cdd3;
   padding: 5px 5px 0 5px;
 }
+
 .bx-entity-selector__item {
   background-color: #bcedfc;
   transition: background-color 0.2s linear;
@@ -122,9 +127,11 @@ function onClick(e: MouseEvent, key: number, item: any, eventName: 'click' | 'au
   line-height: 28px;
   margin: 0 5px 5px 0;
 }
+
 .bx-entity-selector__item.hover-delete {
   background-color: #8be0fa;
 }
+
 .bx-entity-selector__text {
   padding: 0 0 0 10px;
   display: inline-block;
@@ -137,6 +144,7 @@ function onClick(e: MouseEvent, key: number, item: any, eventName: 'click' | 'au
   text-decoration: none;
   color: #1f6ab5;
 }
+
 .bx-entity-selector__delete {
   background-color: transparent;
   border: none;
@@ -153,6 +161,7 @@ function onClick(e: MouseEvent, key: number, item: any, eventName: 'click' | 'au
   white-space: nowrap;
   line-height: 30px;
 }
+
 .bx-entity-selector__delete::after {
   content: '';
   background-image: url('../assets/media.png');
@@ -168,6 +177,7 @@ function onClick(e: MouseEvent, key: number, item: any, eventName: 'click' | 'au
   margin: auto auto auto 7px;
   opacity: 0.2;
 }
+
 .bx-entity-selector__add {
   background-color: transparent;
   border: none;
@@ -185,9 +195,11 @@ function onClick(e: MouseEvent, key: number, item: any, eventName: 'click' | 'au
   position: relative;
   transition: border-bottom-color 0.2s linear;
 }
+
 .bx-entity-selector__add:hover {
   border-bottom: 1px solid;
 }
+
 .bx-entity-selector__add::before {
   content: '';
   background-image: url('../assets/add.png');

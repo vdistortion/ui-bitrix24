@@ -1,5 +1,5 @@
 <template>
-  <label class="bx-radio ui-ctl ui-ctl-radio">
+  <label class="ui-ctl ui-ctl-radio" :class="$style['bx-radio']">
     <input
       class="ui-ctl-element"
       type="radio"
@@ -46,12 +46,9 @@ function onChange(event: Event) {
 }
 </script>
 
-<style>
-.ui-ctl-radio {
-  cursor: pointer;
-}
-
+<style module>
 .bx-radio {
+  cursor: pointer;
   width: 100%;
 }
 </style>

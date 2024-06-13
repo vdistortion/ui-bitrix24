@@ -1,5 +1,5 @@
 <template>
-  <label class="bx-checkbox ui-ctl ui-ctl-checkbox">
+  <label class="ui-ctl ui-ctl-checkbox" :class="$style['bx-checkbox']">
     <input
       class="ui-ctl-element"
       type="checkbox"
@@ -55,12 +55,9 @@ function updateInput(event: Event) {
 }
 </script>
 
-<style>
-.ui-ctl-checkbox {
-  cursor: pointer;
-}
-
+<style module>
 .bx-checkbox {
+  cursor: pointer;
   width: 100%;
 }
 </style>

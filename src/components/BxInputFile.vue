@@ -1,9 +1,12 @@
 <template>
-  <div class="drag-n-drop">
+  <div :class="$style['drag-n-drop']">
     <label
       v-if="props.type === 'button'"
       class="ui-ctl ui-ctl-file-btn"
-      :class="{ 'bx-input-file-disabled': props.disabled }"
+      :class="{
+        [$style['drag-n-drop--disabled']]: props.disabled,
+        [$style['drag-n-drop--btn']]: true,
+      }"
       :title="title"
     >
       <input
@@ -13,14 +16,17 @@
         :disabled="props.disabled"
         @change="onChange"
       />
-      <div class="ui-ctl-label-text">
+      <div class="ui-ctl-label-text" :class="$style['drag-n-drop__text']">
         {{ props.placeholder || data.defaultPlaceholder }}
       </div>
     </label>
     <label
       v-else-if="props.type === 'link'"
       class="ui-ctl ui-ctl-file-link"
-      :class="{ 'bx-input-file-disabled': props.disabled }"
+      :class="{
+        [$style['drag-n-drop--disabled']]: props.disabled,
+        [$style['drag-n-drop--link']]: true,
+      }"
       :title="title"
     >
       <input
@@ -30,14 +36,17 @@
         :disabled="props.disabled"
         @change="onChange"
       />
-      <div class="ui-ctl-label-text">
+      <div class="ui-ctl-label-text" :class="$style['drag-n-drop__text']">
         {{ props.placeholder || data.defaultPlaceholder }}
       </div>
     </label>
     <label
       v-else-if="props.type === 'drop'"
       class="ui-ctl ui-ctl-file-drop"
-      :class="{ 'bx-input-file-disabled': props.disabled }"
+      :class="{
+        [$style['drag-n-drop--disabled']]: props.disabled,
+        [$style['drag-n-drop--drop']]: true,
+      }"
       :title="title"
     >
       <div class="ui-ctl-label-text">
@@ -52,10 +61,10 @@
         @change="onChange"
       />
     </label>
-    <ul v-if="data.files.length" class="drag-n-drop__list">
-      <li v-for="(file, key) in data.files" :key="key" class="drag-n-drop__file">
-        <span class="drag-n-drop__name">{{ getName(file) }}</span>
-        <span class="drag-n-drop__delete" @click="onDelete(key)"></span>
+    <ul v-if="data.files.length" :class="$style['drag-n-drop__list']">
+      <li v-for="(file, key) in data.files" :key="key" :class="$style['drag-n-drop__file']">
+        <span :class="$style['drag-n-drop__name']">{{ getName(file) }}</span>
+        <span :class="$style['drag-n-drop__delete']" @click="onDelete(key)"></span>
       </li>
     </ul>
   </div>
@@ -125,15 +134,16 @@ function onDelete(index: number) {
 }
 </script>
 
-<style>
-.ui-ctl.bx-input-file-disabled.ui-ctl-file-drop,
-.ui-ctl.bx-input-file-disabled.ui-ctl-file-link .ui-ctl-label-text,
-.ui-ctl.bx-input-file-disabled.ui-ctl-file-btn .ui-ctl-label-text {
+<style module>
+.drag-n-drop .drag-n-drop--disabled.drag-n-drop--drop,
+.drag-n-drop .drag-n-drop--disabled.drag-n-drop--link .drag-n-drop__text,
+.drag-n-drop .drag-n-drop--disabled.drag-n-drop--btn .drag-n-drop__text {
   cursor: not-allowed;
 }
-.drag-n-drop .ui-ctl-file-drop .ui-ctl-element,
-.drag-n-drop .ui-ctl-file-link .ui-ctl-element,
-.drag-n-drop .ui-ctl-file-btn .ui-ctl-element {
+
+.drag-n-drop .drag-n-drop--drop .drag-n-drop__input,
+.drag-n-drop .drag-n-drop--link .drag-n-drop__input,
+.drag-n-drop .drag-n-drop--btn .drag-n-drop__input {
   display: block;
   position: absolute;
   top: -100%;
@@ -142,19 +152,23 @@ function onDelete(index: number) {
   left: 0;
   opacity: 0;
 }
+
 .drag-n-drop {
   width: 100%;
   overflow: hidden;
 }
+
 .drag-n-drop__list {
   list-style-type: none;
   padding: 0;
   margin: 5px 0 0;
 }
+
 .drag-n-drop__file {
   display: flex;
   align-items: center;
 }
+
 .drag-n-drop__name {
   text-overflow: ellipsis;
   overflow: hidden;
@@ -162,6 +176,7 @@ function onDelete(index: number) {
   font-size: 13px;
   line-height: 1.8;
 }
+
 .drag-n-drop__delete {
   background-image: url('../assets/wduf-sprite.png');
   background-repeat: no-repeat;

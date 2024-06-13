@@ -28,7 +28,7 @@
 </template>
 
 <script setup lang="ts">
-import { computed, type PropType } from 'vue';
+import { computed, type PropType, useCssModule } from 'vue';
 import {
   defaultProps,
   propsValues,
@@ -139,6 +139,8 @@ function onEmit(event: Event, eventName: 'change' | 'update:modelValue') {
   emit(eventName, input.value);
 }
 
+const styles = useCssModule();
+
 const classList = computed(() =>
   getClassName({
     [`ui-ctl-${props.size}`]: propsValues.sizes.includes(props.size),
@@ -152,6 +154,7 @@ const classList = computed(() =>
     'ui-ctl-underline': props.underline,
     'ui-ctl-no-padding': props.noPadding,
     'ui-ctl-round': props.round,
+    [styles['bx-input']]: true,
   }),
 );
 
@@ -161,6 +164,7 @@ const classListBeforeIcon = computed(() =>
     'ui-ctl-ext-before': props.beforeExt,
     [`ui-ctl-icon-${props.beforeIcon}`]:
       Boolean(props.beforeIcon) && propsValues.icons.includes(props.beforeIcon),
+    [styles['bx-input-before']]: true,
   }),
 );
 
@@ -181,12 +185,12 @@ const classListTag = computed(() =>
 );
 </script>
 
-<style>
-.ui-ctl-ext-before {
-  left: 1px;
-}
-
+<style module>
 .bx-input {
   width: 100%;
+}
+
+.bx-input-before {
+  left: 1px;
 }
 </style>
