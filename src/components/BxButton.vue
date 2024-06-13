@@ -29,241 +29,103 @@
   </button>
 </template>
 
-<script lang="ts">
-export type PropTypes = 'button' | 'submit' | 'reset';
-export type PropColors =
-  | 'default'
-  | 'success'
-  | 'success-light'
-  | 'danger'
-  | 'danger-dark'
-  | 'danger-light'
-  | 'primary'
-  | 'primary-dark'
-  | 'secondary'
-  | 'link'
-  | 'light'
-  | 'light-border';
-export type PropSizes = 'xs' | 'sm' | 'md' | 'lg';
-export type PropIcons =
-  | ''
-  | 'add'
-  | 'stop'
-  | 'start'
-  | 'pause'
-  | 'setting'
-  | 'task'
-  | 'info'
-  | 'search'
-  | 'follow'
-  | 'unfollow'
-  | 'print'
-  | 'add-folder'
-  | 'list'
-  | 'business'
-  | 'business-confirm'
-  | 'business-warning'
-  | 'camera'
-  | 'phone-up'
-  | 'phone-down'
-  | 'back'
-  | 'edit'
-  | 'share'
-  | 'remove'
-  | 'download'
-  | 'cloud'
-  | 'page'
-  | 'chat'
-  | 'phone-call'
-  | 'lock'
-  | 'done'
-  | 'disk'
-  | 'mail'
-  | 'alert'
-  | 'angle-up'
-  | 'angle-down'
-  | 'dots'
-  | 'forward'
-  | 'fail'
-  | 'success'
-  | 'plan'
-  | 'eye-opened'
-  | 'eye-closed'
-  | 'tariff'
-  | 'battery'
-  | 'no-battery'
-  | 'half-battery'
-  | 'low-battery'
-  | 'crit-battery'
-  | 'demo';
-export type PropLoaders = '' | 'clock' | 'wait';
-
-export type TypesProps = {
-  types: PropTypes[];
-  colors: PropColors[];
-  sizes: PropSizes[];
-  icons: PropIcons[];
-  loaders: PropLoaders[];
-};
-
-export const propsValues: TypesProps = {
-  types: ['button', 'submit', 'reset'],
-  colors: [
-    'default',
-    'success',
-    'success-light',
-    'danger',
-    'danger-dark',
-    'danger-light',
-    'primary',
-    'primary-dark',
-    'secondary',
-    'link',
-    'light',
-    'light-border',
-  ],
-  sizes: ['xs', 'sm', 'md', 'lg'],
-  icons: [
-    '',
-    'add',
-    'stop',
-    'start',
-    'pause',
-    'setting',
-    'task',
-    'info',
-    'search',
-    'follow',
-    'unfollow',
-    'print',
-    'add-folder',
-    'list',
-    'business',
-    'business-confirm',
-    'business-warning',
-    'camera',
-    'phone-up',
-    'phone-down',
-    'back',
-    'edit',
-    'share',
-    'remove',
-    'download',
-    'cloud',
-    'page',
-    'chat',
-    'phone-call',
-    'lock',
-    'done',
-    'disk',
-    'mail',
-    'alert',
-    'angle-up',
-    'angle-down',
-    'dots',
-    'forward',
-    'fail',
-    'success',
-    'plan',
-    'eye-opened',
-    'eye-closed',
-    'tariff',
-    'battery',
-    'no-battery',
-    'half-battery',
-    'low-battery',
-    'crit-battery',
-    'demo',
-  ],
-  loaders: ['', 'clock', 'wait'],
-};
-</script>
-
 <script setup lang="ts">
 import { computed, type PropType } from 'vue';
+import {
+  defaultProps,
+  propsValues,
+  type PropColor,
+  type PropIcon,
+  type PropSize,
+  type PropLoader,
+  type PropType as PropTypeButton,
+} from './BxButton.props';
 import { useStyles } from '../composable/useStyles';
+import { getClassName } from '../utils/getClassName';
 
 useStyles();
 
 const props = defineProps({
   type: {
-    type: String as PropType<PropTypes>,
-    default: 'button',
-    validator(value: PropTypes) {
+    type: String as PropType<PropTypeButton>,
+    default: defaultProps.type,
+    validator(value: PropTypeButton) {
       return propsValues.types.includes(value);
     },
   },
   color: {
-    type: String as PropType<PropColors>,
-    default: 'default',
-    validator(value: PropColors) {
+    type: String as PropType<PropColor>,
+    default: defaultProps.color,
+    validator(value: PropColor) {
       return propsValues.colors.includes(value);
     },
   },
   size: {
-    type: String as PropType<PropSizes>,
-    default: 'md',
-    validator(value: PropSizes) {
+    type: String as PropType<PropSize>,
+    default: defaultProps.size,
+    validator(value: PropSize) {
       return propsValues.sizes.includes(value);
     },
   },
   icon: {
-    type: String as PropType<PropIcons>,
-    default: '',
-    validator(value: PropIcons) {
+    type: String as PropType<PropIcon>,
+    default: defaultProps.icon,
+    validator(value: PropIcon) {
       return propsValues.icons.includes(value);
     },
   },
   loader: {
-    type: String as PropType<PropLoaders>,
-    default: '',
-    validator(value: PropLoaders) {
+    type: String as PropType<PropLoader>,
+    default: defaultProps.loader,
+    validator(value: PropLoader) {
       return propsValues.loaders.includes(value);
     },
   },
   count: {
     type: Number,
-    default: 0,
+    default: defaultProps.count,
     validator(value) {
       return Number.isFinite(value);
     },
   },
   counter: {
     type: Boolean,
-    default: false,
+    default: defaultProps.counter,
   },
   disabled: {
     type: Boolean,
-    default: false,
+    default: defaultProps.disabled,
   },
   dropdown: {
     type: Boolean,
-    default: false,
+    default: defaultProps.dropdown,
   },
   round: {
     type: Boolean,
-    default: false,
+    default: defaultProps.round,
   },
   noCaps: {
     type: Boolean,
-    default: false,
+    default: defaultProps.noCaps,
   },
   menu: {
     type: Boolean,
-    default: false,
+    default: defaultProps.menu,
   },
 });
 
 defineEmits(['click', 'toggle-menu']);
 
-const classList = computed(() => ({
-  [`ui-btn-${props.color}`]: propsValues.colors.includes(props.color),
-  [`ui-btn-${props.size}`]: propsValues.sizes.includes(props.size),
-  [`ui-btn-icon-${props.icon}`]: props.icon && propsValues.icons.includes(props.icon),
-  [`ui-btn-${props.loader}`]: props.loader && propsValues.loaders.includes(props.loader),
-  'ui-btn-disabled': props.disabled,
-  'ui-btn-dropdown': props.dropdown,
-  'ui-btn-round': props.round,
-  'ui-btn-no-caps': props.noCaps,
-}));
+const classList = computed(() =>
+  getClassName({
+    [`ui-btn-${props.color}`]: propsValues.colors.includes(props.color),
+    [`ui-btn-${props.size}`]: propsValues.sizes.includes(props.size),
+    [`ui-btn-icon-${props.icon}`]: Boolean(props.icon) && propsValues.icons.includes(props.icon),
+    [`ui-btn-${props.loader}`]: Boolean(props.loader) && propsValues.loaders.includes(props.loader),
+    'ui-btn-disabled': props.disabled,
+    'ui-btn-dropdown': props.dropdown,
+    'ui-btn-round': props.round,
+    'ui-btn-no-caps': props.noCaps,
+  }),
+);
 </script>
