@@ -1,6 +1,8 @@
 import type { Meta, StoryObj } from '@storybook/vue3';
 import { action } from '@storybook/addon-actions';
+import { Story } from './Story';
 import BxEntitySelector from '../components/BxEntitySelector.vue';
+import { defaultProps } from '../components/BxEntitySelector.props';
 import countriesWithoutLinks from '../utils/countries';
 
 const countries = countriesWithoutLinks.map((country) => ({
@@ -8,26 +10,18 @@ const countries = countriesWithoutLinks.map((country) => ({
   url: `https://www.google.com/search?q=${country.name}`,
 }));
 
-const defaultProps = {
-  list: [],
-  displayField: 'name',
-  displayFieldLink: '',
-  textAdd: 'Добавить',
-  textMore: 'Добавить ещё',
-  textChange: 'Сменить',
-  clickable: false,
-  multiple: false,
-  inline: false,
+const events = {
+  add: action('add'),
+  click: action('click'),
+  auxclick: action('auxclick'),
+  delete: action('delete'),
 };
 
-const meta = {
+const meta: Meta<typeof BxEntitySelector> = {
   title: 'bx-entity-selector',
   component: BxEntitySelector,
   args: {
-    add: action('add'),
-    click: action('click'),
-    auxclick: action('auxclick'),
-    delete: action('delete'),
+    ...events,
     list: defaultProps.list,
     displayField: defaultProps.displayField,
     displayFieldLink: defaultProps.displayFieldLink,
@@ -51,49 +45,34 @@ const meta = {
     },
     displayField: {
       options: ['code', 'name', 'url'],
-      defaultValue: defaultProps.displayField,
       control: { type: 'inline-radio' },
     },
     displayFieldLink: {
       options: ['', 'url'],
-      defaultValue: defaultProps.displayFieldLink,
       control: { type: 'inline-radio' },
     },
     textAdd: {
-      defaultValue: defaultProps.textAdd,
       control: { type: 'text' },
     },
     textMore: {
-      defaultValue: defaultProps.textMore,
       control: { type: 'text' },
     },
     textChange: {
-      defaultValue: defaultProps.textChange,
       control: { type: 'text' },
     },
     clickable: {
-      defaultValue: defaultProps.clickable,
       control: { type: 'boolean' },
     },
     multiple: {
-      defaultValue: defaultProps.multiple,
       control: { type: 'boolean' },
     },
     inline: {
-      defaultValue: defaultProps.inline,
       control: { type: 'boolean' },
     },
   },
-} satisfies Meta<typeof BxEntitySelector>;
-
-export default meta;
+};
 
 type StoryType = StoryObj<typeof meta>;
 
-export const Default: StoryType = {
-  render: (args) => ({
-    template: '<bx-entity-selector v-bind="args" v-on="args"></bx-entity-selector>',
-    data: () => ({ args }),
-    components: { BxEntitySelector },
-  }),
-};
+export default meta;
+export const Default: StoryType = Story(BxEntitySelector);

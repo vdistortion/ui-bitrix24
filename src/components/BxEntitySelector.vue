@@ -42,43 +42,44 @@
 
 <script setup lang="ts">
 import { reactive, type PropType } from 'vue';
+import { defaultProps } from './BxEntitySelector.props';
 
 const props = defineProps({
   list: {
-    type: Array as PropType<{ [key: string]: any }[]>,
-    default: () => [],
+    type: Array as PropType<any[]>,
+    default: () => defaultProps.list,
   },
   displayField: {
     type: String,
-    default: 'name',
+    default: defaultProps.displayField,
   },
   displayFieldLink: {
     type: String,
-    default: '',
+    default: defaultProps.displayFieldLink,
   },
   textAdd: {
     type: String,
-    default: 'Добавить',
+    default: defaultProps.textAdd,
   },
   textMore: {
     type: String,
-    default: 'Добавить ещё',
+    default: defaultProps.textMore,
   },
   textChange: {
     type: String,
-    default: 'Сменить',
+    default: defaultProps.textChange,
   },
   clickable: {
     type: Boolean,
-    default: false,
+    default: defaultProps.clickable,
   },
   multiple: {
     type: Boolean,
-    default: false,
+    default: defaultProps.multiple,
   },
   inline: {
     type: Boolean,
-    default: false,
+    default: defaultProps.inline,
   },
 });
 
