@@ -13,6 +13,7 @@ const meta = {
   component: BxRadio,
   args: {
     default: 'Two',
+    // @ts-ignore
     'update:modelValue': action('update:modelValue'),
     modelValue: defaultProps.modelValue,
     value: 'Two',

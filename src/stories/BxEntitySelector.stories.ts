@@ -3,7 +3,7 @@ import { action } from '@storybook/addon-actions';
 import { Story } from './Story';
 import BxEntitySelector from '../components/BxEntitySelector.vue';
 import { defaultProps } from '../components/BxEntitySelector.props';
-import countriesWithoutLinks from '../utils/countries';
+import countriesWithoutLinks from './countries';
 
 const countries = countriesWithoutLinks.map((country) => ({
   ...country,
