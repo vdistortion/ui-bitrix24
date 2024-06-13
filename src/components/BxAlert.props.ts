@@ -1,5 +1,3 @@
-import React from 'react';
-
 export type PropSize = 'md' | 'xs';
 export type PropColor = 'default' | 'primary' | 'success' | 'warning' | 'danger';
 export type PropIcon = '' | 'warning' | 'danger' | 'info';
@@ -12,8 +10,7 @@ type TypesProps = {
 
 export type TypesPropsList = PropSize | PropColor | PropIcon;
 
-export type Props = {
-  children: React.ReactNode;
+type Props = {
   title: string;
   size: PropSize;
   color: PropColor;
@@ -21,7 +18,6 @@ export type Props = {
   center: boolean;
   inline: boolean;
   closing: boolean;
-  onClose: (e: React.MouseEvent<HTMLSpanElement, MouseEvent>) => void;
 };
 
 export const propsValues: TypesProps = {
@@ -30,7 +26,7 @@ export const propsValues: TypesProps = {
   icons: ['', 'warning', 'danger', 'info'],
 };
 
-export const defaultProps: Omit<Props, 'children' | 'onClose'> = {
+export const defaultProps: Props = {
   title: 'Внимание!',
   size: propsValues.sizes[0],
   color: propsValues.colors[0],
