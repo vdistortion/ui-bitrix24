@@ -1,12 +1,11 @@
 import type { IBitrix24Library } from 'bitrix24-library';
+import './font.open-sans.css';
 
 export const loadStyles = (BX24?: IBitrix24Library) => {
   const domain = BX24 ? BX24.getDomain() : 'www.bitrix24.ru';
   const root = `https://${domain}/bitrix/js/ui`;
   const files = [
     'design-tokens/dist/ui.design-tokens.min.css',
-    'fonts/opensans/ui.font.opensans.min.css',
-    'fonts/roboto/ui.font.roboto.min.css',
     'alerts/ui.alerts.min.css',
     'buttons/ui.buttons.min.css',
     'buttons/icons/ui.buttons.icons.min.css',
@@ -31,5 +30,5 @@ export const loadStyles = (BX24?: IBitrix24Library) => {
     return Fragment;
   }, new DocumentFragment());
 
-  if (styles.children.length) document.head.prepend(styles);
+  if (styles.children.length) document.head.append(styles);
 };

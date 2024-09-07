@@ -129,3 +129,11 @@ const classList = computed(() =>
   }),
 );
 </script>
+
+<style>
+.ui-btn,
+.ui-btn-main {
+  font-family: var(--ui-font-family-open-sans), sans-serif !important;
+  font-weight: 700 !important;
+}
+</style>
