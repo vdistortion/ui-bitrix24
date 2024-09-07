@@ -1,14 +1,14 @@
 # vue-bitrix24
 
-Библиотека vue-компонентов в стилистике Bitrix24
+Component library in Bitrix24 style
 
-## Установка
+## Install
 
 ```nodejs
 npm i -S vue-bitrix24@latest bitrix24-library@latest
 ```
 
-## Подключение
+## Use
 ```ts
 // plugins/vue-bitrix24.ts
 import BxButton from 'vue-bitrix24/BxButton';
@@ -23,7 +23,7 @@ export default {
   },
 };
 
-// или экспорт всех компонентов
+// or export all components
 import usePlugin from 'vue-bitrix24';
 import 'vue-bitrix24/css';
 
@@ -44,7 +44,7 @@ Bitrix24.init().then((BX42) => {
 });
 ```
 
-## Компоненты
+## Components
 
 ### [Storybook](https://astrotrain55.github.io/vue-bitrix24/)
 
@@ -59,9 +59,12 @@ Bitrix24.init().then((BX42) => {
 * bx-radio
 * bx-textarea
 
-## Ссылки
+## Links
 
-* [UI-библиотека](https://dev.1c-bitrix.ru/api_d7/bitrix/ui/index.php)
+* [react-bitrix24](https://www.npmjs.com/package/react-bitrix24)
 * [bitrix24-library](https://www.npmjs.com/package/bitrix24-library)
 * [bitrix24-create-app](https://www.npmjs.com/package/bitrix24-create-app)
 * [bitrix24-stickerpack-app](https://github.com/astrotrain55/bitrix24-stickerpack-app)
+
+
+* [UI library](https://dev.1c-bitrix.ru/api_d7/bitrix/ui/index.php)

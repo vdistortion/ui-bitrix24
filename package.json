@@ -2,6 +2,7 @@
   "name": "vue-bitrix24",
   "description": "Component library in Bitrix24 style",
   "version": "4.1.0",
+  "author": "Валентин <valentin.distortion@gmail.com>",
   "license": "GPL",
   "type": "module",
   "module": "./dist/index.js",
