@@ -1,14 +1,14 @@
 import type { Meta, StoryObj } from '@storybook/vue3';
-import { action } from '@storybook/addon-actions';
+import { fn } from '@storybook/test';
 import BxInput from '../components/BxInput.vue';
 import { defaultProps, propsValues, type TypesPropsList } from '../components/BxInput.props';
 import { Story } from './Story';
 
 const events = {
-  'update:modelValue': action('update:modelValue'),
-  change: action('change'),
-  'click-before': action('click-before'),
-  'click-after': action('click-after'),
+  'update:modelValue': fn(),
+  change: fn(),
+  'click-before': fn(),
+  'click-after': fn(),
 };
 
 const meta: Meta<typeof BxInput> = {

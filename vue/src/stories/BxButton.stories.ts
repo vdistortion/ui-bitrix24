@@ -1,12 +1,12 @@
 import type { Meta, StoryObj } from '@storybook/vue3';
-import { action } from '@storybook/addon-actions';
+import { fn } from '@storybook/test';
 import { Story } from './Story';
 import BxButton from '../components/BxButton.vue';
 import { defaultProps, propsValues, type TypesPropsList } from '../components/BxButton.props';
 
 const events = {
-  click: action('click'),
-  'toggle-menu': action('toggle-menu'),
+  click: fn(),
+  'toggle-menu': fn(),
 };
 
 const meta: Meta<typeof BxButton> = {

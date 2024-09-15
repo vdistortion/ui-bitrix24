@@ -1,11 +1,11 @@
 import type { Meta, StoryObj } from '@storybook/vue3';
-import { action } from '@storybook/addon-actions';
+import { fn } from '@storybook/test';
 import { Story } from './Story';
 import BxCheckbox from '../components/BxCheckbox.vue';
 import { defaultProps } from '../components/BxCheckbox.props';
 
 const events = {
-  'update:modelValue': action('update:modelValue'),
+  'update:modelValue': fn(),
 };
 
 const meta: Meta<typeof BxCheckbox> = {

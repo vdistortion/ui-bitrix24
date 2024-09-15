@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/vue3';
-import { action } from '@storybook/addon-actions';
+import { fn } from '@storybook/test';
 import { Story } from './Story';
 import BxEntitySelector from '../components/BxEntitySelector.vue';
 import { defaultProps } from '../components/BxEntitySelector.props';
@@ -11,10 +11,10 @@ const countries = countriesWithoutLinks.map((country) => ({
 }));
 
 const events = {
-  add: action('add'),
-  click: action('click'),
-  auxclick: action('auxclick'),
-  delete: action('delete'),
+  add: fn(),
+  click: fn(),
+  auxclick: fn(),
+  delete: fn(),
 };
 
 const meta: Meta<typeof BxEntitySelector> = {

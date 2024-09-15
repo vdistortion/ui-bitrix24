@@ -1,11 +1,11 @@
 import type { Meta, StoryObj } from '@storybook/vue3';
-import { action } from '@storybook/addon-actions';
+import { fn } from '@storybook/test';
 import { Story } from './Story';
 import BxAlert from '../components/BxAlert.vue';
 import { propsValues, defaultProps, type TypesPropsList } from '../components/BxAlert.props';
 
 const events = {
-  close: action('close'),
+  close: fn(),
 };
 
 const meta: Meta<typeof BxAlert> = {

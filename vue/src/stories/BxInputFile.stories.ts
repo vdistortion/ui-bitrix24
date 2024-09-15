@@ -1,12 +1,12 @@
 import type { Meta, StoryObj } from '@storybook/vue3';
-import { action } from '@storybook/addon-actions';
+import { fn } from '@storybook/test';
 import { Story } from './Story';
 import BxInputFile from '../components/BxInputFile.vue';
 import { defaultProps, propsValues, type TypesPropsList } from '../components/BxInputFile.props';
 
 const events = {
-  change: action('change'),
-  delete: action('delete'),
+  change: fn(),
+  delete: fn(),
 };
 
 const meta: Meta<typeof BxInputFile> = {

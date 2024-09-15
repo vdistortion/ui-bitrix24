@@ -31,35 +31,23 @@
   "scripts": {
     "dev": "vite --host --port 4200",
     "build": "tsc --p ./tsconfig-build.json && vite build",
-    "format": "prettier . --write",
     "preview": "vite preview --host",
-    "public:lib": "npm run build && npm publish",
-    "public": "npm run build-storybook && gh-pages -d storybook-static -e react -t --nojekyll",
-    "storybook": "storybook dev -p 6006 --no-open",
-    "build-storybook": "storybook build"
+    "public:lib": "npm run build && npm publish"
   },
   "peerDependencies": {
     "react": "^18.3.1",
     "react-dom": "^18.3.1"
   },
   "devDependencies": {
-    "@storybook/addon-essentials": "^8.1.5",
-    "@storybook/blocks": "^8.1.5",
-    "@storybook/react": "^8.1.5",
-    "@storybook/react-vite": "^8.1.5",
-    "@storybook/test": "^8.1.5",
     "@types/node": "^20.14.1",
     "@types/react": "^18.3.3",
     "@types/react-dom": "^18.3.0",
     "@vitejs/plugin-react": "^4.3.0",
     "bitrix24-library": "^0.1.0",
-    "gh-pages": "^6.1.1",
     "glob": "^10.4.1",
-    "prettier": "3.3.0",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "rollup-plugin-visualizer": "^5.12.0",
-    "storybook": "^8.1.5",
     "typescript": "^5.4.5",
     "vite": "^5.2.12",
     "vite-plugin-dts": "^3.9.1",

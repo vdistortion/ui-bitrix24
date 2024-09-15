@@ -1,4 +1,5 @@
 # ui-bitrix24
+
 [![NPM Version](https://img.shields.io/npm/v/vue-bitrix24?style=flat&logo=npm&label=vue%20version&color=cb3837)](https://www.npmjs.com/package/vue-bitrix24)
 [![NPM Downloads](https://img.shields.io/npm/dw/vue-bitrix24?style=flat&logo=npm&color=cb3837)](https://www.npmjs.com/package/vue-bitrix24)
 [![npm bundle size](https://img.shields.io/bundlephobia/min/vue-bitrix24?style=flat&logo=npm&color=cb3837)](https://www.npmjs.com/package/vue-bitrix24)
@@ -14,9 +15,9 @@
 Component library in Bitrix24 style
 
 ## Storybook
-* [Vue](https://astrotrain55.github.io/ui-bitrix24/vue)
-* [React](https://astrotrain55.github.io/ui-bitrix24/react)
 
+- [Vue](https://astrotrain55.github.io/ui-bitrix24/vue)
+- [React](https://astrotrain55.github.io/ui-bitrix24/react)
 
 ## Install
 
@@ -32,8 +33,8 @@ npm i -S vue-bitrix24@latest bitrix24-library@latest
 npm i -S react-bitrix24@latest bitrix24-library@latest
 ```
 
-
 ## Use
+
 ### Vue
 
 ```ts
@@ -43,10 +44,12 @@ import BxInput from 'vue-bitrix24/BxInput';
 
 export default {
   install(app) {
-    [['bx-button', BxButton], ['bx-input', BxInput]]
-      .forEach(([name, Component]) => {
-        app.component(name, Component);
-      });
+    [
+      ['bx-button', BxButton],
+      ['bx-input', BxInput],
+    ].forEach(([name, Component]) => {
+      app.component(name, Component);
+    });
   },
 };
 
@@ -56,6 +59,7 @@ import 'vue-bitrix24/css';
 
 export default usePlugin;
 ```
+
 ```ts
 // main.ts
 import { createApp } from 'vue';
@@ -64,14 +68,12 @@ import useBitrix24 from './plugins/vue-bitrix24';
 import App from './App.vue';
 
 Bitrix24.init().then((BX42) => {
-  createApp(App)
-    .provide('$BX24', BX24)
-    .use(useBitrix24)
-    .mount('#app');
+  createApp(App).provide('$BX24', BX24).use(useBitrix24).mount('#app');
 });
 ```
 
 ### React
+
 ```tsx
 // App.tsx
 import { BxButton, loadStyles } from 'react-bitrix24';
@@ -82,28 +84,26 @@ function App() {
     loadStyles(BX24);
   });
 
-  return (
-    <BxButton menu>BxButton</BxButton>
-  );
+  return <BxButton menu>BxButton</BxButton>;
 }
 ```
 
 ## Components
 
-* BxAlert
-* BxButton
-* BxCheckbox
-* BxEntitySelector
-* BxIcon
-* BxInput
-* BxInputFile
-* BxProgressbar
-* BxRadio
-* BxTextarea
+- BxAlert
+- BxButton
+- BxCheckbox
+- BxEntitySelector
+- BxIcon
+- BxInput
+- BxInputFile
+- BxProgressbar
+- BxRadio
+- BxTextarea
 
 ## Links
 
-* [bitrix24-library](https://www.npmjs.com/package/bitrix24-library)
-* [bitrix24-create-app](https://www.npmjs.com/package/bitrix24-create-app)
-* [bitrix24-stickerpack-app](https://github.com/astrotrain55/bitrix24-stickerpack-app)
-* [UI library](https://dev.1c-bitrix.ru/api_d7/bitrix/ui/index.php)
+- [bitrix24-library](https://www.npmjs.com/package/bitrix24-library)
+- [bitrix24-create-app](https://www.npmjs.com/package/bitrix24-create-app)
+- [bitrix24-stickerpack-app](https://github.com/astrotrain55/bitrix24-stickerpack-app)
+- [UI library](https://dev.1c-bitrix.ru/api_d7/bitrix/ui/index.php)

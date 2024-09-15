@@ -1,0 +1,33 @@
+{
+  "name": "ui-bitrix24",
+  "description": "Component library in Bitrix24 style",
+  "author": "Валентин <valentin.distortion@gmail.com>",
+  "license": "GPL",
+  "type": "module",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:astrotrain55/ui-bitrix24.git"
+  },
+  "scripts": {
+    "storybook:vue": "storybook dev -c vue/.storybook -p 6006 --no-open",
+    "storybook:react": "storybook dev -c react/.storybook -p 6006 --no-open",
+    "build-storybook:vue": "storybook build -c vue/.storybook -o storybook-static/vue",
+    "build-storybook:react": "storybook build -c react/.storybook -o storybook-static/react",
+    "build-storybook": "npm run build-storybook:vue && npm run build-storybook:react",
+    "public:gh-pages": "gh-pages -d storybook-static -t --nojekyll",
+    "public": "npm run build-storybook && npm run public:gh-pages",
+    "format": "prettier . --write"
+  },
+  "devDependencies": {
+    "@storybook/addon-essentials": "^8.3.0",
+    "@storybook/blocks": "^8.3.0",
+    "@storybook/react": "^8.3.0",
+    "@storybook/react-vite": "^8.3.0",
+    "@storybook/test": "^8.3.0",
+    "@storybook/vue3": "^8.3.0",
+    "@storybook/vue3-vite": "^8.3.0",
+    "gh-pages": "^6.1.1",
+    "prettier": "3.3.3",
+    "storybook": "^8.3.0"
+  }
+}
