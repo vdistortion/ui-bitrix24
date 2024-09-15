@@ -1,0 +1,40 @@
+import { default as React } from '../../../node_modules/react';
+
+type PropSize = 'lg' | 'md' | 'sm' | 'xs';
+type PropColor = '' | 'success' | 'warning' | 'danger';
+type PropIcon = '' | 'search' | 'calendar' | 'dots' | 'phone' | 'mail' | 'clock' | 'angle' | 'clear' | 'loader';
+type PropTagColor = 'default' | 'light' | 'light-blue';
+type TypesProps = {
+    sizes: PropSize[];
+    colors: PropColor[];
+    icons: PropIcon[];
+    tagColors: PropTagColor[];
+};
+export type TypesPropsList = PropSize | PropColor | PropIcon | PropTagColor;
+export type Props = {
+    value: string;
+    placeholder: string;
+    disabled: boolean;
+    size: PropSize;
+    color: PropColor;
+    inline: boolean;
+    noBorder: boolean;
+    underline: boolean;
+    noPadding: boolean;
+    round: boolean;
+    tag: string;
+    tagColor: PropTagColor;
+    beforeIcon: PropIcon;
+    beforeExt: boolean;
+    beforeButton: boolean;
+    afterIcon: PropIcon;
+    afterExt: boolean;
+    afterButton: boolean;
+    onInput: (e: React.FormEvent<HTMLInputElement>) => void;
+    onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
+    onClickBefore: (e: React.MouseEvent<HTMLButtonElement>) => void;
+    onClickAfter: (e: React.MouseEvent<HTMLButtonElement>) => void;
+};
+export declare const propsValues: TypesProps;
+export declare const defaultProps: Omit<Props, 'onInput' | 'onChange' | 'onClickBefore' | 'onClickAfter'>;
+export {};
