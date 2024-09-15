@@ -11,10 +11,10 @@
   "sideEffects": [
     "**/*.css"
   ],
-  "homepage": "https://astrotrain55.github.io/react-bitrix24/",
+  "homepage": "https://astrotrain55.github.io/ui-bitrix24/react/",
   "repository": {
     "type": "git",
-    "url": "git@github.com:astrotrain55/react-bitrix24.git"
+    "url": "git@github.com:astrotrain55/ui-bitrix24.git"
   },
   "files": [
     "dist"
@@ -34,7 +34,7 @@
     "format": "prettier . --write",
     "preview": "vite preview --host",
     "public:lib": "npm run build && npm publish",
-    "public": "npm run build-storybook && gh-pages -d storybook-static -t --nojekyll",
+    "public": "npm run build-storybook && gh-pages -d storybook-static -e react -t --nojekyll",
     "storybook": "storybook dev -p 6006 --no-open",
     "build-storybook": "storybook build"
   },

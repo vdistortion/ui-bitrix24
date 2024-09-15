@@ -25,10 +25,10 @@
       "require": "./dist/index.umd.cjs"
     }
   },
-  "homepage": "https://astrotrain55.github.io/vue-bitrix24/",
+  "homepage": "https://astrotrain55.github.io/ui-bitrix24/vue",
   "repository": {
     "type": "git",
-    "url": "git@github.com:astrotrain55/vue-bitrix24.git"
+    "url": "git@github.com:astrotrain55/ui-bitrix24.git"
   },
   "files": [
     "dist",
@@ -50,7 +50,7 @@
     "type-check": "vue-tsc --build --force",
     "format": "prettier --write src",
     "public:lib": "npm run build && npm publish",
-    "public": "npm run build-storybook && gh-pages -d storybook-static -t --nojekyll",
+    "public": "npm run build-storybook && gh-pages -d storybook-static -e vue -t --nojekyll",
     "storybook": "storybook dev -p 6006 --no-open",
     "build-storybook": "storybook build"
   },

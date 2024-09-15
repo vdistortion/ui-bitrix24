@@ -14,8 +14,8 @@
 Component library in Bitrix24 style
 
 ## Storybook
-* [Vue](https://astrotrain55.github.io/vue-bitrix24/)
-* [React](https://astrotrain55.github.io/react-bitrix24/)
+* [Vue](https://astrotrain55.github.io/ui-bitrix24/vue)
+* [React](https://astrotrain55.github.io/ui-bitrix24/react)
 
 
 ## Install
