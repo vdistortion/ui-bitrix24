@@ -1,4 +1,4 @@
-import { default as React } from '../../../node_modules/react';
+import { default as React } from '../../../../node_modules/react';
 
 type PropResize = '' | 'no' | 'y' | 'x';
 type TypesProps = {

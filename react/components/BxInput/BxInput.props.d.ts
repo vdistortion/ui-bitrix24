@@ -1,4 +1,4 @@
-import { default as React } from '../../../node_modules/react';
+import { default as React } from '../../../../node_modules/react';
 
 type PropSize = 'lg' | 'md' | 'sm' | 'xs';
 type PropColor = '' | 'success' | 'warning' | 'danger';
