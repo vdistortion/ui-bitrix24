@@ -10,7 +10,14 @@ import { visualizer } from 'rollup-plugin-visualizer';
 export default defineConfig({
   base: '',
   publicDir: false,
-  plugins: [react(), libInjectCss(), visualizer(), dts({ include: ['lib'] })],
+  plugins: [
+    react(),
+    libInjectCss(),
+    visualizer({
+      filename: 'stats.react.html',
+    }),
+    dts({ include: ['lib'] }),
+  ],
   build: {
     copyPublicDir: false,
     lib: {

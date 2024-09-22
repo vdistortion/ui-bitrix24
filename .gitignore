@@ -29,7 +29,7 @@ coverage
 
 *.tsbuildinfo
 
-stats.html
+stats.*.html
 storybook-static
 
 *storybook.log

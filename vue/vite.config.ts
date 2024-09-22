@@ -5,7 +5,12 @@ import { visualizer } from 'rollup-plugin-visualizer';
 export default defineConfig({
   base: '',
   publicDir: false,
-  plugins: [vue(), visualizer()],
+  plugins: [
+    vue(),
+    visualizer({
+      filename: 'stats.vue.html',
+    }),
+  ],
   build: {
     lib: {
       entry: './src/lib.ts',
