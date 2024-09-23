@@ -12,8 +12,9 @@ import { inject } from 'vue';
 import BxDialog from './components/BxDialog.vue';
 import BxTagSelector from './components/BxTagSelector.vue';
 import BxEntitySelector from './components/BxEntitySelector.vue';
+import type { ItemType } from './components/BxTagSelector.props';
 
-const users = [
+const users: ItemType[] = [
   {
     link: '/company/personal/user/150/',
     name: 'Администратор Админ',
