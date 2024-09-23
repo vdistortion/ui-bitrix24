@@ -1,6 +1,6 @@
 import type { Preview } from '@storybook/react';
 import { loadStyles } from '../lib';
-import './stories.css';
+import '@/storybook/stories.css';
 
 loadStyles();
 

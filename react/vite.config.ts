@@ -46,4 +46,14 @@ export default defineConfig({
       },
     },
   },
+  resolve: {
+    alias: {
+      '@': fileURLToPath(new URL('../common', import.meta.url)),
+    },
+  },
+  server: {
+    fs: {
+      allow: ['..'],
+    },
+  },
 });

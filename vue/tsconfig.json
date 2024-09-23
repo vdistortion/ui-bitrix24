@@ -20,7 +20,11 @@
     "strict": true,
     "noUnusedLocals": true,
     "noUnusedParameters": true,
-    "noFallthroughCasesInSwitch": true
+    "noFallthroughCasesInSwitch": true,
+
+    "paths": {
+      "@/*": ["../common/*"]
+    }
   },
   "include": ["env.d.ts", "src"],
   "exclude": ["src/main.*", "src/App.*", "src/**/__tests__/*"]

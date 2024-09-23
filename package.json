@@ -18,6 +18,7 @@
     "@storybook/test": "^8.3.0",
     "@storybook/vue3": "^8.3.0",
     "@storybook/vue3-vite": "^8.3.0",
+    "bitrix24-library": "^0.1.2",
     "gh-pages": "^6.1.1",
     "prettier": "3.3.3",
     "storybook": "^8.3.0"

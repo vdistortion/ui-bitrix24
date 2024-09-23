@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { defaultProps, type Props } from './BxInputFile.props';
 import styles from './BxInputFile.module.css';
 import { getClassName } from '../../utils/getClassName';
-import { formatSizeUnits } from '../../utils/formatSizeUnits';
+import { formatSizeUnits } from '@/utils/formatSizeUnits';
 
 export function BxInputFile(props: Partial<Props>) {
   const {

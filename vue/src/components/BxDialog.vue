@@ -1613,7 +1613,7 @@
 
 <script setup lang="ts">
 import { reactive } from 'vue';
-import { loadStyles } from '../utils/loadStyles';
+import { loadStyles } from '@/utils/loadStyles';
 
 loadStyles();
 

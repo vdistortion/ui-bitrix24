@@ -1,5 +1,5 @@
 import type { Preview } from '@storybook/vue3';
-import './stories.css';
+import '@/storybook/stories.css';
 
 const preview: Preview = {
   parameters: {

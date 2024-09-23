@@ -73,7 +73,7 @@
 <script setup lang="ts">
 import { computed, reactive, type PropType } from 'vue';
 import { defaultProps, propsValues, type PropType as PropTypeInputFile } from './BxInputFile.props';
-import { formatSizeUnits } from '../utils/formatSizeUnits';
+import { formatSizeUnits } from '@/utils/formatSizeUnits';
 import { useStyles } from '../composable/useStyles';
 
 useStyles();

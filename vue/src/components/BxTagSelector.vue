@@ -45,7 +45,7 @@
 
 <script setup lang="ts">
 import { type PropType } from 'vue';
-import { loadStyles } from '../utils/loadStyles';
+import { loadStyles } from '@/utils/loadStyles';
 import type { ItemType } from './BxTagSelector.props';
 
 loadStyles();

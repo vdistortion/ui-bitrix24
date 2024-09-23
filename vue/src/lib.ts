@@ -1,4 +1,4 @@
-export { loadStyles } from './utils/loadStyles';
+export { loadStyles } from '@/utils/loadStyles';
 export { default as BxAlert } from './components/BxAlert.vue';
 export { default as BxButton } from './components/BxButton.vue';
 export { default as BxCheckbox } from './components/BxCheckbox.vue';

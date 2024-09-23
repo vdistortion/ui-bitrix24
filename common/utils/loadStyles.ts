@@ -11,12 +11,12 @@ export const loadStyles = (BX24?: IBitrix24Library) => {
     'buttons/icons/ui.buttons.icons.min.css',
     'entity-selector/dist/entity-selector.bundle.min.css',
     'forms/ui.forms.min.css',
-    'layout-form/dist/layout-form.bundle.min.css',
     'hint/ui.hint.min.css',
     'icons/b24/ui.icons.b24.min.css',
     'icons/base/ui.icons.base.min.css',
     'icons/disk/ui.icons.disk.min.css',
     'icons/service/ui.icons.service.min.css',
+    'layout-form/dist/layout-form.bundle.min.css',
     'progressbar/ui.progressbar.min.css',
   ];
   const styles = files.reduce((Fragment, file) => {
