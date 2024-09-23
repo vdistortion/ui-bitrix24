@@ -1,8 +1,8 @@
 import type { Meta, StoryObj } from '@storybook/vue3';
 import { fn } from '@storybook/test';
 import { Story } from './Story';
-import BxCheckbox from '../components/BxCheckbox.vue';
-import { defaultProps } from '../components/BxCheckbox.props';
+import BxCheckbox from '../src/components/BxCheckbox.vue';
+import { defaultProps } from '../src/components/BxCheckbox.props';
 
 const events = {
   'update:modelValue': fn(),

@@ -1,7 +1,7 @@
 import { Meta } from '@storybook/react';
 import { fn } from '@storybook/test';
 import { Story } from './Story';
-import { BxTextarea, defaultProps, propsValues } from '../../lib/components/BxTextarea';
+import { BxTextarea, defaultProps, propsValues } from '../lib/components/BxTextarea';
 
 const meta: Meta<typeof BxTextarea> = {
   title: 'Form/BxTextarea',

@@ -1,14 +1,15 @@
-import { Meta } from '@storybook/react';
+import type { Meta, StoryObj } from '@storybook/vue3';
 import { Story } from './Story';
+import BxProgressbar from '../src/components/BxProgressbar.vue';
 import {
-  BxProgressbar,
   defaultProps,
   propsValues,
   type TypesPropsList,
-} from '../../lib/components/BxProgressbar';
+} from '../src/components/BxProgressbar.props';
 
 const meta: Meta<typeof BxProgressbar> = {
-  title: 'BxProgressbar',
+  title: 'bx-progressbar',
+  component: BxProgressbar,
   args: {
     progress: 17,
     size: defaultProps.size,
@@ -45,7 +46,9 @@ const meta: Meta<typeof BxProgressbar> = {
   },
 };
 
+type StoryType = StoryObj<typeof meta>;
+
 export default meta;
-export const Default = Story(BxProgressbar).bind({});
-export const Sizes = Story<TypesPropsList>(BxProgressbar, 'size', propsValues.sizes);
-export const Colors = Story<TypesPropsList>(BxProgressbar, 'color', propsValues.colors);
+export const Default: StoryType = Story(BxProgressbar);
+export const Colors: StoryType = Story<TypesPropsList>(BxProgressbar, 'color', propsValues.colors);
+export const Sizes: StoryType = Story<TypesPropsList>(BxProgressbar, 'size', propsValues.sizes);

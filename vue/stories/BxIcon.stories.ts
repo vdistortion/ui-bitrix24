@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/vue3';
 import { Story } from './Story';
-import BxIcon from '../components/BxIcon.vue';
-import { defaultProps, propsValues, type TypesPropsList } from '../components/BxIcon.props';
+import BxIcon from '../src/components/BxIcon.vue';
+import { defaultProps, propsValues, type TypesPropsList } from '../src/components/BxIcon.props';
 
 const meta: Meta<typeof BxIcon> = {
   title: 'bx-icon',

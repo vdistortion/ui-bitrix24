@@ -2,7 +2,7 @@ import { Meta } from '@storybook/react';
 import { fn } from '@storybook/test';
 import { Story } from './Story';
 import countriesWithoutLinks from './countries';
-import { BxEntitySelector, defaultProps } from '../../lib/components/BxEntitySelector';
+import { BxEntitySelector, defaultProps } from '../lib/components/BxEntitySelector';
 
 const countries = countriesWithoutLinks.map((country) => ({
   ...country,

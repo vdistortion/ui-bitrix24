@@ -6,7 +6,7 @@ import {
   defaultProps,
   propsValues,
   type TypesPropsList,
-} from '../../lib/components/BxInputFile';
+} from '../lib/components/BxInputFile';
 
 const meta: Meta<typeof BxInputFile> = {
   title: 'Form/BxInputFile',

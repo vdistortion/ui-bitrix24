@@ -1,24 +1,20 @@
-import { Meta } from '@storybook/react';
+import type { Meta, StoryObj } from '@storybook/vue3';
 import { fn } from '@storybook/test';
 import { Story } from './Story';
-import {
-  BxButton,
-  defaultProps,
-  propsValues,
-  type TypesPropsList,
-} from '../../lib/components/BxButton';
+import BxButton from '../src/components/BxButton.vue';
+import { defaultProps, propsValues, type TypesPropsList } from '../src/components/BxButton.props';
+
+const events = {
+  click: fn(),
+  'toggle-menu': fn(),
+};
 
 const meta: Meta<typeof BxButton> = {
-  title: 'BxButton',
-  parameters: {
-    actions: {
-      argTypesRegex: '^on.*',
-    },
-  },
+  title: 'bx-button',
+  component: BxButton,
   args: {
-    children: 'BxButton',
-    onClick: fn(),
-    onToggleMenu: fn(),
+    default: 'bx-button',
+    ...events,
     type: defaultProps.type,
     color: defaultProps.color,
     size: defaultProps.size,
@@ -33,7 +29,7 @@ const meta: Meta<typeof BxButton> = {
     menu: defaultProps.menu,
   },
   argTypes: {
-    children: {
+    default: {
       control: { type: 'text' },
     },
     type: {
@@ -80,9 +76,11 @@ const meta: Meta<typeof BxButton> = {
   },
 };
 
+type StoryType = StoryObj<typeof meta>;
+
 export default meta;
-export const Default = Story(BxButton).bind({});
-export const Colors = Story<TypesPropsList>(BxButton, 'color', propsValues.colors);
-export const Sizes = Story<TypesPropsList>(BxButton, 'size', propsValues.sizes);
-export const Icons = Story<TypesPropsList>(BxButton, 'icon', propsValues.icons);
-export const Loaders = Story<TypesPropsList>(BxButton, 'loader', propsValues.loaders);
+export const Default: StoryType = Story(BxButton);
+export const Colors: StoryType = Story<TypesPropsList>(BxButton, 'color', propsValues.colors);
+export const Sizes: StoryType = Story<TypesPropsList>(BxButton, 'size', propsValues.sizes);
+export const Icons: StoryType = Story<TypesPropsList>(BxButton, 'icon', propsValues.icons);
+export const Loaders: StoryType = Story<TypesPropsList>(BxButton, 'loader', propsValues.loaders);

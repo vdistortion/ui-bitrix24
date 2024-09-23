@@ -1,32 +1,33 @@
 import type { Meta, StoryObj } from '@storybook/vue3';
 import { fn } from '@storybook/test';
 import { Story } from './Story';
-import BxRadio from '../components/BxRadio.vue';
-import { defaultProps } from '../components/BxRadio.props';
+import BxTextarea from '../src/components/BxTextarea.vue';
+import { propsValues, defaultProps } from '../src/components/BxTextarea.props';
 
 const events = {
   'update:modelValue': fn(),
 };
 
-const meta: Meta<typeof BxRadio> = {
-  title: 'forms/bx-radio',
-  component: BxRadio,
+const meta: Meta<typeof BxTextarea> = {
+  title: 'forms/bx-textarea',
+  component: BxTextarea,
   args: {
-    default: '',
     ...events,
     modelValue: defaultProps.value,
-    value: defaultProps.value,
+    placeholder: defaultProps.placeholder,
+    resize: defaultProps.resize,
     disabled: defaultProps.disabled,
   },
   argTypes: {
-    default: {
-      control: { type: 'text' },
-    },
     modelValue: {
       control: { type: 'text' },
     },
-    value: {
+    placeholder: {
       control: { type: 'text' },
+    },
+    resize: {
+      options: propsValues.resizes,
+      control: { type: 'inline-radio' },
     },
     disabled: {
       control: { type: 'boolean' },
@@ -37,4 +38,4 @@ const meta: Meta<typeof BxRadio> = {
 type StoryType = StoryObj<typeof meta>;
 
 export default meta;
-export const Default: StoryType = Story(BxRadio);
+export const Default: StoryType = Story(BxTextarea);

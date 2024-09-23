@@ -1,11 +1,6 @@
 import { Meta } from '@storybook/react';
 import { Story } from './Story';
-import {
-  BxIcon,
-  defaultProps,
-  propsValues,
-  type TypesPropsList,
-} from '../../lib/components/BxIcon';
+import { BxIcon, defaultProps, propsValues, type TypesPropsList } from '../lib/components/BxIcon';
 
 const meta: Meta<typeof BxIcon> = {
   title: 'BxIcon',

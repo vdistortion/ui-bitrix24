@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/vue3';
 import { fn } from '@storybook/test';
-import BxInput from '../components/BxInput.vue';
-import { defaultProps, propsValues, type TypesPropsList } from '../components/BxInput.props';
+import BxInput from '../src/components/BxInput.vue';
+import { defaultProps, propsValues, type TypesPropsList } from '../src/components/BxInput.props';
 import { Story } from './Story';
 
 const events = {

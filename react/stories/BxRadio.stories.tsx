@@ -1,10 +1,10 @@
 import { Meta } from '@storybook/react';
 import { fn } from '@storybook/test';
 import { Story } from './Story.tsx';
-import { BxCheckbox, defaultProps } from '../../lib/components/BxCheckbox';
+import { BxRadio, defaultProps } from '../lib/components/BxRadio';
 
-const meta: Meta<typeof BxCheckbox> = {
-  title: 'Form/BxCheckbox',
+const meta: Meta<typeof BxRadio> = {
+  title: 'Form/BxRadio',
   args: {
     children: '',
     onChange: fn(),
@@ -33,4 +33,4 @@ const meta: Meta<typeof BxCheckbox> = {
 };
 
 export default meta;
-export const Default = Story(BxCheckbox).bind({});
+export const Default = Story(BxRadio).bind({});

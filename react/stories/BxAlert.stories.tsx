@@ -1,19 +1,13 @@
-import type { Meta, StoryObj } from '@storybook/vue3';
+import { Meta } from '@storybook/react';
 import { fn } from '@storybook/test';
 import { Story } from './Story';
-import BxAlert from '../components/BxAlert.vue';
-import { propsValues, defaultProps, type TypesPropsList } from '../components/BxAlert.props';
-
-const events = {
-  close: fn(),
-};
+import { BxAlert, defaultProps, propsValues, type TypesPropsList } from '../lib/components/BxAlert';
 
 const meta: Meta<typeof BxAlert> = {
-  title: 'bx-alert',
-  component: BxAlert,
+  title: 'BxAlert',
   args: {
-    default: '',
-    ...events,
+    children: '',
+    onClose: fn(),
     title: defaultProps.title,
     size: defaultProps.size,
     color: defaultProps.color,
@@ -23,7 +17,7 @@ const meta: Meta<typeof BxAlert> = {
     closing: defaultProps.closing,
   },
   argTypes: {
-    default: {
+    children: {
       control: { type: 'text' },
     },
     title: {
@@ -53,10 +47,8 @@ const meta: Meta<typeof BxAlert> = {
   },
 };
 
-type StoryType = StoryObj<typeof meta>;
-
 export default meta;
-export const Default: StoryType = Story(BxAlert);
-export const Sizes: StoryType = Story<TypesPropsList>(BxAlert, 'size', propsValues.sizes);
-export const Colors: StoryType = Story<TypesPropsList>(BxAlert, 'color', propsValues.colors);
-export const Icons: StoryType = Story<TypesPropsList>(BxAlert, 'icon', propsValues.icons);
+export const Default = Story(BxAlert).bind({});
+export const Sizes = Story<TypesPropsList>(BxAlert, 'size', propsValues.sizes);
+export const Colors = Story<TypesPropsList>(BxAlert, 'color', propsValues.colors);
+export const Icons = Story<TypesPropsList>(BxAlert, 'icon', propsValues.icons);

@@ -1,12 +1,7 @@
 import { Meta } from '@storybook/react';
 import { fn } from '@storybook/test';
 import { Story } from './Story';
-import {
-  BxInput,
-  defaultProps,
-  propsValues,
-  type TypesPropsList,
-} from '../../lib/components/BxInput';
+import { BxInput, defaultProps, propsValues, type TypesPropsList } from '../lib/components/BxInput';
 
 const meta: Meta<typeof BxInput> = {
   title: 'Form/BxInput',
