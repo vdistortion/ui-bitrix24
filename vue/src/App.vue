@@ -1,14 +1,22 @@
 <template>
   <div style="display: flex; flex-direction: column; gap: 20px">
     <bx-dialog></bx-dialog>
-    <bx-tag-selector :tags="users" placeholder="placeholder"></bx-tag-selector>
-    <bx-tag-selector :tags="users" hidden-text-box></bx-tag-selector>
+    <bx-tag-selector :list="users" display-field-name="name">
+      <BxIcon icon="common-user" size="xs"></BxIcon>
+    </bx-tag-selector>
+    <bx-tag-selector
+      :list="users"
+      display-field-name="name"
+      icon
+      default-icon="default-user"
+    ></bx-tag-selector>
     <bx-entity-selector></bx-entity-selector>
   </div>
 </template>
 
 <script setup lang="ts">
 import { inject } from 'vue';
+import BxIcon from './components/BxIcon.vue';
 import BxDialog from './components/BxDialog.vue';
 import BxTagSelector from './components/BxTagSelector.vue';
 import BxEntitySelector from './components/BxEntitySelector.vue';
@@ -17,11 +25,12 @@ import type { ItemType } from './components/BxTagSelector.props';
 const users: ItemType[] = [
   {
     link: '/company/personal/user/150/',
-    name: 'Администратор Админ',
+    name: 'Администратор',
   },
   {
-    link: '/company/personal/user/150/',
-    name: 'Администратор Админ',
+    link: '/company/personal/user/151/',
+    name: 'Админ',
+    icon: 'https://www.google.com/images/branding/googlelogo/1x/googlelogo_light_color_272x92dp.png',
   },
 ];
 

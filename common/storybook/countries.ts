@@ -256,6 +256,7 @@ const countriesWithoutLinks: CountryWithoutLink[] = [
 const countries: Country[] = countriesWithoutLinks.map((country: Country) => ({
   ...country,
   url: `https://www.google.com/search?q=${country.name}`,
+  icon: 'https://www.iconpacks.net/icons/2/free-user-icon-3296-thumb.png',
 }));
 
 export default countries;
