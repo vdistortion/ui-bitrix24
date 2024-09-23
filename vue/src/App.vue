@@ -10,7 +10,6 @@
       icon
       default-icon="default-user"
     ></bx-tag-selector>
-    <bx-entity-selector></bx-entity-selector>
   </div>
 </template>
 
@@ -19,7 +18,6 @@ import { inject } from 'vue';
 import BxIcon from './components/BxIcon.vue';
 import BxDialog from './components/BxDialog.vue';
 import BxTagSelector from './components/BxTagSelector.vue';
-import BxEntitySelector from './components/BxEntitySelector.vue';
 import type { ItemType } from './components/BxTagSelector.props';
 
 const users: ItemType[] = [

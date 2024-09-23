@@ -36,12 +36,12 @@ npm i -S vue-bitrix24@latest bitrix24-library@latest
 - bx-alert
 - bx-button
 - bx-checkbox
-- bx-entity-selector
 - bx-icon
 - bx-input
 - bx-input-file
 - bx-progressbar
 - bx-radio
+- bx-tag-selector
 - bx-textarea
 
 ## Links
