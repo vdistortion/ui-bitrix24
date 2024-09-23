@@ -33,3 +33,6 @@ stats.*.html
 storybook-static
 
 *storybook.log
+
+vite.config.d.ts
+vite.config.js

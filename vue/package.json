@@ -5,34 +5,18 @@
   "author": "Валентин <valentin.distortion@gmail.com>",
   "license": "GPL",
   "type": "module",
-  "module": "./dist/index.js",
-  "main": "./dist/index.umd.cjs",
-  "exports": {
-    "./BxAlert": "./src/components/BxAlert.vue",
-    "./BxButton": "./src/components/BxButton.vue",
-    "./BxCheckbox": "./src/components/BxCheckbox.vue",
-    "./BxEntitySelector": "./src/components/BxEntitySelector.vue",
-    "./BxIcon": "./src/components/BxIcon.vue",
-    "./BxInput": "./src/components/BxInput.vue",
-    "./BxInputFile": "./src/components/BxInputFile.vue",
-    "./BxProgressbar": "./src/components/BxProgressbar.vue",
-    "./BxRadio": "./src/components/BxRadio.vue",
-    "./BxTextarea": "./src/components/BxTextarea.vue",
-    "./loadStyles": "./src/utils/loadStyles.ts",
-    "./css": "./dist/style.css",
-    ".": {
-      "import": "./dist/index.js",
-      "require": "./dist/index.umd.cjs"
-    }
-  },
+  "main": "dist/lib.js",
+  "types": "dist/lib.d.ts",
+  "sideEffects": [
+    "**/*.css"
+  ],
   "homepage": "https://astrotrain55.github.io/ui-bitrix24/vue",
   "repository": {
     "type": "git",
     "url": "git@github.com:astrotrain55/ui-bitrix24.git"
   },
   "files": [
-    "dist",
-    "src"
+    "dist"
   ],
   "keywords": [
     "vue",
@@ -59,10 +43,13 @@
     "@vitejs/plugin-vue": "^5.0.5",
     "@vue/tsconfig": "^0.5.1",
     "bitrix24-library": "^0.1.2",
+    "glob": "^11.0.0",
     "npm-run-all2": "^6.2.0",
     "rollup-plugin-visualizer": "^5.12.0",
     "typescript": "~5.4.0",
     "vite": "^5.3.1",
+    "vite-plugin-dts": "^4.2.1",
+    "vite-plugin-lib-inject-css": "^2.1.1",
     "vue": "^3.4.29",
     "vue-tsc": "^2.0.21"
   }
