@@ -1,6 +1,6 @@
 export type ItemType = Record<string, string>;
 
-export type PropDefaultIcons = 'default-tag-user' | 'default-user' | 'extranet-user';
+export type PropDefaultIcons = 'default-tag-user' | 'default-user' | 'extranet-user' | 'department';
 
 type TypesProps = {
   defaultIcons: PropDefaultIcons[];
@@ -27,7 +27,7 @@ type Props = {
 };
 
 export const propsValues: TypesProps = {
-  defaultIcons: ['default-tag-user', 'default-user', 'extranet-user'],
+  defaultIcons: ['default-tag-user', 'default-user', 'extranet-user', 'department'],
 };
 
 export const defaultProps: Props = {
