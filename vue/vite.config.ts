@@ -21,7 +21,7 @@ export default defineConfig({
   build: {
     copyPublicDir: false,
     lib: {
-      entry: resolve(__dirname, 'src/index.ts'),
+      entry: resolve(__dirname, 'src/lib.ts'),
       formats: ['es'],
     },
     rollupOptions: {
@@ -32,11 +32,7 @@ export default defineConfig({
             ignore: ['src/**/*.d.ts'],
           })
           .map((file) => [
-            // 1. The name of the entry point
-            // lib/nested/foo.js becomes nested/foo
             relative('src', file.slice(0, file.length - extname(file).length)),
-            // 2. The absolute path to the entry file
-            // lib/nested/foo.ts becomes /project/lib/nested/foo.ts
             fileURLToPath(new URL(file, import.meta.url)),
           ]),
       ),

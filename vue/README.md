@@ -18,39 +18,15 @@ npm i -S vue-bitrix24@latest bitrix24-library@latest
 
 ## Use
 
-```ts
-// plugins/vue-bitrix24.ts
-import BxButton from 'vue-bitrix24/BxButton';
-import BxInput from 'vue-bitrix24/BxInput';
+```vue
+// App.vue
+<template>
+  <bx-button menu>bx-button</bx-button>
+</template>
 
-export default {
-  install(app) {
-    [
-      ['bx-button', BxButton],
-      ['bx-input', BxInput],
-    ].forEach(([name, Component]) => {
-      app.component(name, Component);
-    });
-  },
-};
-
-// or export all components
-import usePlugin from 'vue-bitrix24';
-import 'vue-bitrix24/css';
-
-export default usePlugin;
-```
-
-```ts
-// main.ts
-import { createApp } from 'vue';
-import Bitrix24 from 'bitrix24-library';
-import useBitrix24 from './plugins/vue-bitrix24';
-import App from './App.vue';
-
-Bitrix24.init().then((BX42) => {
-  createApp(App).provide('$BX24', BX24).use(useBitrix24).mount('#app');
-});
+<script setup lang="ts">
+  import { BxButton } from 'vue-bitrix24';
+</script>
 ```
 
 ## Components
