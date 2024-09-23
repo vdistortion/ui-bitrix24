@@ -1,4 +1,13 @@
-export default [
+interface CountryWithoutLink {
+  name: string;
+  code: string;
+}
+
+interface Country extends CountryWithoutLink {
+  url: string;
+}
+
+const countriesWithoutLinks: CountryWithoutLink[] = [
   { name: 'Afghanistan', code: 'AF' },
   { name: 'Åland Islands', code: 'AX' },
   { name: 'Albania', code: 'AL' },
@@ -243,3 +252,10 @@ export default [
   { name: 'Zambia', code: 'ZM' },
   { name: 'Zimbabwe', code: 'ZW' },
 ];
+
+const countries: Country[] = countriesWithoutLinks.map((country: Country) => ({
+  ...country,
+  url: `https://www.google.com/search?q=${country.name}`,
+}));
+
+export default countries;

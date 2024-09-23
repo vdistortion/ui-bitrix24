@@ -3,12 +3,7 @@ import { fn } from '@storybook/test';
 import { Story } from './Story';
 import BxEntitySelector from '../src/components/BxEntitySelector.vue';
 import { defaultProps } from '../src/components/BxEntitySelector.props';
-import countriesWithoutLinks from './countries';
-
-const countries = countriesWithoutLinks.map((country) => ({
-  ...country,
-  url: `https://www.google.com/search?q=${country.name}`,
-}));
+import countries from '@/storybook/countries';
 
 const events = {
   add: fn(),

@@ -1,13 +1,8 @@
 import { Meta } from '@storybook/react';
 import { fn } from '@storybook/test';
 import { Story } from './Story';
-import countriesWithoutLinks from './countries';
+import countries from '../../common/storybook/countries';
 import { BxEntitySelector, defaultProps } from '../lib/components/BxEntitySelector';
-
-const countries = countriesWithoutLinks.map((country) => ({
-  ...country,
-  url: `https://www.google.com/search?q=${country.name}`,
-}));
 
 const meta: Meta<typeof BxEntitySelector> = {
   title: 'BxEntitySelector',
