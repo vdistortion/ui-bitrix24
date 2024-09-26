@@ -5,10 +5,13 @@
     "storybook:react": "storybook dev -c react/.storybook -p 6006 --no-open",
     "build-storybook:vue": "storybook build -c vue/.storybook -o storybook-static/vue",
     "build-storybook:react": "storybook build -c react/.storybook -o storybook-static/react",
-    "build-storybook": "npm run build-storybook:vue && npm run build-storybook:react",
+    "build-storybook": "npm run docs:build && npm run build-storybook:vue && npm run build-storybook:react",
     "public:gh-pages": "gh-pages -d storybook-static -t --nojekyll",
     "public": "npm run build-storybook && npm run public:gh-pages",
-    "format": "prettier . --write"
+    "format": "prettier . --write",
+    "docs:dev": "vitepress dev docs",
+    "docs:build": "vitepress build docs --outDir storybook-static",
+    "docs:preview": "vitepress preview docs"
   },
   "devDependencies": {
     "@storybook/addon-essentials": "^8.3.0",
@@ -21,6 +24,7 @@
     "bitrix24-library": "^0.1.2",
     "gh-pages": "^6.1.1",
     "prettier": "3.3.3",
-    "storybook": "^8.3.0"
+    "storybook": "^8.3.0",
+    "vitepress": "^1.3.4"
   }
 }

@@ -29,6 +29,8 @@ coverage
 
 *.tsbuildinfo
 
+/docs/.vitepress/cache/
+
 stats.*.html
 storybook-static
 
