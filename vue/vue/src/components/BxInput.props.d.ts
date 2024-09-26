@@ -1,0 +1,34 @@
+export type PropSize = 'lg' | 'md' | 'sm' | 'xs';
+export type PropColor = '' | 'success' | 'warning' | 'danger';
+export type PropIcon = '' | 'search' | 'calendar' | 'dots' | 'phone' | 'mail' | 'clock' | 'angle' | 'clear' | 'loader';
+export type PropTagColor = 'default' | 'light' | 'light-blue';
+type TypesProps = {
+    sizes: PropSize[];
+    colors: PropColor[];
+    icons: PropIcon[];
+    tagColors: PropTagColor[];
+};
+export type TypesPropsList = PropSize | PropColor | PropIcon | PropTagColor;
+type Props = {
+    value: string;
+    placeholder: string;
+    disabled: boolean;
+    size: PropSize;
+    color: PropColor;
+    inline: boolean;
+    noBorder: boolean;
+    underline: boolean;
+    noPadding: boolean;
+    round: boolean;
+    tag: string;
+    tagColor: PropTagColor;
+    beforeIcon: PropIcon;
+    beforeExt: boolean;
+    beforeButton: boolean;
+    afterIcon: PropIcon;
+    afterExt: boolean;
+    afterButton: boolean;
+};
+export declare const propsValues: TypesProps;
+export declare const defaultProps: Props;
+export {};
