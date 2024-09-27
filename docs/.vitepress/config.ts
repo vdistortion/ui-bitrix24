@@ -5,6 +5,7 @@ export default defineConfig({
   title: 'ui-bitrix24',
   description: 'Component libraries in Bitrix24 style',
   base: '/ui-bitrix24/',
+  head: [['link', { rel: 'icon', href: '/ui-bitrix24/favicon.ico' }]],
   themeConfig: {
     // https://vitepress.dev/reference/default-theme-config
     nav: [
