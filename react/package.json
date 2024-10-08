@@ -2,7 +2,7 @@
   "name": "react-bitrix24",
   "description": "Component library in Bitrix24 style",
   "private": false,
-  "version": "0.1.3",
+  "version": "1.0.0",
   "type": "module",
   "author": "Валентин <valentin.distortion@gmail.com>",
   "license": "GPL",
