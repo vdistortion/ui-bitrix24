@@ -26,7 +26,7 @@ function App() {
 
 ## Components
 
-### [Storybook](https://astrotrain55.github.io/ui-bitrix24/react)
+### [Storybook](https://vdistortion.github.io/ui-bitrix24/react)
 
 - BxAlert
 - BxButton

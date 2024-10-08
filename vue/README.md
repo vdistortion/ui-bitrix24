@@ -4,9 +4,9 @@
 [![NPM Downloads](https://img.shields.io/npm/dw/vue-bitrix24?style=flat&logo=npm&color=cb3837)](https://www.npmjs.com/package/vue-bitrix24)
 [![npm bundle size](https://img.shields.io/bundlephobia/min/vue-bitrix24?style=flat&logo=npm&color=cb3837)](https://www.npmjs.com/package/vue-bitrix24)
 
-[![GitHub Repo stars](https://img.shields.io/github/stars/astrotrain55/ui-bitrix24?style=flat&logo=github)](https://github.com/astrotrain55/ui-bitrix24)
-[![GitHub forks](https://img.shields.io/github/forks/astrotrain55/ui-bitrix24?style=flat&logo=github)](https://github.com/astrotrain55/ui-bitrix24)
-[![GitHub Created At](https://img.shields.io/github/created-at/astrotrain55/ui-bitrix24?style=flat&logo=github)](https://github.com/astrotrain55/ui-bitrix24)
+[![GitHub Repo stars](https://img.shields.io/github/stars/vdistortion/ui-bitrix24?style=flat&logo=github)](https://github.com/vdistortion/ui-bitrix24)
+[![GitHub forks](https://img.shields.io/github/forks/vdistortion/ui-bitrix24?style=flat&logo=github)](https://github.com/vdistortion/ui-bitrix24)
+[![GitHub Created At](https://img.shields.io/github/created-at/vdistortion/ui-bitrix24?style=flat&logo=github)](https://github.com/vdistortion/ui-bitrix24)
 
 Component library in Bitrix24 style
 
@@ -31,7 +31,7 @@ npm i -S vue-bitrix24@latest bitrix24-library@latest
 
 ## Components
 
-### [Storybook](https://astrotrain55.github.io/ui-bitrix24/vue)
+### [Storybook](https://vdistortion.github.io/ui-bitrix24/vue)
 
 - bx-alert
 - bx-button
@@ -48,5 +48,5 @@ npm i -S vue-bitrix24@latest bitrix24-library@latest
 
 - [bitrix24-library](https://www.npmjs.com/package/bitrix24-library)
 - [bitrix24-create-app](https://www.npmjs.com/package/bitrix24-create-app)
-- [bitrix24-stickerpack-app](https://github.com/astrotrain55/bitrix24-stickerpack-app)
+- [bitrix24-stickerpack-app](https://github.com/vdistortion/bitrix24-stickerpack-app)
 - [UI library](https://dev.1c-bitrix.ru/api_d7/bitrix/ui/index.php)

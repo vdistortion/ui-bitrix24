@@ -10,10 +10,10 @@
   "sideEffects": [
     "**/*.css"
   ],
-  "homepage": "https://astrotrain55.github.io/ui-bitrix24/vue",
+  "homepage": "https://vdistortion.github.io/ui-bitrix24/",
   "repository": {
     "type": "git",
-    "url": "git@github.com:astrotrain55/ui-bitrix24.git"
+    "url": "git@github.com:vdistortion/ui-bitrix24.git"
   },
   "files": [
     "dist"
