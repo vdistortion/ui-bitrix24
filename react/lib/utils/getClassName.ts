@@ -1,6 +1,6 @@
 export type ClassListType = string[] | Record<string, boolean>;
 
-export function getClassName(initClassList: string, classList: ClassListType) {
+export function getClassName(initClassList: string, classList: ClassListType): string {
   if (Array.isArray(classList)) return [initClassList, ...classList].join(' ');
 
   return Object.entries(classList)

@@ -1,0 +1,9 @@
+.inline {
+  display: inline-block;
+}
+
+.title {
+  position: relative;
+  top: 2px;
+  color: rgb(16, 102, 187);
+}

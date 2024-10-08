@@ -39,12 +39,12 @@ function App() {
 - BxAlert
 - BxButton
 - BxCheckbox
-- BxEntitySelector
 - BxIcon
 - BxInput
 - BxInputFile
 - BxProgressbar
 - BxRadio
+- BxTagSelector
 - BxTextarea
 
 ## Links
