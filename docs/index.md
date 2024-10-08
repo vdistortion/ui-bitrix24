@@ -3,9 +3,9 @@
 layout: home
 
 hero:
-  name: "ui-bitrix24"
-  text: "Component libraries in Bitrix24 style"
-  tagline: "If you want a thing done well, do it yourself"
+  name: 'ui-bitrix24'
+  text: 'Component libraries in Bitrix24 style'
+  tagline: 'If you want a thing done well, do it yourself'
   actions:
     - theme: brand
       text: vue-bitrix24

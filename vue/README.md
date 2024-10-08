@@ -25,7 +25,7 @@ npm i -S vue-bitrix24@latest bitrix24-library@latest
 </template>
 
 <script setup lang="ts">
-  import { BxButton } from 'vue-bitrix24';
+import { BxButton } from 'vue-bitrix24';
 </script>
 ```
 
