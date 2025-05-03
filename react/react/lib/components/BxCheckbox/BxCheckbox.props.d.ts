@@ -1,5 +1,4 @@
 import { default as React } from '../../../../node_modules/react';
-
 export type Props = {
     children: React.ReactNode;
     value: string | number;

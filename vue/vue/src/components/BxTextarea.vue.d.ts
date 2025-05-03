@@ -41,9 +41,9 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
 }>> & Readonly<{
     "onUpdate:modelValue"?: ((...args: any[]) => any) | undefined;
 }>, {
-    resize: PropResize;
     disabled: boolean;
     modelValue: string;
     placeholder: string;
-}, {}, {}, {}, string, import('vue').ComponentProvideOptions, true, {}, any>;
+    resize: PropResize;
+}, {}, {}, {}, string, import('vue').ComponentProvideOptions, true, {}, HTMLDivElement>;
 export default _default;

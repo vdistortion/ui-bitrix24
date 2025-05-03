@@ -1,1 +1,1 @@
-export declare function useStyles(key?: string): void;
+export declare function useStyles(): void;

@@ -4,7 +4,7 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
     placeholder: {
         type: StringConstructor;
         default: string;
-        validator(value: unknown): boolean;
+        validator(value: unknown): value is string;
     };
     type: {
         type: PropType<PropTypeInputFile>;
@@ -26,7 +26,7 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
     placeholder: {
         type: StringConstructor;
         default: string;
-        validator(value: unknown): boolean;
+        validator(value: unknown): value is string;
     };
     type: {
         type: PropType<PropTypeInputFile>;
@@ -49,5 +49,5 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
     disabled: boolean;
     placeholder: string;
     multiple: boolean;
-}, {}, {}, {}, string, import('vue').ComponentProvideOptions, true, {}, any>;
+}, {}, {}, {}, string, import('vue').ComponentProvideOptions, true, {}, HTMLDivElement>;
 export default _default;

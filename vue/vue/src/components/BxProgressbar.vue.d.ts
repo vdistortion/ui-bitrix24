@@ -72,5 +72,5 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
     textAfter: string;
     bg: boolean;
     column: boolean;
-}, {}, {}, {}, string, import('vue').ComponentProvideOptions, true, {}, any>;
+}, {}, {}, {}, string, import('vue').ComponentProvideOptions, true, {}, HTMLDivElement>;
 export default _default;

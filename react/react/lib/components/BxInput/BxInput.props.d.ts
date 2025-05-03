@@ -1,5 +1,4 @@
 import { default as React } from '../../../../node_modules/react';
-
 type PropSize = 'lg' | 'md' | 'sm' | 'xs';
 type PropColor = '' | 'success' | 'warning' | 'danger';
 type PropIcon = '' | 'search' | 'calendar' | 'dots' | 'phone' | 'mail' | 'clock' | 'angle' | 'clear' | 'loader';

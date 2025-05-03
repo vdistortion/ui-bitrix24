@@ -79,8 +79,8 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
         default: boolean;
     };
 }>, {}, {}, {}, {}, import('vue').ComponentOptionsMixin, import('vue').ComponentOptionsMixin, {
-    change: (...args: any[]) => void;
     "update:modelValue": (...args: any[]) => void;
+    change: (...args: any[]) => void;
     "click-before": (...args: any[]) => void;
     "click-after": (...args: any[]) => void;
 }, string, import('vue').PublicProps, Readonly<import('vue').ExtractPropTypes<{
@@ -162,8 +162,8 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
         default: boolean;
     };
 }>> & Readonly<{
-    onChange?: ((...args: any[]) => any) | undefined;
     "onUpdate:modelValue"?: ((...args: any[]) => any) | undefined;
+    onChange?: ((...args: any[]) => any) | undefined;
     "onClick-before"?: ((...args: any[]) => any) | undefined;
     "onClick-after"?: ((...args: any[]) => any) | undefined;
 }>, {
@@ -185,5 +185,5 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
     afterIcon: PropIcon;
     afterExt: boolean;
     afterButton: boolean;
-}, {}, {}, {}, string, import('vue').ComponentProvideOptions, true, {}, any>;
+}, {}, {}, {}, string, import('vue').ComponentProvideOptions, true, {}, HTMLDivElement>;
 export default _default;
