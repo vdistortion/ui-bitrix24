@@ -23,6 +23,19 @@ export default defineConfig({
           { text: 'react-bitrix24', link: '/react-bitrix24' },
         ],
       },
+      {
+        text: 'More packages',
+        items: [
+          {
+            text: 'bitrix24-library',
+            link: 'https://www.npmjs.com/package/bitrix24-library',
+          },
+          {
+            text: 'bitrix24-create-app',
+            link: 'https://www.npmjs.com/package/bitrix24-create-app',
+          },
+        ],
+      },
     ],
 
     socialLinks: [{ icon: 'github', link: 'https://github.com/vdistortion/ui-bitrix24' }],

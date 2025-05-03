@@ -3,7 +3,7 @@ import { fn } from '@storybook/test';
 import { Story } from './Story';
 import BxTagSelector from '../src/components/BxTagSelector.vue';
 import { defaultProps, propsValues } from '../src/components/BxTagSelector.props';
-import countries from '@/storybook/countries';
+import countries from '../../common/storybook/countries';
 
 const events = {
   add: fn(),
