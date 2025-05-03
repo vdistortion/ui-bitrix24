@@ -52,4 +52,5 @@ function App() {
 - [bitrix24-library](https://www.npmjs.com/package/bitrix24-library)
 - [bitrix24-create-app](https://www.npmjs.com/package/bitrix24-create-app)
 - [bitrix24-stickerpack-app](https://github.com/vdistortion/bitrix24-stickerpack-app)
+- [bitrix24-pricing-app](https://github.com/vdistortion/bitrix24-pricing-app)
 - [UI library](https://dev.1c-bitrix.ru/api_d7/bitrix/ui/index.php)
