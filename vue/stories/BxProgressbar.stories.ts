@@ -9,7 +9,6 @@ import {
 
 const meta: Meta<typeof BxProgressbar> = {
   title: 'bx-progressbar',
-  component: BxProgressbar,
   args: {
     progress: 17,
     size: defaultProps.size,

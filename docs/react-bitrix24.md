@@ -13,10 +13,10 @@ npm i -S react-bitrix24@latest bitrix24-library@latest
 ```tsx
 // App.tsx
 import { BxButton, loadStyles } from 'react-bitrix24';
-import Bitrix24 from 'bitrix24-library';
+import { Bitrix24 } from 'bitrix24-library';
 
 function App() {
-  Bitrix24.init().then((BX24) => {
+  Bitrix24().then((BX24) => {
     loadStyles(BX24);
   });
 

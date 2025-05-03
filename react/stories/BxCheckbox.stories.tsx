@@ -1,6 +1,6 @@
 import { Meta } from '@storybook/react';
 import { fn } from '@storybook/test';
-import { Story } from './Story.tsx';
+import { Story } from './Story';
 import { BxCheckbox, defaultProps } from '../lib/components/BxCheckbox';
 
 const meta: Meta<typeof BxCheckbox> = {

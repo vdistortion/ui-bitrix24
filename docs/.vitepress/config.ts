@@ -11,7 +11,7 @@ export default defineConfig({
     nav: [
       { text: 'Home', link: '/' },
       { text: 'Docs', link: '/vue-bitrix24' },
-      { text: 'bitrix24-library', link: 'https://www.npmjs.com/package/bitrix24-library' },
+      { text: 'bitrix24-library', link: 'https://vdistortion.github.io/bitrix24-library' },
       { text: 'bitrix24-create-app', link: 'https://vdistortion.github.io/bitrix24-create-app/' },
     ],
 

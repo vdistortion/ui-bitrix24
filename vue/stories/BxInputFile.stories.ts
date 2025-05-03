@@ -15,7 +15,6 @@ const events = {
 
 const meta: Meta<typeof BxInputFile> = {
   title: 'forms/bx-input-file',
-  component: BxInputFile,
   args: {
     ...events,
     placeholder: defaultProps.placeholder,

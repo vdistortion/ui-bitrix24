@@ -1,4 +1,4 @@
-export type ItemType = Record<string, string>;
+export type ItemType = Record<string, any>;
 
 export type PropDefaultIcons = 'default-tag-user' | 'default-user' | 'extranet-user' | 'department';
 

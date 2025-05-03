@@ -15,10 +15,10 @@
 </template>
 
 <script setup lang="ts">
-import { inject } from 'vue';
 import BxDialog from './components/BxDialog.vue';
 import BxTagSelector from './components/BxTagSelector.vue';
 import type { ItemType } from './components/BxTagSelector.props';
+import { useBitrix24 } from './composable/useBitrix24';
 
 const users: ItemType[] = [
   {
@@ -28,8 +28,8 @@ const users: ItemType[] = [
   },
 ];
 
-const $BX24 = inject('$BX24');
-console.log({ $BX24 });
+const { BX24 } = useBitrix24();
+console.log(BX24);
 </script>
 
 <style>

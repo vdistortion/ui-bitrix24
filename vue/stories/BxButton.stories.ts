@@ -11,7 +11,6 @@ const events = {
 
 const meta: Meta<typeof BxButton> = {
   title: 'bx-button',
-  component: BxButton,
   args: {
     default: 'bx-button',
     ...events,

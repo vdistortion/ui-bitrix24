@@ -5,7 +5,6 @@ import { defaultProps, propsValues, type TypesPropsList } from '../src/component
 
 const meta: Meta<typeof BxIcon> = {
   title: 'bx-icon',
-  component: BxIcon,
   args: {
     icon: defaultProps.icon,
     size: defaultProps.size,

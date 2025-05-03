@@ -10,7 +10,6 @@ const events = {
 
 const meta: Meta<typeof BxCheckbox> = {
   title: 'forms/bx-checkbox',
-  component: BxCheckbox,
   args: {
     default: '',
     ...events,

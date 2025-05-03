@@ -10,7 +10,6 @@ const events = {
 
 const meta: Meta<typeof BxAlert> = {
   title: 'bx-alert',
-  component: BxAlert,
   args: {
     default: '',
     ...events,

@@ -10,7 +10,6 @@ const events = {
 
 const meta: Meta<typeof BxRadio> = {
   title: 'forms/bx-radio',
-  component: BxRadio,
   args: {
     default: '',
     ...events,

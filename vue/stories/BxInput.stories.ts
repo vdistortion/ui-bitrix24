@@ -13,7 +13,6 @@ const events = {
 
 const meta: Meta<typeof BxInput> = {
   title: 'forms/bx-input',
-  component: BxInput,
   args: {
     ...events,
     modelValue: defaultProps.value,

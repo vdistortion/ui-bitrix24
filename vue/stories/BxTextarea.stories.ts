@@ -10,7 +10,6 @@ const events = {
 
 const meta: Meta<typeof BxTextarea> = {
   title: 'forms/bx-textarea',
-  component: BxTextarea,
   args: {
     ...events,
     modelValue: defaultProps.value,

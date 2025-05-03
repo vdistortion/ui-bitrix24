@@ -17,7 +17,6 @@ const events = {
 
 const meta: Meta<typeof BxTagSelector> = {
   title: 'bx-tag-selector',
-  component: BxTagSelector,
   args: {
     ...events,
     list: defaultProps.list,

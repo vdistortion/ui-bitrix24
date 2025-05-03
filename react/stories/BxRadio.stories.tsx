@@ -1,6 +1,6 @@
 import { Meta } from '@storybook/react';
 import { fn } from '@storybook/test';
-import { Story } from './Story.tsx';
+import { Story } from './Story';
 import { BxRadio, defaultProps } from '../lib/components/BxRadio';
 
 const meta: Meta<typeof BxRadio> = {

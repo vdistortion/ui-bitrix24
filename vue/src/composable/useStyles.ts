@@ -1,8 +1,7 @@
-import { inject } from 'vue';
-import type { IBitrix24Library } from 'bitrix24-library';
+import { useBitrix24 } from './useBitrix24';
 import { loadStyles } from '@/utils/loadStyles';
 
-export function useStyles(key = '$BX24') {
-  const BX24: IBitrix24Library | undefined = inject(key);
+export function useStyles() {
+  const { BX24 } = useBitrix24();
   loadStyles(BX24);
 }
